@@ -1,3 +1,211 @@
-<h1>site is under construction</h1>
+<!DOCTYPE html>
+<html lang="en">
 
-<a href="mailto:support@microconfig.io">mail</a>
+<head>
+    <!-- meta -->
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Folio - Personal features Template</title>
+    <meta content="configuration management, configuration framework, external configuration, configuration best practices, java configuration" name="keywords">
+    <meta content="Microconfig - framework for configuration management" name="description">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,500,500i,600,600i,700,700i|Playfair+Display:400,400i,700,700i,900,900i"
+          rel="stylesheet">
+
+    <!-- Bootstrap CSS File -->
+    <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Libraries CSS Files -->
+    <link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/magnific-popup/magnific-popup.css" rel="stylesheet">
+    <link href="lib/hover/hover.min.css" rel="stylesheet">
+
+    <!-- Main Stylesheet File -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- Responsive css -->
+    <link href="css/responsive.css" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="images/favicon.png">
+</head>
+
+<body>
+
+<!-- start section navbar -->
+<nav id="main-nav">
+    <div class="row">
+        <div class="container">
+
+            <div class="logo" style="margin-top:15px;font-size:24px">
+                <a href="index.html" style="font-weight:bold">Microconfig.io</a>
+            </div>
+
+            <div class="responsive"><i data-icon="m" class="ion-navicon-round"></i></div>
+
+            <ul class="nav-menu list-unstyled">
+                <li><a href="#about" class="smoothScroll">Home</a></li>
+                <li><a href="#features" class="smoothScroll">Features</a></li>
+                <li><a href="#contacts" class="smoothScroll">Contacts</a></li>
+            </ul>
+
+        </div>
+    </div>
+</nav>
+<!-- End section navbar -->
+
+
+<!-- start section header -->
+<div style="height:80px; background-color:#f7f7f7">
+</div>
+<!-- End section header -->
+
+
+<!-- start section about us -->
+<div id="about" class="paddsection">
+    <div class="container">
+        <div class="row justify-content-between">
+            <div class="col-lg-7">
+                <div class="about-descr">
+                    <p class="p-heading">Microconfig is powerful tool for configuration management</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end section about us -->
+
+
+<!-- start section services -->
+<div id="services">
+    <div class="container">
+
+        <div class="services-carousel owl-theme">
+            <div class="services-block">
+                <i class="ion-ios-browsers-outline"></i>
+                <span>Easy to reuse common part of configuration</span>
+                <p class="separator">Copy-paste free configs</p>
+            </div>
+
+            <div class="services-block">
+                <i class="ion-ios-color-wand-outline"></i>
+                <span>Powerful expression language support</span>
+                <p class="separator">For dynamic properties configuration</p>
+            </div>
+
+            <div class="services-block">
+                <i class="ion-ios-lightbulb-outline"></i>
+                <span>Design to be used with any programming language</span>
+                <p class="separator">Collections of best practises for configuration management</p>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+<!-- end section services -->
+
+
+<!-- start section features -->
+<div id="features" class="text-center paddsection">
+
+    <div class="container">
+        <div class="section-title text-center">
+            <h2>Features</h2>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="features-list">
+                    <ul class="nav list-unstyled" id="features-flters">
+                        <li class="filter" id="placeholders_link" data-filter=".placeholders">placeholder resolving</li>
+                        <li class="filter" data-filter=".spell">expression language evaluation</li>
+                        <li class="filter" data-filter=".includes">Includes/Exludes</li>
+                        <li class="filter" data-filter=".templates">Arbitrary templates support</li>
+                        <li class="filter" data-filter=".composition">Composition</li>
+                    </ul>
+                </div>
+
+                <div class="features-container">
+                    <div class="col-lg-4 col-md-6 features-thumbnail all placeholders uikits webdesign">
+                        todo ${order-service@port}
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 features-thumbnail all spell uikits photography">
+                        todo #{10 + 45 * 14}
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 features-thumbnail all includes webdesig photographyn">
+                        todo #includes service-discovery-client
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 features-thumbnail all templates webdesign photography">
+                        todo
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 features-thumbnail all composition webdesign photography">
+                        todo #{${order-service@maxPrice} > 1000 ? 'mode1' : 'mode2'}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            Complete documentation you can find on project &nbsp<a href="https://github.com/microconfig/microconfig"> Github page</a>
+        </div>
+    </div>
+
+</div>
+<!-- End section features -->
+
+
+<!-- start section contacts -->
+<div id="contacts" class="text-left paddsection">
+    <div class="container">
+        <div class="contact-block1">
+            <div class="row">
+
+                <div class="col-lg-6">
+                    <div class="contact-contact">
+
+                        <h2 class="mb-30">GET IN TOUCH</h2>
+
+                        <ul class="contact-details">
+                            <li><span><a href="https://github.com/microconfig/microconfig">Github project</a></span></li>
+                            <li><span>support@microconfig.io</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- End section  -->
+
+
+<!-- JavaScript Libraries -->
+<script src="lib/jquery/jquery.min.js"></script>
+<script src="lib/jquery/jquery-migrate.min.js"></script>
+<script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="lib/typed/typed.js"></script>
+<script src="lib/owlcarousel/owl.carousel.min.js"></script>
+<script src="lib/magnific-popup/magnific-popup.min.js"></script>
+<script src="lib/isotope/isotope.pkgd.min.js"></script>
+
+<!-- Contact Form JavaScript File -->
+<script src="contactform/contactform.js"></script>
+
+<!-- Template Main Javascript File -->
+<script src="js/main.js"></script>
+
+</body>
+
+</html>

@@ -133,5 +133,5 @@ $(document).ready(function() {
 
   // Call the functions
   magnifPopup();
-$('#placeholders_link').click();
+$('#default_feature').click();
 });

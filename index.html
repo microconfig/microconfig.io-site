@@ -71,7 +71,8 @@
         <div class="row justify-content-between">
             <div class="col-lg-7">
                 <div class="about-descr">
-                    <p class="p-heading">Micro&copy;onfig is a powerful tool for microservice configuration management</p>
+                    <p class="p-heading">Micro&copy;onfig is a powerful tool for microservice configuration
+                        management</p>
                 </div>
             </div>
         </div>
@@ -125,32 +126,57 @@
 
                 <div class="features-list">
                     <ul class="nav list-unstyled" id="features-flters">
-                        <li class="filter" id="placeholders_link" data-filter=".placeholders">Placeholders</li>
+                        <li class="filter" id="default_feature" data-filter=".includes">Includes</li>
+                        <li class="filter" data-filter=".placeholders">Placeholders</li>
                         <li class="filter" data-filter=".spell">Expression language</li>
-                        <li class="filter" data-filter=".includes">Includes</li>
                         <li class="filter" data-filter=".overriding">Env specific config</li>
                         <li class="filter" data-filter=".templates">Templates support</li>
                     </ul>
                 </div>
 
-                <div class="features-container">
+                <div class="features-container" style="text-align: left">
+                    <div class="features-thumbnail all includes webdesig photographyn">
+                        <header>
+                            You can extract and reuse common configuration:
+                        </header>
+
+                        <article style="margin-top: 10px">
+                            <b style="color: #b8a07e">#includes</b> service-discovery-client, logger-configuration
+                        </article>
+                    </div>
+
                     <div class="features-thumbnail all placeholders uikits webdesign">
-                        <b style="color: #b8a07e">order-service.url=</b>http://${order-service@host}:${order-service@port}
+                        <header>
+                            You can use placeholders to another component's properties:
+                        </header>
+
+                        <article style="margin-top: 10px">
+                            <b style="color: #b8a07e">order-service.url=</b>http://${order-service@host}:${order-service@port}
+                        </article>
                     </div>
 
                     <div class="features-thumbnail all spell uikits photography">
-                        <b style="color: #b8a07e">mainClassNameWithoutPackage=</b>#{'${this@java.main}'.substring('${this@java.main}'.lastIndexOf('.')
-                        + 1)}
+                        <header>
+                            You can use powerful EL for dynamic properties:
+                        </header>
+
+                        <article style="margin-top: 10px">
+                            <b style="color: #b8a07e">mainClassNameWithoutPackage=</b>#{'${this@java.main}'.substring('${this@java.main}'.lastIndexOf('.')
+                            + 1)}
+                        </article>
                     </div>
 
-                    <div class="features-thumbnail all includes webdesig photographyn">
-                        <b style="color: #b8a07e">#includes</b> service-discovery-client, logger-configuration
-                    </div>
+                    <div class="features-thumbnail all overriding webdesign photography">
+                        <header>
+                            You can override default configuration by env-specific:
+                        </header>
 
-                    <div class="features-thumbnail all overriding webdesign photography" style="text-align: left">
-                        <br/>application.yaml - common configuration
-                        <br/>application.<b style="color: #b8a07e">dev</b>.yaml - overrides for dev env
-                        <br/>application.<b style="color: #b8a07e">prod.uat</b>.yaml - overrides for prod and uat envs
+                        <article style="margin-top: 10px">
+                            <br/>application.yaml - file for common configuration
+                            <br/>application.<b style="color: #b8a07e">dev</b>.yaml - overrides for dev env
+                            <br/>application.<b style="color: #b8a07e">prod.uat</b>.yaml - overrides for prod and uat
+                            envs
+                        </article>
                     </div>
 
                     <div class="features-thumbnail all templates webdesign photography">
@@ -213,9 +239,6 @@
 <script src="lib/owlcarousel/owl.carousel.min.js"></script>
 <script src="lib/magnific-popup/magnific-popup.min.js"></script>
 <script src="lib/isotope/isotope.pkgd.min.js"></script>
-
-<!-- Contact Form JavaScript File -->
-<script src="contactform/contactform.js"></script>
 
 <!-- Template Main Javascript File -->
 <script src="js/main.js"></script>

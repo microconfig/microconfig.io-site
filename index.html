@@ -7,7 +7,8 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
     <title>Microconfig.io - powerful tool for microservice configuration management</title>
-    <meta content="configuration management, configuration framework, external configuration, configuration best practices, java configuration, microservice configuration, microservice configs, config, configuration" name="keywords">
+    <meta content="configuration management, configuration framework, external configuration, configuration best practices, java configuration, microservice configuration, microservice configs, config, configuration"
+          name="keywords">
     <meta content="Microconfig - powerful tool for microservice configuration management" name="description">
 
     <!-- Google Fonts -->
@@ -133,33 +134,43 @@
                 </div>
 
                 <div class="features-container">
-                    <div class="col-lg-4 col-md-6 features-thumbnail all placeholders uikits webdesign">
-                        order-service.url=http://${order-service@host}:${order-service@port}
+                    <div class="features-thumbnail all placeholders uikits webdesign">
+                        <b style="color: #b8a07e">order-service.url=</b>http://${order-service@host}:${order-service@port}
                     </div>
 
-                    <div class="col-lg-4 col-md-6 features-thumbnail all spell uikits photography">
-                        mainClassNameWithoutPackage=#{'${this@java.main}'.substring('${this@java.main}'.lastIndexOf('.') + 1)}
+                    <div class="features-thumbnail all spell uikits photography">
+                        <b style="color: #b8a07e">mainClassNameWithoutPackage=</b>#{'${this@java.main}'.substring('${this@java.main}'.lastIndexOf('.')
+                        + 1)}
                     </div>
 
-                    <div class="col-lg-4 col-md-6 features-thumbnail all includes webdesig photographyn">
-                        #includes service-discovery-client, logger-configuration
+                    <div class="features-thumbnail all includes webdesig photographyn">
+                        <b style="color: #b8a07e">#includes</b> service-discovery-client, logger-configuration
                     </div>
 
-                    <div class="col-lg-4 col-md-6 features-thumbnail all overriding webdesign photography">
-                        application.yaml
-                        <br/>application.dev.yaml
-                        <br/>application.prod.prod2.yaml
+                    <div class="features-thumbnail all overriding webdesign photography" style="text-align: left">
+                        <br/>application.yaml - common configuration
+                        <br/>application.<b style="color: #b8a07e">dev</b>.yaml - overrides for dev env
+                        <br/>application.<b style="color: #b8a07e">prod.uat</b>.yaml - overrides for prod and uat envs
                     </div>
 
-                    <div class="col-lg-4 col-md-6 features-thumbnail all templates webdesign photography">
-                        You can resolve placeholders inside arbitrary configs files
+                    <div class="features-thumbnail all templates webdesign photography">
+                        You can resolve placeholders inside arbitrary configs files.
+
+                        <textarea style="clear: both; margin-top:15px; height: 150px; width: 100%; border: 0">
+                            <configuration>
+                                <appender class="ch.qos.logback.core.FileAppender">
+                                    <file>logs/${this@application.name}.log</file>
+                                </appender>
+                            </configuration>
+                        </textarea>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="row">
-            Complete documentation you can find on <a href="https://github.com/microconfig/microconfig" style="padding-left: 3px"> Github page</a>
+        <div class="row" style="font-weight: bold">
+            Complete documentation you can find on <a href="https://github.com/microconfig/microconfig"
+                                                      style="padding-left: 3px"> Github page</a>
         </div>
     </div>
 
@@ -179,7 +190,8 @@
                         <h2 class="mb-30">Contacts</h2>
 
                         <ul class="contact-details">
-                            <li><span><a href="https://github.com/microconfig/microconfig">Github project</a></span></li>
+                            <li><span><a href="https://github.com/microconfig/microconfig">Github project</a></span>
+                            </li>
                             <li><span>support@microconfig.io</span></li>
                         </ul>
                     </div>

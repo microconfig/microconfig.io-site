@@ -128,34 +128,31 @@
                         <li class="filter" data-filter=".spell">Expression language</li>
                         <li class="filter" data-filter=".includes">Includes</li>
                         <li class="filter" data-filter=".overriding">Env specific config</li>
-                        <li class="filter" data-filter=".overriding">Overriding</li>
                         <li class="filter" data-filter=".templates">Templates support</li>
                     </ul>
                 </div>
 
                 <div class="features-container">
                     <div class="col-lg-4 col-md-6 features-thumbnail all placeholders uikits webdesign">
-                        todo ${order-service@port}
+                        order-service.url=http://${order-service@host}:${order-service@port}
                     </div>
 
                     <div class="col-lg-4 col-md-6 features-thumbnail all spell uikits photography">
-                        todo #{10 + 45 * 14}
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 features-thumbnail all overriding webdesign photography">
-                        todo
+                        mainClassNameWithoutPackage=#{'${this@java.main}'.substring('${this@java.main}'.lastIndexOf('.') + 1)}
                     </div>
 
                     <div class="col-lg-4 col-md-6 features-thumbnail all includes webdesig photographyn">
-                        #includes service-discovery-client
+                        #includes service-discovery-client, logger-configuration
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 features-thumbnail all overriding webdesign photography">
+                        application.yaml
+                        <br/>application.dev.yaml
+                        <br/>application.prod.prod2.yaml
                     </div>
 
                     <div class="col-lg-4 col-md-6 features-thumbnail all templates webdesign photography">
-                        todo
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 features-thumbnail all composition webdesign photography">
-                        todo #{${order-service@maxPrice} > 1000 ? 'mode1' : 'mode2'}
+                        You can resolve placeholders inside arbitrary configs files
                     </div>
                 </div>
             </div>

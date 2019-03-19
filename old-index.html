@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- meta -->
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Microconfig.io - powerful tool for microservice configuration management</title>
+    <meta content="configuration management, configuration framework, external configuration, configuration best practices, java configuration, microservice configuration, microservice configs, config, configuration"
+          name="keywords">
+    <meta content="Microconfig - powerful tool for microservice configuration management" name="description">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,500,500i,600,600i,700,700i|Playfair+Display:400,400i,700,700i,900,900i"
+          rel="stylesheet">
+
+    <!-- Bootstrap CSS File -->
+    <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Libraries CSS Files -->
+    <link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/magnific-popup/magnific-popup.css" rel="stylesheet">
+    <link href="lib/hover/hover.min.css" rel="stylesheet">
+
+    <!-- Main Stylesheet File -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- Responsive css -->
+    <link href="css/responsive.css" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="images/favicon.png">
+</head>
+
+<body>
+
+<!-- start section navbar -->
+<nav id="main-nav">
+    <div class="row">
+        <div class="container">
+
+            <div class="logo" style="margin-top:15px;font-size:24px">
+                <a href="http://microconfig.io" style="font-weight:bold; color: #b8a07e">Micro&copy;onfig.io</a>
+            </div>
+
+            <div class="responsive"><i data-icon="m" class="ion-navicon-round"></i></div>
+
+            <ul class="nav-menu list-unstyled">
+                <li><a href="#about" class="smoothScroll">Home</a></li>
+                <li><a href="#features" class="smoothScroll">Features</a></li>
+                <li><a href="#contacts" class="smoothScroll">Contacts</a></li>
+            </ul>
+
+        </div>
+    </div>
+</nav>
+<!-- End section navbar -->
+
+
+<!-- start section header -->
+<div style="height:80px; background-color:#f7f7f7">
+</div>
+<!-- End section header -->
+
+
+<!-- start section about us -->
+<div id="about" class="paddsection">
+    <div class="container">
+        <div class="row justify-content-between">
+            <div class="col-lg-7">
+                <div class="about-descr">
+                    <p class="p-heading">Micro&copy;onfig is a powerful tool for microservice configuration
+                        management</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end section about us -->
+
+
+<!-- start section services -->
+<div id="services">
+    <div class="container">
+
+        <div class="services-carousel owl-theme">
+            <div class="services-block">
+                <i class="ion-ios-browsers-outline"></i>
+                <span>Easy to reuse common part of configuration</span>
+                <p class="separator">Copy-paste free configs</p>
+            </div>
+
+            <div class="services-block">
+                <i class="ion-ios-color-wand-outline"></i>
+                <span>Powerful expression language support</span>
+                <p class="separator">For dynamic properties configuration</p>
+            </div>
+
+            <div class="services-block">
+                <i class="ion-ios-lightbulb-outline"></i>
+                <span>Designed to be used with any programming languages</span>
+                <p class="separator">Collection of best practices for configuration management</p>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+<!-- end section services -->
+
+
+<!-- start section features -->
+<div id="features" class="text-center paddsection">
+
+    <div class="container">
+        <div class="section-title text-center">
+            <h2>Features</h2>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="features-list">
+                    <ul class="nav list-unstyled" id="features-flters">
+                        <li class="filter" id="default_feature" data-filter=".includes">Includes</li>
+                        <li class="filter" data-filter=".placeholders">Placeholders</li>
+                        <li class="filter" data-filter=".spell">Expression language</li>
+                        <li class="filter" data-filter=".overriding">Env specific config</li>
+                        <li class="filter" data-filter=".templates">Templates support</li>
+                    </ul>
+                </div>
+
+                <div class="features-container" style="text-align: left">
+                    <div class="features-thumbnail all includes webdesig photographyn">
+                        <header>
+                            You can extract and reuse common configuration:
+                        </header>
+
+                        <article style="margin-top: 10px">
+                            <b style="color: #b8a07e">#include</b> service-discovery-client, logger-configuration
+                        </article>
+                    </div>
+
+                    <div class="features-thumbnail all placeholders uikits webdesign">
+                        <header>
+                            You can use placeholders to another component's properties:
+                        </header>
+
+                        <article style="margin-top: 10px">
+                            <b style="color: #b8a07e">order-service.url=</b>http://${order-service@host}:${order-service@port}
+                        </article>
+                    </div>
+
+                    <div class="features-thumbnail all spell uikits photography">
+                        <header>
+                            You can use powerful EL for dynamic properties:
+                        </header>
+
+                        <article style="margin-top: 10px">
+                            <b style="color: #b8a07e">mainClassNameWithoutPackage=</b>#{'${this@java.main}'.substring('${this@java.main}'.lastIndexOf('.')
+                            + 1)}
+                        </article>
+                    </div>
+
+                    <div class="features-thumbnail all overriding webdesign photography">
+                        <header>
+                            You can override default configuration by env-specific:
+                        </header>
+
+                        <article style="margin-top: 10px">
+                            <br/>application.yaml - file for common configuration
+                            <br/>application.<b style="color: #b8a07e">dev</b>.yaml - overrides for dev env
+                            <br/>application.<b style="color: #b8a07e">prod.uat</b>.yaml - overrides for prod and uat
+                            envs
+                        </article>
+                    </div>
+
+                    <div class="features-thumbnail all templates webdesign photography">
+                        You can resolve placeholders inside arbitrary configs files.
+
+                        <textarea style="clear: both; margin-top:15px; height: 150px; width: 100%; border: 0">
+                            <configuration>
+                                <appender class="ch.qos.logback.core.FileAppender">
+                                    <file>logs/${this@application.name}.log</file>
+                                </appender>
+                            </configuration>
+                        </textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" style="font-weight: bold">
+            <a href="/docs.html">See Complete documentation</a>
+        </div>
+    </div>
+
+</div>
+<!-- End section features -->
+
+
+<!-- start section contacts -->
+<div id="contacts" class="text-left paddsection">
+    <div class="container">
+        <div class="contact-block1">
+            <div class="row">
+
+                <div class="col-lg-6">
+                    <div class="contact-contact">
+
+                        <h2 class="mb-30">Contacts</h2>
+
+                        <ul class="contact-details">
+                            <li><span><a href="https://github.com/microconfig/microconfig">Github project</a></span>
+                            </li>
+                            <li><span>support@microconfig.io</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- End section  -->
+
+
+<!-- JavaScript Libraries -->
+<script src="lib/jquery/jquery.min.js"></script>
+<script src="lib/jquery/jquery-migrate.min.js"></script>
+<script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="lib/typed/typed.js"></script>
+<script src="lib/owlcarousel/owl.carousel.min.js"></script>
+<script src="lib/magnific-popup/magnific-popup.min.js"></script>
+<script src="lib/isotope/isotope.pkgd.min.js"></script>
+
+<!-- Template Main Javascript File -->
+<script src="js/main.js"></script>
+
+</body>
+
+</html>

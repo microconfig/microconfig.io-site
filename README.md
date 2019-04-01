@@ -1,3 +1,3 @@
 # microconfig.io site
 
-Visit [microconfig.io](https://microconfig.io)
+Visit [https://microconfig.io](https://microconfig.io)

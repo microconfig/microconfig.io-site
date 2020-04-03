@@ -11,19 +11,35 @@
     <meta content="Microconfig - powerful tool for microservice configuration management" name="description">
 
     <style>
-        h1 {
+        @font-face {
+            font-family: blogger;
+            src: url('bloggersans/Bloggersans.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: bloggerBold;
+            src: url('bloggersans/Bloggersansbold.ttf') format('truetype');
+        }
+
+        h1, h2 {
             font-size: 3.5rem;
             line-height: 1em;
             margin-top: .4em;
             margin-bottom: .4em;
-            font-family: Metropolis, sans-serif;
+            font-family: bloggerBold;
+            /*font-family: Metropolis, sans-serif;*/
+        }
+
+        h2 {
+            font-size: 1.5rem;
         }
 
         body {
             margin: 0;
             padding: 0;
-            font-family: Metropolis, sans-serif;
             line-height: 1.7em;
+            font-family: blogger;
+            /*font-family: Metropolis, sans-serif;*/
         }
     </style>
 </head>
@@ -33,7 +49,7 @@
 <article style="width: 80%; margin: 0 auto; background-color: white">
     <article style="border-bottom: 1px double; height: 100px; color: #efefef">
         <img src="pluginIcon.svg" style="width: 100px;float: left"><span
-            style="float:left;font-size: 3.2rem; margin-top: 36px; left: 30px; padding: 0;color: #5fbb92">Microconfig</span>
+            style="float:left;font-size: 3.2rem; margin-top: 36px; left: 30px; padding: 0;color: #5fbb92;font-family: bloggerBold">Microconfig</span>
     </article>
 
     <article style="clear: both;">

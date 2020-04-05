@@ -128,7 +128,8 @@
         <div class="container">
             <h1>Microservice configuration made easy</h1>
             <p class="lead ">
-                <br>Configure common and specific parts for different microservices or for the same microservice on different environments <b>WITHOUT COPY&PASTE</b>.
+                <br>Configure common and specific parts for different microservices or for the same microservice on
+                different environments <b>WITHOUT COPY&PASTE</b>.
                 <br><br>Use placeholders and powerful expression language for dynamic properties.
                 <br><br>Support yaml and properties format.
             </p>
@@ -138,7 +139,7 @@
     <div class="py-5 bg-light">
         <div class="container" style="padding: 0; margin-bottom: 1.5rem">
             <h2>
-               What Microconfig can do
+                What Microconfig can do
             </h2>
         </div>
         <div class="container">
@@ -149,18 +150,8 @@
                             <h4 class="my-0 mc-color">#Includes</h4>
                         </div>
                         <div class="card-body">
-                            To include a component's configuration you need to specify only the component name, you
-                            don't
-                            need
-                            to specify its path. This makes the config layout refactoring easier. Microconfig will find
-                            a
-                            folder
-                            with the component's name and include the configuration from its files (if the folder name
-                            is
-                            not
-                            unique,
-                            Microconfig includes configs from each folder, but it's a good idea to keep a component name
-                            unique).
+                            You can extract common part for different microservices to a dedicated component and then
+                            reuse it via #include
                         </div>
                     </div>
                 </div>
@@ -170,18 +161,7 @@
                             <h4 class="my-0 mc-color">#{Placeholders}</h4>
                         </div>
                         <div class="card-body">
-                            To include a component's configuration you need to specify only the component name, you
-                            don't
-                            need
-                            to specify its path. This makes the config layout refactoring easier. Microconfig will find
-                            a
-                            folder
-                            with the component's name and include the configuration from its files (if the folder name
-                            is
-                            not
-                            unique,
-                            Microconfig includes configs from each folder, but it's a good idea to keep a component name
-                            unique).
+                            Instead of duplicating the value of some properties you can use a reference to this value.
                         </div>
                     </div>
                 </div>
@@ -191,18 +171,9 @@
                             <h4 class="my-0 mc-color">#{Expression language}</h4>
                         </div>
                         <div class="card-body">
-                            To include a component's configuration you need to specify only the component name, you
-                            don't
-                            need
-                            to specify its path. This makes the config layout refactoring easier. Microconfig will find
-                            a
-                            folder
-                            with the component's name and include the configuration from its files (if the folder name
-                            is
-                            not
-                            unique,
-                            Microconfig includes configs from each folder, but it's a good idea to keep a component name
-                            unique).
+                            If #include and ${placeholders} is not enough you can use powerful expression language for
+                            dynamic properties
+                            <br><br>
                         </div>
                     </div>
                 </div>
@@ -212,18 +183,8 @@
                             <h4 class="my-0 mc-color">Environment specific configs</h4>
                         </div>
                         <div class="card-body">
-                            To include a component's configuration you need to specify only the component name, you
-                            don't
-                            need
-                            to specify its path. This makes the config layout refactoring easier. Microconfig will find
-                            a
-                            folder
-                            with the component's name and include the configuration from its files (if the folder name
-                            is
-                            not
-                            unique,
-                            Microconfig includes configs from each folder, but it's a good idea to keep a component name
-                            unique).
+                            For each microservice you can write common configuration for all environment and specify
+                            environment specific properties (add/remove/override).
                         </div>
                     </div>
                 </div>
@@ -233,18 +194,9 @@
                             <h4 class="my-0 mc-color">Templates</h4>
                         </div>
                         <div class="card-body">
-                            To include a component's configuration you need to specify only the component name, you
-                            don't
-                            need
-                            to specify its path. This makes the config layout refactoring easier. Microconfig will find
-                            a
-                            folder
-                            with the component's name and include the configuration from its files (if the folder name
-                            is
-                            not
-                            unique,
-                            Microconfig includes configs from each folder, but it's a good idea to keep a component name
-                            unique).
+                            Microconfig allows you to keep configuration files for any libraries in their specific
+                            format and resolve placeholders inside them.
+                            <br><br>
                         </div>
                     </div>
                 </div>
@@ -254,18 +206,9 @@
                             <h4 class="my-0 mc-color">Yaml & Properties support</h4>
                         </div>
                         <div class="card-body">
-                            To include a component's configuration you need to specify only the component name, you
-                            don't
-                            need
-                            to specify its path. This makes the config layout refactoring easier. Microconfig will find
-                            a
-                            folder
-                            with the component's name and include the configuration from its files (if the folder name
-                            is
-                            not
-                            unique,
-                            Microconfig includes configs from each folder, but it's a good idea to keep a component name
-                            unique).
+                            Microconfig supports *.yaml and *.properties format for source and result configuration
+                            files.
+                            You can keep a part of configuration in *.yaml files and another part in *.properties.
                         </div>
                     </div>
                 </div>

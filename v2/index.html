@@ -13,39 +13,36 @@
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="icon" href="css/favicon.ico">
 
+    <link href="css/styles.css" rel="stylesheet">
     <style>
-        .bd-placeholder-img {
-            font-size: 1.125rem;
-            text-anchor: middle;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
+        .shadow-sm {
+            box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .035) !important;
         }
 
-        @media (min-width: 768px) {
-            .bd-placeholder-img-lg {
-                font-size: 3.5rem;
-            }
+        .card-header {
+            border: 0;
+            background-color: white;
+        }
+
+        .mc-border {
+            border: 1px double #efefef
         }
     </style>
-    <link href="css/styles.css" rel="stylesheet">
 </head>
 <body>
 <header>
-    <div class="navbar navbar-dark bg-dark shadow-sm">
+    <div class="navbar shadow-sm" s>
         <div class="container d-flex justify-content-between">
-            <a href="#" class="navbar-brand d-flex align-items-center">
+            <a href="https://microconfig.io" class="navbar-brand d-flex align-items-center">
                 <img src="css/logo.svg" width="50px">
-                <strong>Microconfig</strong>
+                <strong class="mc-color">Microconfig</strong>
             </a>
         </div>
     </div>
 </header>
 
 <main role="main">
-
-    <section class="jumbotron text-center">
+    <section class="jumbotron">
         <div class="container">
             <h1>Overview & Features</h1>
             <p class="lead text-muted">
@@ -63,17 +60,18 @@
     </section>
 
     <div class="py-5 bg-light">
-
-
-
         <div class="container">
             <div class="card mb-4">
                 <div class="card-header">
-                    <h4 class="my-0 font-weight-normal">#Include</h4>
+                    <h4 class="my-0 font-weight-normal mc-color">#Include</h4>
                 </div>
                 <div class="card-body">
-                    To include a component's configuration you need to specify only the component name, you don't need to specify its path. This makes the config layout refactoring easier. Microconfig will find a folder with the component's name and include the configuration from its files (if the folder name is not unique,
-                    Microconfig includes configs from each folder, but it's a good idea to keep a component name unique).
+                    To include a component's configuration you need to specify only the component name, you don't need
+                    to specify its path. This makes the config layout refactoring easier. Microconfig will find a folder
+                    with the component's name and include the configuration from its files (if the folder name is not
+                    unique,
+                    Microconfig includes configs from each folder, but it's a good idea to keep a component name
+                    unique).
                 </div>
             </div>
         </div>
@@ -83,6 +81,7 @@
 
 <footer class="text-muted">
     <div class="container">
+        Microconfig.io © 2020
     </div>
 </footer>
 

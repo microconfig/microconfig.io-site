@@ -19,6 +19,10 @@
             box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .035) !important;
         }
 
+        .navbar-brand {
+            font-size: 2.25rem;
+        }
+
         .card-header {
             border: 0;
             background-color: white;
@@ -27,14 +31,22 @@
         .card {
             border: 1px double #efefef
         }
+
+        .card-header {
+            padding-bottom: 0;
+        }
+
+        .bg-light {
+            background-color: #f9f9f9 !important;
+        }
     </style>
 </head>
 <body>
 <header>
     <div class="navbar shadow-sm" s>
         <div class="container d-flex justify-content-between">
-            <a href="https://microconfig.io" class="navbar-brand d-flex align-items-center">
-                <img src="css/logo.svg" width="50px">
+            <a href="https://microconfig.io" class="navbar-brand d-flex align-items-center" style="padding: 0">
+                <img src="css/logo.svg" style="width:70px" alt="Microconfig"/>
                 <strong class="mc-color">Microconfig</strong>
             </a>
         </div>
@@ -43,9 +55,9 @@
 
 <main role="main">
     <section class="jumbotron">
-        <div class="container">
+        <div class="container" style="padding: 0 15px">
             <h1>Overview & Features</h1>
-            <p class="lead text-muted">
+            <p class="lead ">
                 Microconfig is intended to make it easy and convenient to manage configuration for microservices (or
                 just for a big amount of services) and reuse the common part.
                 Microconfig is intended to make it easy and convenient to manage configuration for microservices (or
@@ -55,7 +67,7 @@
     </section>
 
     <div class="py-5 bg-light">
-        <div class="container">
+        <div class="container" style="padding: 0">
             <div class="card mb-4">
                 <div class="card-header">
                     <h4 class="my-0 font-weight-normal mc-color">#Include</h4>
@@ -73,6 +85,20 @@
             <div class="card mb-4">
                 <div class="card-header">
                     <h4 class="my-0 font-weight-normal mc-color">Placeholders</h4>
+                </div>
+                <div class="card-body">
+                    To include a component's configuration you need to specify only the component name, you don't need
+                    to specify its path. This makes the config layout refactoring easier. Microconfig will find a folder
+                    with the component's name and include the configuration from its files (if the folder name is not
+                    unique,
+                    Microconfig includes configs from each folder, but it's a good idea to keep a component name
+                    unique).
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h4 class="my-0 font-weight-normal mc-color">Expression language</h4>
                 </div>
                 <div class="card-body">
                     To include a component's configuration you need to specify only the component name, you don't need

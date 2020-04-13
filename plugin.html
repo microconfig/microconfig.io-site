@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-137858449-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'UA-137858449-1');
+    </script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta content="configuration management, configuration framework, external configuration, configuration best practices, java configuration, microservice configuration, microservice configs, config, configuration"
+          name="keywords">
+    <meta content="Microconfig - Microservice configuration made easy" name="description">
+    <title>Microconfig.io - best tool for microservice configuration management</title>
+
+    <link href="bootstrap/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="css/styles.css" rel="stylesheet">
+    <link href="bloggersans/bloggersans.css" rel="stylesheet">
+    <link rel="icon" href="css/favicon.ico">
+</head>
+<body>
+<header>
+    <div class="navbar shadow-sm">
+        <div class="container d-flex justify-content-between">
+            <a href="https://microconfig.io" class="navbar-brand d-flex align-items-center" style="padding: 0">
+                <img src="logo.svg" style="width:80px" alt="Microconfig"/>
+                <strong class="mc-color" style="font-family: 'Blogger Sans'">Microconfig</strong>
+            </a>
+
+            <nav class="my-2 my-md-0 mr-md-3">
+<!--                <a class="p-2 text-dark" href="quickstart.html">Quickstart</a>-->
+                <a class="p-2 text-dark" href="documentation.html">Documentation</a>
+                <a class="p-2 text-dark" href="download.html">Download</a>
+                <a class="p-2 text-dark" href="plugin.html">IDEA plugin</a>
+                <a class="p-2 text-dark" href="contacts.html">Contacts</a>
+            </nav>
+        </div>
+    </div>
+</header>
+
+<a href="https://github.com/microconfig/microconfig" class="github-corner" aria-label="View source on GitHub">
+    <svg width="80" height="80" viewBox="0 0 250 250"
+         style="fill:#5fbb92; color:#fff; position: fixed; top: 0; border: 0; right: 0;z-index: 100"
+         aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+
+<main role="main" id="idea-plugin">
+    <section class="jumbotron">
+        <div class="container">
+            <article class="markdown-body entry-content" itemprop="text">
+                <h1>IntelliJ IDEA plugin
+                    <a href="https://plugins.jetbrains.com/plugin/12064-microconfig-io">
+                        <img alt="JetBrains IntelliJ plugins" src="https://img.shields.io/jetbrains/plugin/d/12064-microconfig-io?color=%235fbb92&style=flat-square">
+                    </a>
+                </h1>
+                <p>IntelliJ IDEA plugin for Microconfig that allows navigating to #include and placeholders' sources,
+                    resolving placeholders and other useful stuff.</p>
+
+                <h3>Plugin usage</h3>
+                <p>Plugin adds it's submenu in <code>Main Menu -&gt; Tools -&gt; Microconfig</code>. Also the same menu
+                    appears in <code>RightClick</code> menu.
+                </p>
+                <p>Microconfig has two actions:</p>
+                <ul>
+                    <li>Jump to component (F10)</li>
+                    <li>Resolve placeholder (Ctrl-F10 / Command-F10)</li>
+                </ul>
+
+                <h4>Jump to component</h4>
+                <p><code>Jump to component</code> supports navigation from <code>#include component</code> line.
+                    Once chosen from the menu or on the hotkey press it will try to find <code>component</code> in
+                    'components' directory and open the corresponding file inside.
+                </p>
+                <p>Also it can jump to a component referenced in a placeholder like <code>${component@key}</code>.
+                    To choose a placeholder just place your cursor inside <code>{}</code>.
+                    On Jump it will try to find <code>component</code> file and then a line with <code>key</code> inside
+                    it. Once found it will open that file and place cursor on <code>key</code> line.
+                </p>
+
+                <h4>Resolve placeholder</h4>
+                <p><code>Resolve placeholder</code> supports two modes.</p>
+                <p>If activated with cursor on a property' key it will try to resolve the whole property and show values
+                    grouped by env names in a small hint.
+                </p>
+                <p><img src="https://github.com/microconfig/microconfig-idea-plugin/raw/master/doc/resolve.png"
+                        alt="resolve" style="max-width:100%;">
+                </p>
+                <p>If activated with cursor inside placeholder <code>${}</code> it will try to resolve only that
+                    placeholder.
+                </p>
+                <h3>Config build</h3>
+                <p>You can create standard IDEA Run configuration for Microconfig to build configs with plugin.</p>
+                <p>
+                    <img src="https://github.com/microconfig/microconfig-idea-plugin/raw/master/doc/run.png" alt="run"
+                         style="max-width:100%;">
+                </p>
+
+                <h3>Configuration preview</h3>
+                <p>You can preview configuration for a component on the fly. To open preview either activate <code>
+                    Microconfig -&gt; Preview component</code> or use default hotkey (Shift-Ctrl-F10 /
+                    Shift-Command-F10).
+                    Preview window allows you to see resulting configs for different environments.
+                </p>
+                <p><img src="https://github.com/microconfig/microconfig-idea-plugin/raw/master/doc/preview_light.png"
+                        alt="preview" style="max-width:100%;"></p>
+
+                <h3>Installation</h3>
+                <p>
+                    Install plugin by name <code>Microconfig.io</code> from Idea <code>Settings -&gt; Plugins -&gt;
+                    Marketplace</code>
+                </p>
+                <p>Or download plugin zip file from
+                    <a href="https://plugins.jetbrains.com/plugin/12064-microconfig-io" rel="nofollow">https://plugins.jetbrains.com/plugin/12064-microconfig-io</a>
+                    and import it via <br> <code>Settings -&gt; Plugins -&gt; Install plugin from disk...</code>
+                </p>
+                <h1>Compatibility</h1>
+                <p>The plugin is compatible with any JetBrains IDE: IntelliJ IDEA, PhpStorm, WebStorm, PyCharm,
+                    RubyMine, AppCode, CLion, GoLand, DataGrip, Rider, MPS, Android Studio
+                </p>
+            </article>
+        </div>
+    </section>
+</main>
+
+<footer class="text-muted">
+    <div class="container">
+        Microconfig.io © 2017-2020
+    </div>
+</footer>
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+<script src="bootstrap/bootstrap.bundle.min.js"
+        integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm"></script>
+</body>
+
+</html>

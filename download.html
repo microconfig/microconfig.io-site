@@ -1,0 +1,100 @@
+<main role="main" id="download">
+    <section class="jumbotron">
+        <div class="container">
+            <h1>Download</h1>
+            <p class="lead">
+                You can download standalone Microconfig CLI from
+                <a href="https://search.maven.org/artifact/io.microconfig/microconfig-core/3.12.0/jar">Maven Central</a> or
+                <a href="https://github.com/microconfig/microconfig/releases">Github releases</a>.
+            </p>
+            <p class="lead">
+                If you want to add Microconfig-core as dependency to your Java project
+                <a href="https://search.maven.org/artifact/io.microconfig/microconfig-core/3.12.0/jar">this Maven artifact</a>.
+            </p>
+
+            <p class="lead">
+                See documentation how to
+                <a href="http://localhost:63342/site/documentation.html#/?id=running-the-config-build">run config build via CLI</a>.
+            </p>
+        </div>
+    </section>
+
+    <div class="py-5 bg-light">
+        <div class="container" style="padding: 0; margin-bottom: 1.5rem">
+            <h2>
+                What Microconfig can do
+            </h2>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <h4 class="my-0 mc-color">#Includes</h4>
+                        </div>
+                        <div class="card-body">
+                            You can extract common part for different microservices to a dedicated component and then
+                            reuse it via #include
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <h4 class="my-0 mc-color">${Place@holders}</h4>
+                        </div>
+                        <div class="card-body">
+                            Instead of duplicating the value of some properties you can use a reference to this value.
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <h4 class="my-0 mc-color">#{'Expression' + 'language'}</h4>
+                        </div>
+                        <div class="card-body">
+                            If #include and ${placeholders} is not enough you can use powerful expression language for
+                            dynamic properties
+                            <br><br>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <h4 class="my-0 mc-color">Environment specific configs</h4>
+                        </div>
+                        <div class="card-body">
+                            For each microservice you can write common configuration for all environment and specify
+                            environment specific properties (add/remove/override).
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <h4 class="my-0 mc-color">Templates</h4>
+                        </div>
+                        <div class="card-body">
+                            Microconfig allows you to keep configuration files for any libraries in their specific
+                            format and resolve placeholders inside them.
+                            <br><br>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <h4 class="my-0 mc-color">Config diff</h4>
+                        </div>
+                        <div class="card-body">
+                            Microconfig can detect added/removed/changed properties for each service and store this information after every config build.
+                            <br><br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

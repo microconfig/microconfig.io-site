@@ -128,367 +128,99 @@
     </svg>
 </a>
 
-<main role="main" id="idea-plugin">
+<main role="main" id="main">
     <section class="jumbotron">
         <div class="container">
-            <article class="markdown-body entry-content" itemprop="text">
-                <h1>IntelliJ IDEA plugin
-                    <a href="https://plugins.jetbrains.com/plugin/12064-microconfig-io">
-                        <img alt="JetBrains IntelliJ plugins" src="https://img.shields.io/jetbrains/plugin/d/12064-microconfig-io?color=%235fbb92&style=flat-square">
-                    </a>
-                </h1>
-                <p>IntelliJ IDEA plugin for Microconfig that allows navigating to #include and placeholders' sources,
-                    resolving placeholders and other useful stuff.</p>
-
-                <h3>Plugin usage</h3>
-                <p>Plugin adds it's submenu in <code>Main Menu -&gt; Tools -&gt; Microconfig</code>. Also the same menu
-                    appears in <code>RightClick</code> menu.
-                </p>
-                <p>Microconfig has two actions:</p>
-                <ul>
-                    <li>Jump to component (F10)</li>
-                    <li>Resolve placeholder (Ctrl-F10 / Command-F10)</li>
-                </ul>
-
-                <h4>Jump to component</h4>
-                <p><code>Jump to component</code> supports navigation from <code>#include component</code> line.
-                    Once chosen from the menu or on the hotkey press it will try to find <code>component</code> in
-                    'components' directory and open the corresponding file inside.
-                </p>
-                <p>Also it can jump to a component referenced in a placeholder like <code>${component@key}</code>.
-                    To choose a placeholder just place your cursor inside <code>{}</code>.
-                    On Jump it will try to find <code>component</code> file and then a line with <code>key</code> inside
-                    it. Once found it will open that file and place cursor on <code>key</code> line.
-                </p>
-
-                <h4>Resolve placeholder</h4>
-                <p><code>Resolve placeholder</code> supports two modes.</p>
-                <p>If activated with cursor on a property' key it will try to resolve the whole property and show values
-                    grouped by env names in a small hint.
-                </p>
-                <p><img src="https://github.com/microconfig/microconfig-idea-plugin/raw/master/doc/resolve.png"
-                        alt="resolve" style="max-width:100%;">
-                </p>
-                <p>If activated with cursor inside placeholder <code>${}</code> it will try to resolve only that
-                    placeholder.
-                </p>
-                <h3>Config build</h3>
-                <p>You can create standard IDEA Run configuration for Microconfig to build configs with plugin.</p>
-                <p>
-                    <img src="https://github.com/microconfig/microconfig-idea-plugin/raw/master/doc/run.png" alt="run"
-                         style="max-width:100%;">
-                </p>
-
-                <h3>Configuration preview</h3>
-                <p>You can preview configuration for a component on the fly. To open preview either activate <code>
-                    Microconfig -&gt; Preview component</code> or use default hotkey (Shift-Ctrl-F10 /
-                    Shift-Command-F10).
-                    Preview window allows you to see resulting configs for different environments.
-                </p>
-                <p><img src="https://github.com/microconfig/microconfig-idea-plugin/raw/master/doc/preview_light.png"
-                        alt="preview" style="max-width:100%;"></p>
-
-                <h3>Installation</h3>
-                <p>
-                    Install plugin by name <code>Microconfig.io</code> from Idea <code>Settings -&gt; Plugins -&gt;
-                    Marketplace</code>
-                </p>
-                <p>Or download plugin zip file from
-                    <a href="https://plugins.jetbrains.com/plugin/12064-microconfig-io" rel="nofollow">https://plugins.jetbrains.com/plugin/12064-microconfig-io</a>
-                    and import it via <br> <code>Settings -&gt; Plugins -&gt; Install plugin from disk...</code>
-                </p>
-                <h1>Compatibility</h1>
-                <p>The plugin is compatible with any JetBrains IDE: IntelliJ IDEA, PhpStorm, WebStorm, PyCharm,
-                    RubyMine, AppCode, CLion, GoLand, DataGrip, Rider, MPS, Android Studio
-                </p>
-            </article>
+            <h1>Microservice configuration made easy</h1>
+            <p class="lead ">
+                <br>Configure common and specific parts for different microservices or for the same microservice on
+                different environments <b>WITHOUT COPY&PASTE</b>.
+                <br><br>Use placeholders and powerful expression language for dynamic properties.
+                <br><br>Support yaml and properties format.
+            </p>
         </div>
     </section>
+
+    <div class="py-5 bg-light">
+        <div class="container" style="padding: 0; margin-bottom: 1.5rem">
+            <h2>
+                What Microconfig can do
+            </h2>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <h4 class="my-0 mc-color">#Includes</h4>
+                        </div>
+                        <div class="card-body">
+                            You can extract common part for different microservices to a dedicated component and then
+                            reuse it via #include
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <h4 class="my-0 mc-color">${Place@holders}</h4>
+                        </div>
+                        <div class="card-body">
+                            Instead of duplicating the value of some properties you can use a reference to this value.
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <h4 class="my-0 mc-color">#{'Expression' + 'language'}</h4>
+                        </div>
+                        <div class="card-body">
+                            If #include and ${placeholders} is not enough you can use powerful expression language for
+                            dynamic properties
+                            <br><br>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <h4 class="my-0 mc-color">Environment specific configs</h4>
+                        </div>
+                        <div class="card-body">
+                            For each microservice you can write common configuration for all environment and specify
+                            environment specific properties (add/remove/override).
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <h4 class="my-0 mc-color">Templates</h4>
+                        </div>
+                        <div class="card-body">
+                            Microconfig allows you to keep configuration files for any libraries in their specific
+                            format and resolve placeholders inside them.
+                            <br><br>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <h4 class="my-0 mc-color">Config diff</h4>
+                        </div>
+                        <div class="card-body">
+                            Microconfig can detect added/removed/changed properties for each service and store this
+                            information after every config build.
+                            <br><br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </main>
-
-<!--<main role="main" id="download">-->
-<!--    <section class="jumbotron">-->
-<!--        <div class="container">-->
-<!--            <h1>Download</h1>-->
-<!--            <p class="lead">-->
-<!--                You can download standalone Microconfig CLI from-->
-<!--                <a href="https://search.maven.org/artifact/io.microconfig/microconfig-core/3.12.0/jar">Maven Central</a> or-->
-<!--                <a href="https://github.com/microconfig/microconfig/releases">Github releases</a>.-->
-<!--            </p>-->
-<!--            <p class="lead">-->
-<!--                If you want to add Microconfig-core as dependency to your Java project-->
-<!--                <a href="https://search.maven.org/artifact/io.microconfig/microconfig-core/3.12.0/jar">this Maven artifact</a>.-->
-<!--            </p>-->
-
-<!--            <p class="lead">-->
-<!--                See documentation how to-->
-<!--                <a href="http://localhost:63342/site/documentation.html#/?id=running-the-config-build">run config build via CLI</a>.-->
-<!--            </p>-->
-<!--        </div>-->
-<!--    </section>-->
-
-<!--    <div class="py-5 bg-light">-->
-<!--        <div class="container" style="padding: 0; margin-bottom: 1.5rem">-->
-<!--            <h2>-->
-<!--                What Microconfig can do-->
-<!--            </h2>-->
-<!--        </div>-->
-<!--        <div class="container">-->
-<!--            <div class="row">-->
-<!--                <div class="col-md-6">-->
-<!--                    <div class="card mb-4">-->
-<!--                        <div class="card-header">-->
-<!--                            <h4 class="my-0 mc-color">#Includes</h4>-->
-<!--                        </div>-->
-<!--                        <div class="card-body">-->
-<!--                            You can extract common part for different microservices to a dedicated component and then-->
-<!--                            reuse it via #include-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="col-md-6">-->
-<!--                    <div class="card mb-4">-->
-<!--                        <div class="card-header">-->
-<!--                            <h4 class="my-0 mc-color">${Place@holders}</h4>-->
-<!--                        </div>-->
-<!--                        <div class="card-body">-->
-<!--                            Instead of duplicating the value of some properties you can use a reference to this value.-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="col-md-6">-->
-<!--                    <div class="card mb-4">-->
-<!--                        <div class="card-header">-->
-<!--                            <h4 class="my-0 mc-color">#{'Expression' + 'language'}</h4>-->
-<!--                        </div>-->
-<!--                        <div class="card-body">-->
-<!--                            If #include and ${placeholders} is not enough you can use powerful expression language for-->
-<!--                            dynamic properties-->
-<!--                            <br><br>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="col-md-6">-->
-<!--                    <div class="card mb-4">-->
-<!--                        <div class="card-header">-->
-<!--                            <h4 class="my-0 mc-color">Environment specific configs</h4>-->
-<!--                        </div>-->
-<!--                        <div class="card-body">-->
-<!--                            For each microservice you can write common configuration for all environment and specify-->
-<!--                            environment specific properties (add/remove/override).-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="col-md-6">-->
-<!--                    <div class="card mb-4">-->
-<!--                        <div class="card-header">-->
-<!--                            <h4 class="my-0 mc-color">Templates</h4>-->
-<!--                        </div>-->
-<!--                        <div class="card-body">-->
-<!--                            Microconfig allows you to keep configuration files for any libraries in their specific-->
-<!--                            format and resolve placeholders inside them.-->
-<!--                            <br><br>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="col-md-6">-->
-<!--                    <div class="card mb-4">-->
-<!--                        <div class="card-header">-->
-<!--                            <h4 class="my-0 mc-color">Config diff</h4>-->
-<!--                        </div>-->
-<!--                        <div class="card-body">-->
-<!--                            Microconfig can detect added/removed/changed properties for each service and store this information after every config build.-->
-<!--                            <br><br>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</main>-->
-
-<!--<main role="main" id="contacts">-->
-<!--    <section class="jumbotron">-->
-<!--        <div class="container">-->
-<!--            <h1>Contacts</h1>-->
-<!--            <p class="lead">Join our <a href="https://join.slack.com/t/microconfig/shared_invite/zt-couuwwuo-vt5miXcv5RMmuXlNv1oKEQ">Slack!</a></p>-->
-<!--            <p class="lead">Contribute on <a href="https://github.com/microconfig/microconfig">Github</a></p>-->
-<!--            <p class="lead"><a href="mailto:support@microconfig.io">support@microconfig.io</a></p>-->
-<!--        </div>-->
-<!--    </section>-->
-
-<!--    <div class="py-5 bg-light">-->
-<!--        <div class="container" style="padding: 0; margin-bottom: 1.5rem">-->
-<!--            <h2>-->
-<!--                What Microconfig can do-->
-<!--            </h2>-->
-<!--        </div>-->
-<!--        <div class="container">-->
-<!--            <div class="row">-->
-<!--                <div class="col-md-6">-->
-<!--                    <div class="card mb-4">-->
-<!--                        <div class="card-header">-->
-<!--                            <h4 class="my-0 mc-color">#Includes</h4>-->
-<!--                        </div>-->
-<!--                        <div class="card-body">-->
-<!--                            You can extract common part for different microservices to a dedicated component and then-->
-<!--                            reuse it via #include-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="col-md-6">-->
-<!--                    <div class="card mb-4">-->
-<!--                        <div class="card-header">-->
-<!--                            <h4 class="my-0 mc-color">${Place@holders}</h4>-->
-<!--                        </div>-->
-<!--                        <div class="card-body">-->
-<!--                            Instead of duplicating the value of some properties you can use a reference to this value.-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="col-md-6">-->
-<!--                    <div class="card mb-4">-->
-<!--                        <div class="card-header">-->
-<!--                            <h4 class="my-0 mc-color">#{'Expression' + 'language'}</h4>-->
-<!--                        </div>-->
-<!--                        <div class="card-body">-->
-<!--                            If #include and ${placeholders} is not enough you can use powerful expression language for-->
-<!--                            dynamic properties-->
-<!--                            <br><br>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="col-md-6">-->
-<!--                    <div class="card mb-4">-->
-<!--                        <div class="card-header">-->
-<!--                            <h4 class="my-0 mc-color">Environment specific configs</h4>-->
-<!--                        </div>-->
-<!--                        <div class="card-body">-->
-<!--                            For each microservice you can write common configuration for all environment and specify-->
-<!--                            environment specific properties (add/remove/override).-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="col-md-6">-->
-<!--                    <div class="card mb-4">-->
-<!--                        <div class="card-header">-->
-<!--                            <h4 class="my-0 mc-color">Templates</h4>-->
-<!--                        </div>-->
-<!--                        <div class="card-body">-->
-<!--                            Microconfig allows you to keep configuration files for any libraries in their specific-->
-<!--                            format and resolve placeholders inside them.-->
-<!--                            <br><br>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="col-md-6">-->
-<!--                    <div class="card mb-4">-->
-<!--                        <div class="card-header">-->
-<!--                            <h4 class="my-0 mc-color">Config diff</h4>-->
-<!--                        </div>-->
-<!--                        <div class="card-body">-->
-<!--                            Microconfig can detect added/removed/changed properties for each service and store this information after every config build.-->
-<!--                            <br><br>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</main>-->
-
-<!--<main role="main" id="main">-->
-<!--    <section class="jumbotron">-->
-<!--        <div class="container">-->
-<!--            <h1>Microservice configuration made easy</h1>-->
-<!--            <p class="lead ">-->
-<!--                <br>Configure common and specific parts for different microservices or for the same microservice on-->
-<!--                different environments <b>WITHOUT COPY&PASTE</b>.-->
-<!--                <br><br>Use placeholders and powerful expression language for dynamic properties.-->
-<!--                <br><br>Support yaml and properties format.-->
-<!--            </p>-->
-<!--        </div>-->
-<!--    </section>-->
-
-<!--    <div class="py-5 bg-light">-->
-<!--        <div class="container" style="padding: 0; margin-bottom: 1.5rem">-->
-<!--            <h2>-->
-<!--                What Microconfig can do-->
-<!--            </h2>-->
-<!--        </div>-->
-<!--        <div class="container">-->
-<!--            <div class="row">-->
-<!--                <div class="col-md-6">-->
-<!--                    <div class="card mb-4">-->
-<!--                        <div class="card-header">-->
-<!--                            <h4 class="my-0 mc-color">#Includes</h4>-->
-<!--                        </div>-->
-<!--                        <div class="card-body">-->
-<!--                            You can extract common part for different microservices to a dedicated component and then-->
-<!--                            reuse it via #include-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="col-md-6">-->
-<!--                    <div class="card mb-4">-->
-<!--                        <div class="card-header">-->
-<!--                            <h4 class="my-0 mc-color">${Place@holders}</h4>-->
-<!--                        </div>-->
-<!--                        <div class="card-body">-->
-<!--                            Instead of duplicating the value of some properties you can use a reference to this value.-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="col-md-6">-->
-<!--                    <div class="card mb-4">-->
-<!--                        <div class="card-header">-->
-<!--                            <h4 class="my-0 mc-color">#{'Expression' + 'language'}</h4>-->
-<!--                        </div>-->
-<!--                        <div class="card-body">-->
-<!--                            If #include and ${placeholders} is not enough you can use powerful expression language for-->
-<!--                            dynamic properties-->
-<!--                            <br><br>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="col-md-6">-->
-<!--                    <div class="card mb-4">-->
-<!--                        <div class="card-header">-->
-<!--                            <h4 class="my-0 mc-color">Environment specific configs</h4>-->
-<!--                        </div>-->
-<!--                        <div class="card-body">-->
-<!--                            For each microservice you can write common configuration for all environment and specify-->
-<!--                            environment specific properties (add/remove/override).-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="col-md-6">-->
-<!--                    <div class="card mb-4">-->
-<!--                        <div class="card-header">-->
-<!--                            <h4 class="my-0 mc-color">Templates</h4>-->
-<!--                        </div>-->
-<!--                        <div class="card-body">-->
-<!--                            Microconfig allows you to keep configuration files for any libraries in their specific-->
-<!--                            format and resolve placeholders inside them.-->
-<!--                            <br><br>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="col-md-6">-->
-<!--                    <div class="card mb-4">-->
-<!--                        <div class="card-header">-->
-<!--                            <h4 class="my-0 mc-color">Config diff</h4>-->
-<!--                        </div>-->
-<!--                        <div class="card-body">-->
-<!--                            Microconfig can detect added/removed/changed properties for each service and store this information after every config build.-->
-<!--                            <br><br>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</main>-->
 
 <footer class="text-muted">
     <div class="container">
@@ -501,7 +233,8 @@
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
         crossorigin="anonymous"></script>
 <script src="bootstrap/bootstrap.bundle.min.js"
-        integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm"
-        crossorigin="anonymous"></script>
+        integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm"></script>
 </body>
+
+
 </html>

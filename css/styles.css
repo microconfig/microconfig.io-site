@@ -93,3 +93,11 @@ code {
         animation: octocat-wave 560ms ease-in-out
     }
 }
+
+a {
+    color: #5fbb92
+}
+
+a:hover {
+    color: #5fbb92
+}

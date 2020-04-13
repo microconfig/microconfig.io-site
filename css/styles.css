@@ -101,3 +101,8 @@ a {
 a:hover {
     color: #5fbb92
 }
+
+body {
+    font-size: 1.25rem;
+    font-weight: 300;
+}

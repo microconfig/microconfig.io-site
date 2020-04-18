@@ -121,10 +121,3 @@ body {
 main {
     flex-grow: 1;
 }
-
-@media (max-width: 767px) {
-    header .navbar .container {
-        align-items: unset;
-        flex-direction: column;
-    }
-}

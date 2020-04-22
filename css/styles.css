@@ -33,6 +33,13 @@ footer p {
     margin-bottom: .25rem;
 }
 
+footer .footer-container {
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
 code {
     color: #5fbb92;
     font-size: 90%;
@@ -105,4 +112,19 @@ a:hover {
 body {
     font-size: 1.25rem;
     font-weight: 300;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex-grow: 1;
+}
+
+@media (max-width: 767px) {
+    header .navbar .container {
+        align-items: unset;
+        flex-direction: column;
+    }
 }

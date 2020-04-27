@@ -63,7 +63,6 @@
             </a>
 
             <nav class="my-2 my-md-0 mr-md-3">
-                <!--                <a class="p-2 text-dark" href="quickstart.html">Quickstart</a>-->
                 <a class="p-2 text-dark" href="download.html">Download</a>
                 <a class="p-2 text-dark" href="documentation.html">Docs</a>
                 <a class="p-2 text-dark" href="plugin.html">IDEA plugin</a>
@@ -87,13 +86,13 @@
 <main role="main" id="quickstart">
     <section class="jumbotron">
         <div class="container">
-            <h1>Remove copy&paste and
-                <br><span style="font-weight: bold;">focus on things that matter</span>
+            <h1>Microservice configuration
+                <br><span style="font-weight: bold;">made easy</span>
             </h1>
             <p class="lead" style="margin-top: 2em">
-                Microservice architecture implies a lot of services with similar configuration.<br>
-                Each service has an application config, deployment config, a log template and so on.<br>
-                Multiply that by 50 services with 5 different environments and you have a mess.<br>
+                Microservice architecture implies a lot of services with similar configuration. <br/>
+                Each service has an application config, deployment config, a log template and so on.<br/>
+                Multiply that by 50 services with 5 different environments and you have a mess.
             </p>
         </div>
     </section>
@@ -101,7 +100,7 @@
     <div class="py-5 bg-light">
         <div class="container" style="padding: 0; margin-bottom: 1.5rem">
             <h2>
-                What Microconfig can offer
+                How Microconfig can help
             </h2>
         </div>
         <div class="container">
@@ -110,12 +109,13 @@
                     <div class="card mb-4">
                         <div class="card-header">
                             <h4 class="my-0 mc-color">
-                                <a href="documentation.html#/?id=better-config-structure-using-include">#Includes</a>
+                                <a href="documentation.html#/?id=basic-folder-layout">Simple
+                                    Configuration Layout</a>
                             </h4>
                         </div>
                         <div class="card-body">
-                            You can extract common part for different microservices to a dedicated component and then
-                            reuse it via #include
+                            You choose your configuration layout. You can group and organize your config the way it
+                            makes sense to you.
                         </div>
                     </div>
                 </div>
@@ -123,11 +123,13 @@
                     <div class="card mb-4">
                         <div class="card-header">
                             <h4 class="my-0 mc-color">
-                                <a href="documentation.html#/?id=placeholders">${Place@holders}</a>
+                                <a href="documentation.html#/?id=better-config-structure-using-include">Reuse Common
+                                    Parts</a>
                             </h4>
                         </div>
                         <div class="card-body">
-                            Instead of duplicating the value of some properties you can use a reference to this value.
+                            You can extract common parts of configuration to a dedicated component and reuse it with
+                            #include.
                         </div>
                     </div>
                 </div>
@@ -135,13 +137,11 @@
                     <div class="card mb-4">
                         <div class="card-header">
                             <h4 class="my-0 mc-color">
-                                <a href="documentation.html#/?id=expression-language">#{'Expression' + 'language'}</a>
+                                <a href="documentation.html#/?id=placeholders">Reference Values</a>
                             </h4>
                         </div>
                         <div class="card-body">
-                            If #include and ${placeholders} is not enough you can use powerful expression language for
-                            dynamic properties
-                            <br><br>
+                            You can reference a value from current or another service with ${placeholder}.
                         </div>
                     </div>
                 </div>
@@ -149,13 +149,13 @@
                     <div class="card mb-4">
                         <div class="card-header">
                             <h4 class="my-0 mc-color">
-                                <a href="documentation.html#/?id=environment-specific-properties">Environment specific
-                                    configs</a>
+                                <a href="documentation.html#/?id=expression-language">Dynamic Values</a>
                             </h4>
                         </div>
                         <div class="card-body">
-                            For each microservice you can write common configuration for all environments and also
-                            environment specific properties (add/remove/override).
+                            You can use #{ 'expression' + 'language' } to generate your values. It supports math
+                            operations
+                            and much more.
                         </div>
                     </div>
                 </div>
@@ -163,13 +163,25 @@
                     <div class="card mb-4">
                         <div class="card-header">
                             <h4 class="my-0 mc-color">
-                                <a href="documentation.html#/?id=template-files">Templates</a>
+                                <a href="documentation.html#/?id=environment-specific-properties">Environment Specific
+                                    Config</a>
                             </h4>
                         </div>
                         <div class="card-body">
-                            Microconfig allows you to keep configuration files for any libraries in their specific
-                            format and resolve placeholders inside them.
-                            <br><br>
+                            You can have specific values for each environment you need. They will be merged with
+                            your base configuration.
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <h4 class="my-0 mc-color">
+                                <a href="documentation.html#/?id=template-files">Static Files Templating</a>
+                            </h4>
+                        </div>
+                        <div class="card-body">
+                            You can use static templates and populate them with data unique for each service.
                         </div>
                     </div>
                 </div>
@@ -178,13 +190,25 @@
                         <div class="card-header">
                             <h4 class="my-0 mc-color">
                                 <a href="documentation.html#/?id=viewing-differences-between-config-versions">Config
-                                    diff</a>
+                                    Diff</a>
                             </h4>
                         </div>
                         <div class="card-body">
-                            Microconfig can detect added/removed/changed properties for each service and store this
-                            information after every config build.
-                            <br><br>
+                            You can generate git style diff and compare different versions of your config.
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <h4 class="my-0 mc-color">
+                                <a href="plugin.html">IDE
+                                    Plugin</a>
+                            </h4>
+                        </div>
+                        <div class="card-body">
+                            You can use IntelliJ Microconfig plugin to navigate, preview and generate config without
+                            leaving your IDE.
                         </div>
                     </div>
                 </div>
@@ -199,7 +223,9 @@
 
         <div class="contacts">
             <ul class="list-unstyled mb-0">
-                <li class="lead">Join our <a href="https://join.slack.com/t/microconfig/shared_invite/zt-dflf2m0n-wOPVfAmk5eiHPn_9Omff7Q">Slack!</a></li>
+                <li class="lead">Join our
+                    <a href="https://join.slack.com/t/microconfig/shared_invite/zt-dflf2m0n-wOPVfAmk5eiHPn_9Omff7Q">Slack!</a>
+                </li>
                 <li class="lead">Contribute on <a href="https://github.com/microconfig/microconfig">Github</a></li>
                 <li class="lead"><a href="mailto:support@microconfig.io">support@microconfig.io</a></li>
             </ul>

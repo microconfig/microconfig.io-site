@@ -15,6 +15,22 @@
         gtag('config', 'UA-137858449-1');
     </script>
 
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript" >
+        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+            m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+        (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+        ym(62011645, "init", {
+            clickmap:true,
+            trackLinks:true,
+            accurateTrackBounce:true,
+            webvisor:true
+        });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/62011645" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -56,7 +72,7 @@
               fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
         <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
               fill="currentColor" class="octo-body"></path>
-    </svg>
+    </svg> 
 </a>-->
 
 <main role="main" id="quickstart">
@@ -148,8 +164,7 @@
                             </h4>
                         </div>
                         <div class="card-body">
-                            You can extract common part for different microservices to a dedicated component and then
-                            reuse it via #include
+                            You can extract common part for different microservices to a dedicated component and then reuse it via #include
                         </div>
                     </div>
                 </div>
@@ -170,12 +185,11 @@
                     <div class="card mb-4">
                         <div class="card-header">
                             <h4 class="my-0 mc-color">
-                                <a href="documentation.html#/?id=expression-language">#{Expression Language}</a>
+                                <a href="documentation.html#/?id=expression-language">#{'Expression' + 'language'}</a>
                             </h4>
                         </div>
                         <div class="card-body">
-                            If #include and ${placeholders} is not enough you can use powerful expression language for
-                            dynamic properties
+                            If #include and ${placeholders} is not enough you can use powerful expression language for dynamic properties
                         </div>
                     </div>
                 </div>
@@ -183,13 +197,12 @@
                     <div class="card mb-4">
                         <div class="card-header">
                             <h4 class="my-0 mc-color">
-                                <a href="documentation.html#/?id=environment-specific-properties">Environment Specific
-                                    Configs</a>
+                                <a href="documentation.html#/?id=environment-specific-properties">Environment specific
+                                    configs</a>
                             </h4>
                         </div>
                         <div class="card-body">
-                            For each microservice you can write common configuration for all environments and also
-                            environment specific properties (add/remove/override).
+                            For each microservice you can write common configuration for all environments and also environment specific properties (add/remove/override).
                         </div>
                     </div>
                 </div>
@@ -201,8 +214,7 @@
                             </h4>
                         </div>
                         <div class="card-body">
-                            Microconfig allows you to keep configuration files for any libraries in their specific
-                            format and resolve placeholders inside them.
+                            Microconfig allows you to keep configuration files for any libraries in their specific format and resolve placeholders inside them.
                         </div>
                     </div>
                 </div>
@@ -210,12 +222,11 @@
                     <div class="card mb-4">
                         <div class="card-header">
                             <h4 class="my-0 mc-color">
-                                <a href="documentation.html#/?id=viewing-differences-between-config-versions">YAML & Properties Support</a>
+                                <a href="documentation.html#/?id=viewing-differences-between-config-versions">Config diff</a>
                             </h4>
                         </div>
                         <div class="card-body">
-                            Microconfig can detect added/removed/changed properties for each service and store this
-                            information after every config build.
+                            Microconfig can detect added/removed/changed properties for each service and store this information after every config build.
                         </div>
                     </div>
                 </div>

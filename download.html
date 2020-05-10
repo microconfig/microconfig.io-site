@@ -16,19 +16,26 @@
     </script>
 
     <!-- Yandex.Metrika counter -->
-    <script type="text/javascript" >
-        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-            m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+    <script type="text/javascript">
+        (function (m, e, t, r, i, k, a) {
+            m[i] = m[i] || function () {
+                (m[i].a = m[i].a || []).push(arguments)
+            };
+            m[i].l = 1 * new Date();
+            k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+        })
         (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
         ym(62011645, "init", {
-            clickmap:true,
-            trackLinks:true,
-            accurateTrackBounce:true,
-            webvisor:true
+            clickmap: true,
+            trackLinks: true,
+            accurateTrackBounce: true,
+            webvisor: true
         });
     </script>
-    <noscript><div><img src="https://mc.yandex.ru/watch/62011645" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <noscript>
+        <div><img src="https://mc.yandex.ru/watch/62011645" style="position:absolute; left:-9999px;" alt=""/></div>
+    </noscript>
     <!-- /Yandex.Metrika counter -->
 
     <meta charset="utf-8">
@@ -56,9 +63,9 @@
             <nav class="my-2 my-md-0 mr-md-3">
                 <a class="p-2 text-dark" href="features.html">Features</a>
                 <a class="p-2 text-dark" href="quickstart.html">Quickstart</a>
-                <a class="p-2 text-dark" href="documentation.html">Docs</a>
                 <a class="p-2 text-dark" href="download.html">Download</a>
                 <a class="p-2 text-dark" href="plugin.html">IDE plugin</a>
+                <a class="p-2 text-dark" href="documentation.html">Docs</a>
             </nav>
         </div>
     </div>
@@ -79,23 +86,30 @@
 <main role="main" id="download">
     <section class="jumbotron">
         <div class="container">
-            <h1>Download</h1>
+            <h1 class="text-center">Download</h1>
+            <br/><br/>
+            <h3>Binary Executable</h3>
             <p class="lead">
-                You can download standalone Microconfig CLI from
-                <a href="https://repo1.maven.org/maven2/io/microconfig/microconfig-cli/4.0.0/microconfig-cli-4.0.0-all.jar">Maven
-                    Central</a> or
-                <a href="https://github.com/microconfig/microconfig/releases">Github releases</a>.
+                You can download Microconfig for your OS from
+                <a href="https://github.com/microconfig/microconfig/releases">Github</a>.<br/>
             </p>
+            <br/><br/>
+            <h3>Brew</h3>
+            <p class="lead">
+                MacOS install with HomeBrew coming soon...<br/>
+            </p>
+            <br/><br/>
+            <h3>Jar</h3>
             <p class="lead">
                 If you want to add Microconfig-core as a dependency to your Java project use
                 <a href="https://search.maven.org/artifact/io.microconfig/microconfig-core/4.0.0/jar">this Maven
                     artifact</a>.
             </p>
+            <br/><br/>
 
+            <h3>How to use</h3>
             <p class="lead">
-                See documentation how to
-                <a href="quickstart.html">run config build
-                    via CLI</a>.
+                Check out <a href="quickstart.html">quickstart</a> to learn how to use Microconfig.
             </p>
         </div>
     </section>
@@ -108,7 +122,9 @@
 
         <div class="contacts">
             <ul class="list-unstyled mb-0">
-                <li class="lead">Join our <a href="https://join.slack.com/t/microconfig/shared_invite/zt-dflf2m0n-wOPVfAmk5eiHPn_9Omff7Q">Slack!</a></li>
+                <li class="lead">Join our <a
+                        href="https://join.slack.com/t/microconfig/shared_invite/zt-dflf2m0n-wOPVfAmk5eiHPn_9Omff7Q">Slack!</a>
+                </li>
                 <li class="lead">Contribute on <a href="https://github.com/microconfig/microconfig">Github</a></li>
                 <li class="lead"><a href="mailto:hello@microconfig.io">hello@microconfig.io</a></li>
             </ul>

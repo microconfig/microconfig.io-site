@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta name="yandex-verification" content="00bf34bc7a08335d"/>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-137858449-1"></script>
     <script>
@@ -13,70 +14,246 @@
         gtag('js', new Date());
 
         gtag('config', 'UA-137858449-1');
+
+
     </script>
 
     <!-- Yandex.Metrika counter -->
-    <script type="text/javascript" >
-        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-            m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+    <script type="text/javascript">
+        (function (m, e, t, r, i, k, a) {
+            m[i] = m[i] || function () {
+                (m[i].a = m[i].a || []).push(arguments)
+            };
+            m[i].l = 1 * new Date();
+            k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+        })
         (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
         ym(62011645, "init", {
-            clickmap:true,
-            trackLinks:true,
-            accurateTrackBounce:true,
-            webvisor:true
+            clickmap: true,
+            trackLinks: true,
+            accurateTrackBounce: true,
+            webvisor: true
         });
     </script>
-    <noscript><div><img src="https://mc.yandex.ru/watch/62011645" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <noscript>
+        <div><img src="https://mc.yandex.ru/watch/62011645" style="position:absolute; left:-9999px;" alt=""/></div>
+    </noscript>
     <!-- /Yandex.Metrika counter -->
 
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <meta content="configuration management, configuration framework, external configuration, configuration best practices, java configuration, microservice configuration, microservice configs, config, configuration"
+    <meta content="microservice configuration, configuration, cloud native, cloud native configuration, kubernetes, helm, configuration management, external configuration, configuration processor, configuration management tools, application configuration"
           name="keywords">
-    <meta content="Microconfig - Microservice configuration made easy" name="description">
+    <meta content="Microconfig is a modern and simple way to manage microservice configuration. Especially in the Cloud."
+          name="description">
     <title>Microconfig.io - Quickstart</title>
+
+    <link href="bootstrap/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="css/styles.css" rel="stylesheet">
+    <link href="bloggersans/bloggersans.css" rel="stylesheet">
     <link rel="icon" href="css/favicon.ico">
-
-    <link rel="stylesheet" href="//unpkg.com/docsify/themes/vue.css">
-
-    <style>
-        body {
-            font-size: 1.25rem;
-            font-weight: 300;
-            line-height: 1.5;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-        }
-
-        .markdown-section p, .markdown-section ul {
-            line-height: 1.5;
-        }
-
-        .anchor span {
-            color: black;
-        }
-
-        .markdown-section {
-            padding: 0;
-            max-width: 90%;
-        }
-    </style>
 </head>
+
 <body>
-<div id="app"></div>
-<script>
-    window.$docsify = {
-        name: 'Microconfig.io',
-        homepage: 'https://raw.githubusercontent.com/microconfig/microconfig-quickstart/master/readme.md',
-        repo: 'https://github.com/microconfig/microconfig',
-        noEmoji: true,
-        logo: './images/microconfig_logo_horizontal.svg',
-        nameLink: "https://microconfig.io",
-    }
-</script>
-<script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
+
+<header>
+    <div class="navbar shadow-sm">
+        <div class="container d-flex justify-content-between">
+            <a href="https://microconfig.io" class="navbar-brand d-flex align-items-center">
+                <img src="./images/microconfig_logo_horizontal.svg" alt="Microconfig"/>
+            </a>
+
+            <nav class="my-2 my-md-0 mr-md-3">
+                <a class="p-2 text-dark" href="features.html">Features</a>
+                <a class="p-2 text-dark" href="quickstart.html">Quickstart</a>
+                <a class="p-2 text-dark" href="documentation.html">Docs</a>
+                <a class="p-2 text-dark" href="download.html">Download</a>
+                <a class="p-2 text-dark" href="plugin.html">IDE plugin</a>
+            </nav>
+        </div>
+    </div>
+</header>
+
+<a href="https://github.com/microconfig/microconfig" class="github-corner" aria-label="View source on GitHub">
+    <svg width="80" height="80" viewBox="0 0 250 250"
+         style="fill:#5fbb92; color:#fff; position: fixed; top: 0; border: 0; right: 0;z-index: 100"
+         aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+
+<main role="main" id="download">
+    <section class="jumbotron">
+        <div class="container">
+            <h1 id="quickstart" class="text-center">Quickstart</h1>
+            <p class="text-center">You will learn how to build configuration with Microconfig.</p>
+            <h2 id="setup">Setup</h2><br/>
+            <h3 id="example-repository">Get code</h3>
+            <p>Checkout with <code>git</code></p>
+            <pre class="bg-light"><code>git clone https://github.com/microconfig/microconfig-quickstart.git
+cd microconfig-quickstart</code></pre>
+            <p>Or just <a href="https://github.com/microconfig/microconfig-quickstart/archive/master.zip">download</a>
+                and unzip it directly.</p>
+            <h3 id="microconfig-jar">Get microconfig</h3>
+            <p><a href="download.html">Download</a> the latest binary for your OS.</p>
+            <br/><br/>
+            <h3 id="example-configuration">Example Configuration</h3>
+            <p>Our configuration example has 2 services:</p>
+            <ul>
+                <li><code>payments-backend</code></li>
+                <li><code>payments-frontend</code></li>
+            </ul>
+            <p>Services are combined into <code>payments</code> group.</p>
+            <p>We have environment specific values for 2 environments:</p>
+            <ul>
+                <li><code>dev</code></li>
+                <li><code>prod</code></li>
+            </ul>
+            <p>Each service expects 3 files:</p>
+            <ul>
+                <li><code>application.yaml</code> - application config</li>
+                <li><code>deploy.yaml</code> - deployment config</li>
+                <li><code>logback.xml</code> - logging configuration</li>
+            </ul>
+            <br/>
+
+            <h2 id="build">Build</h2><br/>
+            <p>Examples assume that you run your build in quickstart repository dir.</p>
+            <br/>
+
+            <h3 id="specific-env-one">Generate configuration for a service in a specific environment</h3>
+            <p>Let's generate configuration for <code>payments-backend</code> service in <code>dev</code> environment.
+            </p>
+            <pre class="bg-light"><code>microconfig -r . -e dev -s payment-backend
+
+Filtered 1 component(s) in [dev] env.
+Copied 'payment-backend' template ../log/logback.xml -&gt; logback.xml
+Generated payment-backend/application.yaml
+Generated payment-backend/deploy.yaml
+
+Generated [dev] configs in 265ms</code></pre>
+            <p><strong>Parameters: </strong></p>
+            <ul>
+                <li><code>-r . </code> specify root dir (optional)</li>
+                <li><code>-e dev </code> generate for <code>dev</code> environment</li>
+                <li><code>-s payments-backend </code> generate for <code>payments-backend</code> service</li>
+            </ul>
+            <p>As a result Microconfig created <code>build</code> folder with <code>dev</code> configs for <code>payments-backend</code>.
+            </p>
+            <pre class="bg-light"><code>build
+&#x2514;&#x2500;&#x2500; payment-backend
+    &#x251c;&#x2500;&#x2500; application.yaml
+    &#x251c;&#x2500;&#x2500; deploy.yaml
+    &#x2514;&#x2500;&#x2500; logback.xml</code></pre>
+            <br/><br/>
+            <h3 id="specific-env-group">Generate configuration for a group in a specific environment</h3>
+
+            <p>Let's generate configuration for <code>payments</code> group in <code>prod</code> environment.</p>
+            <pre class="bg-light"><code>microconfig -e prod -g payments
+
+Filtered 2 component(s) in [prod] env.
+Copied 'payment-backend' template ../log/logback.xml -&gt; logback.xml
+Copied 'payment-frontend' template ../log/logback.xml -&gt; logback.xml
+Generated payment-backend/application.yaml
+Generated payment-backend/deploy.yaml
+Generated payment-frontend/application.yaml
+Generated payment-frontend/deploy.yaml
+
+Generated [prod] configs in 325ms</code></pre>
+
+            <p>Parameters: </p>
+
+            <ul>
+                <li><code>-e prod </code> generate for <code>prod</code> environment</li>
+
+                <li><code>-g payments </code> generate for <code>payments</code> group</li>
+            </ul>
+
+            <p>As a result Microconfig created <code>build</code> folder with <code>prod</code> configs for
+                <code>payments</code> group.</p>
+            <pre class="bg-light"><code>build
+&#x251c;&#x2500;&#x2500; payment-backend
+&#x2502;   &#x251c;&#x2500;&#x2500; application.yaml
+&#x2502;   &#x251c;&#x2500;&#x2500; deploy.yaml
+&#x2502;   &#x2514;&#x2500;&#x2500; logback.xml
+&#x2514;&#x2500;&#x2500; payment-frontend
+    &#x251c;&#x2500;&#x2500; application.yaml
+    &#x251c;&#x2500;&#x2500; deploy.yaml
+    &#x2514;&#x2500;&#x2500; logback.xml</code></pre>
+            <br/><br/>
+
+            <h3 id="specific-env-all">Generate configuration for all services in a specific environment</h3>
+
+            <p>Let's generate configuration for all services in <code>dev</code> environment.</p>
+
+            <pre class="bg-light"><code class="shell script language-shell script">microconfig -e dev
+
+Filtered 2 component(s) in [dev] env.
+Copied 'payment-frontend' template ../log/logback.xml -&gt; logback.xml
+Copied 'payment-backend' template ../log/logback.xml -&gt; logback.xml
+Generated payment-backend/application.yaml
+Generated payment-backend/deploy.yaml
+Generated payment-frontend/application.yaml
+Generated payment-frontend/deploy.yaml
+
+Generated [dev] configs in 326ms
+</code></pre>
+
+            <p>Parameters: </p>
+
+            <ul>
+                <li><code>-e dev</code> generate for <code>dev</code> environment</li>
+            </ul>
+
+            <p>As a result Microconfig created <code>build</code> folder with configs for all services defined in <code>dev</code> environment.</p>
+
+            <pre class="bg-light"><code>build
+&#x251c;&#x2500;&#x2500; payment-backend
+&#x2502;   &#x251c;&#x2500;&#x2500; application.yaml
+&#x2502;   &#x251c;&#x2500;&#x2500; deploy.yaml
+&#x2502;   &#x2514;&#x2500;&#x2500; logback.xml
+&#x2514;&#x2500;&#x2500; payment-frontend
+    &#x251c;&#x2500;&#x2500; application.yaml
+    &#x251c;&#x2500;&#x2500; deploy.yaml
+    &#x2514;&#x2500;&#x2500; logback.xml
+</code></pre>
+
+            <br/><br/>
+            <h2 id="conclusion">Conclusion</h2>
+
+            <p>We hope you agree that microconfig is easy to use. Now you can explore current example to see Microconfig syntax or you can try out <a href="https://microconfig.io/plugin.html">IDE plugin</a> .</p>
+        </div>
+    </section>
+</main>
+
+<footer class="text-muted">
+    <div class="container footer-container">
+        <p class="copyright">Microconfig.io &copy; 2017-2020</p>
+
+        <div class="contacts">
+            <ul class="list-unstyled mb-0">
+                <li class="lead">Join our <a
+                        href="https://join.slack.com/t/microconfig/shared_invite/zt-dflf2m0n-wOPVfAmk5eiHPn_9Omff7Q">Slack!</a>
+                </li>
+                <li class="lead">Contribute on <a href="https://github.com/microconfig/microconfig">Github</a></li>
+                <li class="lead"><a href="mailto:hello@microconfig.io">hello@microconfig.io</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+<script src="bootstrap/bootstrap.bundle.min.js"
+        integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm"></script>
+
 </body>
 </html>

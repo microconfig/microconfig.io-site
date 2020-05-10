@@ -16,19 +16,26 @@
     </script>
 
     <!-- Yandex.Metrika counter -->
-    <script type="text/javascript" >
-        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-            m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+    <script type="text/javascript">
+        (function (m, e, t, r, i, k, a) {
+            m[i] = m[i] || function () {
+                (m[i].a = m[i].a || []).push(arguments)
+            };
+            m[i].l = 1 * new Date();
+            k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+        })
         (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
         ym(62011645, "init", {
-            clickmap:true,
-            trackLinks:true,
-            accurateTrackBounce:true,
-            webvisor:true
+            clickmap: true,
+            trackLinks: true,
+            accurateTrackBounce: true,
+            webvisor: true
         });
     </script>
-    <noscript><div><img src="https://mc.yandex.ru/watch/62011645" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <noscript>
+        <div><img src="https://mc.yandex.ru/watch/62011645" style="position:absolute; left:-9999px;" alt=""/></div>
+    </noscript>
     <!-- /Yandex.Metrika counter -->
 
     <meta charset="utf-8">
@@ -80,17 +87,25 @@
     <section class="jumbotron">
         <div class="container">
             <article class="markdown-body entry-content" itemprop="text">
-                <h1>JetBrains IDE plugin
+                <h1 class="text-center">JetBrains IDE plugin
                     <a href="https://plugins.jetbrains.com/plugin/12064-microconfig-io">
-                        <img alt="JetBrains IDE plugins" src="https://img.shields.io/jetbrains/plugin/d/12064-microconfig-io?color=%235fbb92&style=flat-square">
+                        <img alt="JetBrains IDE plugins"
+                             src="https://img.shields.io/jetbrains/plugin/d/12064-microconfig-io?color=%235fbb92&style=flat-square">
                     </a>
                 </h1>
-                <p>JetBrains IDE plugin plugin for Microconfig that allows navigation to #include and ${placeholder} sources,
-                    preview individual placeholders or whole components and even build your configs.</p>
-
-                <h4>Plugin usage</h4>
-                <p>Plugin adds it's submenu in <code>Main Menu -&gt; Tools -&gt; Microconfig</code>and in editor's <code>RightClick</code> popup.
+                <br/>
+                <p>JetBrains IDE plugin for Microconfig allows navigation to <code>#include</code> and <code>${placeholder}</code>
+                    sources, preview individual placeholders or whole components and even build your configs.</p>
+                <p>Plugin is compatible with any JetBrains IDE: IntelliJ IDEA, PhpStorm, WebStorm, PyCharm,
+                    RubyMine, AppCode, CLion, GoLand, DataGrip, Rider, MPS, Android Studio
                 </p>
+                <br/>
+                <h2>Overview</h2>
+                <p>Plugin adds it's submenu in <code>Main Menu -&gt; Tools -&gt; Microconfig</code> and in editor's
+                    <code>RightClick</code> popup.
+                </p>
+
+
                 <p>Microconfig Plugin's main functions:</p>
                 <ul>
                     <li>Jump to component (F10)</li>
@@ -98,51 +113,64 @@
                     <li>Preview component (Shift-Ctrl-F10 / Shift-Command-F10)</li>
                     <li>Build configuration (via Run Configuration)</li>
                 </ul>
+
+                <br/>
                 <h4>Jump to component</h4>
                 <p><code>Jump to component</code> supports navigation from <code>#include component</code> line.
                     Once activated from the menu or by a hotkey it will try to find <code>component</code> in
                     'components' directory and open matching file inside.
                 </p>
+                <video controls loop width="1000" src="video/jump-include.mov"></video>
+                <br/>
+                <br/>
+
+                <h4>Jump to placeholder</h4>
                 <p>Also, it can jump to a component referenced in a placeholder like <code>${component@key}</code>.
                     To choose a placeholder just place your cursor inside <code>{}</code>.
                     On Jump it will try to find <code>component</code> file and then a line with <code>key</code> inside
                     it, once found it will place cursor on that line.
                 </p>
-
+                <br/>
+                <video controls loop width="1000" src="video/jump-placeholder.mov"></video>
+                <br/>
+                <br/>
                 <h4>Resolve placeholder</h4>
                 <p><code>Resolve placeholder</code> shows value previews grouped by env names in a small hint.</p>
-                <p>If activated with cursor on a property' key it will try to resolve the whole property and show values
-                    grouped by env names in a small hint.
-                </p>
-                <p>If activated with cursor inside placeholder <code>${}</code> it will try to resolve only selected placeholder.</p>
-                <p><img src="https://github.com/microconfig/microconfig-idea-plugin/raw/master/doc/resolve-placeholder.png"
-                        alt="resolve-placeholder" style="max-width:100%;"></p>
+                <p>If activated with cursor inside placeholder <code>${}</code> it will try to resolve only selected
+                    placeholder.</p>
+                <p>
+                    <img class="w-75"
+                         src="https://github.com/microconfig/microconfig-idea-plugin/raw/master/doc/resolve-placeholder.png"
+                         alt="resolve-placeholder" style="max-width:100%;"></p>
 
                 <p>If activated with cursor on a property key it will try to resolve the whole property.</p>
-                <p><img src="https://github.com/microconfig/microconfig-idea-plugin/raw/master/doc/resolve-property.png"
+                <p><img class="w-75"
+                        src="https://github.com/microconfig/microconfig-idea-plugin/raw/master/doc/resolve-property.png"
                         alt="resolve-property" style="max-width:100%;"></p>
 
                 <p>It also works with expression language.</p>
-                <p><img src="https://github.com/microconfig/microconfig-idea-plugin/raw/master/doc/resolve-expression.png"
-                        alt="resolve-expression" style="max-width:100%;"></p>
-
+                <p>
+                    <img class="w-75"
+                         src="https://github.com/microconfig/microconfig-idea-plugin/raw/master/doc/resolve-expression.png"
+                         alt="resolve-expression" style="max-width:100%;"></p>
+                <br/>
                 <h4>Configuration preview</h4>
                 <p>You can preview configuration for a component on the fly. To open preview either activate <code>
                     Microconfig -&gt; Preview component</code> or use default hotkey (Shift-Ctrl-F10 /
                     Shift-Command-F10).
                     Preview window allows you to see resulting configs for different environments.
                 </p>
-                <p><img src="https://github.com/microconfig/microconfig-idea-plugin/raw/master/doc/preview.png"
-                        alt="preview" style="max-width:100%;"></p>
-
-
+                <video controls loop width="1000" src="video/preview.mov"></video>
+                <br/>
+                <br/>
                 <h4>Config build</h4>
                 <p>You can create standard IDEA Run configuration for Microconfig to build configs with your IDE.</p>
                 <p>
-                    <img src="https://github.com/microconfig/microconfig-idea-plugin/raw/master/doc/run.png" alt="run"
+                    <img class="w-75"
+                         src="https://github.com/microconfig/microconfig-idea-plugin/raw/master/doc/run.png" alt="run"
                          style="max-width:100%;">
                 </p>
-
+                <br/>
                 <h4>Installation</h4>
                 <p>
                     Install plugin by name <code>Microconfig.io</code> from Idea <code>Settings -&gt; Plugins -&gt;
@@ -150,16 +178,16 @@
                 </p>
 
                 <p>
-                    <img src="https://github.com/microconfig/microconfig-idea-plugin/raw/master/doc/install.png" alt="install"
+                    <img class="w-75"
+                         src="https://github.com/microconfig/microconfig-idea-plugin/raw/master/doc/install.png"
+                         alt="install"
                          style="max-width:100%;">
                 </p>
+                <br/>
                 <p>Or download plugin zip file from
-                    <a href="https://plugins.jetbrains.com/plugin/12064-microconfig-io" rel="nofollow">Jetbrains Plugin repository</a>
+                    <a href="https://plugins.jetbrains.com/plugin/12064-microconfig-io" rel="nofollow">Jetbrains Plugin
+                        repository</a>
                     and import it via <br> <code>Settings -&gt; Plugins -&gt; Install plugin from disk...</code>
-                </p>
-                <h4>Compatibility</h4>
-                <p>The plugin is compatible with any JetBrains IDE: IntelliJ IDEA, PhpStorm, WebStorm, PyCharm,
-                    RubyMine, AppCode, CLion, GoLand, DataGrip, Rider, MPS, Android Studio
                 </p>
             </article>
         </div>
@@ -172,7 +200,9 @@
 
         <div class="contacts">
             <ul class="list-unstyled mb-0">
-                <li class="lead">Join our <a href="https://join.slack.com/t/microconfig/shared_invite/zt-dflf2m0n-wOPVfAmk5eiHPn_9Omff7Q">Slack!</a></li>
+                <li class="lead">Join our <a
+                        href="https://join.slack.com/t/microconfig/shared_invite/zt-dflf2m0n-wOPVfAmk5eiHPn_9Omff7Q">Slack!</a>
+                </li>
                 <li class="lead">Contribute on <a href="https://github.com/microconfig/microconfig">Github</a></li>
                 <li class="lead"><a href="mailto:hello@microconfig.io">hello@microconfig.io</a></li>
             </ul>

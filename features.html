@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta name="yandex-verification" content="00bf34bc7a08335d"/>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-137858449-1"></script>
     <script>
@@ -13,74 +14,370 @@
         gtag('js', new Date());
 
         gtag('config', 'UA-137858449-1');
+
+
     </script>
 
     <!-- Yandex.Metrika counter -->
-    <script type="text/javascript" >
-        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-            m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+    <script type="text/javascript">
+        (function (m, e, t, r, i, k, a) {
+            m[i] = m[i] || function () {
+                (m[i].a = m[i].a || []).push(arguments)
+            };
+            m[i].l = 1 * new Date();
+            k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+        })
         (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
         ym(62011645, "init", {
-            clickmap:true,
-            trackLinks:true,
-            accurateTrackBounce:true,
-            webvisor:true
+            clickmap: true,
+            trackLinks: true,
+            accurateTrackBounce: true,
+            webvisor: true
         });
     </script>
-    <noscript><div><img src="https://mc.yandex.ru/watch/62011645" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <noscript>
+        <div><img src="https://mc.yandex.ru/watch/62011645" style="position:absolute; left:-9999px;" alt=""/></div>
+    </noscript>
     <!-- /Yandex.Metrika counter -->
 
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <meta content="configuration includes, placeholders, configuration expression language, application external configuration, configuration diff"
+    <meta content="microservice configuration, configuration, cloud native, cloud native configuration, kubernetes, helm, configuration management, external configuration, configuration processor, configuration management tools, application configuration"
           name="keywords">
-    <meta content="Microconfig - Microservice configuration made easy" name="description">
-    <title>Microconfig.io - Microconfig features</title>
+    <meta content="Microconfig is a modern and simple way to manage microservice configuration. Especially in the Cloud."
+          name="description">
+    <link href="bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+    <link href="bloggersans/bloggersans.css" rel="stylesheet">
     <link rel="icon" href="css/favicon.ico">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="bootstrap/bootstrap.bundle.min.js"></script>
+    <script>
+        $(function () {
+            $("#header").load("header.html");
+            $("#footer").load("footer.html");
+        });
+    </script>
 
-    <link rel="stylesheet" href="//unpkg.com/docsify/themes/vue.css">
-
-    <style>
-        body {
-            font-size: 1.25rem;
-            font-weight: 300;
-            line-height: 1.5;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-        }
-
-        .markdown-section p, .markdown-section ul {
-            line-height: 1.5;
-        }
-
-        .anchor span {
-            color: black;
-        }
-
-        h2 .anchor span {
-            color: #5fbb92;
-        }
-
-        .markdown-section {
-            padding: 0;
-            max-width: 90%;
-        }
-    </style>
+    <title>Microconfig.io - Microservice Configuration Made Easy</title>
 </head>
 <body>
-<div id="app"></div>
-<script>
-    window.$docsify = {
-        name: 'Microconfig.io',
-        homepage: 'https://raw.githubusercontent.com/microconfig/microconfig-quickstart/master/features.md',
-        repo: 'https://github.com/microconfig/microconfig',
-        noEmoji: true,
-        logo: './images/microconfig_logo_horizontal.svg',
-        nameLink: "https://microconfig.io",
-    }
-</script>
-<script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
+<div id="header"></div>
+<main role="main" id="features">
+    <section class="jumbotron">
+        <div class="container">
+            <article class="markdown-body entry-content" itemprop="text">
+                <h1 class="text-center">Features</h1>
+                <p>This guide describes how Microconfig can help you solve common microservice configuration
+                    problems.<br/>
+                    More details you can find in <a href="documentation.html">Docs</a>. </p>
+                <section id="layout">
+                    <br/><br/>
+                    <h2>Simple Configuration Layout</h2><br/>
+
+                    <h4 id="problem">Problem</h4>
+
+                    <p>Other configuration frameworks can demand a specific configuration folder structure or specific
+                        filenames.</p>
+
+                    <h4 id="solution">Solution</h4>
+
+                    <p>Microconfig only asks you to create folders for your services somewhere in
+                        <code>components</code>
+                        folder.
+                        You choose the names and folder structure. If you have different types of configuration just
+                        place
+                        them in the same service folder. </p>
+                    <br/>
+                    <pre class="bg-light pre-console"><code>components
+                        &#x251c;&#x2500;&#x2500; payments
+                        &#x2502;&nbsp;&nbsp;&nbsp;&#x251c;&#x2500;&#x2500; payment-backend
+                        &#x2502;&nbsp;&nbsp;&nbsp;&#x2502;&nbsp;&nbsp;&nbsp;&#x251c;&#x2500;&#x2500; application.yaml
+                        &#x2502;&nbsp;&nbsp;&nbsp;&#x2502;&nbsp;&nbsp;&nbsp;&#x2514;&#x2500;&#x2500; values.deploy
+                        &#x2502;&nbsp;&nbsp;&nbsp;&#x2514;&#x2500;&#x2500; payment-frontend
+                        &#x2502;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#x251c;&#x2500;&#x2500; application.yaml
+                        &#x2502;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#x2514;&#x2500;&#x2500; values.deploy
+                        &#x2514;&#x2500;&#x2500; ...
+                    ...</code></pre>
+                </section>
+
+                <section id="include">
+                    <br/><br/>
+                    <h2>Reuse Common Parts</h2>
+                    <br/>
+                    <h4>Problem</h4>
+                    <p>Microservices have a lot of shared configuration parts that is copy-pasted between them. So you
+                        need
+                        to go through all services
+                        one by one to update this shared part.</p>
+
+                    <h4>Solution</h4>
+                    <p>Microconfig allows you to extract common parts of configuration to a dedicated component and
+                        reuse it
+                        with <code>#include</code>.
+                        This way service config is more focused on unique parts and all common parts are just included.
+                        In
+                        this case if you need
+                        to update your common part you just do it in one place and everyone gets this update via <code>#include</code>.
+                    </p><br/>
+
+                    <p><code>payment-backend</code></p>
+                    <pre class="bg-light pre-yaml"><code>#include monitoring
+
+                        name: payment-backend
+
+                        server:
+                        &nbsp;&nbsp;port: 8080
+                        &nbsp;&nbsp;context: /api
+                        ...
+                    </code></pre>
+
+                    <p><code>payment-frontend</code></p>
+                    <pre class="bg-light pre-yaml"><code>#include monitoring
+
+                        name: payment-frontend
+
+                        payment-backend:
+                        &nbsp;&nbsp;host: http://payment-backend.local
+                        ...
+                    </code></pre>
+
+                    <p><code>monitoring</code></p>
+                    <pre class="bg-light pre-yaml"><code>monitoring:
+                        &nbsp;&nbsp;base-path: /monitoring
+                        &nbsp;&nbsp;endpoints: info, health, ready, prometheus
+                    </code></pre>
+                </section>
+
+                <section id="placeholders">
+                    <br/><br/>
+                    <h2>Reference Values</h2>
+                    <br/>
+                    <h4>Problem</h4>
+                    <p>Different services can depend on each other's configuration keys. For example frontend needs
+                        backend's api base path.
+                        You can just keep this value in two places but in this case you need to remember about this
+                        dependency and update them both. </p>
+
+                    <h4>Solution</h4>
+                    <p>Microconfig can reference a value from current or another component with a
+                        <code>${placeholder}</code>. This allows you to keep values only in original services
+                        and all who depend on them can just have an explicit reference. In this case you need to update
+                        the value only once.</p>
+                    <br/>
+
+                    <p><code>payment-backend</code></p>
+                    <pre class="bg-light pre-yaml"><code>name: payment-backend
+
+                        server:
+                        &nbsp;&nbsp;context: /api
+                        &nbsp;&nbsp;port: 8080
+
+                        ...
+                    </code></pre>
+
+                    <p><code>payment-frontend</code></p>
+                    <pre class="bg-light pre-yaml"><code>name: payment-frontend
+
+                        payment-backend:
+                        &nbsp;&nbsp;path: ${payment-backend@server.context}
+
+                        ...
+                    </code></pre>
+                </section>
+
+                <section id="expressions">
+                    <br/><br/>
+                    <h2>Dynamic Values</h2>
+                    <br/>
+                    <h3>Problem</h3>
+                    <p>Sometimes static values are not enough, and you want to do a <code>+1</code> or
+                        <code>base64</code>. Some values even are more readable as expressions. </p>
+                    <br/>
+                    <h3>Solution</h3>
+                    <p>Microconfig has <code>#{'expression' + 'language'} </code> to dynamically generate your values.
+                        It
+                        supports math operations and much more. </p>
+                    <br/>
+
+                    <p><code>payment-frontend</code></p>
+                    <pre class="bg-light pre-yaml"><code>name: payment-frontend
+
+                        payment-backend:
+                        &nbsp;&nbsp;timeoutMs: #{ 3 * 60 * 1000 }
+
+                        log:
+                        &nbsp;&nbsp;filename: #{ '${this@name}'.toUpperCase() }.log
+
+                        ...
+                    </code></pre>
+                </section>
+
+                <section id="env">
+                    <br/><br/>
+                    <h2>Environment Specific Config</h2>
+                    <br/>
+                    <h3>Problem</h3>
+                    <p>We deploy services to different environments that have specific properties. Your production
+                        database
+                        has different ip address than your dev.
+                        All of those specifications should be applied to final version for your environment. </p>
+                    <h3>Solution</h3>
+                    <p>Microconfig supports specific values for each environment you need. You just create an override
+                        <code>.env.</code> file near your base configuration.
+                        In this file you specify all that you want for your <code>env</code> and it will be merged with
+                        your base configuration. More specific values will override base ones.</p>
+                    <br/>
+
+                    <p><code>payment-backend/application.yaml</code></p>
+
+                    <pre class="bg-light pre-yaml"><code>name: payment-backend
+
+                        database:
+                        &nbsp;&nbsp;type: Postgres
+                        &nbsp;&nbsp;pool-size: 10
+
+                        ...
+                    </code></pre>
+                    <p><code>payment-backend/application.dev.yaml</code></p>
+                    <pre class="bg-light pre-yaml"><code>
+                        payment-gateway: http://gateway-mock.local
+
+                        database:
+                        &nbsp;&nbsp;url: jdbc:postgres://10.10.10.10:5432/database
+                        ...
+                    </code></pre>
+
+                    <p><code>payment-backend/application.prod.yaml</code></p>
+                    <pre class="bg-light pre-yaml"><code>
+                        payment-gateway: https://payment-gateway.com
+
+                        database:
+                        &nbsp;&nbsp;pool-size: 50
+                        &nbsp;&nbsp;url: jdbc:postgres://20.20.20.20:5432/database
+                    </code></pre>
+                </section>
+
+                <section id="templates">
+                    <br/><br/>
+                    <h2>Static Files Templating</h2>
+                    <br/>
+                    <h3>Problem</h3>
+                    <p>Your services usually require some additional 3rd party configuration files like a log
+                        configuration or a deploy script.
+                        It's easy if these files doesn't have difference for every service but what if you need to
+                        change them a bit for each service or environment? </p>
+
+                    <h3>Solution</h3>
+                    <p>Microconfig can use static templates and populate them with data unique for each service via
+                        placeholders.
+                        So you can keep your template in one place and then generate specific result for each
+                        service. </p>
+                    <br/>
+
+                    <p><code>log template.xml</code></p>
+                    <pre class="bg-light pre-xml"><code>&lt;configuration&gt;
+                        &nbsp;&nbsp;&lt;appender class="ch.qos.logback.core.FileAppender"&gt;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;file&gt;logs/${this@name}.log&lt;/file&gt;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;encoder&gt;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;pattern&gt;%d{HH:mm:ss.SSS} %-5level %logger{15} %msg %n&lt;/pattern&gt;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;/encoder&gt;
+                        &nbsp;&nbsp;&lt;/appender&gt;
+                        &lt;/configuration&gt;
+                    </code></pre>
+
+                    <p><code>payment-backend</code></p>
+                    <pre class="bg-light pre-yaml"><code>microconfig.template.log:
+                        &nbsp;&nbsp;fromFile: ${log@configDir}/template.xml
+                        &nbsp;&nbsp;toFile: logback.xml
+
+                        name: payment-backend
+
+                        ...
+                    </code></pre>
+
+                    <p><code>payment-backend logback.xml</code></p>
+
+                    <pre class="bg-light pre-xml"><code>&lt;configuration&gt;
+                        &nbsp;&nbsp;&lt;appender class="ch.qos.logback.core.FileAppender"&gt;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;file&gt;logs/payment-backend.log&lt;/file&gt;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;encoder&gt;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;pattern&gt;%d{HH:mm:ss.SSS} %-5level %logger{15} %msg %n&lt;/pattern&gt;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;/encoder&gt;
+                        &nbsp;&nbsp;&lt;/appender&gt;
+                        &lt;/configuration&gt;
+                    </code></pre>
+                </section>
+
+                <section id="diff">
+                    <br/><br/>
+                    <h2>Config Diff</h2>
+                    <br/>
+                    <h3>Problem</h3>
+                    <p>When you have your configuration in some kind of templating engine it might be difficult to keep
+                        track of changes or compare different versions of configuration. For example, before new
+                        deployment to production you want to know what changed in your configuration. </p>
+
+                    <h3>Solution</h3>
+                    <p>Microconfig allows you to generate git style <code>diff</code> and see how your configuration
+                        changes overtime or compare different versions.</p>
+                    <br/>
+                    <p><code>payment-frontend before</code></p>
+                    <pre class="bg-light pre-yaml"><code>name: payment-frontend
+
+                        payment-backend:
+                        &nbsp;&nbsp;host: http://payment-backend.local
+                        &nbsp;&nbsp;path: /api
+
+                        server:
+                        &nbsp;&nbsp;maxThreads: 100
+                        &nbsp;&nbsp;minThreads: 10
+                        &nbsp;&nbsp;port: 80
+                        &nbsp;&nbsp;timeoutMs: 180000
+
+                        monitoring:
+                        &nbsp;&nbsp;base-path: /monitoring
+                        &nbsp;&nbsp;endpoints: info, health, ready, prometheus
+                    </code></pre>
+
+                    <p><code>payment-frontend now</code></p>
+                    <pre class="bg-light pre-yaml"><code>name: payment-frontend
+
+                        payment-backend:
+                        &nbsp;&nbsp;host: https://payment-backend.local
+                        &nbsp;&nbsp;path: /api
+                        &nbsp;&nbsp;timeoutMs: 180000
+
+                        server:
+                        &nbsp;&nbsp;port: 80
+
+                        monitoring:
+                        &nbsp;&nbsp;base-path: /monitoring
+                        &nbsp;&nbsp;endpoints: info, health, ready, prometheus
+                    </code></pre>
+
+                    <p><code>payment-frontend diff</code></p>
+
+                    <pre class="bg-light pre-yaml"><code>+payment-backend:
+                        &nbsp;&nbsp;timeoutMs: 180000
+
+                        -server:
+                        &nbsp;&nbsp;maxThreads: 100
+                        &nbsp;&nbsp;minThreads: 10
+                        &nbsp;&nbsp;timeoutMs: 180000
+
+                        payment-backend:
+                        &nbsp;&nbsp;host: http://payment-backend.local -&gt; https://payment-backend.local
+                    </code></pre>
+                </section>
+                <br/><br/>
+                <p>Can't wait to try it out? Head over to <a href="quickstart.html">Quickstart</a></p>
+            </article>
+        </div>
+    </section>
+</main>
+<div id="footer"></div>
 </body>
 </html>

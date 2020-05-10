@@ -40,6 +40,18 @@ footer .footer-container {
     align-items: flex-end;
 }
 
+.pre-console {
+    white-space: pre-line;
+}
+
+.pre-yaml {
+    white-space: pre-line;
+}
+
+.pre-xml {
+    white-space: pre-line;
+}
+
 code {
     color: #5fbb92;
     font-size: 90%;

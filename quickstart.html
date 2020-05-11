@@ -19,19 +19,26 @@
     </script>
 
     <!-- Yandex.Metrika counter -->
-    <script type="text/javascript" >
-        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-            m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+    <script type="text/javascript">
+        (function (m, e, t, r, i, k, a) {
+            m[i] = m[i] || function () {
+                (m[i].a = m[i].a || []).push(arguments)
+            };
+            m[i].l = 1 * new Date();
+            k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+        })
         (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
         ym(62712055, "init", {
-            clickmap:true,
-            trackLinks:true,
-            accurateTrackBounce:true,
-            webvisor:true
+            clickmap: true,
+            trackLinks: true,
+            accurateTrackBounce: true,
+            webvisor: true
         });
     </script>
-    <noscript><div><img src="https://mc.yandex.ru/watch/62712055" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <noscript>
+        <div><img src="https://mc.yandex.ru/watch/62712055" style="position:absolute; left:-9999px;" alt=""/></div>
+    </noscript>
     <!-- /Yandex.Metrika counter -->
 
     <meta charset="utf-8">
@@ -87,8 +94,9 @@
             <h2 id="setup">Setup</h2><br/>
             <h3 id="example-repository">Get code</h3>
             <p>Checkout with <code>git</code></p>
-            <pre class="bg-light"><code>git clone https://github.com/microconfig/microconfig-quickstart.git
-cd microconfig-quickstart</code></pre>
+            <pre class="bg-light pre-console"><code>git clone https://github.com/microconfig/microconfig-quickstart.git
+                cd microconfig-quickstart
+            </code></pre>
             <p>Or just <a href="https://github.com/microconfig/microconfig-quickstart/archive/master.zip">download</a>
                 and unzip it directly.</p>
             <h3 id="microconfig-jar">Get microconfig</h3>
@@ -121,14 +129,15 @@ cd microconfig-quickstart</code></pre>
             <h3 id="specific-env-one">Generate configuration for a service in a specific environment</h3>
             <p>Let's generate configuration for <code>payments-backend</code> service in <code>dev</code> environment.
             </p>
-            <pre class="bg-light"><code>microconfig -r . -e dev -s payment-backend
+            <pre class="bg-light pre-console"><code>microconfig -r . -e dev -s payment-backend
 
-Filtered 1 component(s) in [dev] env.
-Copied 'payment-backend' template ../log/logback.xml -&gt; logback.xml
-Generated payment-backend/application.yaml
-Generated payment-backend/deploy.yaml
+                Filtered 1 component(s) in [dev] env.
+                Copied 'payment-backend' template ../log/logback.xml -&gt; logback.xml
+                Generated payment-backend/application.yaml
+                Generated payment-backend/deploy.yaml
 
-Generated [dev] configs in 265ms</code></pre>
+                Generated [dev] configs in 265ms
+            </code></pre>
             <p><strong>Parameters: </strong></p>
             <ul>
                 <li><code>-r . </code> specify root dir (optional)</li>
@@ -137,29 +146,30 @@ Generated [dev] configs in 265ms</code></pre>
             </ul>
             <p>As a result Microconfig created <code>build</code> folder with <code>dev</code> configs for <code>payments-backend</code>.
             </p>
-            <pre class="bg-light"><code>build
-&#x2514;&#x2500;&#x2500; payment-backend
-    &#x251c;&#x2500;&#x2500; application.yaml
-    &#x251c;&#x2500;&#x2500; deploy.yaml
-    &#x2514;&#x2500;&#x2500; logback.xml</code></pre>
+            <pre class="bg-light pre-console"><code>build
+                &#x2514;&#x2500;&#x2500; payment-backend
+                &nbsp;&nbsp;&nbsp;&nbsp;&#x251c;&#x2500;&#x2500; application.yaml
+                &nbsp;&nbsp;&nbsp;&nbsp;&#x251c;&#x2500;&#x2500; deploy.yaml
+                &nbsp;&nbsp;&nbsp;&nbsp;&#x2514;&#x2500;&#x2500; logback.xml
+            </code></pre>
             <br/><br/>
             <h3 id="specific-env-group">Generate configuration for a group in a specific environment</h3>
 
             <p>Let's generate configuration for <code>payments</code> group in <code>prod</code> environment.</p>
-            <pre class="bg-light"><code>microconfig -e prod -g payments
+            <pre class="bg-light pre-console"><code>microconfig -e prod -g payments
 
-Filtered 2 component(s) in [prod] env.
-Copied 'payment-backend' template ../log/logback.xml -&gt; logback.xml
-Copied 'payment-frontend' template ../log/logback.xml -&gt; logback.xml
-Generated payment-backend/application.yaml
-Generated payment-backend/deploy.yaml
-Generated payment-frontend/application.yaml
-Generated payment-frontend/deploy.yaml
+                Filtered 2 component(s) in [prod] env.
+                Copied 'payment-backend' template ../log/logback.xml -&gt; logback.xml
+                Copied 'payment-frontend' template ../log/logback.xml -&gt; logback.xml
+                Generated payment-backend/application.yaml
+                Generated payment-backend/deploy.yaml
+                Generated payment-frontend/application.yaml
+                Generated payment-frontend/deploy.yaml
 
-Generated [prod] configs in 325ms</code></pre>
+                Generated [prod] configs in 325ms
+            </code></pre>
 
             <p>Parameters: </p>
-
             <ul>
                 <li><code>-e prod </code> generate for <code>prod</code> environment</li>
 
@@ -168,33 +178,34 @@ Generated [prod] configs in 325ms</code></pre>
 
             <p>As a result Microconfig created <code>build</code> folder with <code>prod</code> configs for
                 <code>payments</code> group.</p>
-            <pre class="bg-light"><code>build
-&#x251c;&#x2500;&#x2500; payment-backend
-&#x2502;   &#x251c;&#x2500;&#x2500; application.yaml
-&#x2502;   &#x251c;&#x2500;&#x2500; deploy.yaml
-&#x2502;   &#x2514;&#x2500;&#x2500; logback.xml
-&#x2514;&#x2500;&#x2500; payment-frontend
-    &#x251c;&#x2500;&#x2500; application.yaml
-    &#x251c;&#x2500;&#x2500; deploy.yaml
-    &#x2514;&#x2500;&#x2500; logback.xml</code></pre>
+            <pre class="bg-light pre-console"><code>build
+                &#x251c;&#x2500;&#x2500; payment-backend
+                &#x2502;&nbsp;&nbsp;&nbsp;&#x251c;&#x2500;&#x2500; application.yaml
+                &#x2502;&nbsp;&nbsp;&nbsp;&#x251c;&#x2500;&#x2500; deploy.yaml
+                &#x2502;&nbsp;&nbsp;&nbsp;&#x2514;&#x2500;&#x2500; logback.xml
+                &#x2514;&#x2500;&#x2500; payment-frontend
+                &nbsp;&nbsp;&nbsp;&nbsp;&#x251c;&#x2500;&#x2500; application.yaml
+                &nbsp;&nbsp;&nbsp;&nbsp;&#x251c;&#x2500;&#x2500; deploy.yaml
+                &nbsp;&nbsp;&nbsp;&nbsp;&#x2514;&#x2500;&#x2500; logback.xml
+            </code></pre>
             <br/><br/>
 
             <h3 id="specific-env-all">Generate configuration for all services in a specific environment</h3>
 
             <p>Let's generate configuration for all services in <code>dev</code> environment.</p>
 
-            <pre class="bg-light"><code class="shell script language-shell script">microconfig -e dev
+            <pre class="bg-light pre-console"><code class="shell script language-shell script">microconfig -e dev
 
-Filtered 2 component(s) in [dev] env.
-Copied 'payment-frontend' template ../log/logback.xml -&gt; logback.xml
-Copied 'payment-backend' template ../log/logback.xml -&gt; logback.xml
-Generated payment-backend/application.yaml
-Generated payment-backend/deploy.yaml
-Generated payment-frontend/application.yaml
-Generated payment-frontend/deploy.yaml
+                Filtered 2 component(s) in [dev] env.
+                Copied 'payment-frontend' template ../log/logback.xml -&gt; logback.xml
+                Copied 'payment-backend' template ../log/logback.xml -&gt; logback.xml
+                Generated payment-backend/application.yaml
+                Generated payment-backend/deploy.yaml
+                Generated payment-frontend/application.yaml
+                Generated payment-frontend/deploy.yaml
 
-Generated [dev] configs in 326ms
-</code></pre>
+                Generated [dev] configs in 326ms
+            </code></pre>
 
             <p>Parameters: </p>
 
@@ -205,22 +216,23 @@ Generated [dev] configs in 326ms
             <p>As a result Microconfig created <code>build</code> folder with configs for all services defined in <code>dev</code>
                 environment.</p>
 
-            <pre class="bg-light"><code>build
-&#x251c;&#x2500;&#x2500; payment-backend
-&#x2502;   &#x251c;&#x2500;&#x2500; application.yaml
-&#x2502;   &#x251c;&#x2500;&#x2500; deploy.yaml
-&#x2502;   &#x2514;&#x2500;&#x2500; logback.xml
-&#x2514;&#x2500;&#x2500; payment-frontend
-    &#x251c;&#x2500;&#x2500; application.yaml
-    &#x251c;&#x2500;&#x2500; deploy.yaml
-    &#x2514;&#x2500;&#x2500; logback.xml
-</code></pre>
+            <pre class="bg-light pre-console"><code>build
+                &#x251c;&#x2500;&#x2500; payment-backend
+                &#x2502;&nbsp;&nbsp;&nbsp;&#x251c;&#x2500;&#x2500; application.yaml
+                &#x2502;&nbsp;&nbsp;&nbsp;&#x251c;&#x2500;&#x2500; deploy.yaml
+                &#x2502;&nbsp;&nbsp;&nbsp;&#x2514;&#x2500;&#x2500; logback.xml
+                &#x2514;&#x2500;&#x2500; payment-frontend
+                &nbsp;&nbsp;&nbsp;&nbsp;&#x251c;&#x2500;&#x2500; application.yaml
+                &nbsp;&nbsp;&nbsp;&nbsp;&#x251c;&#x2500;&#x2500; deploy.yaml
+                &nbsp;&nbsp;&nbsp;&nbsp;&#x2514;&#x2500;&#x2500; logback.xml
+            </code></pre>
 
             <br/><br/>
             <h2 id="conclusion">Conclusion</h2>
 
             <p>We hope you agree that microconfig is easy to use. Now you can explore current example to see Microconfig
-                syntax or you can try out <a href="https://microconfig.io/plugin.html">IDE plugin</a> .</p>
+                syntax,<br/> try out <a href="/plugin.html">IDE plugin</a> or deep dive into
+                <a href="/documentation.html">Docs</a>.</p>
         </div>
     </section>
 </main>

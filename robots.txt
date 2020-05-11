@@ -1,0 +1,3 @@
+User-agent: Yandex
+Disallow: /documentation.html
+Sitemap: https://microconfig.io/sitemap.xml

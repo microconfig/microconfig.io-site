@@ -19,19 +19,26 @@
     </script>
 
     <!-- Yandex.Metrika counter -->
-    <script type="text/javascript" >
-        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-            m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+    <script type="text/javascript">
+        (function (m, e, t, r, i, k, a) {
+            m[i] = m[i] || function () {
+                (m[i].a = m[i].a || []).push(arguments)
+            };
+            m[i].l = 1 * new Date();
+            k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+        })
         (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
         ym(62712055, "init", {
-            clickmap:true,
-            trackLinks:true,
-            accurateTrackBounce:true,
-            webvisor:true
+            clickmap: true,
+            trackLinks: true,
+            accurateTrackBounce: true,
+            webvisor: true
         });
     </script>
-    <noscript><div><img src="https://mc.yandex.ru/watch/62712055" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <noscript>
+        <div><img src="https://mc.yandex.ru/watch/62712055" style="position:absolute; left:-9999px;" alt=""/></div>
+    </noscript>
     <!-- /Yandex.Metrika counter -->
 
     <meta charset="utf-8">
@@ -99,11 +106,9 @@
                     <h4 id="solution">Solution</h4>
 
                     <p>Microconfig only asks you to create folders for your services somewhere in
-                        <code>components</code>
-                        folder.
-                        You choose the names and folder structure. If you have different types of configuration just
-                        place
-                        them in the same service folder. </p>
+                        <code>components</code> folder.
+                        You choose the names and folder structure. If you have different types of configuration
+                        just place them in the same service folder. </p>
                     <br/>
                     <pre class="bg-light pre-console"><code>components
                         &#x251c;&#x2500;&#x2500; payments
@@ -123,46 +128,54 @@
                     <br/>
                     <h4>Problem</h4>
                     <p>Microservices have a lot of shared configuration parts that is copy-pasted between them. So you
-                        need
-                        to go through all services
-                        one by one to update this shared part.</p>
+                        need to go through all services one by one to update this shared part.</p>
 
                     <h4>Solution</h4>
                     <p>Microconfig allows you to extract common parts of configuration to a dedicated component and
-                        reuse it
-                        with <code>#include</code>.
-                        This way service config is more focused on unique parts and all common parts are just included.
-                        In
-                        this case if you need
-                        to update your common part you just do it in one place and everyone gets this update via <code>#include</code>.
+                        reuse it with <code>#include</code>. This way service config is more focused on unique parts and
+                        all common parts are just included. In this case if you need to update your common part you just
+                        do it in one place and everyone gets this update via <code>#include</code>.
                     </p><br/>
 
-                    <p><code>payment-backend</code></p>
-                    <pre class="bg-light pre-yaml"><code>#include monitoring
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12 col-lg-6">
+                                <p><code>payment-backend</code></p>
+                                <pre class="bg-light pre-yaml"><code>#include monitoring
 
-                        name: payment-backend
+                                    name: payment-backend
 
-                        server:
-                        &nbsp;&nbsp;port: 8080
-                        &nbsp;&nbsp;context: /api
-                        ...
-                    </code></pre>
+                                    server:
+                                    &nbsp;&nbsp;port: 8080
+                                    &nbsp;&nbsp;context: /api
 
-                    <p><code>payment-frontend</code></p>
-                    <pre class="bg-light pre-yaml"><code>#include monitoring
+                                    ...
+                                </code></pre>
+                            </div>
+                            <div class="col-md-12 col-lg-6">
+                                <p><code>payment-frontend</code></p>
+                                <pre class="bg-light pre-yaml"><code>#include monitoring
 
-                        name: payment-frontend
+                                    name: payment-frontend
 
-                        payment-backend:
-                        &nbsp;&nbsp;host: http://payment-backend.local
-                        ...
-                    </code></pre>
+                                    payment-backend:
+                                    &nbsp;&nbsp;host: http://payment-backend.local
+                                    &nbsp;&nbsp;path: /api
 
-                    <p><code>monitoring</code></p>
-                    <pre class="bg-light pre-yaml"><code>monitoring:
-                        &nbsp;&nbsp;base-path: /monitoring
-                        &nbsp;&nbsp;endpoints: info, health, ready, prometheus
-                    </code></pre>
+                                    ...
+                                </code></pre>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col offset-lg-3">
+                                <p><code>monitoring</code></p>
+                                <pre class="bg-light pre-yaml"><code>monitoring:
+                                        &nbsp;&nbsp;base-path: /monitoring
+                                        &nbsp;&nbsp;endpoints: info, health, ready, prometheus
+                                </code></pre>
+                            </div>
+                        </div>
+                    </div>
                 </section>
 
                 <section id="placeholders">
@@ -181,25 +194,34 @@
                         and all who depend on them can just have an explicit reference. In this case you need to update
                         the value only once.</p>
                     <br/>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12 col-lg-6">
+                                <p><code>payment-backend</code></p>
+                                <pre class="bg-light pre-yaml"><code>name: payment-backend
 
-                    <p><code>payment-backend</code></p>
-                    <pre class="bg-light pre-yaml"><code>name: payment-backend
+                                    server:
+                                    &nbsp;&nbsp;port: 8080
+                                    &nbsp;&nbsp;context: /api
 
-                        server:
-                        &nbsp;&nbsp;context: /api
-                        &nbsp;&nbsp;port: 8080
+                                    ...
+                                </code></pre>
+                            </div>
+                            <div class="col-md-12 col-lg-6">
+                                <p><code>payment-frontend</code></p>
+                                <pre class="bg-light pre-yaml"><code>name: payment-frontend
 
-                        ...
-                    </code></pre>
+                                    payment-backend:
+                                    &nbsp;&nbsp;host: http://payment-backend.local
+                                    &nbsp;&nbsp;path: ${payment-backend@server.context}
 
-                    <p><code>payment-frontend</code></p>
-                    <pre class="bg-light pre-yaml"><code>name: payment-frontend
+                                    ...
+                                </code></pre>
+                            </div>
+                        </div>
+                    </div>
 
-                        payment-backend:
-                        &nbsp;&nbsp;path: ${payment-backend@server.context}
 
-                        ...
-                    </code></pre>
                 </section>
 
                 <section id="expressions">
@@ -212,8 +234,7 @@
                     <br/>
                     <h3>Solution</h3>
                     <p>Microconfig has <code>#{'expression' + 'language'} </code> to dynamically generate your values.
-                        It
-                        supports math operations and much more. </p>
+                        It supports math operations and much more. </p>
                     <br/>
 
                     <p><code>payment-frontend</code></p>
@@ -235,9 +256,8 @@
                     <br/>
                     <h3>Problem</h3>
                     <p>We deploy services to different environments that have specific properties. Your production
-                        database
-                        has different ip address than your dev.
-                        All of those specifications should be applied to final version for your environment. </p>
+                        database has different ip address than your dev. All of those specifications should be applied
+                        to final version for your environment. </p>
                     <h3>Solution</h3>
                     <p>Microconfig supports specific values for each environment you need. You just create an override
                         <code>.env.</code> file near your base configuration.
@@ -256,17 +276,14 @@
                         ...
                     </code></pre>
                     <p><code>payment-backend/application.dev.yaml</code></p>
-                    <pre class="bg-light pre-yaml"><code>
-                        payment-gateway: http://gateway-mock.local
+                    <pre class="bg-light pre-yaml"><code>payment-gateway: http://gateway-mock.local
 
                         database:
                         &nbsp;&nbsp;url: jdbc:postgres://10.10.10.10:5432/database
-                        ...
                     </code></pre>
 
                     <p><code>payment-backend/application.prod.yaml</code></p>
-                    <pre class="bg-light pre-yaml"><code>
-                        payment-gateway: https://payment-gateway.com
+                    <pre class="bg-light pre-yaml"><code>payment-gateway: https://payment-gateway.com
 
                         database:
                         &nbsp;&nbsp;pool-size: 50
@@ -338,53 +355,67 @@
                     <p>Microconfig allows you to generate git style <code>diff</code> and see how your configuration
                         changes overtime or compare different versions.</p>
                     <br/>
-                    <p><code>payment-frontend before</code></p>
-                    <pre class="bg-light pre-yaml"><code>name: payment-frontend
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12 col-lg-6">
+                                <p><code>payment-frontend v1</code></p>
+                                <pre class="bg-light pre-yaml"><code>name: payment-frontend
 
-                        payment-backend:
-                        &nbsp;&nbsp;host: http://payment-backend.local
-                        &nbsp;&nbsp;path: /api
+                                    monitoring:
+                                    &nbsp;&nbsp;base-path: /monitoring
+                                    &nbsp;&nbsp;endpoints: info, health, ready, prometheus
 
-                        server:
-                        &nbsp;&nbsp;maxThreads: 100
-                        &nbsp;&nbsp;minThreads: 10
-                        &nbsp;&nbsp;port: 80
-                        &nbsp;&nbsp;timeoutMs: 180000
+                                    payment-backend:
+                                    &nbsp;&nbsp;host: http://payment-backend.local
+                                    &nbsp;&nbsp;path: /api
 
-                        monitoring:
-                        &nbsp;&nbsp;base-path: /monitoring
-                        &nbsp;&nbsp;endpoints: info, health, ready, prometheus
-                    </code></pre>
 
-                    <p><code>payment-frontend now</code></p>
-                    <pre class="bg-light pre-yaml"><code>name: payment-frontend
+                                    server:
+                                    &nbsp;&nbsp;maxThreads: 100
+                                    &nbsp;&nbsp;minThreads: 10
+                                    &nbsp;&nbsp;port: 80
+                                    &nbsp;&nbsp;timeoutMs: 180000
+                                </code></pre>
+                            </div>
+                            <div class="col-md-12 col-lg-6">
+                                <p><code>payment-frontend v2</code></p>
+                                <pre class="bg-light pre-yaml"><code>name: payment-frontend
 
-                        payment-backend:
-                        &nbsp;&nbsp;host: https://payment-backend.local
-                        &nbsp;&nbsp;path: /api
-                        &nbsp;&nbsp;timeoutMs: 180000
+                                    monitoring:
+                                    &nbsp;&nbsp;base-path: /monitoring
+                                    &nbsp;&nbsp;endpoints: info, health, ready, prometheus
 
-                        server:
-                        &nbsp;&nbsp;port: 80
+                                    payment-backend:
+                                    &nbsp;&nbsp;host: https://payment-backend.local
+                                    &nbsp;&nbsp;path: /api
+                                    &nbsp;&nbsp;timeoutMs: 180000
 
-                        monitoring:
-                        &nbsp;&nbsp;base-path: /monitoring
-                        &nbsp;&nbsp;endpoints: info, health, ready, prometheus
-                    </code></pre>
+                                    server:
+                                    &nbsp;&nbsp;port: 80
 
-                    <p><code>payment-frontend diff</code></p>
 
-                    <pre class="bg-light pre-yaml"><code>+payment-backend:
-                        &nbsp;&nbsp;timeoutMs: 180000
 
-                        -server:
-                        &nbsp;&nbsp;maxThreads: 100
-                        &nbsp;&nbsp;minThreads: 10
-                        &nbsp;&nbsp;timeoutMs: 180000
+                                </code></pre>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col offset-lg-3">
+                                <p><code>payment-frontend diff between v1 and v2</code></p>
 
-                        payment-backend:
-                        &nbsp;&nbsp;host: http://payment-backend.local -&gt; https://payment-backend.local
-                    </code></pre>
+                                <pre class="bg-light pre-yaml"><code>+payment-backend:
+                                    &nbsp;&nbsp;timeoutMs: 180000
+
+                                    -server:
+                                    &nbsp;&nbsp;maxThreads: 100
+                                    &nbsp;&nbsp;minThreads: 10
+                                    &nbsp;&nbsp;timeoutMs: 180000
+
+                                    payment-backend:
+                                    &nbsp;&nbsp;host: http://payment-backend.local -&gt; https://payment-backend.local
+                                </code></pre>
+                            </div>
+                        </div>
+                    </div>
                 </section>
                 <br/><br/>
                 <p>Can't wait to try it out? Head over to <a href="quickstart.html">Quickstart</a></p>

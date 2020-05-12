@@ -58,57 +58,77 @@
 </head>
 <body>
 <header>
-    <div class="navbar shadow-sm">
-        <div class="container d-flex justify-content-between">
-            <a href="./" class="navbar-brand d-flex align-items-center">
-                <img src="./images/microconfig_logo_horizontal.svg" alt="Microconfig"/>
+    <nav class="navbar navbar-expand-md navbar-light shadow-sm bg-light">
+        <div class="container">
+            <a href="./" class="navbar-brand">
+                <img style="width: 200px; " src="images/microconfig_logo_horizontal.svg" alt="Microconfig"/>
             </a>
-
-            <nav class="my-2 my-md-0 mr-md-3">
-                <a class="p-2 text-dark" href="features.html">Features</a>
-                <a class="p-2 text-dark" href="quickstart.html">Quickstart</a>
-                <a class="p-2 text-dark" href="download.html">Download</a>
-                <a class="p-2 text-dark" href="plugin.html">IDE plugin</a>
-                <a class="p-2 text-dark" href="documentation.html">Docs</a>
-            </nav>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link mc-blue" href="features.html">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mc-green" href="quickstart.html">Quickstart</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mc-green" href="download.html">Download</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mc-green" href="plugin.html">IDE plugin</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mc-green" href="documentation.html">Docs</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </div>
+    </nav>
 </header>
 
-<a href="https://github.com/microconfig/microconfig" class="github-corner" aria-label="View source on GitHub">
-    <svg width="80" height="80" viewBox="0 0 250 250"
-         style="fill:#5fbb92; color:#fff; position: fixed; top: 0; border: 0; right: 0;z-index: 100"
-         aria-hidden="true">
-        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
-        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
-              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
-        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
-              fill="currentColor" class="octo-body"></path>
-    </svg>
-</a>
+<!--<a href="https://github.com/microconfig/microconfig" class="github-corner" aria-label="View source on GitHub">-->
+<!--    <svg width="80" height="80" viewBox="0 0 250 250"-->
+<!--         style="fill:#5fbb92; color:#fff; position: fixed; top: 0; border: 0; right: 0;z-index: 100"-->
+<!--         aria-hidden="true">-->
+<!--        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>-->
+<!--        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"-->
+<!--              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>-->
+<!--        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"-->
+<!--              fill="currentColor" class="octo-body"></path>-->
+<!--    </svg>-->
+<!--</a>-->
 <main role="main" id="features">
     <section class="jumbotron">
         <div class="container">
             <article class="markdown-body entry-content" itemprop="text">
-                <h1 class="text-center">Features</h1>
+                <h1 class="mc-blue">Features</h1>
                 <p>This guide describes how Microconfig can help you solve common microservice configuration
-                    problems.<br/>
-                    More details you can find in <a href="documentation.html">Docs</a>. </p>
+                    problems.<br/> More details you can find in <a href="documentation.html">Docs</a>. </p>
                 <section id="layout">
                     <br/><br/>
-                    <h2>Simple Configuration Layout</h2><br/>
+                    <h2 class="mc-green">Simple Configuration Layout</h2><br/>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12 col-lg-6">
+                                <h4 id="problem">Problem</h4>
 
-                    <h4 id="problem">Problem</h4>
+                                <p>Other configuration frameworks can demand a specific configuration folder structure
+                                    or specific filenames.</p>
+                            </div>
+                            <div class="col-md-12 col-lg-6">
+                                <h4 id="solution">Solution</h4>
 
-                    <p>Other configuration frameworks can demand a specific configuration folder structure or specific
-                        filenames.</p>
-
-                    <h4 id="solution">Solution</h4>
-
-                    <p>Microconfig only asks you to create folders for your services somewhere in
-                        <code>components</code> folder.
-                        You choose the names and folder structure. If you have different types of configuration
-                        just place them in the same service folder. </p>
+                                <p>Microconfig only asks you to create folders for your services somewhere in
+                                    <code>components</code> folder. You choose the names and folder structure. If you
+                                    have different types of configuration just place them in the same service folder.
+                                </p>
+                                <br/>
+                            </div>
+                        </div>
+                    </div>
                     <br/>
                     <pre class="bg-light pre-console"><code>components
                         &#x251c;&#x2500;&#x2500; payments
@@ -124,18 +144,30 @@
 
                 <section id="include">
                     <br/><br/>
-                    <h2>Reuse Common Parts</h2>
+                    <h2 class="mc-green">Reuse Common Parts</h2>
                     <br/>
-                    <h4>Problem</h4>
-                    <p>Microservices have a lot of shared configuration parts that is copy-pasted between them. So you
-                        need to go through all services one by one to update this shared part.</p>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12 col-lg-6">
+                                <h4>Problem</h4>
+                                <p>Microservices have a lot of shared configuration parts that is copy-pasted between
+                                    them. So you need to go through all services one by one to update this shared
+                                    part.</p>
+                            </div>
+                            <div class="col-md-12 col-lg-6">
+                                <h4>Solution</h4>
 
-                    <h4>Solution</h4>
-                    <p>Microconfig allows you to extract common parts of configuration to a dedicated component and
-                        reuse it with <code>#include</code>. This way service config is more focused on unique parts and
-                        all common parts are just included. In this case if you need to update your common part you just
-                        do it in one place and everyone gets this update via <code>#include</code>.
-                    </p><br/>
+                                <p>Microconfig allows you to extract common parts of configuration to a dedicated
+                                    component and reuse it with <code>#include</code>. This way service config is more
+                                    focused on unique parts and all common parts are just included. In this case if you
+                                    need to update your common part you just do it in one place and everyone gets this
+                                    update via <code>#include</code>.
+                                </p>
+                                <br/>
+                            </div>
+                        </div>
+                    </div>
+                    <br/>
 
                     <div class="container">
                         <div class="row">
@@ -180,19 +212,27 @@
 
                 <section id="placeholders">
                     <br/><br/>
-                    <h2>Reference Values</h2>
+                    <h2 class="mc-green">Reference Values</h2>
                     <br/>
-                    <h4>Problem</h4>
-                    <p>Different services can depend on each other's configuration keys. For example frontend needs
-                        backend's api base path.
-                        You can just keep this value in two places but in this case you need to remember about this
-                        dependency and update them both. </p>
-
-                    <h4>Solution</h4>
-                    <p>Microconfig can reference a value from current or another component with a
-                        <code>${placeholder}</code>. This allows you to keep values only in original services
-                        and all who depend on them can just have an explicit reference. In this case you need to update
-                        the value only once.</p>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12 col-lg-6">
+                                <h4>Problem</h4>
+                                <p>Different services can depend on each other's configuration keys. For example
+                                    frontend needs backend's api base path. You can just keep this value in two places
+                                    but in this case you need to remember about this dependency and update them
+                                    both. </p>
+                            </div>
+                            <div class="col-md-12 col-lg-6">
+                                <h4>Solution</h4>
+                                <p>Microconfig can reference a value from current or another component with a
+                                    <code>${placeholder}</code>. This allows you to keep values only in original
+                                    services and all who depend on them can just have an explicit reference. In this
+                                    case you need to update the value only once.</p>
+                                <br/>
+                            </div>
+                        </div>
+                    </div>
                     <br/>
                     <div class="container">
                         <div class="row">
@@ -226,17 +266,25 @@
 
                 <section id="expressions">
                     <br/><br/>
-                    <h2>Dynamic Values</h2>
+                    <h2 class="mc-green">Dynamic Values</h2>
                     <br/>
-                    <h3>Problem</h3>
-                    <p>Sometimes static values are not enough, and you want to do a <code>+1</code> or
-                        <code>base64</code>. Some values even are more readable as expressions. </p>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12 col-lg-6">
+                                <h4>Problem</h4>
+                                <p>Sometimes static values are not enough, and you want to do a <code>+1</code> or
+                                    <code>base64</code>. Some values even are more readable as expressions. </p>
+                            </div>
+                            <div class="col-md-12 col-lg-6">
+                                <h4>Solution</h4>
+                                <p>Microconfig has <code>#{'expression' + 'language'} </code> to dynamically generate
+                                    your values.
+                                    It supports math operations and much more. </p>
+                                <br/>
+                            </div>
+                        </div>
+                    </div>
                     <br/>
-                    <h3>Solution</h3>
-                    <p>Microconfig has <code>#{'expression' + 'language'} </code> to dynamically generate your values.
-                        It supports math operations and much more. </p>
-                    <br/>
-
                     <p><code>payment-frontend</code></p>
                     <pre class="bg-light pre-yaml"><code>name: payment-frontend
 
@@ -252,21 +300,30 @@
 
                 <section id="env">
                     <br/><br/>
-                    <h2>Environment Specific Config</h2>
+                    <h2 class="mc-green">Environment Specific Config</h2>
                     <br/>
-                    <h3>Problem</h3>
-                    <p>We deploy services to different environments that have specific properties. Your production
-                        database has different ip address than your dev. All of those specifications should be applied
-                        to final version for your environment. </p>
-                    <h3>Solution</h3>
-                    <p>Microconfig supports specific values for each environment you need. You just create an override
-                        <code>.env.</code> file near your base configuration.
-                        In this file you specify all that you want for your <code>env</code> and it will be merged with
-                        your base configuration. More specific values will override base ones.</p>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12 col-lg-6">
+                                <h4>Problem</h4>
+                                <p>We deploy services to different environments that have specific properties. Your
+                                    production
+                                    database has different ip address than your dev. All of those specifications should
+                                    be applied
+                                    to final version for your environment. </p>
+                            </div>
+                            <div class="col-md-12 col-lg-6">
+                                <h4>Solution</h4>
+                                <p>Microconfig supports specific values for each environment you need. You just create
+                                    an override <code>.env.</code> file near your base configuration. In this file you
+                                    specify all that you want for your <code>env</code> and it will be merged with
+                                    your base configuration. More specific values will override base ones.</p>
+                                <br/>
+                            </div>
+                        </div>
+                    </div>
                     <br/>
-
                     <p><code>payment-backend/application.yaml</code></p>
-
                     <pre class="bg-light pre-yaml"><code>name: payment-backend
 
                         database:
@@ -293,19 +350,26 @@
 
                 <section id="templates">
                     <br/><br/>
-                    <h2>Static Files Templating</h2>
+                    <h2 class="mc-green">Static Files Templating</h2>
                     <br/>
-                    <h3>Problem</h3>
-                    <p>Your services usually require some additional 3rd party configuration files like a log
-                        configuration or a deploy script.
-                        It's easy if these files doesn't have difference for every service but what if you need to
-                        change them a bit for each service or environment? </p>
-
-                    <h3>Solution</h3>
-                    <p>Microconfig can use static templates and populate them with data unique for each service via
-                        placeholders.
-                        So you can keep your template in one place and then generate specific result for each
-                        service. </p>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12 col-lg-6">
+                                <h4>Problem</h4>
+                                <p>Your services usually require some additional 3rd party configuration files like a
+                                    log configuration or a deploy script. It's easy if these files doesn't have
+                                    difference for every service but what if you need to change them a bit for each
+                                    service or environment? </p>
+                            </div>
+                            <div class="col-md-12 col-lg-6">
+                                <h4>Solution</h4>
+                                <p>Microconfig can use static templates and populate them with data unique for each
+                                    service via placeholders. So you can keep your template in one place and then
+                                    generate specific result for each service. </p>
+                                <br/>
+                            </div>
+                        </div>
+                    </div>
                     <br/>
 
                     <p><code>log template.xml</code></p>
@@ -344,17 +408,29 @@
 
                 <section id="diff">
                     <br/><br/>
-                    <h2>Config Diff</h2>
+                    <h2 class="mc-green">Config Diff</h2>
                     <br/>
-                    <h3>Problem</h3>
-                    <p>When you have your configuration in some kind of templating engine it might be difficult to keep
-                        track of changes or compare different versions of configuration. For example, before new
-                        deployment to production you want to know what changed in your configuration. </p>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12 col-lg-6">
+                                <h4>Problem</h4>
+                                <p>When you have your configuration in some kind of templating engine it might be
+                                    difficult to keep
+                                    track of changes or compare different versions of configuration. For example, before
+                                    new
+                                    deployment to production you want to know what changed in your configuration. </p>
+                            </div>
+                            <div class="col-md-12 col-lg-6">
+                                <h4>Solution</h4>
+                                <p>Microconfig allows you to generate git style <code>diff</code> and see how your
+                                    configuration
+                                    changes overtime or compare different versions.</p>
+                                <br/>
+                            </div>
+                        </div>
+                    </div>
+                    <br/>
 
-                    <h3>Solution</h3>
-                    <p>Microconfig allows you to generate git style <code>diff</code> and see how your configuration
-                        changes overtime or compare different versions.</p>
-                    <br/>
                     <div class="container">
                         <div class="row">
                             <div class="col-md-12 col-lg-6">
@@ -418,7 +494,7 @@
                     </div>
                 </section>
                 <br/><br/>
-                <p>Can't wait to try it out? Head over to <a href="quickstart.html">Quickstart</a></p>
+                <p class="text-dark">Can't wait to try it out? Head over to <a href="quickstart.html">Quickstart</a></p>
             </article>
         </div>
     </section>

@@ -1,3 +1,15 @@
+.mc-blue {
+    color: #02afdd !important;
+}
+
+.mc-green {
+    color: #79c357 !important;
+}
+
+.mc-teal {
+    color: #69bade !important;
+}
+
 .mc-color {
     color: #5fbb92
 }
@@ -134,9 +146,9 @@ main {
     flex-grow: 1;
 }
 
-@media (max-width: 767px) {
-    header .navbar .container {
-        align-items: unset;
-        flex-direction: column;
-    }
-}
+/*@media (max-width: 767px) {*/
+/*    header .navbar .container {*/
+/*        align-items: unset;*/
+/*        flex-direction: column;*/
+/*    }*/
+/*}*/

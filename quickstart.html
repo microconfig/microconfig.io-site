@@ -95,42 +95,50 @@
             <h1 id="quickstart" class="mc-blue">Quickstart</h1>
             <p>You will learn how to build configuration with Microconfig.</p>
             <br/>
-            <h2 class="mc-teal" id="setup">Setup</h2><br/>
-            <h3 class="mc-green" id="example-repository">Get Example Config</h3>
-            <p>Checkout with <code>git</code></p>
-            <pre class="bg-light pre-console"><code>git clone https://github.com/microconfig/microconfig-quickstart.git
-                cd microconfig-quickstart
-            </code></pre>
-            <p>Or just <a href="https://github.com/microconfig/microconfig-quickstart/archive/master.zip">download</a>
-                and unzip it directly.</p>
-            <h3 class="mc-green" id="microconfig-jar">Get Microconfig</h3>
-            <p><a href="download.html">Download</a> the latest binary for your OS.</p>
-            <br/>
-            <h3 class="mc-green" id="example-configuration">Config Structure</h3>
-            <p>Our configuration example has 2 services:</p>
-            <ul>
-                <li><code>payments-backend</code></li>
-                <li><code>payments-frontend</code></li>
-            </ul>
-            <p>Services are combined into <code>payments</code> group.</p>
-            <p>We have environment specific values for 2 environments:</p>
-            <ul>
-                <li><code>dev</code></li>
-                <li><code>prod</code></li>
-            </ul>
-            <p>Each service expects 3 files:</p>
-            <ul>
-                <li><code>application.yaml</code> - application config</li>
-                <li><code>deploy.yaml</code> - deployment config</li>
-                <li><code>logback.xml</code> - logging configuration</li>
-            </ul>
-            <br/>
 
+            <section>
+                <h2 class="mc-teal" id="setup">Setup</h2><br/>
+
+                <h3 class="mc-green" id="example-repository">Get Example Config</h3>
+                <p>Checkout with <code>git</code></p>
+                <pre class="bg-light pre-console"><code>git clone https://github.com/microconfig/microconfig-quickstart.git
+                    cd microconfig-quickstart
+                </code></pre>
+                <p>Or just <a
+                        href="https://github.com/microconfig/microconfig-quickstart/archive/master.zip">download</a>
+                    and unzip it directly.</p>
+                <br/>
+
+                <h3 class="mc-green" id="microconfig-jar">Get Microconfig</h3>
+                <p><a href="download.html">Download</a> the latest binary for your OS.</p>
+                <br/>
+
+                <h3 class="mc-green" id="example-configuration">Config Structure</h3>
+                <p>Our configuration example has 2 services:</p>
+                <ul>
+                    <li><code>payments-backend</code></li>
+                    <li><code>payments-frontend</code></li>
+                </ul>
+                <p>Services are combined into <code>payments</code> group.</p>
+                <p>We have environment specific values for 2 environments:</p>
+                <ul>
+                    <li><code>dev</code></li>
+                    <li><code>prod</code></li>
+                </ul>
+                <p>Each service expects 3 files:</p>
+                <ul>
+                    <li><code>application.yaml</code> - application config</li>
+                    <li><code>deploy.yaml</code> - deployment config</li>
+                    <li><code>logback.xml</code> - logging configuration</li>
+                </ul>
+                <br/>
+            </section>
             <h2 class="mc-teal" id="build">Build</h2><br/>
             <p>Examples assume that you run your build in quickstart repository dir.</p>
             <br/>
 
-            <h3 class="mc-green" id="specific-env-one">Generate configuration for a service in a specific environment</h3>
+            <h3 class="mc-green" id="specific-env-one">Generate configuration for a service in a specific
+                environment</h3>
             <p>Let's generate configuration for <code>payments-backend</code> service in <code>dev</code> environment.
             </p>
             <pre class="bg-light pre-console"><code>microconfig -r . -e dev -s payment-backend
@@ -157,7 +165,8 @@
                 &nbsp;&nbsp;&nbsp;&nbsp;&#x2514;&#x2500;&#x2500; logback.xml
             </code></pre>
             <br/><br/>
-            <h3 class="mc-green" id="specific-env-group">Generate configuration for a group in a specific environment</h3>
+            <h3 class="mc-green" id="specific-env-group">Generate configuration for a group in a specific
+                environment</h3>
 
             <p>Let's generate configuration for <code>payments</code> group in <code>prod</code> environment.</p>
             <pre class="bg-light pre-console"><code>microconfig -e prod -g payments
@@ -194,7 +203,8 @@
             </code></pre>
             <br/><br/>
 
-            <h3 class="mc-green" id="specific-env-all">Generate configuration for all services in a specific environment</h3>
+            <h3 class="mc-green" id="specific-env-all">Generate configuration for all services in a specific
+                environment</h3>
 
             <p>Let's generate configuration for all services in <code>dev</code> environment.</p>
 

@@ -19,19 +19,26 @@
     </script>
 
     <!-- Yandex.Metrika counter -->
-    <script type="text/javascript" >
-        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-            m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+    <script type="text/javascript">
+        (function (m, e, t, r, i, k, a) {
+            m[i] = m[i] || function () {
+                (m[i].a = m[i].a || []).push(arguments)
+            };
+            m[i].l = 1 * new Date();
+            k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+        })
         (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
         ym(62712055, "init", {
-            clickmap:true,
-            trackLinks:true,
-            accurateTrackBounce:true,
-            webvisor:true
+            clickmap: true,
+            trackLinks: true,
+            accurateTrackBounce: true,
+            webvisor: true
         });
     </script>
-    <noscript><div><img src="https://mc.yandex.ru/watch/62712055" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <noscript>
+        <div><img src="https://mc.yandex.ru/watch/62712055" style="position:absolute; left:-9999px;" alt=""/></div>
+    </noscript>
     <!-- /Yandex.Metrika counter -->
 
     <meta charset="utf-8">
@@ -86,7 +93,7 @@
     <section class="jumbotron">
         <div class="container">
             <article class="markdown-body entry-content" itemprop="text">
-                <h1 class="text-center">JetBrains IDE plugin
+                <h1 class="mc-blue">JetBrains IDE plugin
                     <a href="https://plugins.jetbrains.com/plugin/12064-microconfig-io">
                         <img alt="JetBrains IDE plugins"
                              src="https://img.shields.io/jetbrains/plugin/d/12064-microconfig-io?color=%235fbb92&style=flat-square">
@@ -99,7 +106,7 @@
                     RubyMine, AppCode, CLion, GoLand, DataGrip, Rider, MPS, Android Studio
                 </p>
                 <br/>
-                <h2>Overview</h2>
+                <h2 class="mc-green">Overview</h2>
                 <p>Plugin adds it's submenu in <code>Main Menu -&gt; Tools -&gt; Microconfig</code> and in editor's
                     <code>RightClick</code> popup.
                 </p>
@@ -114,7 +121,7 @@
                 </ul>
 
                 <br/>
-                <h4>Jump to component</h4>
+                <h4 class="mc-green">Jump to component</h4>
                 <p><code>Jump to component</code> supports navigation from <code>#include component</code> line.
                     Once activated from the menu or by a hotkey it will try to find <code>component</code> in
                     'components' directory and open matching file inside.
@@ -123,7 +130,7 @@
                 <br/>
                 <br/>
 
-                <h4>Jump to placeholder</h4>
+                <h4 class="mc-green">Jump to placeholder</h4>
                 <p>Also, it can jump to a component referenced in a placeholder like <code>${component@key}</code>.
                     To choose a placeholder just place your cursor inside <code>{}</code>.
                     On Jump it will try to find <code>component</code> file and then a line with <code>key</code> inside
@@ -133,7 +140,7 @@
                 <video controls loop style="width: 1000px; max-width: 100%" src="video/jump-placeholder.mp4"></video>
                 <br/>
                 <br/>
-                <h4>Resolve placeholder</h4>
+                <h4 class="mc-green">Resolve placeholder</h4>
                 <p><code>Resolve placeholder</code> shows value previews grouped by env names in a small hint.</p>
                 <p>If activated with cursor inside placeholder <code>${}</code> it will try to resolve only selected
                     placeholder.</p>
@@ -150,7 +157,7 @@
                     <img src="images/plugin/resolve-expression.png"
                          alt="resolve-expression" style="width: 800px; max-width:100%;"></p>
                 <br/>
-                <h4>Configuration preview</h4>
+                <h4 class="mc-green">Configuration preview</h4>
                 <p>You can preview configuration for a component on the fly. To open preview either activate <code>
                     Microconfig -&gt; Preview component</code> or use default hotkey (Shift-Ctrl-F10 /
                     Shift-Command-F10).
@@ -159,30 +166,27 @@
                 <video controls loop style="width: 1000px; max-width: 100%" src="video/preview.mp4"></video>
                 <br/>
                 <br/>
-                <h4>Config build</h4>
+                <h4 class="mc-green">Config build</h4>
                 <p>You can create standard IDEA Run configuration for Microconfig to build configs with your IDE.</p>
                 <p>
                     <img src="images/plugin/run.png" alt="run"
                          style="width: 800px; max-width:100%;">
                 </p>
                 <br/>
-                <h4>Installation</h4>
+                <h4 class="mc-green">Installation</h4>
                 <p>
                     Install plugin by name <code>Microconfig.io</code> from Idea <code>Settings -&gt; Plugins -&gt;
                     Marketplace</code>
                 </p>
-
-                <p>
-                    <img src="images/plugin/install.png"
-                         alt="install"
-                         style="width: 800px; max-width:100%;">
-                </p>
-                <br/>
                 <p>Or download plugin zip file from
-                    <a href="https://plugins.jetbrains.com/plugin/12064-microconfig-io" rel="nofollow">Jetbrains Plugin
-                        repository</a>
-                    and import it via <br> <code>Settings -&gt; Plugins -&gt; Install plugin from disk...</code>
+                    <a class="mc-blue" href="https://plugins.jetbrains.com/plugin/12064-microconfig-io" rel="nofollow">JetBrains
+                        Plugin repository</a> and import it via <br/> <code>Settings -&gt; Plugins -&gt; Install plugin
+                        from disk...</code>
                 </p>
+                <img src="images/plugin/install.png"
+                     alt="install"
+                     style="width: 800px; max-width:100%;">
+                <br/>
             </article>
         </div>
     </section>

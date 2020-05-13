@@ -14,6 +14,10 @@
     color: #5fbb92
 }
 
+.navbar-light .navbar-toggler {
+    border: 0;
+}
+
 .jumbotron {
     padding-top: 2rem;
     padding-bottom: 2rem;

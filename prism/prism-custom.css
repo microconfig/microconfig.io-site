@@ -1,0 +1,11 @@
+.token.comment {
+	color: #79c357;
+}
+.token.builtin {
+	color: #f26b39;
+}
+
+pre[class*="language-"] {
+	font-family: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+	font-size: 18px;
+}

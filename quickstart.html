@@ -49,11 +49,13 @@
     <meta content="Microconfig is a modern and simple way to manage microservice configuration. Especially in the Cloud."
           name="description">
     <link href="bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="prism/prism.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
     <link href="bloggersans/bloggersans.css" rel="stylesheet">
     <link rel="icon" href="css/favicon.ico">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="prism/prism.js"></script>
     <title>Microconfig.io - Microservice Configuration Made Easy</title>
 </head>
 <body>
@@ -101,7 +103,8 @@
 
                 <h3 class="mc-green" id="example-repository">Get Example Config</h3>
                 <p>Checkout with <code>git</code></p>
-                <pre class="bg-light pre-console"><code>git clone https://github.com/microconfig/microconfig-quickstart.git
+                <pre><code class="language-bash">
+                    git clone https://github.com/microconfig/microconfig-quickstart.git
                     cd microconfig-quickstart
                 </code></pre>
                 <p>Or just <a
@@ -141,7 +144,8 @@
                 environment</h3>
             <p>Let's generate configuration for <code>payments-backend</code> service in <code>dev</code> environment.
             </p>
-            <pre class="bg-light pre-console"><code>microconfig -r . -e dev -s payment-backend
+            <pre><code class="language-bash">
+                microconfig -r . -e dev -s payment-backend
 
                 Filtered 1 component(s) in [dev] env.
                 Copied 'payment-backend' template ../log/logback.xml -&gt; logback.xml
@@ -158,18 +162,20 @@
             </ul>
             <p>As a result Microconfig created <code>build</code> folder with <code>dev</code> configs for <code>payments-backend</code>.
             </p>
-            <pre class="bg-light pre-console"><code>build
+            <pre><code class="language-bash">
+                build
                 &#x2514;&#x2500;&#x2500; payment-backend
-                &nbsp;&nbsp;&nbsp;&nbsp;&#x251c;&#x2500;&#x2500; application.yaml
-                &nbsp;&nbsp;&nbsp;&nbsp;&#x251c;&#x2500;&#x2500; deploy.yaml
-                &nbsp;&nbsp;&nbsp;&nbsp;&#x2514;&#x2500;&#x2500; logback.xml
+                    &#x251c;&#x2500;&#x2500; application.yaml
+                    &#x251c;&#x2500;&#x2500; deploy.yaml
+                    &#x2514;&#x2500;&#x2500; logback.xml
             </code></pre>
             <br/><br/>
             <h3 class="mc-green" id="specific-env-group">Generate configuration for a group in a specific
                 environment</h3>
 
             <p>Let's generate configuration for <code>payments</code> group in <code>prod</code> environment.</p>
-            <pre class="bg-light pre-console"><code>microconfig -e prod -g payments
+            <pre><code class="language-bash">
+                microconfig -e prod -g payments
 
                 Filtered 2 component(s) in [prod] env.
                 Copied 'payment-backend' template ../log/logback.xml -&gt; logback.xml
@@ -191,15 +197,16 @@
 
             <p>As a result Microconfig created <code>build</code> folder with <code>prod</code> configs for
                 <code>payments</code> group.</p>
-            <pre class="bg-light pre-console"><code>build
+            <pre><code class="language-bash">
+                build
                 &#x251c;&#x2500;&#x2500; payment-backend
-                &#x2502;&nbsp;&nbsp;&nbsp;&#x251c;&#x2500;&#x2500; application.yaml
-                &#x2502;&nbsp;&nbsp;&nbsp;&#x251c;&#x2500;&#x2500; deploy.yaml
-                &#x2502;&nbsp;&nbsp;&nbsp;&#x2514;&#x2500;&#x2500; logback.xml
+                &#x2502;   &#x251c;&#x2500;&#x2500; application.yaml
+                &#x2502;   &#x251c;&#x2500;&#x2500; deploy.yaml
+                &#x2502;   &#x2514;&#x2500;&#x2500; logback.xml
                 &#x2514;&#x2500;&#x2500; payment-frontend
-                &nbsp;&nbsp;&nbsp;&nbsp;&#x251c;&#x2500;&#x2500; application.yaml
-                &nbsp;&nbsp;&nbsp;&nbsp;&#x251c;&#x2500;&#x2500; deploy.yaml
-                &nbsp;&nbsp;&nbsp;&nbsp;&#x2514;&#x2500;&#x2500; logback.xml
+                    &#x251c;&#x2500;&#x2500; application.yaml
+                    &#x251c;&#x2500;&#x2500; deploy.yaml
+                    &#x2514;&#x2500;&#x2500; logback.xml
             </code></pre>
             <br/><br/>
 
@@ -208,7 +215,8 @@
 
             <p>Let's generate configuration for all services in <code>dev</code> environment.</p>
 
-            <pre class="bg-light pre-console"><code class="shell script language-shell script">microconfig -e dev
+            <pre><code class="language-bash">
+                microconfig -e dev
 
                 Filtered 2 component(s) in [dev] env.
                 Copied 'payment-frontend' template ../log/logback.xml -&gt; logback.xml
@@ -230,15 +238,16 @@
             <p>As a result Microconfig created <code>build</code> folder with configs for all services defined in <code>dev</code>
                 environment.</p>
 
-            <pre class="bg-light pre-console"><code>build
+            <pre><code class="language-bash">
+                build
                 &#x251c;&#x2500;&#x2500; payment-backend
-                &#x2502;&nbsp;&nbsp;&nbsp;&#x251c;&#x2500;&#x2500; application.yaml
-                &#x2502;&nbsp;&nbsp;&nbsp;&#x251c;&#x2500;&#x2500; deploy.yaml
-                &#x2502;&nbsp;&nbsp;&nbsp;&#x2514;&#x2500;&#x2500; logback.xml
+                &#x2502;   &#x251c;&#x2500;&#x2500; application.yaml
+                &#x2502;   &#x251c;&#x2500;&#x2500; deploy.yaml
+                &#x2502;   &#x2514;&#x2500;&#x2500; logback.xml
                 &#x2514;&#x2500;&#x2500; payment-frontend
-                &nbsp;&nbsp;&nbsp;&nbsp;&#x251c;&#x2500;&#x2500; application.yaml
-                &nbsp;&nbsp;&nbsp;&nbsp;&#x251c;&#x2500;&#x2500; deploy.yaml
-                &nbsp;&nbsp;&nbsp;&nbsp;&#x2514;&#x2500;&#x2500; logback.xml
+                    &#x251c;&#x2500;&#x2500; application.yaml
+                    &#x251c;&#x2500;&#x2500; deploy.yaml
+                    &#x2514;&#x2500;&#x2500; logback.xml
             </code></pre>
 
             <br/><br/>
@@ -250,7 +259,7 @@
         </div>
     </section>
 </main>
-<footer class="text-muted">
+<footer class="text-muted bg-light">
     <div class="container footer-container">
         <p class="copyright">Microconfig.io &copy; 2017-2020</p>
 

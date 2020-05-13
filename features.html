@@ -49,11 +49,14 @@
     <meta content="Microconfig is a modern and simple way to manage microservice configuration. Especially in the Cloud."
           name="description">
     <link href="bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="prism/prism.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
     <link href="bloggersans/bloggersans.css" rel="stylesheet">
     <link rel="icon" href="css/favicon.ico">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="prism/prism.js"></script>
+
     <title>Microconfig.io - Microservice Configuration Made Easy</title>
 </head>
 <body>
@@ -130,16 +133,18 @@
                         </div>
                     </div>
                     <br/>
-                    <pre class="bg-light pre-console"><code>components
+                    <pre><code class="language-shell">
+                        components
                         &#x251c;&#x2500;&#x2500; payments
-                        &#x2502;&nbsp;&nbsp;&nbsp;&#x251c;&#x2500;&#x2500; payment-backend
-                        &#x2502;&nbsp;&nbsp;&nbsp;&#x2502;&nbsp;&nbsp;&nbsp;&#x251c;&#x2500;&#x2500; application.yaml
-                        &#x2502;&nbsp;&nbsp;&nbsp;&#x2502;&nbsp;&nbsp;&nbsp;&#x2514;&#x2500;&#x2500; values.deploy
-                        &#x2502;&nbsp;&nbsp;&nbsp;&#x2514;&#x2500;&#x2500; payment-frontend
-                        &#x2502;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#x251c;&#x2500;&#x2500; application.yaml
-                        &#x2502;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#x2514;&#x2500;&#x2500; values.deploy
+                        &#x2502;   &#x251c;&#x2500;&#x2500; payment-backend
+                        &#x2502;   &#x2502;   &#x251c;&#x2500;&#x2500; application.yaml
+                        &#x2502;   &#x2502;   &#x2514;&#x2500;&#x2500; values.deploy
+                        &#x2502;   &#x2514;&#x2500;&#x2500; payment-frontend
+                        &#x2502;       &#x251c;&#x2500;&#x2500; application.yaml
+                        &#x2502;       &#x2514;&#x2500;&#x2500; values.deploy
                         &#x2514;&#x2500;&#x2500; ...
-                    ...</code></pre>
+                        ...
+                    </code></pre>
                 </section>
 
                 <section id="include">
@@ -173,37 +178,36 @@
                         <div class="row">
                             <div class="col-md-12 col-lg-6">
                                 <p><code>payment-backend</code></p>
-                                <pre class="bg-light pre-yaml"><code>#include monitoring
+                                <pre><code class="language-yaml">
+                                    #include monitoring
 
                                     name: payment-backend
 
                                     server:
-                                    &nbsp;&nbsp;port: 8080
-                                    &nbsp;&nbsp;context: /api
-
-                                    ...
+                                      port: 8080
+                                      context: /api
                                 </code></pre>
                             </div>
                             <div class="col-md-12 col-lg-6">
                                 <p><code>payment-frontend</code></p>
-                                <pre class="bg-light pre-yaml"><code>#include monitoring
+                                <pre><code class="language-yaml">
+                                    #include monitoring
 
                                     name: payment-frontend
 
                                     payment-backend:
-                                    &nbsp;&nbsp;host: http://payment-backend.local
-                                    &nbsp;&nbsp;path: /api
-
-                                    ...
+                                      host: http://payment-backend.local
+                                      path: /api
                                 </code></pre>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col offset-lg-3">
+                            <div class="col-md-12 col-lg-6 offset-lg-3">
                                 <p><code>monitoring</code></p>
-                                <pre class="bg-light pre-yaml"><code>monitoring:
-                                        &nbsp;&nbsp;base-path: /monitoring
-                                        &nbsp;&nbsp;endpoints: info, health, ready, prometheus
+                                <pre><code class="language-yaml">
+                                    monitoring:
+                                      base-path: /monitoring
+                                      endpoints: info, health, ready, prometheus
                                 </code></pre>
                             </div>
                         </div>
@@ -238,22 +242,24 @@
                         <div class="row">
                             <div class="col-md-12 col-lg-6">
                                 <p><code>payment-backend</code></p>
-                                <pre class="bg-light pre-yaml"><code>name: payment-backend
+                                <pre><code class="language-yaml">
+                                    name: payment-backend
 
                                     server:
-                                    &nbsp;&nbsp;port: 8080
-                                    &nbsp;&nbsp;context: /api
+                                      port: 8080
+                                      context: /api
 
                                     ...
                                 </code></pre>
                             </div>
                             <div class="col-md-12 col-lg-6">
                                 <p><code>payment-frontend</code></p>
-                                <pre class="bg-light pre-yaml"><code>name: payment-frontend
+                                <pre><code class="language-yaml">
+                                    name: payment-frontend
 
                                     payment-backend:
-                                    &nbsp;&nbsp;host: http://payment-backend.local
-                                    &nbsp;&nbsp;path: ${payment-backend@server.context}
+                                      host: http://payment-backend.local
+                                      path: ${payment-backend@server.context}
 
                                     ...
                                 </code></pre>
@@ -286,13 +292,14 @@
                     </div>
                     <br/>
                     <p><code>payment-frontend</code></p>
-                    <pre class="bg-light pre-yaml"><code>name: payment-frontend
+                    <pre><code class="language-yaml">
+                        name: payment-frontend
 
                         payment-backend:
-                        &nbsp;&nbsp;timeoutMs: #{ 3 * 60 * 1000 }
+                          timeoutMs: #{ 3 * 60 * 1000 }
 
                         log:
-                        &nbsp;&nbsp;filename: #{ '${this@name}'.toUpperCase() }.log
+                          filename: #{ '${this@name}'.toUpperCase() }.log
 
                         ...
                     </code></pre>
@@ -324,27 +331,30 @@
                     </div>
                     <br/>
                     <p><code>payment-backend/application.yaml</code></p>
-                    <pre class="bg-light pre-yaml"><code>name: payment-backend
+                    <pre><code class="language-yaml">
+                        name: payment-backend
 
                         database:
-                        &nbsp;&nbsp;type: Postgres
-                        &nbsp;&nbsp;pool-size: 10
+                          type: Postgres
+                          pool-size: 10
 
                         ...
                     </code></pre>
                     <p><code>payment-backend/application.dev.yaml</code></p>
-                    <pre class="bg-light pre-yaml"><code>payment-gateway: http://gateway-mock.local
+                    <pre><code class="language-yaml">
+                        payment-gateway: http://gateway-mock.local
 
                         database:
-                        &nbsp;&nbsp;url: jdbc:postgres://10.10.10.10:5432/database
+                          url: jdbc:postgres://10.10.10.10:5432/database
                     </code></pre>
 
                     <p><code>payment-backend/application.prod.yaml</code></p>
-                    <pre class="bg-light pre-yaml"><code>payment-gateway: https://payment-gateway.com
+                    <pre><code class="language-yaml">
+                        payment-gateway: https://payment-gateway.com
 
                         database:
-                        &nbsp;&nbsp;pool-size: 50
-                        &nbsp;&nbsp;url: jdbc:postgres://20.20.20.20:5432/database
+                          pool-size: 50
+                          url: jdbc:postgres://20.20.20.20:5432/database
                     </code></pre>
                 </section>
 
@@ -373,20 +383,22 @@
                     <br/>
 
                     <p><code>log template.xml</code></p>
-                    <pre class="bg-light pre-xml"><code>&lt;configuration&gt;
-                        &nbsp;&nbsp;&lt;appender class="ch.qos.logback.core.FileAppender"&gt;
-                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;file&gt;logs/${this@name}.log&lt;/file&gt;
-                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;encoder&gt;
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;pattern&gt;%d{HH:mm:ss.SSS} %-5level %logger{15} %msg %n&lt;/pattern&gt;
-                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;/encoder&gt;
-                        &nbsp;&nbsp;&lt;/appender&gt;
+                    <pre><code class="language-xml">
+                        &lt;configuration&gt;
+                          &lt;appender class="ch.qos.logback.core.FileAppender"&gt;
+                            &lt;file&gt;logs/${this@name}.log&lt;/file&gt;
+                            &lt;encoder&gt;
+                              &lt;pattern&gt;%d{HH:mm:ss.SSS} %-5level %logger{15} %msg %n&lt;/pattern&gt;
+                            &lt;/encoder&gt;
+                          &lt;/appender&gt;
                         &lt;/configuration&gt;
                     </code></pre>
 
                     <p><code>payment-backend</code></p>
-                    <pre class="bg-light pre-yaml"><code>microconfig.template.log:
-                        &nbsp;&nbsp;fromFile: ${log@configDir}/template.xml
-                        &nbsp;&nbsp;toFile: logback.xml
+                    <pre><code class="language-yaml">
+                        microconfig.template.log:
+                          fromFile: ${log@configDir}/template.xml
+                          toFile: logback.xml
 
                         name: payment-backend
 
@@ -395,13 +407,14 @@
 
                     <p><code>payment-backend logback.xml</code></p>
 
-                    <pre class="bg-light pre-xml"><code>&lt;configuration&gt;
-                        &nbsp;&nbsp;&lt;appender class="ch.qos.logback.core.FileAppender"&gt;
-                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;file&gt;logs/payment-backend.log&lt;/file&gt;
-                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;encoder&gt;
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;pattern&gt;%d{HH:mm:ss.SSS} %-5level %logger{15} %msg %n&lt;/pattern&gt;
-                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;/encoder&gt;
-                        &nbsp;&nbsp;&lt;/appender&gt;
+                    <pre><code class="language-xml">
+                        &lt;configuration&gt;
+                          &lt;appender class="ch.qos.logback.core.FileAppender"&gt;
+                            &lt;file&gt;logs/payment-backend.log&lt;/file&gt;
+                            &lt;encoder&gt;
+                              &lt;pattern&gt;%d{HH:mm:ss.SSS} %-5level %logger{15} %msg %n&lt;/pattern&gt;
+                            &lt;/encoder&gt;
+                          &lt;/appender&gt;
                         &lt;/configuration&gt;
                     </code></pre>
                 </section>
@@ -435,39 +448,41 @@
                         <div class="row">
                             <div class="col-md-12 col-lg-6">
                                 <p><code>payment-frontend v1</code></p>
-                                <pre class="bg-light pre-yaml"><code>name: payment-frontend
+                                <pre><code class="language-yaml">
+                                    name: payment-frontend
 
                                     monitoring:
-                                    &nbsp;&nbsp;base-path: /monitoring
-                                    &nbsp;&nbsp;endpoints: info, health, ready, prometheus
+                                      base-path: /monitoring
+                                      endpoints: info, health, ready, prometheus
 
                                     payment-backend:
-                                    &nbsp;&nbsp;host: http://payment-backend.local
-                                    &nbsp;&nbsp;path: /api
+                                      host: http://payment-backend.local
+                                      path: /api
 
 
                                     server:
-                                    &nbsp;&nbsp;maxThreads: 100
-                                    &nbsp;&nbsp;minThreads: 10
-                                    &nbsp;&nbsp;port: 80
-                                    &nbsp;&nbsp;timeoutMs: 180000
+                                      maxThreads: 100
+                                      minThreads: 10
+                                      port: 80
+                                      timeoutMs: 180000
                                 </code></pre>
                             </div>
                             <div class="col-md-12 col-lg-6">
                                 <p><code>payment-frontend v2</code></p>
-                                <pre class="bg-light pre-yaml"><code>name: payment-frontend
+                                <pre><code class="language-yaml">
+                                    name: payment-frontend
 
                                     monitoring:
-                                    &nbsp;&nbsp;base-path: /monitoring
-                                    &nbsp;&nbsp;endpoints: info, health, ready, prometheus
+                                      base-path: /monitoring
+                                      endpoints: info, health, ready, prometheus
 
                                     payment-backend:
-                                    &nbsp;&nbsp;host: https://payment-backend.local
-                                    &nbsp;&nbsp;path: /api
-                                    &nbsp;&nbsp;timeoutMs: 180000
+                                      host: https://payment-backend.local
+                                      path: /api
+                                      timeoutMs: 180000
 
                                     server:
-                                    &nbsp;&nbsp;port: 80
+                                      port: 80
 
 
 
@@ -475,19 +490,20 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col offset-lg-3">
+                            <div class="col-md-12 col-lg-9 offset-lg-2">
                                 <p><code>payment-frontend diff between v1 and v2</code></p>
 
-                                <pre class="bg-light pre-yaml"><code>+payment-backend:
-                                    &nbsp;&nbsp;timeoutMs: 180000
+                                <pre><code class="language-yaml">
+                                    +payment-backend:
+                                      timeoutMs: 180000
 
                                     -server:
-                                    &nbsp;&nbsp;maxThreads: 100
-                                    &nbsp;&nbsp;minThreads: 10
-                                    &nbsp;&nbsp;timeoutMs: 180000
+                                      maxThreads: 100
+                                      minThreads: 10
+                                      timeoutMs: 180000
 
                                     payment-backend:
-                                    &nbsp;&nbsp;host: http://payment-backend.local -&gt; https://payment-backend.local
+                                      host: http://payment-backend.local -&gt; https://payment-backend.local
                                 </code></pre>
                             </div>
                         </div>
@@ -499,7 +515,7 @@
         </div>
     </section>
 </main>
-<footer class="text-muted">
+<footer class="text-muted bg-light">
     <div class="container footer-container">
         <p class="copyright">Microconfig.io &copy; 2017-2020</p>
 

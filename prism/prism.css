@@ -52,6 +52,12 @@ pre[class*="language-"] {
 .token.comment {
 	color: #79c357;
 }
+.token.placeholder {
+	color: #02afdd;
+}
+
+/*placeholder: /\${.*@.*}/,*/
+
 .token.block-comment,
 .token.prolog,
 .token.doctype,

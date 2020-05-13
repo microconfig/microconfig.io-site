@@ -5,6 +5,10 @@
 	color: #f26b39;
 }
 
+.token.placeholder {
+	color: #02afdd;
+}
+
 pre[class*="language-"] {
 	font-family: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
 	font-size: 18px;

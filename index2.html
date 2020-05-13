@@ -61,8 +61,10 @@
     <link href="bloggersans/bloggersans.css" rel="stylesheet">
     <link rel="icon" href="css/favicon.ico">
     <style>
-        pre[class*="language-"] {
+        pre[class*="language-"],
+        code[class*="language-"] {
             background: #f9f9f9;
+            font-size: 12px;
         }
 
         .code-title {
@@ -102,15 +104,15 @@
             flex: 1 1 auto;
         }
 
-        .toggle:checked~.row>.prod {
+        .toggle:checked~.row>.dev {
             display: none !important;
         }
 
-        .toggle:checked~.row>.dev {
+        .toggle:checked~.row>.prod {
             display: flex !important;
         }
 
-        .dev {
+        .prod {
             display: none !important;
         }
 
@@ -164,18 +166,6 @@
         .toggle:focus+label:before {
             box-shadow: inset 0 2px 3px rgba(0, 0, 0, .2), 0 0 0 3px rgba(95, 187, 146, .2);
         }
-
-        /* 
-        .toggle-wrapper {
-            width: 150px;
-            margin-left: auto;
-            display: flex;
-            align-items: center;
-        }
-
-        .toggle-wrapper label:first-child {
-            margin-right: 10px;
-        } */
     </style>
 </head>
 
@@ -345,220 +335,226 @@
         </div>
 
         <div class="example">
-            <!-- <div class="toggle-wrapper"> -->
-            <label for="toggle">prod</label>
-            <input type="checkbox" id="toggle" class="toggle">
-            <label for="toggle">dev</label>
-            <!-- </div> -->
+            <div class="col text-right">
+                <div>
+                    <label for="toggle1">dev</label>
+                    <input type="checkbox" id="toggle1" class="toggle">
+                    <label for="toggle1">prod</label>
 
-            <div class="row equal-cols">
-                <div class="col-md-6 prod">
-                    <p class="code-title"><code>payment-backend application config for prod </code></p>
-                    <pre>
-                             <code class="language-yaml">
-    name: payment-backend
+                    <div class="row equal-cols">
+                        <div class="col-md-6 prod">
+                            <p class="code-title"><code>payment-backend application config for prod </code></p>
+                            <pre>
+                            <code class="lang-yaml">
+                                name: payment-backend
 
-    server:
-    port: 80
-    context: /api
+                                server:
+                                port: 80
+                                context: /api
   
-    payment-gateway: https://payment-gateway.com
+                                payment-gateway: https://payment-gateway.com
 
-    database:
-    type: Postgres
-    pool-size: 50
-    url: jdbc:postgres://20.20.20.20:5432/payments
+                                database:
+                                type: Postgres
+                                pool-size: 50
+                                url: jdbc:postgres://20.20.20.20:5432/payments
   
-    monitoring:
-    base-path: /monitoring
-    endpoints: info, health, prometheus
-                        </code>
-                     </pre>
+                                monitoring:
+                                base-path: /monitoring
+                                endpoints: info, health, prometheus
+                            </code>
+                        </pre>
+                        </div>
+
+                        <div class="col-md-6 prod">
+                            <p class="code-title"><code>payment-frontend application config for prod</code></p>
+                            <pre>
+                            <code class="lang-yaml">
+                                name: payment-frontend
+
+                                server:
+                                port: 80
+                                minThreads: 10
+                                maxThreads: 100
+  
+                                payment-backend: 
+                                host: http://payment-backend.local
+                                path: /api
+                                timeoutMs: 180000
+
+                                monitoring:
+                                base-path: /monitoring
+                                endpoints: info, health, ready, prometheus
+                            </code>
+                        </pre>
+                        </div>
+
+                        <div class="col-md-6 dev">
+                            <p class="code-title"><code>payment-backend application config for dev</code></p>
+                            <pre>
+                            <code class="lang-yaml">
+                                name: payment-backend
+
+                                server:
+                                port: 80
+                                context: /api
+                                                        
+                                payment-gateway: http://gateway-mock.local
+                                                    
+                                database:
+                                type: Postgres
+                                pool-size: 10
+                                url: jdbc:postgres://10.10.10.10:5432/payments
+                                                        
+                                monitoring:
+                                base-path: /monitoring
+                                endpoints: info, health, prometheus
+                            </code>
+                        </pre>
+                        </div>
+
+                        <div class="col-md-6 dev">
+                            <p class="code-title"><code>payment-frontend application config for dev</code></p>
+                            <pre>
+                            <code class="lang-yaml">
+                                name: payment-frontend
+
+                                server:
+                                port: 80
+                                minThreads: 10
+                                maxThreads: 100
+                                                        
+                                payment-backend: 
+                                host: http://payment-backend.local
+                                path: /api
+                                timeoutMs: 180000
+                                                        
+                                monitoring:
+                                base-path: /monitoring
+                                endpoints: info, health, ready, prometheus
+                            </code>
+                        </pre>
+                        </div>
+                    </div>
                 </div>
+                <!--//////////////////////////////////////////////////////////////////////////-->
+                <div>
+                    <label for="toggle2">dev</label>
+                    <input type="checkbox" id="toggle2" class="toggle">
+                    <label for="toggle2">prod</label>
 
+                    <div class="row equal-cols">
 
+                        <div class="col-md-6 prod">
+                            <p class="code-title"><code>payment-backend deploy config for prod</code></p>
+                            <pre>
+                            <code class="lang-yaml">
+                                image: "payment-backend:1.5"
 
-                <div class="col-md-6 prod">
-                    <p class="code-title"><code>payment-frontend application config for prod</code></p>
-                    <pre>
+                                replicas: 2
+                                                        
+                                ingress:
+                                host: http://payment-backend.local
+                                                        
+                                probes:
+                                health: /monitoring/health
+                                ready: /monitoring/ready
+                            </code>
+                        </pre>
+                        </div>
+
+                        <div class="col-md-6 prod">
+                            <p class="code-title"><code>payment-frontend deploy config for prod</code></p>
+                            <pre>
                             <code class="language-yaml">
-    name: payment-frontend
+                                image: "payment-frontend:2.1"
 
-    server:
-    port: 80
-    minThreads: 10
-    maxThreads: 100
-  
-    payment-backend: 
-    host: http://payment-backend.local
-    path: /api
-    timeoutMs: 180000
+                                replicas: 3
+                                                        
+                                ingress:
+                                host: https://payments.example.com
+                                                        
+                                probes:
+                                health: /monitoring/health
+                                ready: /monitoring/ready
+                            </code>
+                        </pre>
+                        </div>
 
-    monitoring:
-    base-path: /monitoring
-    endpoints: info, health, ready, prometheus
-                         </code>
-                    </pre>
-                </div>
+                        <div class="col-md-6 dev">
+                            <p class="code-title"><code>payment-backend deploy config for dev</code></p>
+                            <pre>
+                            <code class="lang-yaml">
+                                image: "payment-backend:latest"
 
+                                replicas: 1
+                                                        
+                                ingress:
+                                host: http://payment-backend.local
+                                                        
+                                probes:
+                                health: /monitoring/health
+                                ready: /monitoring/ready
+                            </code>
+                        </pre>
+                        </div>
 
+                        <div class="col-md-6 dev">
+                            <p class="code-title"><code>payment-frontend deploy config for dev</code></p>
+                            <pre>
+                            <code class="lang-yaml">
+                                image: "payment-frontend:latest"
 
-                <div class="col-md-6 dev">
-                    <p class="code-title"><code>payment-backend application config for dev</code></p>
-                    <pre>
-                        <code class="language-yaml">
-    name: payment-backend
-
-    server:
-    port: 80
-    context: /api
-                              
-    payment-gateway: http://gateway-mock.local
-                           
-    database:
-    type: Postgres
-    pool-size: 10
-    url: jdbc:postgres://10.10.10.10:5432/payments
-                              
-    monitoring:
-    base-path: /monitoring
-    endpoints: info, health, prometheus
-                         </code>
-                    </pre>
-                </div>
-
-
-
-                <div class="col-md-6 dev">
-                    <p class="code-title"><code>payment-frontend application config for dev</code></p>
-                    <pre>
-                        <code class="language-yaml">
-    name: payment-frontend
-
-    server:
-    port: 80
-    minThreads: 10
-    maxThreads: 100
-                              
-    payment-backend: 
-    host: http://payment-backend.local
-    path: /api
-    timeoutMs: 180000
-                            
-    monitoring:
-    base-path: /monitoring
-    endpoints: info, health, ready, prometheus
-                         </code>
-                    </pre>
-                </div>
-
-                <!--//////////////////////////////////////////////////////////////////////////-->
-
-                <div class="col-md-6 prod">
-                    <p class="code-title"><code>payment-backend deploy config for prod</code></p>
-                    <pre>
-                        <code class="language-yaml">
-    image: "payment-backend:1.5"
-
-    replicas: 2
-                            
-    ingress:
-    host: http://payment-backend.local
-                            
-    probes:
-    health: /monitoring/health
-    ready: /monitoring/ready
-                         </code>
-                    </pre>
-                </div>
-
-                <div class="col-md-6 prod">
-                    <p class="code-title"><code>payment-frontend deploy config for prod</code></p>
-                    <pre>
-                        <code class="language-yaml">
-    image: "payment-frontend:2.1"
-
-    replicas: 3
-                            
-    ingress:
-    host: https://payments.example.com
-                            
-    probes:
-    health: /monitoring/health
-    ready: /monitoring/ready
-                        </code>
-                    </pre>
-                </div>
-
-                <div class="col-md-6 dev">
-                    <p class="code-title"><code>payment-backend deploy config for dev</code></p>
-                    <pre>
-                        <code class="language-yaml">
-    image: "payment-backend:latest"
-
-    replicas: 1
-                            
-    ingress:
-    host: http://payment-backend.local
-                            
-    probes:
-    health: /monitoring/health
-    ready: /monitoring/ready
-                        </code>
-                    </pre>
-                </div>
-
-                <div class="col-md-6 dev">
-                    <p class="code-title"><code>payment-frontend deploy config for dev</code></p>
-                    <pre>
-                        <code class="language-yaml">
-    image: "payment-frontend:latest"
-
-    replicas: 1
-                            
-    ingress:
-    host: http://payments.local
-                            
-    probes:
-    health: /monitoring/health
-    ready: /monitoring/ready
-                        </code>
-                    </pre>
+                                replicas: 1
+                                                        
+                                ingress:
+                                host: http://payments.local
+                                                        
+                                probes:
+                                health: /monitoring/health
+                                ready: /monitoring/ready
+                            </code>
+                        </pre>
+                        </div>
+                    </div>
                 </div>
                 <!--//////////////////////////////////////////////////////////////////////////-->
-            </div>
+                <div class="row equal-cols">
+                    <div class="col-md-6">
+                        <p class="code-title"><code>payment-backend log config</code></p>
+                        <pre>
+                            <code class="lang-xml">
+                                &lt;configuration&gt;
+                                    &lt;appender class="ch.qos.logback.core.FileAppender"&gt;
+                                        &lt;file&gt;logs/payment-backend.log &lt;/file&gt;
+                                            &lt;encoder&gt;
+                                                &lt;pattern&gt;%d{HH:mm:ss.SSS} %-5level %logger{15} %msg %n &lt;/pattern&gt;
+                                            &lt;/encoder&gt;
+                                        &lt;/appender&gt;
+                                    &lt;/configuration&gt;
+                             </code>
+                        </pre>
+                    </div>
 
-            <div class="col-md-12">
-                <p class="code-title"><code>payment-backend log config</code></p>
-                <pre class="lang-xml">
-                    <code >
-&lt;configuration&gt;
-    &lt;appender class="ch.qos.logback.core.FileAppender"&gt;
-        &lt;file&gt;logs/payment-backend.log &lt;/file&gt;
-            &lt;encoder&gt;
-                &lt;pattern&gt;%d{HH:mm:ss.SSS} %-5level %logger{15} %msg %n &lt;/pattern&gt;
-            &lt;/encoder&gt;
-    &lt;/appender&gt;
-&lt;/configuration&gt;
-                     </code>
-                </pre>
+                    <div class="col-md-6">
+                        <p class="code-title"><code>payment-frontend log config</code></p>
+                        <pre>
+                            <code class="lang-xml">
+                                &lt;configuration&gt;
+                                   &lt;appender class="ch.qos.logback.core.FileAppender"&gt;
+                                        &lt;file&gt;logs/payment-frontend.log&lt;/file&gt;
+                                            &lt;encoder&gt;
+                                                &lt;pattern&gt;%d{HH:mm:ss.SSS} %-5level %logger{15} %msg %n&lt;/pattern&gt;
+                                            &lt;/encoder&gt;
+                                   &lt;/appender&gt;
+                                &lt;/configuration&gt;
+                             </code>
+                        </pre>
+                    </div>
+                </div>
             </div>
+        </div>
 
-            <div class="col-md-12">
-                <p class="code-title"><code>payment-frontend log config</code></p>
-                <pre>
-                    <code class="language-xml">
-&lt;configuration&gt;
-    &lt;appender class="ch.qos.logback.core.FileAppender"&gt;
-        &lt;file&gt;logs/payment-frontend.log&lt;/file&gt;
-            &lt;encoder&gt;
-                &lt;pattern&gt;%d{HH:mm:ss.SSS} %-5level %logger{15} %msg %n&lt;/pattern&gt;
-            &lt;/encoder&gt;
-        &lt;/appender&gt;
- &lt;/configuration&gt;
-                     </code>
-                </pre>
-            </div>
 
     </main>
 

@@ -233,19 +233,19 @@
                                 name: payment-backend
 
                                 server:
-                                port: 80
-                                context: /api
+                                  port: 80
+                                  context: /api
 
                                 payment-gateway: https://payment-gateway.com
 
                                 database:
-                                type: Postgres
-                                pool-size: 50
-                                url: jdbc:postgres://20.20.20.20:5432/payments
+                                  type: Postgres
+                                  pool-size: 50
+                                  url: jdbc:postgres://20.20.20.20:5432/payments
 
                                 monitoring:
-                                base-path: /monitoring
-                                endpoints: info, health, prometheus
+                                  base-path: /monitoring
+                                  endpoints: info, health, prometheus
                             </code>
                         </pre>
                         </div>
@@ -257,18 +257,18 @@
                                 name: payment-frontend
 
                                 server:
-                                port: 80
-                                minThreads: 10
-                                maxThreads: 100
+                                  port: 80
+                                  minThreads: 10
+                                  maxThreads: 100
 
                                 payment-backend:
-                                host: http://payment-backend.local
-                                path: /api
-                                timeoutMs: 180000
+                                  host: http://payment-backend.local
+                                  path: /api
+                                  timeoutMs: 180000
 
                                 monitoring:
-                                base-path: /monitoring
-                                endpoints: info, health, ready, prometheus
+                                  base-path: /monitoring
+                                  endpoints: info, health, ready, prometheus
                             </code>
                         </pre>
                         </div>
@@ -280,19 +280,19 @@
                                 name: payment-backend
 
                                 server:
-                                port: 80
-                                context: /api
+                                  port: 80
+                                  context: /api
 
                                 payment-gateway: http://gateway-mock.local
 
                                 database:
-                                type: Postgres
-                                pool-size: 10
-                                url: jdbc:postgres://10.10.10.10:5432/payments
+                                  type: Postgres
+                                  pool-size: 10
+                                  url: jdbc:postgres://10.10.10.10:5432/payments
 
                                 monitoring:
-                                base-path: /monitoring
-                                endpoints: info, health, prometheus
+                                  base-path: /monitoring
+                                  endpoints: info, health, prometheus
                             </code>
                         </pre>
                         </div>
@@ -304,18 +304,18 @@
                                 name: payment-frontend
 
                                 server:
-                                port: 80
-                                minThreads: 10
-                                maxThreads: 100
+                                  port: 80
+                                  minThreads: 10
+                                  maxThreads: 100
 
                                 payment-backend:
-                                host: http://payment-backend.local
-                                path: /api
-                                timeoutMs: 180000
+                                  host: http://payment-backend.local
+                                  path: /api
+                                  timeoutMs: 180000
 
                                 monitoring:
-                                base-path: /monitoring
-                                endpoints: info, health, ready, prometheus
+                                  base-path: /monitoring
+                                  endpoints: info, health, ready, prometheus
                             </code>
                         </pre>
                         </div>
@@ -338,11 +338,11 @@
                                 replicas: 2
 
                                 ingress:
-                                host: http://payment-backend.local
+                                  host: http://payment-backend.local
 
                                 probes:
-                                health: /monitoring/health
-                                ready: /monitoring/ready
+                                  health: /monitoring/health
+                                  ready: /monitoring/ready
                             </code>
                         </pre>
                         </div>
@@ -356,11 +356,11 @@
                                 replicas: 3
 
                                 ingress:
-                                host: https://payments.example.com
+                                  host: https://payments.example.com
 
                                 probes:
-                                health: /monitoring/health
-                                ready: /monitoring/ready
+                                  health: /monitoring/health
+                                  ready: /monitoring/ready
                             </code>
                         </pre>
                         </div>
@@ -374,11 +374,11 @@
                                 replicas: 1
 
                                 ingress:
-                                host: http://payment-backend.local
+                                  host: http://payment-backend.local
 
                                 probes:
-                                health: /monitoring/health
-                                ready: /monitoring/ready
+                                  health: /monitoring/health
+                                  ready: /monitoring/ready
                             </code>
                         </pre>
                         </div>
@@ -392,11 +392,11 @@
                                 replicas: 1
 
                                 ingress:
-                                host: http://payments.local
+                                  host: http://payments.local
 
                                 probes:
-                                health: /monitoring/health
-                                ready: /monitoring/ready
+                                  health: /monitoring/health
+                                  ready: /monitoring/ready
                             </code>
                         </pre>
                         </div>
@@ -409,13 +409,13 @@
                         <pre>
                             <code class="lang-xml">
                                 &lt;configuration&gt;
-                                    &lt;appender class="ch.qos.logback.core.FileAppender"&gt;
-                                        &lt;file&gt;logs/payment-backend.log &lt;/file&gt;
-                                            &lt;encoder&gt;
-                                                &lt;pattern&gt;%d{HH:mm:ss.SSS} %-5level %logger{15} %msg %n &lt;/pattern&gt;
-                                            &lt;/encoder&gt;
-                                        &lt;/appender&gt;
-                                    &lt;/configuration&gt;
+                                  &lt;appender class="ch.qos.logback.core.FileAppender"&gt;
+                                    &lt;file&gt;logs/payment-backend.log&lt;/file&gt;
+                                      &lt;encoder&gt;
+                                        &lt;pattern&gt;%d{HH:mm:ss} %-5level %logger %msg %n&lt;/pattern&gt;
+                                      &lt;/encoder&gt;
+                                  &lt;/appender&gt;
+                                &lt;/configuration&gt;
                              </code>
                         </pre>
                     </div>
@@ -425,12 +425,12 @@
                         <pre>
                             <code class="lang-xml">
                                 &lt;configuration&gt;
-                                   &lt;appender class="ch.qos.logback.core.FileAppender"&gt;
-                                        &lt;file&gt;logs/payment-frontend.log&lt;/file&gt;
-                                            &lt;encoder&gt;
-                                                &lt;pattern&gt;%d{HH:mm:ss.SSS} %-5level %logger{15} %msg %n&lt;/pattern&gt;
-                                            &lt;/encoder&gt;
-                                   &lt;/appender&gt;
+                                  &lt;appender class="ch.qos.logback.core.FileAppender"&gt;
+                                    &lt;file&gt;logs/payment-frontend.log&lt;/file&gt;
+                                      &lt;encoder&gt;
+                                        &lt;pattern&gt;%d{HH:mm:ss} %-5level %logger %msg %n&lt;/pattern&gt;
+                                      &lt;/encoder&gt;
+                                  &lt;/appender&gt;
                                 &lt;/configuration&gt;
                              </code>
                         </pre>

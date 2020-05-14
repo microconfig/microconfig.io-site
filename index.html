@@ -246,7 +246,8 @@
 
                                 database:
                                   type: Postgres
-                                  pool-size: 50
+                                  min-pool-size: 10
+                                  max-pool-size: 50
                                   url: jdbc:postgres://20.20.20.20:5432/payments
 
                                 monitoring:
@@ -268,7 +269,7 @@
                                   maxThreads: 100
 
                                 payment-backend:
-                                  host: http://payment-backend.local
+                                  host: http://payment-backend.com
                                   path: /api
                                   timeoutMs: 180000
 
@@ -293,12 +294,13 @@
 
                                 database:
                                   type: Postgres
-                                  pool-size: 10
+                                  max-pool-size: 10
                                   url: jdbc:postgres://10.10.10.10:5432/payments
 
                                 monitoring:
                                   base-path: /monitoring
-                                  endpoints: info, health, prometheus
+                                  endpoints: info, health, prometheus, threaddump
+                                  secure: false
                             </code>
                         </pre>
                         </div>
@@ -311,17 +313,17 @@
 
                                 server:
                                   port: 80
-                                  minThreads: 20
-                                  maxThreads: 200
+                                  hotReload: true
+                                  maxThreads: 50
 
                                 payment-backend:
-                                  host: http://payment-backend.local
+                                  host: https://payment-backend.local
                                   path: /api
                                   timeoutMs: 90000
 
                                 monitoring:
                                   base-path: /monitoring
-                                  endpoints: info, health, ready, prometheus
+                                  endpoints: info, health, ready, prometheus, threaddump
                             </code>
                         </pre>
                         </div>

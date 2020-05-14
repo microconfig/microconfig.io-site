@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -48,15 +49,15 @@
           name="keywords">
     <meta content="Microconfig is a modern and simple way to manage microservice configuration. Especially in the Cloud."
           name="description">
-    <link href="bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="vendor/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="vendor/prism/prism.css" rel="stylesheet"/>
     <link href="css/styles.css" rel="stylesheet">
     <link href="bloggersans/bloggersans.css" rel="stylesheet">
     <link rel="icon" href="css/favicon.ico">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="bootstrap/bootstrap.bundle.min.js"></script>
     <meta name="google-site-verification" content="-vwHylVI8TRHCCK0lhgP67LeEMjlRRIXHuRKeCB_Vnc"/>
     <title>Microconfig.io - Microservice Configuration Made Easy</title>
 </head>
+
 <body>
 <header>
     <nav class="navbar navbar-expand-md navbar-light shadow-sm">
@@ -215,15 +216,259 @@
             </div>
         </div>
     </div>
+
+    <section class="jumbotron">
+        <div class="container">
+            <p class="lead">
+                Just to show the problem with microservice configuration more explicitly.
+                Below are typical configs that we have to support nowadays. 2 different microservices
+                with their <code>dev</code> and <code>prod</code> configs.
+            </p>
+        </div>
+    </section>
+
+    <section class="example bg-light">
+        <div class="container">
+            <div class="col text-right">
+                <div class="row-with-switch">
+                    <label for="toggle1">dev</label>
+                    <input type="checkbox" id="toggle1" class="toggle">
+                    <label for="toggle1">prod</label>
+
+                    <div class="row equal-cols">
+                        <div class="col-md-6 prod">
+                            <p class="code-title"><code>payment-backend application config</code></p>
+                            <pre>
+                            <code class="lang-yaml">
+                                name: payment-backend
+
+                                server:
+                                  port: 80
+                                  context: /api
+
+                                payment-gateway: https://payment-gateway.com
+
+                                database:
+                                  type: Postgres
+                                  pool-size: 50
+                                  url: jdbc:postgres://20.20.20.20:5432/payments
+
+                                monitoring:
+                                  base-path: /monitoring
+                                  endpoints: info, health, prometheus
+                            </code>
+                        </pre>
+                        </div>
+
+                        <div class="col-md-6 prod">
+                            <p class="code-title"><code>payment-frontend application config</code></p>
+                            <pre>
+                            <code class="lang-yaml">
+                                name: payment-frontend
+
+                                server:
+                                  port: 80
+                                  minThreads: 10
+                                  maxThreads: 100
+
+                                payment-backend:
+                                  host: http://payment-backend.local
+                                  path: /api
+                                  timeoutMs: 180000
+
+                                monitoring:
+                                  base-path: /monitoring
+                                  endpoints: info, health, ready, prometheus
+                            </code>
+                        </pre>
+                        </div>
+
+                        <div class="col-md-6 dev">
+                            <p class="code-title"><code>payment-backend application config</code></p>
+                            <pre>
+                            <code class="lang-yaml">
+                                name: payment-backend
+
+                                server:
+                                  port: 80
+                                  context: /api
+
+                                payment-gateway: http://gateway-mock.local
+
+                                database:
+                                  type: Postgres
+                                  pool-size: 10
+                                  url: jdbc:postgres://10.10.10.10:5432/payments
+
+                                monitoring:
+                                  base-path: /monitoring
+                                  endpoints: info, health, prometheus
+                            </code>
+                        </pre>
+                        </div>
+
+                        <div class="col-md-6 dev">
+                            <p class="code-title"><code>payment-frontend application config</code></p>
+                            <pre>
+                            <code class="lang-yaml">
+                                name: payment-frontend
+
+                                server:
+                                  port: 80
+                                  minThreads: 10
+                                  maxThreads: 100
+
+                                payment-backend:
+                                  host: http://payment-backend.local
+                                  path: /api
+                                  timeoutMs: 180000
+
+                                monitoring:
+                                  base-path: /monitoring
+                                  endpoints: info, health, ready, prometheus
+                            </code>
+                        </pre>
+                        </div>
+                    </div>
+                </div>
+                <!--//////////////////////////////////////////////////////////////////////////-->
+                <div class="row-with-switch">
+                    <label for="toggle2">dev</label>
+                    <input type="checkbox" id="toggle2" class="toggle">
+                    <label for="toggle2">prod</label>
+
+                    <div class="row equal-cols">
+
+                        <div class="col-md-6 prod">
+                            <p class="code-title"><code>payment-backend deploy config</code></p>
+                            <pre>
+                            <code class="lang-yaml">
+                                image: "payment-backend:1.5"
+
+                                replicas: 2
+
+                                ingress:
+                                  host: http://payment-backend.local
+
+                                probes:
+                                  health: /monitoring/health
+                                  ready: /monitoring/ready
+                            </code>
+                        </pre>
+                        </div>
+
+                        <div class="col-md-6 prod">
+                            <p class="code-title"><code>payment-frontend deploy config</code></p>
+                            <pre>
+                            <code class="language-yaml">
+                                image: "payment-frontend:2.1"
+
+                                replicas: 3
+
+                                ingress:
+                                  host: https://payments.example.com
+
+                                probes:
+                                  health: /monitoring/health
+                                  ready: /monitoring/ready
+                            </code>
+                        </pre>
+                        </div>
+
+                        <div class="col-md-6 dev">
+                            <p class="code-title"><code>payment-backend deploy config</code></p>
+                            <pre>
+                            <code class="lang-yaml">
+                                image: "payment-backend:latest"
+
+                                replicas: 1
+
+                                ingress:
+                                  host: http://payment-backend.local
+
+                                probes:
+                                  health: /monitoring/health
+                                  ready: /monitoring/ready
+                            </code>
+                        </pre>
+                        </div>
+
+                        <div class="col-md-6 dev">
+                            <p class="code-title"><code>payment-frontend deploy config</code></p>
+                            <pre>
+                            <code class="lang-yaml">
+                                image: "payment-frontend:latest"
+
+                                replicas: 1
+
+                                ingress:
+                                  host: http://payments.local
+
+                                probes:
+                                  health: /monitoring/health
+                                  ready: /monitoring/ready
+                            </code>
+                        </pre>
+                        </div>
+                    </div>
+                </div>
+                <!--//////////////////////////////////////////////////////////////////////////-->
+                <div class="row equal-cols">
+                    <div class="col-md-6">
+                        <p class="code-title"><code>payment-backend log config</code></p>
+                        <pre>
+                            <code class="lang-xml">
+                                &lt;configuration&gt;
+                                  &lt;appender class="ch.qos.logback.core.FileAppender"&gt;
+                                    &lt;file&gt;logs/payment-backend.log&lt;/file&gt;
+                                      &lt;encoder&gt;
+                                        &lt;pattern&gt;%d{HH:mm:ss} %-5level %logger %msg %n&lt;/pattern&gt;
+                                      &lt;/encoder&gt;
+                                  &lt;/appender&gt;
+                                &lt;/configuration&gt;
+                             </code>
+                        </pre>
+                    </div>
+
+                    <div class="col-md-6">
+                        <p class="code-title"><code>payment-frontend log config</code></p>
+                        <pre>
+                            <code class="lang-xml">
+                                &lt;configuration&gt;
+                                  &lt;appender class="ch.qos.logback.core.FileAppender"&gt;
+                                    &lt;file&gt;logs/payment-frontend.log&lt;/file&gt;
+                                      &lt;encoder&gt;
+                                        &lt;pattern&gt;%d{HH:mm:ss} %-5level %logger %msg %n&lt;/pattern&gt;
+                                      &lt;/encoder&gt;
+                                  &lt;/appender&gt;
+                                &lt;/configuration&gt;
+                             </code>
+                        </pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="jumbotron">
+        <div class="container">
+            <p class="lead">
+                This might not look scary for only 2 services, but what if you have to manage 50 of them with additional
+                <code>test</code> and <code>staging</code> environments? Check out <a href="features.html">Features</a>
+                to see how Microconfig can scale your project to those numbers easily.
+            </p>
+        </div>
+    </section>
+
 </main>
-<footer class="text-muted">
+<footer class="text-muted bg-light">
     <div class="container footer-container">
         <p class="copyright">Microconfig.io &copy; 2017-2020</p>
 
         <div class="contacts">
             <ul class="list-unstyled mb-0">
                 <li class="lead">Join our
-                    <a href="https://join.slack.com/t/microconfig/shared_invite/zt-dflf2m0n-wOPVfAmk5eiHPn_9Omff7Q">Slack!</a>
+                    <a
+                            href="https://join.slack.com/t/microconfig/shared_invite/zt-dflf2m0n-wOPVfAmk5eiHPn_9Omff7Q">Slack!</a>
                 </li>
                 <li class="lead">Contribute on <a href="https://github.com/microconfig/microconfig">Github</a></li>
                 <li class="lead"><a href="mailto:hello@microconfig.io">hello@microconfig.io</a></li>
@@ -231,5 +476,10 @@
         </div>
     </div>
 </footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="vendor/bootstrap/bootstrap.bundle.min.js"></script>
+<script src="vendor/prism/prism.js"></script>
 </body>
+
 </html>

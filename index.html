@@ -252,7 +252,7 @@
 
                                 monitoring:
                                   base-path: /monitoring
-                                  endpoints: info, health, prometheus
+                                  endpoints: info, health, ready, prometheus
                             </code>
                         </pre>
                         </div>
@@ -299,7 +299,7 @@
 
                                 monitoring:
                                   base-path: /monitoring
-                                  endpoints: info, health, prometheus, threaddump
+                                  endpoints: info, health, ready, prometheus, threaddump
                                   secure: false
                             </code>
                         </pre>
@@ -324,6 +324,7 @@
                                 monitoring:
                                   base-path: /monitoring
                                   endpoints: info, health, ready, prometheus, threaddump
+                                  secure: false
                             </code>
                         </pre>
                         </div>

@@ -10,8 +10,8 @@ code[class*="language-"],
 pre[class*="language-"] {
 	color: #ccc;
 	background: none;
-	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
-	font-size: 1em;
+	font-family: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+	font-size: 18px;
 	text-align: left;
 	white-space: pre;
 	word-spacing: normal;
@@ -49,7 +49,15 @@ pre[class*="language-"] {
 	white-space: normal;
 }
 
-.token.comment,
+.token.comment {
+	color: #79c357;
+}
+.token.placeholder {
+	color: #02afdd;
+}
+
+/*placeholder: /\${.*@.*}/,*/
+
 .token.block-comment,
 .token.prolog,
 .token.doctype,
@@ -90,7 +98,7 @@ pre[class*="language-"] {
 .token.atrule,
 .token.keyword,
 .token.builtin {
-	color: #cc99cd;
+	color: #f26b39;
 }
 
 .token.string,

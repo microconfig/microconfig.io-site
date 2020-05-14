@@ -50,176 +50,186 @@
     <meta content="Microconfig is a modern and simple way to manage microservice configuration. Especially in the Cloud."
           name="description">
     <link href="vendor/bootstrap/bootstrap.min.css" rel="stylesheet">
-    <link href="vendor/prism/prism.css" rel="stylesheet" />
+    <link href="vendor/prism/prism.css" rel="stylesheet"/>
     <link href="css/styles.css" rel="stylesheet">
     <link href="bloggersans/bloggersans.css" rel="stylesheet">
     <link rel="icon" href="css/favicon.ico">
-    <meta name="google-site-verification" content="-vwHylVI8TRHCCK0lhgP67LeEMjlRRIXHuRKeCB_Vnc" />
+    <meta name="google-site-verification" content="-vwHylVI8TRHCCK0lhgP67LeEMjlRRIXHuRKeCB_Vnc"/>
     <title>Microconfig.io - Microservice Configuration Made Easy</title>
 </head>
 
 <body>
-    <header>
-        <nav class="navbar navbar-expand-md navbar-light shadow-sm">
-            <div class="container">
-                <a href="./" class="navbar-brand">
-                    <img style="height: 97px;" src="images/microconfig_logo_horizontal.svg" alt="Microconfig" />
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" href="features.html">Features</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" href="quickstart.html">Quickstart</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" href="download.html">Download</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" href="plugin.html">IDE plugin</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" href="documentation.html">Docs</a>
-                        </li>
-                    </ul>
+<header>
+    <nav class="navbar navbar-expand-md navbar-light shadow-sm">
+        <div class="container">
+            <a href="./" class="navbar-brand">
+                <img style="height: 97px;" src="images/microconfig_logo_horizontal.svg" alt="Microconfig"/>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="features.html">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="quickstart.html">Quickstart</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="download.html">Download</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="plugin.html">IDE plugin</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="documentation.html">Docs</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<main role="main" id="quickstart">
+    <section class="jumbotron">
+        <div class="container">
+            <h1>Microservice configuration
+                <br><span style="font-weight: bold;">made easy</span>
+            </h1>
+            <p class="lead" style="margin-top: 2em">
+                Microservice architecture implies a lot of services with similar configuration. <br/>
+                Each service has an application config, deployment config, a log template and so on.<br/>
+                Multiply that by 50 services with 5 different environments and you have a mess.
+            </p>
+        </div>
+    </section>
+
+    <div class="py-5 bg-light">
+        <div class="container" style="padding: 0; margin-bottom: 2.5rem; text-align: center;">
+            <h2 class=""> How Microconfig can help </h2>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <h4 class="my-0 mc-color">
+                                <a href="features.html#layout">Simple
+                                    Configuration Layout</a>
+                            </h4>
+                        </div>
+                        <div class="card-body">
+                            You choose your configuration layout. You can group and organize your config the way it
+                            makes sense to you.
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </nav>
-    </header>
-
-    <main role="main" id="quickstart">
-        <section class="jumbotron">
-            <div class="container">
-                <h1>Microservice configuration
-                    <br><span style="font-weight: bold;">made easy</span>
-                </h1>
-                <p class="lead" style="margin-top: 2em">
-                    Microservice architecture implies a lot of services with similar configuration. <br />
-                    Each service has an application config, deployment config, a log template and so on.<br />
-                    Multiply that by 50 services with 5 different environments and you have a mess.
-                </p>
-            </div>
-        </section>
-
-        <div class="py-5 bg-light">
-            <div class="container" style="padding: 0; margin-bottom: 2.5rem; text-align: center;">
-                <h2 class=""> How Microconfig can help </h2>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="card mb-4">
-                            <div class="card-header">
-                                <h4 class="my-0 mc-color">
-                                    <a href="features.html#layout">Simple
-                                        Configuration Layout</a>
-                                </h4>
-                            </div>
-                            <div class="card-body">
-                                You choose your configuration layout. You can group and organize your config the way it
-                                makes sense to you.
-                            </div>
+                <div class="col-md-6">
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <h4 class="my-0 mc-color">
+                                <a href="features.html#include">Reuse Common Parts</a>
+                            </h4>
+                        </div>
+                        <div class="card-body">
+                            You can extract common parts of configuration to a dedicated component and reuse it with
+                            #include.
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <div class="card mb-4">
-                            <div class="card-header">
-                                <h4 class="my-0 mc-color">
-                                    <a href="features.html#include">Reuse Common Parts</a>
-                                </h4>
-                            </div>
-                            <div class="card-body">
-                                You can extract common parts of configuration to a dedicated component and reuse it with
-                                #include.
-                            </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <h4 class="my-0 mc-color">
+                                <a href="features.html#placeholders">Reference Values</a>
+                            </h4>
+                        </div>
+                        <div class="card-body">
+                            You can reference a value from current or another service with ${placeholder}.
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <div class="card mb-4">
-                            <div class="card-header">
-                                <h4 class="my-0 mc-color">
-                                    <a href="features.html#placeholders">Reference Values</a>
-                                </h4>
-                            </div>
-                            <div class="card-body">
-                                You can reference a value from current or another service with ${placeholder}.
-                            </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <h4 class="my-0 mc-color">
+                                <a href="features.html#expressions">Dynamic Values</a>
+                            </h4>
+                        </div>
+                        <div class="card-body">
+                            You can use #{ 'expression' + 'language' } to generate your values. It supports math
+                            operations and much more.
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <div class="card mb-4">
-                            <div class="card-header">
-                                <h4 class="my-0 mc-color">
-                                    <a href="features.html#expressions">Dynamic Values</a>
-                                </h4>
-                            </div>
-                            <div class="card-body">
-                                You can use #{ 'expression' + 'language' } to generate your values. It supports math
-                                operations and much more.
-                            </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <h4 class="my-0 mc-color">
+                                <a href="features.html#env">Environment Specific Config</a>
+                            </h4>
+                        </div>
+                        <div class="card-body">
+                            You can have specific values for each environment you need. They will be merged with
+                            your base configuration.
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <div class="card mb-4">
-                            <div class="card-header">
-                                <h4 class="my-0 mc-color">
-                                    <a href="features.html#env">Environment Specific Config</a>
-                                </h4>
-                            </div>
-                            <div class="card-body">
-                                You can have specific values for each environment you need. They will be merged with
-                                your base configuration.
-                            </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <h4 class="my-0 mc-color">
+                                <a href="features.html#templates">Static Files Templating</a>
+                            </h4>
+                        </div>
+                        <div class="card-body">
+                            You can use static templates and populate them with data unique for each service.
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <div class="card mb-4">
-                            <div class="card-header">
-                                <h4 class="my-0 mc-color">
-                                    <a href="features.html#templates">Static Files Templating</a>
-                                </h4>
-                            </div>
-                            <div class="card-body">
-                                You can use static templates and populate them with data unique for each service.
-                            </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <h4 class="my-0 mc-color">
+                                <a href="features.html#diff">Config Diff</a>
+                            </h4>
+                        </div>
+                        <div class="card-body">
+                            You can generate git style diff and compare different versions of your config.
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <div class="card mb-4">
-                            <div class="card-header">
-                                <h4 class="my-0 mc-color">
-                                    <a href="features.html#diff">Config Diff</a>
-                                </h4>
-                            </div>
-                            <div class="card-body">
-                                You can generate git style diff and compare different versions of your config.
-                            </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <h4 class="my-0 mc-color">
+                                <a href="plugin.html">IDE Plugin</a>
+                            </h4>
                         </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="card mb-4">
-                            <div class="card-header">
-                                <h4 class="my-0 mc-color">
-                                    <a href="plugin.html">IDE Plugin</a>
-                                </h4>
-                            </div>
-                            <div class="card-body">
-                                You can use JetBrains IDE Microconfig plugin to navigate, preview and generate config
-                                without leaving your IDE.
-                            </div>
+                        <div class="card-body">
+                            You can use JetBrains IDE Microconfig plugin to navigate, preview and generate config
+                            without leaving your IDE.
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
-        <div class="example bg-light">
-            <div class="container">
-                <div class="col text-right">
+    <section class="jumbotron">
+        <div class="container">
+            <p class="lead">
+                Just to show the problem with microservice configuration more explicitly.
+                Below are typical configs that we have to support nowadays. 2 different microservices
+                with their <code>dev</code> and <code>prod</code> configs.
+            </p>
+        </div>
+    </section>
+
+    <section class="example bg-light">
+        <div class="container">
+            <div class="col text-right">
                 <div class="row-with-switch">
                     <label for="toggle1">dev</label>
                     <input type="checkbox" id="toggle1" class="toggle">
@@ -437,30 +447,39 @@
                     </div>
                 </div>
             </div>
-            </div>
         </div>
+    </section>
+    <section class="jumbotron">
+        <div class="container">
+            <p class="lead">
+                This might not look scary for only 2 services, but what if you have to manage 50 of them with additional
+                <code>test</code> and <code>staging</code> environments? Check out <a href="features.html">Features</a>
+                to see how Microconfig can scale your project to those numbers easily.
+            </p>
+        </div>
+    </section>
 
-    </main>
-    <footer class="text-muted">
-        <div class="container footer-container">
-            <p class="copyright">Microconfig.io &copy; 2017-2020</p>
+</main>
+<footer class="text-muted bg-light">
+    <div class="container footer-container">
+        <p class="copyright">Microconfig.io &copy; 2017-2020</p>
 
-            <div class="contacts">
-                <ul class="list-unstyled mb-0">
-                    <li class="lead">Join our
-                        <a
+        <div class="contacts">
+            <ul class="list-unstyled mb-0">
+                <li class="lead">Join our
+                    <a
                             href="https://join.slack.com/t/microconfig/shared_invite/zt-dflf2m0n-wOPVfAmk5eiHPn_9Omff7Q">Slack!</a>
-                    </li>
-                    <li class="lead">Contribute on <a href="https://github.com/microconfig/microconfig">Github</a></li>
-                    <li class="lead"><a href="mailto:hello@microconfig.io">hello@microconfig.io</a></li>
-                </ul>
-            </div>
+                </li>
+                <li class="lead">Contribute on <a href="https://github.com/microconfig/microconfig">Github</a></li>
+                <li class="lead"><a href="mailto:hello@microconfig.io">hello@microconfig.io</a></li>
+            </ul>
         </div>
-    </footer>
+    </div>
+</footer>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="vendor/bootstrap/bootstrap.bundle.min.js"></script>
-    <script src="vendor/prism/prism.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="vendor/bootstrap/bootstrap.bundle.min.js"></script>
+<script src="vendor/prism/prism.js"></script>
 </body>
 
 </html>

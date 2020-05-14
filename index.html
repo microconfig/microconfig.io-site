@@ -311,13 +311,13 @@
 
                                 server:
                                   port: 80
-                                  minThreads: 10
-                                  maxThreads: 100
+                                  minThreads: 20
+                                  maxThreads: 200
 
                                 payment-backend:
                                   host: http://payment-backend.local
                                   path: /api
-                                  timeoutMs: 180000
+                                  timeoutMs: 90000
 
                                 monitoring:
                                   base-path: /monitoring
@@ -409,37 +409,74 @@
                     </div>
                 </div>
                 <!--//////////////////////////////////////////////////////////////////////////-->
-                <div class="row equal-cols">
-                    <div class="col-md-6">
-                        <p class="code-title"><code>payment-backend log config</code></p>
-                        <pre>
-                            <code class="lang-xml">
-                                &lt;configuration&gt;
-                                  &lt;appender class="ch.qos.logback.core.FileAppender"&gt;
-                                    &lt;file&gt;logs/payment-backend.log&lt;/file&gt;
-                                      &lt;encoder&gt;
-                                        &lt;pattern&gt;%d{HH:mm:ss} %-5level %logger %msg %n&lt;/pattern&gt;
-                                      &lt;/encoder&gt;
-                                  &lt;/appender&gt;
-                                &lt;/configuration&gt;
-                             </code>
-                        </pre>
-                    </div>
+                <div class="row-with-switch">
+                    <label for="toggle3">dev</label>
+                    <input type="checkbox" id="toggle3" class="toggle">
+                    <label for="toggle3">prod</label>
 
-                    <div class="col-md-6">
-                        <p class="code-title"><code>payment-frontend log config</code></p>
-                        <pre>
-                            <code class="lang-xml">
-                                &lt;configuration&gt;
-                                  &lt;appender class="ch.qos.logback.core.FileAppender"&gt;
-                                    &lt;file&gt;logs/payment-frontend.log&lt;/file&gt;
-                                      &lt;encoder&gt;
-                                        &lt;pattern&gt;%d{HH:mm:ss} %-5level %logger %msg %n&lt;/pattern&gt;
-                                      &lt;/encoder&gt;
-                                  &lt;/appender&gt;
-                                &lt;/configuration&gt;
-                             </code>
-                        </pre>
+                    <div class="row equal-cols">
+                        <div class="col-md-6 dev">
+                            <p class="code-title"><code>payment-backend log config</code></p>
+                            <pre>
+                                <code class="lang-xml">
+                                    &lt;configuration&gt;
+                                      &lt;appender class="FileAppender"&gt;
+                                        &lt;file&gt;logs/payment-backend.log&lt;/file&gt;
+                                        &lt;encoder&gt;
+                                          &lt;pattern&gt;%d{HH:mm:ss} %-5level %logger %msg %n&lt;/pattern&gt;
+                                        &lt;/encoder&gt;
+                                      &lt;/appender&gt;
+                                    &lt;/configuration&gt;
+                                 </code>
+                            </pre>
+                        </div>
+                        <div class="col-md-6 prod">
+                            <p class="code-title"><code>payment-backend log config</code></p>
+                            <pre>
+                                <code class="lang-xml">
+                                    &lt;configuration&gt;
+                                      &lt;appender class=&quot;LogstashTcpSocketAppender&quot;&gt;
+                                        &lt;destination&gt;30.30.30.30:9600&lt;/destination&gt;
+                                        &lt;encoder class=&quot;LogstashEncoder&quot;&gt;
+                                          &lt;customFields&gt;{&quot;servicename&quot;:&quot;payment-backend&quot;}&lt;/customFields&gt;
+                                        &lt;/encoder&gt;
+                                      &lt;/appender&gt;
+                                    &lt;/configuration&gt;
+                                 </code>
+                            </pre>
+                        </div>
+
+                        <div class="col-md-6 dev">
+                            <p class="code-title"><code>payment-frontend log config</code></p>
+                            <pre>
+                                <code class="lang-xml">
+                                    &lt;configuration&gt;
+                                      &lt;appender class="FileAppender"&gt;
+                                        &lt;file&gt;logs/payment-frontend.log&lt;/file&gt;
+                                        &lt;encoder&gt;
+                                          &lt;pattern&gt;%d{HH:mm:ss} %-5level %logger %msg %n&lt;/pattern&gt;
+                                        &lt;/encoder&gt;
+                                      &lt;/appender&gt;
+                                    &lt;/configuration&gt;
+                                 </code>
+                            </pre>
+                        </div>
+                        <div class="col-md-6 prod">
+                            <p class="code-title"><code>payment-frontend log config</code></p>
+                            <pre>
+                                <code class="lang-xml">
+                                    &lt;configuration&gt;
+                                      &lt;appender class=&quot;LogstashTcpSocketAppender&quot;&gt;
+                                        &lt;destination&gt;30.30.30.30:9600&lt;/destination&gt;
+                                        &lt;encoder class=&quot;LogstashEncoder&quot;&gt;
+                                          &lt;customFields&gt;{&quot;servicename&quot;:&quot;payment-frontend&quot;}&lt;/customFields&gt;
+                                        &lt;/encoder&gt;
+                                      &lt;/appender&gt;
+                                    &lt;/configuration&gt;
+                                 </code>
+                            </pre>
+                        </div>
+
                     </div>
                 </div>
             </div>

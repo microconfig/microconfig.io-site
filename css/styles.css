@@ -268,12 +268,26 @@ code[class*="language-"] {
 }
 
 .nav-active, .nav-item:hover {
-    border-bottom: 2px solid #5fbb92;
+    border-color: #5fbb92;
+}
+
+.nav-item {
+    border-bottom: 2px solid transparent;
+}
+.nav-item:not(:last-child) {
+    margin-right: 10px
 }
 
 @media screen and (max-width: 992px) {
     header > .navbar > .container {
         flex-direction: column;
+    }
+
+    header > .navbar {
+        padding-bottom: 0;
+    }
+    header > .navbar .nav-item {
+        padding-bottom: 8px;
     }
 
     pre[class*="language-"],
@@ -292,6 +306,10 @@ code[class*="language-"] {
 @media (max-width: 580px) {
     .navbar-nav{
         align-items: center;
+    }
+
+    .github-corner {
+        display: none;
     }
 
     .container .row {

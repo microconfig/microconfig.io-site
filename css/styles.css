@@ -156,7 +156,7 @@ code[class*="language-"] {
 }
 
 .code-title {
-    text-align: center;
+    text-align: left;
 }
 
 .example {
@@ -204,7 +204,19 @@ code[class*="language-"] {
     display: flex !important;
 }
 
+.toggle:checked ~ .row > .off {
+    display: none !important;
+}
+
+.toggle:checked ~ .row > .on {
+    display: flex !important;
+}
+
 .prod {
+    display: none !important;
+}
+
+.on {
     display: none !important;
 }
 

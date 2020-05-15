@@ -267,6 +267,10 @@ code[class*="language-"] {
     box-shadow: inset 0 2px 3px rgba(0, 0, 0, .2), 0 0 0 3px rgba(95, 187, 146, .2);
 }
 
+.nav-active, .nav-item:hover {
+    border-bottom: 2px solid #5fbb92;
+}
+
 @media screen and (max-width: 992px) {
     header > .navbar > .container {
         flex-direction: column;

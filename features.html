@@ -102,39 +102,42 @@
               fill="currentColor" class="octo-body"></path>
     </svg>
 </a>
+
 <main role="main" id="features">
     <section class="jumbotron">
         <div class="container">
             <article class="markdown-body entry-content" itemprop="text">
                 <h1 class="text-center">Features</h1>
                 <p>This guide describes how Microconfig can help you solve common microservice configuration
-                    problems.<br/> More details you can find in <a href="documentation.html">Docs</a>. </p>
+                    problems.
+                </p>
+                <p>More details you can find in <a href="documentation.html">Docs</a>. </p>
+
                 <section id="layout">
-                    <br/><br/>
-                    <h2 class="mc-green">Simple Configuration Layout</h2><br/>
+                    <h2 class="mc-green section-title">Simple Configuration Layout</h2>
+
                     <div class="container">
                         <div class="row">
                             <div class="col-md-12 col-lg-6">
                                 <h4>Problem</h4>
 
                                 <p>Other configuration frameworks can demand a specific configuration folder
-                                    structure
-                                    or specific filenames.</p>
+                                    structure or specific filenames.
+                                </p>
                             </div>
+
                             <div class="col-md-12 col-lg-6">
                                 <h4>Solution</h4>
 
                                 <p>Microconfig only asks you to create folders for your services somewhere in
                                     <code>components</code> folder. You choose the names and folder structure. If
-                                    you
-                                    have different types of configuration just place them in the same service
+                                    you have different types of configuration just place them in the same service
                                     folder.
                                 </p>
-                                <br/>
                             </div>
                         </div>
                     </div>
-                    <br/>
+
                     <pre><code class="language-shell">
                         components
                         &#x251c;&#x2500;&#x2500; payments
@@ -150,17 +153,18 @@
                 </section>
 
                 <section id="include">
-                    <br/><br/>
-                    <h2 class="mc-green">Reuse Common Parts</h2>
-                    <br/>
+                    <h2 class="mc-green section-title">Reuse Common Parts</h2>
+
                     <div class="container">
                         <div class="row">
                             <div class="col-md-12 col-lg-6">
                                 <h4>Problem</h4>
                                 <p>Microservices have a lot of shared configuration parts that is copy-pasted
                                     between them. So you need to go through all services one by one to update this
-                                    shared part.</p>
+                                    shared part.
+                                </p>
                             </div>
+
                             <div class="col-md-12 col-lg-6">
                                 <h4>Solution</h4>
 
@@ -170,21 +174,21 @@
                                     you need to update your common part you just do it in one place and everyone gets
                                     this update via <code>#include</code>.
                                 </p>
-                                <br/>
                             </div>
                         </div>
                     </div>
-                    <br/>
 
                     <div class="col text-right">
                         <div class="row-with-switch">
                             <label for="toggle-incl">Problem</label>
                             <input type="checkbox" id="toggle-incl" class="toggle">
                             <label for="toggle-incl">Solution</label>
+
                             <div class="row equal-cols">
                                 <div class="col-md-6 off">
-                                    <p class="code-title"><code>payment-backend</code></p>
-                                    <pre><code class="language-yaml">
+                                    <h3 class="code-title"><code>payment-backend</code></h3>
+                                    <pre>
+                                        <code class="language-yaml">
                                         name: payment-backend
 
                                         server:
@@ -194,11 +198,14 @@
                                         monitoring:
                                           base-path: /monitoring
                                           endpoints: info, health, ready, prometheus
-                                    </code></pre>
+                                        </code>
+                                    </pre>
                                 </div>
+
                                 <div class="col-md-6 off">
-                                    <p class="code-title"><code>payment-frontend</code></p>
-                                    <pre><code class="language-yaml">
+                                    <h3 class="code-title"><code>payment-frontend</code></h3>
+                                    <pre>
+                                        <code class="language-yaml">
                                         name: payment-frontend
 
                                         payment-backend:
@@ -208,11 +215,14 @@
                                         monitoring:
                                           base-path: /monitoring
                                           endpoints: info, health, ready, prometheus
-                                    </code></pre>
+                                        </code>
+                                    </pre>
                                 </div>
+
                                 <div class="col-md-6 on">
-                                    <p class="code-title"><code>payment-backend</code></p>
-                                    <pre><code class="language-yaml">
+                                    <h3 class="code-title"><code>payment-backend</code></h3>
+                                    <pre>
+                                        <code class="language-yaml">
                                         name: payment-backend
 
                                         server:
@@ -220,11 +230,14 @@
                                           context: /api
 
                                         #include monitoring
-                                    </code></pre>
+                                        </code>
+                                    </pre>
                                 </div>
+
                                 <div class="col-md-6 on">
-                                    <p class="code-title"><code>payment-frontend</code></p>
-                                    <pre><code class="language-yaml">
+                                    <h3 class="code-title"><code>payment-frontend</code></h3>
+                                    <pre>
+                                        <code class="language-yaml">
                                         name: payment-frontend
 
                                         payment-backend:
@@ -232,17 +245,22 @@
                                           path: /api
 
                                         #include monitoring
-                                    </code></pre>
+                                        </code>
+                                    </pre>
                                 </div>
                             </div>
+
                             <div class="row equal-cols">
                                 <div class="col-md-12 col-lg-6 offset-lg-3 on">
-                                    <p class="code-title"><code>monitoring</code></p>
-                                    <pre><code class="language-yaml">
+                                    <h3 class="code-title"><code>monitoring</code></h3>
+
+                                    <pre>
+                                        <code class="language-yaml">
                                         monitoring:
                                           base-path: /monitoring
                                           endpoints: info, health, ready, prometheus
-                                    </code></pre>
+                                        </code>
+                                    </pre>
                                 </div>
                             </div>
                         </div>
@@ -250,9 +268,8 @@
                 </section>
 
                 <section id="placeholders">
-                    <br/><br/>
-                    <h2 class="mc-green">Reference Values</h2>
-                    <br/>
+                    <h2 class="mc-green section-title">Reference Values</h2>
+
                     <div class="container">
                         <div class="row">
                             <div class="col-md-12 col-lg-6">
@@ -260,60 +277,71 @@
                                 <p>Different services can depend on each other's configuration keys. For example
                                     frontend needs backend's api base path. You can just keep this value in two
                                     places but in this case you need to remember about this dependency and update them
-                                    both. </p>
+                                    both.
+                                </p>
                             </div>
+
                             <div class="col-md-12 col-lg-6">
                                 <h4>Solution</h4>
                                 <p>Microconfig can reference a value from current or another component with a
                                     <code>${placeholder}</code>. This allows you to keep values only in original
                                     services and all who depend on them can just have an explicit reference. In this
-                                    case you need to update the value only once.</p>
-                                <br/>
+                                    case you need to update the value only once.
+                                </p>
                             </div>
                         </div>
                     </div>
-                    <br/>
+
                     <div class="col text-right">
                         <div class="row-with-switch">
                             <label for="toggle1">Problem</label>
                             <input type="checkbox" id="toggle1" class="toggle">
                             <label for="toggle1">Solution</label>
+
                             <div class="row equal-cols">
                                 <div class="col-md-6">
-                                    <p class="code-title"><code>payment-backend</code></p>
-                                    <pre><code class="language-yaml">
-                                    name: payment-backend
+                                    <h3 class="code-title"><code>payment-backend</code></h3>
+                                    <pre>
+                                        <code class="language-yaml">
+                                        name: payment-backend
 
-                                    server:
-                                      port: 8080
-                                      context: /api
+                                        server:
+                                          port: 8080
+                                          context: /api
 
-                                    ...
-                                </code></pre>
+                                        ...
+                                        </code>
+                                    </pre>
                                 </div>
+
                                 <div class="col-md-6 on">
-                                    <p class="code-title"><code>payment-frontend</code></p>
-                                    <pre><code class="language-yaml">
-                                    name: payment-frontend
+                                    <h3 class="code-title"><code>payment-frontend</code></h3>
+                                    <pre>
+                                        <code class="language-yaml">
+                                        name: payment-frontend
 
-                                    payment-backend:
-                                      host: http://payment-backend.local
-                                      path: ${payment-backend@server.context}
+                                        payment-backend:
+                                          host: http://payment-backend.local
+                                          path: ${payment-backend@server.context}
 
-                                    ...
-                                </code></pre>
+                                        ...
+                                        </code>
+                                    </pre>
                                 </div>
+
                                 <div class="col-md-6 off">
-                                    <p class="code-title"><code>payment-frontend</code></p>
-                                    <pre><code class="language-yaml">
-                                    name: payment-frontend
+                                    <h3 class="code-title"><code>payment-frontend</code></h3>
+                                    <pre>
+                                        <code class="language-yaml">
+                                        name: payment-frontend
 
-                                    payment-backend:
-                                      host: http://payment-backend.local
-                                      path: /api
+                                        payment-backend:
+                                          host: http://payment-backend.local
+                                          path: /api
 
-                                    ...
-                                </code></pre>
+                                          ...
+                                        </code>
+                                    </pre>
                                 </div>
                             </div>
                         </div>
@@ -323,9 +351,8 @@
                 </section>
 
                 <section id="expressions">
-                    <br/><br/>
-                    <h2 class="mc-green">Dynamic Values</h2>
-                    <br/>
+                    <h2 class="mc-green section-title">Dynamic Values</h2>
+
                     <div class="container">
                         <div class="row">
                             <div class="col-md-12 col-lg-6">
@@ -333,24 +360,26 @@
                                 <p>Sometimes static values are not enough, and you want to do a <code>+1</code> or
                                     <code>base64</code>. Some values even are more readable as expressions. </p>
                             </div>
+
                             <div class="col-md-12 col-lg-6">
                                 <h4>Solution</h4>
                                 <p>Microconfig has <code>#{'expression' + 'language'} </code> to dynamically
                                     generate your values. It supports math operations and much more. </p>
-                                <br/>
                             </div>
                         </div>
                     </div>
-                    <br/>
+
                     <div class="col text-right">
                         <div class="row-with-switch">
                             <label for="toggle-expr">Problem</label>
                             <input type="checkbox" id="toggle-expr" class="toggle">
                             <label for="toggle-expr">Solution</label>
+
                             <div class="row equal-cols">
                                 <div class="col-md-12 off">
-                                    <p class="code-title"><code>payment-frontend</code></p>
-                                    <pre><code class="language-yaml">
+                                    <h3 class="code-title"><code>payment-frontend</code></h3>
+                                    <pre>
+                                        <code class="language-yaml">
                                         name: payment-frontend
 
                                         payment-backend:
@@ -360,11 +389,14 @@
                                           filename: PAYMENT-FRONTEND.log
 
                                         ...
-                                    </code></pre>
+                                        </code>
+                                    </pre>
                                 </div>
+
                                 <div class="col-md-12 on">
-                                    <p class="code-title"><code>payment-frontend</code></p>
-                                    <pre><code class="language-yaml">
+                                    <h3 class="code-title"><code>payment-frontend</code></h3>
+                                    <pre>
+                                        <code class="language-yaml">
                                         name: payment-frontend
 
                                         payment-backend:
@@ -374,7 +406,8 @@
                                           filename: #{ '${this@name}'.toUpperCase() }.log
 
                                         ...
-                                    </code></pre>
+                                        </code>
+                                    </pre>
                                 </div>
                             </div>
                         </div>
@@ -383,37 +416,40 @@
                 </section>
 
                 <section id="env">
-                    <br/><br/>
-                    <h2 class="mc-green">Environment Specific Config</h2>
-                    <br/>
+                    <h2 class="mc-green section-title">Environment Specific Config</h2>
+
                     <div class="container">
                         <div class="row">
                             <div class="col-md-12 col-lg-6">
                                 <h4>Problem</h4>
                                 <p>We deploy services to different environments that have specific properties. Your
                                     production database has different ip address than your dev. All of those
-                                    specifications should be applied to final version for your environment. </p>
+                                    specifications should be applied to final version for your environment.
+                                </p>
                             </div>
+
                             <div class="col-md-12 col-lg-6">
                                 <h4>Solution</h4>
                                 <p>Microconfig supports specific values for each environment you need. You just
                                     create an override <code>.env.</code> file near your base configuration. In this
                                     file you specify all that you want for your <code>env</code> and it will be merged
-                                    with your base configuration. More specific values will override base ones.</p>
-                                <br/>
+                                    with your base configuration. More specific values will override base ones.
+                                </p>
                             </div>
                         </div>
                     </div>
-                    <br/>
+
                     <div class="col text-right">
                         <div class="row-with-switch">
                             <label for="toggle-env">Problem</label>
                             <input type="checkbox" id="toggle-env" class="toggle">
                             <label for="toggle-env">Solution</label>
+
                             <div class="row equal-cols">
                                 <div class="col-md-6 off">
-                                    <p class="code-title"><code>payment-backend dev</code></p>
-                                    <pre><code class="language-yaml">
+                                    <h3 class="code-title"><code>payment-backend dev</code></h3>
+                                    <pre>
+                                        <code class="language-yaml">
                                         name: payment-backend
 
                                         payment-gateway: http://gateway-mock.local
@@ -424,11 +460,14 @@
                                           url: jdbc:postgres://10.10.10.10:5432/database
 
                                         ...
-                                    </code></pre>
+                                        </code>
+                                    </pre>
                                 </div>
+
                                 <div class="col-md-6 off">
-                                    <p class="code-title"><code>payment-backend prod</code></p>
-                                    <pre><code class="language-yaml">
+                                    <h3 class="code-title"><code>payment-backend prod</code></h3>
+                                    <pre>
+                                        <code class="language-yaml">
                                         name: payment-backend
 
                                         payment-gateway: https://payment-gateway.com
@@ -439,39 +478,49 @@
                                           url: jdbc:postgres://20.20.20.20:5432/database
 
                                         ...
-                                    </code></pre>
+                                        </code>
+                                    </pre>
                                 </div>
+
                                 <div class="col-md-6 on">
-                                    <p class="code-title"><code>payment-backend/application.dev.yaml</code></p>
-                                    <pre><code class="language-yaml">
+                                    <h3 class="code-title"><code>payment-backend/application.dev.yaml</code></h3>
+                                    <pre>
+                                        <code class="language-yaml">
                                         payment-gateway: http://gateway-mock.local
 
                                         database:
                                           host: 10.10.10.10
-                                    </code></pre>
+                                        </code>
+                                    </pre>
                                 </div>
+
                                 <div class="col-md-6 on">
-                                    <p class="code-title"><code>payment-backend/application.prod.yaml</code></p>
-                                    <pre><code class="language-yaml">
+                                    <h3 class="code-title"><code>payment-backend/application.prod.yaml</code></h3>
+                                    <pre>
+                                        <code class="language-yaml">
                                         payment-gateway: https://payment-gateway.com
 
                                         database:
                                           host: 20.20.20.20
                                           pool-size: 50
-                                    </code></pre>
+                                        </code>
+                                    </pre>
                                 </div>
                             </div>
+
                             <div class="row equal-cols">
                                 <div class="col-md-12 col-lg-6 offset-lg-3 on">
-                                    <p class="code-title"><code>payment-backend/application.yaml</code></p>
-                                    <pre><code class="language-yaml">
+                                    <h3 class="code-title"><code>payment-backend/application.yaml</code></h3>
+                                    <pre>
+                                        <code class="language-yaml">
                                         name: payment-backend
 
                                         database:
                                           type: Postgres
                                           pool-size: 10
                                           url: jdbc:postgres://${this@database.host}:5432/database
-                                    </code></pre>
+                                        </code>
+                                    </pre>
                                 </div>
                             </div>
                         </div>
@@ -479,9 +528,8 @@
                 </section>
 
                 <section id="templates">
-                    <br/><br/>
-                    <h2 class="mc-green">Static Files Templating</h2>
-                    <br/>
+                    <h2 class="mc-green section-title">Static Files Templating</h2>
+
                     <div class="container">
                         <div class="row">
                             <div class="col-md-12 col-lg-6">
@@ -489,28 +537,31 @@
                                 <p>Your services usually require some additional 3rd party configuration files like
                                     a log configuration or a deploy script. It's easy if these files doesn't have
                                     difference for every service but what if you need to change them a bit for each
-                                    service or environment? </p>
+                                    service or environment?
+                                </p>
                             </div>
+
                             <div class="col-md-12 col-lg-6">
                                 <h4>Solution</h4>
                                 <p>Microconfig can use static templates and populate them with data unique for each
                                     service via placeholders and <a href="https://mustache.github.io/">Moustache</a>. So you can
                                     keep your template in one place and then generate specific result for each service.
                                 </p>
-                                <br/>
                             </div>
                         </div>
                     </div>
-                    <br/>
+
                     <div class="col text-right">
                         <div class="row-with-switch">
                             <label for="toggle-tmpl">Problem</label>
                             <input type="checkbox" id="toggle-tmpl" class="toggle">
                             <label for="toggle-tmpl">Solution</label>
+
                             <div class="row equal-cols">
                                 <div class="col-md-6 off">
-                                    <p class="code-title"><code>payment-backend log config dev</code></p>
-                                    <pre><code class="lang-xml">
+                                    <h3 class="code-title"><code>payment-backend log config dev</code></h3>
+                                    <pre>
+                                        <code class="lang-xml">
                                         &lt;configuration&gt;
                                           &lt;appender class="FileAppender"&gt;
                                             &lt;file&gt;logs/payment-backend.log&lt;/file&gt;
@@ -519,11 +570,14 @@
                                             &lt;/encoder&gt;
                                           &lt;/appender&gt;
                                         &lt;/configuration&gt;
-                                    </code></pre>
+                                        </code>
+                                    </pre>
                                 </div>
+
                                 <div class="col-md-6 off">
-                                    <p class="code-title"><code>payment-backend log config prod</code></p>
-                                    <pre><code class="lang-xml">
+                                    <h3 class="code-title"><code>payment-backend log config prod</code></h3>
+                                    <pre>
+                                        <code class="lang-xml">
                                         &lt;configuration&gt;
                                           &lt;appender class="FileAppender"&gt;
                                             &lt;file&gt;logs/payment-backend.log&lt;/file&gt;
@@ -539,11 +593,14 @@
                                             &lt;/encoder&gt;
                                           &lt;/appender&gt;
                                         &lt;/configuration&gt;
-                                    </code></pre>
+                                        </code>
+                                    </pre>
                                 </div>
+
                                 <div class="col-md-6 on">
-                                    <p class="code-title"><code>log template.xml</code></p>
-                                    <pre><code class="language-xml">
+                                    <h3 class="code-title"><code>log template.xml</code></h3>
+                                    <pre>
+                                        <code class="language-xml">
                                         &lt;configuration&gt;
                                           &lt;appender class="FileAppender"&gt;
                                             &lt;file&gt;logs/${this@name}.log&lt;/file&gt;
@@ -561,11 +618,14 @@
                                           &lt;/appender&gt;
                                         {{/appender.stash}}
                                         &lt;/configuration&gt;
-                                    </code></pre>
+                                        </code>
+                                    </pre>
                                 </div>
+
                                 <div class="col-md-6 on">
-                                    <p class="code-title"><code>payment-backend prod</code></p>
-                                    <pre><code class="language-yaml">
+                                    <h3 class="code-title"><code>payment-backend prod</code></h3>
+                                    <pre>
+                                        <code class="language-yaml">
                                         mc.mustache.log:
                                           fromFile: ${log@configDir}/template.xml
                                           toFile: logback.xml
@@ -574,7 +634,8 @@
 
                                         #var appender.stash: true
                                         ...
-                                    </code></pre>
+                                        </code>
+                                    </pre>
                                 </div>
 
                             </div>
@@ -583,9 +644,8 @@
                 </section>
 
                 <section id="diff">
-                    <br/><br/>
-                    <h2 class="mc-green">Config Diff</h2>
-                    <br/>
+                    <h2 class="mc-green section-title">Config Diff</h2>
+
                     <div class="container">
                         <div class="row">
                             <div class="col-md-12 col-lg-6">
@@ -596,91 +656,97 @@
                                     your configuration.
                                 </p>
                             </div>
+
                             <div class="col-md-12 col-lg-6">
                                 <h4>Solution</h4>
                                 <p>Microconfig allows you to generate git style <code>diff</code> and see how your
                                     configuration changes overtime or compare different versions.</p>
-                                <br/>
                             </div>
                         </div>
                     </div>
-                    <br/>
+
                     <div class="col text-right">
                         <div class="row-with-switch">
                             <label for="toggle-diff">Problem</label>
                             <input type="checkbox" id="toggle-diff" class="toggle">
                             <label for="toggle-diff">Solution</label>
+
                             <div class="row equal-cols">
                                 <div class="col-md-6">
-                                    <p class="code-title"><code>payment-frontend v1</code></p>
-                                    <pre><code class="language-yaml">
-                                    name: payment-frontend
+                                    <h3 class="code-title"><code>payment-frontend v1</code></h3>
+                                    <pre>
+                                        <code class="language-yaml">
+                                        name: payment-frontend
 
-                                    monitoring:
-                                      base-path: /monitoring
-                                      endpoints: info, health, ready, prometheus
+                                        monitoring:
+                                          base-path: /monitoring
+                                          endpoints: info, health, ready, prometheus
 
-                                    payment-backend:
-                                      host: http://payment-backend.local
-                                      path: /api
+                                        payment-backend:
+                                          host: http://payment-backend.local
+                                          path: /api
 
-
-                                    server:
-                                      maxThreads: 100
-                                      minThreads: 10
-                                      port: 80
-                                      timeoutMs: 180000
-                                </code></pre>
+                                        server:
+                                          maxThreads: 100
+                                          minThreads: 10
+                                          port: 80
+                                          timeoutMs: 180000
+                                        </code>
+                                    </pre>
                                 </div>
+
                                 <div class="col-md-6">
-                                    <p class="code-title"><code>payment-frontend v2</code></p>
-                                    <pre><code class="language-yaml">
-                                    name: payment-frontend
+                                    <h3 class="code-title"><code>payment-frontend v2</code></h3>
+                                    <pre>
+                                        <code class="language-yaml">
+                                        name: payment-frontend
 
-                                    monitoring:
-                                      base-path: /monitoring
-                                      endpoints: info, health, ready, prometheus
+                                        monitoring:
+                                          base-path: /monitoring
+                                          endpoints: info, health, ready, prometheus
 
-                                    payment-backend:
-                                      host: https://payment-backend.local
-                                      path: /api
-                                      timeoutMs: 180000
+                                        payment-backend:
+                                          host: https://payment-backend.local
+                                          path: /api
+                                          timeoutMs: 180000
 
-                                    server:
-                                      port: 80
-
-
-
-                                </code></pre>
+                                        server:
+                                          port: 80
+                                        </code>
+                                    </pre>
                                 </div>
                             </div>
+
                             <div class="row equal-cols">
                                 <div class="col-md-12 col-lg-6 offset-lg-3 on">
-                                    <p class="code-title"><code>payment-frontend diff between v1 and v2</code></p>
-                                    <pre><code class="language-yaml">
-                                    +payment-backend:
-                                      timeoutMs: 180000
+                                    <h3 class="code-title"><code>payment-frontend diff between v1 and v2</code></h3>
+                                    <pre>
+                                        <code class="language-yaml">
+                                        +payment-backend:
+                                          timeoutMs: 180000
 
-                                    -server:
-                                      maxThreads: 100
-                                      minThreads: 10
-                                      timeoutMs: 180000
+                                        -server:
+                                          maxThreads: 100
+                                          minThreads: 10
+                                          timeoutMs: 180000
 
-                                    payment-backend:
-                                      host: http://payment-backend.local -&gt; https://payment-backend.local
-                                </code></pre>
+                                        payment-backend:
+                                          host: http://payment-backend.local -&gt; https://payment-backend.local
+                                        </code>
+                                    </pre>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </section>
-                <br/><br/>
+
                 <p class="text-dark">Can't wait to try it out? Head over to <a href="quickstart.html">Quickstart</a>
                 </p>
             </article>
         </div>
     </section>
 </main>
+
 <footer class="text-muted bg-light">
     <div class="container footer-container">
         <p class="copyright">Microconfig.io &copy; 2017-2020</p>
@@ -688,8 +754,7 @@
         <div class="contacts">
             <ul class="list-unstyled mb-0">
                 <li class="lead">Join our
-                    <a
-                            href="https://join.slack.com/t/microconfig/shared_invite/zt-dflf2m0n-wOPVfAmk5eiHPn_9Omff7Q">Slack!</a>
+                    <a href="https://join.slack.com/t/microconfig/shared_invite/zt-dflf2m0n-wOPVfAmk5eiHPn_9Omff7Q">Slack!</a>
                 </li>
                 <li class="lead">Contribute on <a href="https://github.com/microconfig/microconfig">Github</a></li>
                 <li class="lead"><a href="mailto:hello@microconfig.io">hello@microconfig.io</a></li>

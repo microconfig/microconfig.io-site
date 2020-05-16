@@ -239,13 +239,15 @@
 
             <div class="col text-right">
                 <div class="row-with-switch">
-                    <label for="toggle1"><code>application config: </code> dev</label>
+                    <p class="switch-title"><code>app config: </code></p>
+
+                    <label for="toggle1">dev</label>
                     <input type="checkbox" id="toggle1" class="toggle">
                     <label for="toggle1">prod</label>
 
                     <div class="row equal-cols">
-                        <div class="col-md-6 prod">
-                            <p class="code-title"><code>payment-backend</code></p>
+                        <div class="col-md-6 on">
+                            <h3 class="code-title"><code>payment-backend</code></h3>
                             <pre>
                             <code class="lang-yaml">
                                 name: payment-backend
@@ -269,8 +271,8 @@
                         </pre>
                         </div>
 
-                        <div class="col-md-6 prod">
-                            <p class="code-title"><code>payment-frontend</code></p>
+                        <div class="col-md-6 on">
+                            <h3 class="code-title"><code>payment-frontend</code></h3>
                             <pre>
                             <code class="lang-yaml">
                                 name: payment-frontend
@@ -292,8 +294,8 @@
                         </pre>
                         </div>
 
-                        <div class="col-md-6 dev">
-                            <p class="code-title"><code>payment-backend</code></p>
+                        <div class="col-md-6 off">
+                            <h3 class="code-title"><code>payment-backend</code></h3>
                             <pre>
                             <code class="lang-yaml">
                                 name: payment-backend
@@ -317,8 +319,8 @@
                         </pre>
                         </div>
 
-                        <div class="col-md-6 dev">
-                            <p class="code-title"><code>payment-frontend</code></p>
+                        <div class="col-md-6 off">
+                            <h3 class="code-title"><code>payment-frontend</code></h3>
                             <pre>
                             <code class="lang-yaml">
                                 name: payment-frontend
@@ -344,14 +346,16 @@
                 </div>
                 <!--//////////////////////////////////////////////////////////////////////////-->
                 <div class="row-with-switch">
-                    <label for="toggle2"><code>deploy config: </code>dev</label>
+                    <p class="switch-title"><code>deploy config: </code></p>
+
+                    <label for="toggle2">dev</label>
                     <input type="checkbox" id="toggle2" class="toggle">
                     <label for="toggle2">prod</label>
 
                     <div class="row equal-cols">
 
-                        <div class="col-md-6 prod">
-                            <p class="code-title"><code>payment-backend</code></p>
+                        <div class="col-md-6 on">
+                            <h3 class="code-title"><code>payment-backend</code></h3>
                             <pre>
                             <code class="lang-yaml">
                                 image: "payment-backend:1.5"
@@ -368,8 +372,8 @@
                         </pre>
                         </div>
 
-                        <div class="col-md-6 prod">
-                            <p class="code-title"><code>payment-frontend</code></p>
+                        <div class="col-md-6 on">
+                            <h3 class="code-title"><code>payment-frontend</code></h3>
                             <pre>
                             <code class="language-yaml">
                                 image: "payment-frontend:2.1"
@@ -386,8 +390,8 @@
                         </pre>
                         </div>
 
-                        <div class="col-md-6 dev">
-                            <p class="code-title"><code>payment-backend</code></p>
+                        <div class="col-md-6 off">
+                            <h3 class="code-title"><code>payment-backend</code></h3>
                             <pre>
                             <code class="lang-yaml">
                                 image: "payment-backend:latest"
@@ -404,8 +408,8 @@
                         </pre>
                         </div>
 
-                        <div class="col-md-6 dev">
-                            <p class="code-title"><code>payment-frontend</code></p>
+                        <div class="col-md-6 off">
+                            <h3 class="code-title"><code>payment-frontend</code></h3>
                             <pre>
                             <code class="lang-yaml">
                                 image: "payment-frontend:latest"
@@ -425,13 +429,14 @@
                 </div>
                 <!--//////////////////////////////////////////////////////////////////////////-->
                 <div class="row-with-switch">
-                    <label for="toggle3"><code>log config: </code>dev</label>
+                    <p class="switch-title"><code>log config: </code></p>
+                    <label for="toggle3">dev</label>
                     <input type="checkbox" id="toggle3" class="toggle">
                     <label for="toggle3">prod</label>
 
                     <div class="row equal-cols">
-                        <div class="col-md-6 dev">
-                            <p class="code-title"><code>payment-backend</code></p>
+                        <div class="col-md-6 off">
+                            <h3 class="code-title"><code>payment-backend</code></h3>
                             <pre>
                                 <code class="lang-xml">
                                     &lt;configuration&gt;
@@ -445,8 +450,8 @@
                                  </code>
                             </pre>
                         </div>
-                        <div class="col-md-6 prod">
-                            <p class="code-title"><code>payment-backend</code></p>
+                        <div class="col-md-6 on">
+                            <h3 class="code-title"><code>payment-backend</code></h3>
                             <pre>
                                 <code class="lang-xml">
                                     &lt;configuration&gt;
@@ -461,8 +466,8 @@
                             </pre>
                         </div>
 
-                        <div class="col-md-6 dev">
-                            <p class="code-title"><code>payment-frontend</code></p>
+                        <div class="col-md-6 off">
+                            <h3 class="code-title"><code>payment-frontend</code></h3>
                             <pre>
                                 <code class="lang-xml">
                                     &lt;configuration&gt;
@@ -476,8 +481,8 @@
                                  </code>
                             </pre>
                         </div>
-                        <div class="col-md-6 prod">
-                            <p class="code-title"><code>payment-frontend</code></p>
+                        <div class="col-md-6 on">
+                            <h3 class="code-title"><code>payment-frontend</code></h3>
                             <pre>
                                 <code class="lang-xml">
                                     &lt;configuration&gt;

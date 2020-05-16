@@ -159,6 +159,9 @@ code[class*="language-"] {
     text-align: left;
 }
 
+.switch-title {
+    display: inline-block;
+}
 .row.equal-cols {
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -196,9 +199,9 @@ code[class*="language-"] {
     display: none !important;
 }
 
-.toggle:checked ~ .row > .prod {
-    display: flex !important;
-}
+/*.toggle:checked ~ .row > .prod {*/
+/*    display: flex !important;*/
+/*}*/
 
 .toggle:checked ~ .row > .off {
     display: none !important;
@@ -208,9 +211,9 @@ code[class*="language-"] {
     display: flex !important;
 }
 
-.prod {
-    display: none !important;
-}
+/*.prod {*/
+/*    display: none !important;*/
+/*}*/
 
 .on {
     display: none !important;

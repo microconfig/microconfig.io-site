@@ -153,6 +153,7 @@ code[class*="language-"] {
 
 .code-title {
     text-align: left;
+    font-size: 20px;
 }
 
 .switch-title {
@@ -273,6 +274,22 @@ code[class*="language-"] {
     margin-bottom: 50px;
 }
 
+#include .row-with-switch {
+    min-height: 500px;
+}
+
+#env .row-with-switch {
+    min-height: 489px;
+}
+
+#diff .row-with-switch {
+    min-height: 736px;
+}
+
+#templates .row-with-switch {
+    min-height: 486px;
+}
+
 @media screen and (max-width: 992px) {
     header > .navbar > .container {
         flex-direction: column;
@@ -289,6 +306,22 @@ code[class*="language-"] {
     code[class*="language-"] {
         font-size: 9px;
     }
+
+    #include .row-with-switch {
+        min-height: 433px;
+    }
+
+    #env .row-with-switch {
+        min-height: 443px;
+    }
+
+    #templates .row-with-switch {
+        min-height: 395px;
+    }
+
+    #diff .row-with-switch {
+        min-height: 598px;
+    }
 }
 
 @media screen and (max-width: 768px) {
@@ -300,6 +333,24 @@ code[class*="language-"] {
     .jumbotron .container .row div:last-child p {
         margin-bottom: 0;
     }
+
+    #include .row-with-switch {
+        min-height: 555px;
+    }
+
+    #env .row-with-switch {
+        min-height: 534px;
+    }
+
+    #templates .row-with-switch {
+        min-height: 558px;
+    }
+
+    #diff .row-with-switch {
+        min-height: 824px;
+    }
+
+
 }
 
 @media (max-width: 580px) {
@@ -344,6 +395,18 @@ code[class*="language-"] {
     pre[class*="language-"],
     code[class*="language-"] {
         font-size: 8px;
+    }
+
+    #include .row-with-switch {
+        min-height: 532px;
+    }
+
+    #env .row-with-switch {
+        min-height: 632px;
+    }
+
+    #diff .row-with-switch {
+        min-height: 809px;
     }
 }
 

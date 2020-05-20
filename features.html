@@ -184,16 +184,16 @@
                             </div>
                         </div>
 
-                        <div class="col">
-                            <div class="row-with-switch">
-                                <label for="toggle-incl">Problem</label>
-                                <input type="checkbox" id="toggle-incl" class="toggle" checked>
-                                <label for="toggle-incl">Solution</label>
+                        <!-- <div class="col"> -->
+                        <div class="row-with-switch">
+                            <label for="toggle-incl">Problem</label>
+                            <input type="checkbox" id="toggle-incl" class="toggle" checked>
+                            <label for="toggle-incl">Solution</label>
 
-                                <div class="row equal-cols">
-                                    <div class="col-md-6 off">
-                                        <h3 class="code-title"><code>payment-backend</code></h3>
-                                        <pre>
+                            <div class="row equal-cols">
+                                <div class="col-md-6 off">
+                                    <h3 class="code-title"><code>payment-backend</code></h3>
+                                    <pre>
                                         <code class="language-yaml">
                                         name: payment-backend
 
@@ -206,71 +206,71 @@
                                           endpoints: info, health, ready, prometheus
                                         </code>
                                     </pre>
-                                    </div>
-
-                                    <div class="col-md-6 off">
-                                        <h3 class="code-title"><code>payment-frontend</code></h3>
-                                        <pre>
-                                        <code class="language-yaml">
-                                        name: payment-frontend
-
-                                        payment-backend:
-                                          host: http://payment-backend.local
-                                          path: /api
-
-                                        monitoring:
-                                          base-path: /monitoring
-                                          endpoints: info, health, ready, prometheus
-                                        </code>
-                                    </pre>
-                                    </div>
-
-                                    <div class="col-md-6 on">
-                                        <h3 class="code-title"><code>payment-backend</code></h3>
-                                        <pre>
-                                        <code class="language-yaml">
-                                        name: payment-backend
-
-                                        server:
-                                          port: 8080
-                                          context: /api
-
-                                        #include monitoring
-                                        </code>
-                                    </pre>
-                                    </div>
-
-                                    <div class="col-md-6 on">
-                                        <h3 class="code-title"><code>payment-frontend</code></h3>
-                                        <pre>
-                                        <code class="language-yaml">
-                                        name: payment-frontend
-
-                                        payment-backend:
-                                          host: http://payment-backend.local
-                                          path: /api
-
-                                        #include monitoring
-                                        </code>
-                                    </pre>
-                                    </div>
                                 </div>
 
-                                <div class="row equal-cols">
-                                    <div class="col-md-12 col-lg-6 offset-lg-3 on">
-                                        <h3 class="code-title"><code>monitoring</code></h3>
+                                <div class="col-md-6 off">
+                                    <h3 class="code-title"><code>payment-frontend</code></h3>
+                                    <pre>
+                                        <code class="language-yaml">
+                                        name: payment-frontend
 
-                                        <pre>
+                                        payment-backend:
+                                          host: http://payment-backend.local
+                                          path: /api
+
+                                        monitoring:
+                                          base-path: /monitoring
+                                          endpoints: info, health, ready, prometheus
+                                        </code>
+                                    </pre>
+                                </div>
+
+                                <div class="col-md-6 on">
+                                    <h3 class="code-title"><code>payment-backend</code></h3>
+                                    <pre>
+                                        <code class="language-yaml">
+                                        name: payment-backend
+
+                                        server:
+                                          port: 8080
+                                          context: /api
+
+                                        #include monitoring
+                                        </code>
+                                    </pre>
+                                </div>
+
+                                <div class="col-md-6 on">
+                                    <h3 class="code-title"><code>payment-frontend</code></h3>
+                                    <pre>
+                                        <code class="language-yaml">
+                                        name: payment-frontend
+
+                                        payment-backend:
+                                          host: http://payment-backend.local
+                                          path: /api
+
+                                        #include monitoring
+                                        </code>
+                                    </pre>
+                                </div>
+                            </div>
+
+                            <div class="row equal-cols">
+                                <div class="col-md-12 col-lg-6 offset-lg-3 on">
+                                    <h3 class="code-title"><code>monitoring</code></h3>
+
+                                    <pre>
                                         <code class="language-yaml">
                                         monitoring:
                                           base-path: /monitoring
                                           endpoints: info, health, ready, prometheus
                                         </code>
                                     </pre>
-                                    </div>
                                 </div>
                             </div>
                         </div>
+                        <!-- </div> -->
                     </section>
 
                     <section id="placeholders">
@@ -299,16 +299,16 @@
                             </div>
                         </div>
 
-                        <div class="col">
-                            <div class="row-with-switch">
-                                <label for="toggle1">Problem</label>
-                                <input type="checkbox" id="toggle1" class="toggle" checked>
-                                <label for="toggle1">Solution</label>
+                        <!-- <div class="col"> -->
+                        <div class="row-with-switch">
+                            <label for="toggle1">Problem</label>
+                            <input type="checkbox" id="toggle1" class="toggle" checked>
+                            <label for="toggle1">Solution</label>
 
-                                <div class="row equal-cols">
-                                    <div class="col-md-6">
-                                        <h3 class="code-title"><code>payment-backend</code></h3>
-                                        <pre>
+                            <div class="row equal-cols">
+                                <div class="col-md-6">
+                                    <h3 class="code-title"><code>payment-backend</code></h3>
+                                    <pre>
                                         <code class="language-yaml">
                                         name: payment-backend
 
@@ -319,11 +319,11 @@
                                         ...
                                         </code>
                                     </pre>
-                                    </div>
+                                </div>
 
-                                    <div class="col-md-6 on">
-                                        <h3 class="code-title"><code>payment-frontend</code></h3>
-                                        <pre>
+                                <div class="col-md-6 on">
+                                    <h3 class="code-title"><code>payment-frontend</code></h3>
+                                    <pre>
                                         <code class="language-yaml">
                                         name: payment-frontend
 
@@ -334,11 +334,11 @@
                                         ...
                                         </code>
                                     </pre>
-                                    </div>
+                                </div>
 
-                                    <div class="col-md-6 off">
-                                        <h3 class="code-title"><code>payment-frontend</code></h3>
-                                        <pre>
+                                <div class="col-md-6 off">
+                                    <h3 class="code-title"><code>payment-frontend</code></h3>
+                                    <pre>
                                         <code class="language-yaml">
                                         name: payment-frontend
 
@@ -349,10 +349,10 @@
                                           ...
                                         </code>
                                     </pre>
-                                    </div>
                                 </div>
                             </div>
                         </div>
+                        <!-- </div> -->
                     </section>
 
                     <section id="expressions">
@@ -374,16 +374,16 @@
                             </div>
                         </div>
 
-                        <div class="col">
-                            <div class="row-with-switch">
-                                <label for="toggle-expr">Problem</label>
-                                <input type="checkbox" id="toggle-expr" class="toggle" checked>
-                                <label for="toggle-expr">Solution</label>
+                        <!-- <div class="col"> -->
+                        <div class="row-with-switch">
+                            <label for="toggle-expr">Problem</label>
+                            <input type="checkbox" id="toggle-expr" class="toggle" checked>
+                            <label for="toggle-expr">Solution</label>
 
-                                <div class="row equal-cols">
-                                    <div class="col-md-12 off">
-                                        <h3 class="code-title"><code>payment-frontend</code></h3>
-                                        <pre>
+                            <div class="row equal-cols">
+                                <div class="col-md-12 off">
+                                    <h3 class="code-title"><code>payment-frontend</code></h3>
+                                    <pre>
                                         <code class="language-yaml">
                                         name: payment-frontend
 
@@ -396,11 +396,11 @@
                                         ...
                                         </code>
                                     </pre>
-                                    </div>
+                                </div>
 
-                                    <div class="col-md-12 on">
-                                        <h3 class="code-title"><code>payment-frontend</code></h3>
-                                        <pre>
+                                <div class="col-md-12 on">
+                                    <h3 class="code-title"><code>payment-frontend</code></h3>
+                                    <pre>
                                         <code class="language-yaml">
                                         name: payment-frontend
 
@@ -413,11 +413,10 @@
                                         ...
                                         </code>
                                     </pre>
-                                    </div>
                                 </div>
                             </div>
                         </div>
-
+                        <!-- </div> -->
                     </section>
 
                     <section id="env">
@@ -445,16 +444,16 @@
                             </div>
                         </div>
 
-                        <div class="col">
-                            <div class="row-with-switch">
-                                <label for="toggle-env">Problem</label>
-                                <input type="checkbox" id="toggle-env" class="toggle" checked>
-                                <label for="toggle-env">Solution</label>
+                        <!-- <div class="col"> -->
+                        <div class="row-with-switch">
+                            <label for="toggle-env">Problem</label>
+                            <input type="checkbox" id="toggle-env" class="toggle" checked>
+                            <label for="toggle-env">Solution</label>
 
-                                <div class="row equal-cols">
-                                    <div class="col-md-6 off">
-                                        <h3 class="code-title"><code>payment-backend dev</code></h3>
-                                        <pre>
+                            <div class="row equal-cols">
+                                <div class="col-md-6 off">
+                                    <h3 class="code-title"><code>payment-backend dev</code></h3>
+                                    <pre>
                                         <code class="language-yaml">
                                         name: payment-backend
 
@@ -468,11 +467,11 @@
                                         ...
                                         </code>
                                     </pre>
-                                    </div>
+                                </div>
 
-                                    <div class="col-md-6 off">
-                                        <h3 class="code-title"><code>payment-backend prod</code></h3>
-                                        <pre>
+                                <div class="col-md-6 off">
+                                    <h3 class="code-title"><code>payment-backend prod</code></h3>
+                                    <pre>
                                         <code class="language-yaml">
                                         name: payment-backend
 
@@ -486,11 +485,11 @@
                                         ...
                                         </code>
                                     </pre>
-                                    </div>
+                                </div>
 
-                                    <div class="col-md-6 on">
-                                        <h3 class="code-title"><code>payment-backend/application.dev.yaml</code></h3>
-                                        <pre>
+                                <div class="col-md-6 on">
+                                    <h3 class="code-title"><code>payment-backend/application.dev.yaml</code></h3>
+                                    <pre>
                                         <code class="language-yaml">
                                         payment-gateway: http://gateway-mock.local
 
@@ -498,11 +497,11 @@
                                           host: 10.10.10.10
                                         </code>
                                     </pre>
-                                    </div>
+                                </div>
 
-                                    <div class="col-md-6 on">
-                                        <h3 class="code-title"><code>payment-backend/application.prod.yaml</code></h3>
-                                        <pre>
+                                <div class="col-md-6 on">
+                                    <h3 class="code-title"><code>payment-backend/application.prod.yaml</code></h3>
+                                    <pre>
                                         <code class="language-yaml">
                                         payment-gateway: https://payment-gateway.com
 
@@ -511,13 +510,13 @@
                                           pool-size: 50
                                         </code>
                                     </pre>
-                                    </div>
                                 </div>
+                            </div>
 
-                                <div class="row equal-cols">
-                                    <div class="col-md-12 col-lg-6 offset-lg-3 on">
-                                        <h3 class="code-title"><code>payment-backend/application.yaml</code></h3>
-                                        <pre>
+                            <div class="row equal-cols">
+                                <div class="col-md-12 col-lg-6 offset-lg-3 on">
+                                    <h3 class="code-title"><code>payment-backend/application.yaml</code></h3>
+                                    <pre>
                                         <code class="language-yaml">
                                         name: payment-backend
 
@@ -527,10 +526,10 @@
                                           url: jdbc:postgres://${this@database.host}:5432/database
                                         </code>
                                     </pre>
-                                    </div>
                                 </div>
                             </div>
                         </div>
+                        <!-- </div> -->
                     </section>
 
                     <section id="templates">
@@ -559,16 +558,16 @@
                             </div>
                         </div>
 
-                        <div class="col">
-                            <div class="row-with-switch">
-                                <label for="toggle-tmpl">Problem</label>
-                                <input type="checkbox" id="toggle-tmpl" class="toggle" checked>
-                                <label for="toggle-tmpl">Solution</label>
+                        <!-- <div class="col"> -->
+                        <div class="row-with-switch">
+                            <label for="toggle-tmpl">Problem</label>
+                            <input type="checkbox" id="toggle-tmpl" class="toggle" checked>
+                            <label for="toggle-tmpl">Solution</label>
 
-                                <div class="row equal-cols">
-                                    <div class="col-md-6 off">
-                                        <h3 class="code-title"><code>payment-backend log config dev</code></h3>
-                                        <pre>
+                            <div class="row equal-cols">
+                                <div class="col-md-6 off">
+                                    <h3 class="code-title"><code>payment-backend log config dev</code></h3>
+                                    <pre>
                                         <code class="lang-xml">
                                         &lt;configuration&gt;
                                           &lt;appender class="FileAppender"&gt;
@@ -580,11 +579,11 @@
                                         &lt;/configuration&gt;
                                         </code>
                                     </pre>
-                                    </div>
+                                </div>
 
-                                    <div class="col-md-6 off">
-                                        <h3 class="code-title"><code>payment-backend log config prod</code></h3>
-                                        <pre>
+                                <div class="col-md-6 off">
+                                    <h3 class="code-title"><code>payment-backend log config prod</code></h3>
+                                    <pre>
                                         <code class="lang-xml">
                                         &lt;configuration&gt;
                                           &lt;appender class="FileAppender"&gt;
@@ -603,11 +602,11 @@
                                         &lt;/configuration&gt;
                                         </code>
                                     </pre>
-                                    </div>
+                                </div>
 
-                                    <div class="col-md-6 on">
-                                        <h3 class="code-title"><code>log template.xml</code></h3>
-                                        <pre>
+                                <div class="col-md-6 on">
+                                    <h3 class="code-title"><code>log template.xml</code></h3>
+                                    <pre>
                                         <code class="language-xml">
                                         &lt;configuration&gt;
                                           &lt;appender class="FileAppender"&gt;
@@ -628,11 +627,11 @@
                                         &lt;/configuration&gt;
                                         </code>
                                     </pre>
-                                    </div>
+                                </div>
 
-                                    <div class="col-md-6 on">
-                                        <h3 class="code-title"><code>payment-backend prod</code></h3>
-                                        <pre>
+                                <div class="col-md-6 on">
+                                    <h3 class="code-title"><code>payment-backend prod</code></h3>
+                                    <pre>
                                         <code class="language-yaml">
                                         mc.mustache.log:
                                           fromFile: ${log@configDir}/template.xml
@@ -644,11 +643,11 @@
                                         ...
                                         </code>
                                     </pre>
-                                    </div>
-
                                 </div>
+
                             </div>
                         </div>
+                        <!-- </div> -->
                     </section>
 
                     <section id="diff">
@@ -675,16 +674,16 @@
                             </div>
                         </div>
 
-                        <div class="col">
-                            <div class="row-with-switch">
-                                <label for="toggle-diff">Problem</label>
-                                <input type="checkbox" id="toggle-diff" class="toggle" checked>
-                                <label for="toggle-diff">Solution</label>
+                        <!-- <div class="col"> -->
+                        <div class="row-with-switch">
+                            <label for="toggle-diff">Problem</label>
+                            <input type="checkbox" id="toggle-diff" class="toggle" checked>
+                            <label for="toggle-diff">Solution</label>
 
-                                <div class="row equal-cols">
-                                    <div class="col-md-6">
-                                        <h3 class="code-title"><code>payment-frontend v1</code></h3>
-                                        <pre>
+                            <div class="row equal-cols">
+                                <div class="col-md-6">
+                                    <h3 class="code-title"><code>payment-frontend v1</code></h3>
+                                    <pre>
                                         <code class="language-yaml">
                                         name: payment-frontend
 
@@ -703,11 +702,11 @@
                                           timeoutMs: 180000
                                         </code>
                                     </pre>
-                                    </div>
+                                </div>
 
-                                    <div class="col-md-6">
-                                        <h3 class="code-title"><code>payment-frontend v2</code></h3>
-                                        <pre>
+                                <div class="col-md-6">
+                                    <h3 class="code-title"><code>payment-frontend v2</code></h3>
+                                    <pre>
                                         <code class="language-yaml">
                                         name: payment-frontend
 
@@ -724,13 +723,13 @@
                                           port: 80
                                         </code>
                                     </pre>
-                                    </div>
                                 </div>
+                            </div>
 
-                                <div class="row equal-cols">
-                                    <div class="col-md-12 col-lg-6 offset-lg-3 on">
-                                        <h3 class="code-title"><code>payment-frontend diff between v1 and v2</code></h3>
-                                        <pre>
+                            <div class="row equal-cols">
+                                <div class="col-md-12 col-lg-6 offset-lg-3 on">
+                                    <h3 class="code-title"><code>payment-frontend diff between v1 and v2</code></h3>
+                                    <pre>
                                         <code class="language-yaml">
                                         +payment-backend:
                                           timeoutMs: 180000
@@ -744,10 +743,10 @@
                                           host: http://payment-backend.local -&gt; https://payment-backend.local
                                         </code>
                                     </pre>
-                                    </div>
                                 </div>
                             </div>
                         </div>
+                        <!-- </div> -->
                     </section>
 
                     <p class="text-dark">Can't wait to try it out? Head over to <a href="quickstart.html">Quickstart</a>

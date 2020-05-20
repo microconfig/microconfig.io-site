@@ -240,18 +240,18 @@
                     with their <code>dev</code> and <code>prod</code> configs.
                 </p><br />
 
-                <div class="col">
-                    <div class="row-with-switch">
-                        <p class="switch-title"><code>app config: </code></p>
+                <!-- <div class="col"> -->
+                <div class="row-with-switch">
+                    <p class="switch-title"><code>app config: </code></p>
 
-                        <label for="toggle1">dev</label>
-                        <input type="checkbox" id="toggle1" class="toggle">
-                        <label for="toggle1">prod</label>
+                    <label for="toggle1">dev</label>
+                    <input type="checkbox" id="toggle1" class="toggle">
+                    <label for="toggle1">prod</label>
 
-                        <div class="row equal-cols">
-                            <div class="col-md-6 on">
-                                <h3 class="code-title"><code>payment-backend</code></h3>
-                                <pre>
+                    <div class="row equal-cols">
+                        <div class="col-md-6 on">
+                            <h3 class="code-title"><code>payment-backend</code></h3>
+                            <pre>
                             <code class="lang-yaml">
                                 name: payment-backend
 
@@ -272,11 +272,11 @@
                                   endpoints: info, health, ready, prometheus
                             </code>
                         </pre>
-                            </div>
+                        </div>
 
-                            <div class="col-md-6 on">
-                                <h3 class="code-title"><code>payment-frontend</code></h3>
-                                <pre>
+                        <div class="col-md-6 on">
+                            <h3 class="code-title"><code>payment-frontend</code></h3>
+                            <pre>
                             <code class="lang-yaml">
                                 name: payment-frontend
 
@@ -295,11 +295,11 @@
                                   endpoints: info, health, ready, prometheus
                             </code>
                         </pre>
-                            </div>
+                        </div>
 
-                            <div class="col-md-6 off">
-                                <h3 class="code-title"><code>payment-backend</code></h3>
-                                <pre>
+                        <div class="col-md-6 off">
+                            <h3 class="code-title"><code>payment-backend</code></h3>
+                            <pre>
                             <code class="lang-yaml">
                                 name: payment-backend
 
@@ -320,11 +320,11 @@
                                   secure: false
                             </code>
                         </pre>
-                            </div>
+                        </div>
 
-                            <div class="col-md-6 off">
-                                <h3 class="code-title"><code>payment-frontend</code></h3>
-                                <pre>
+                        <div class="col-md-6 off">
+                            <h3 class="code-title"><code>payment-frontend</code></h3>
+                            <pre>
                             <code class="lang-yaml">
                                 name: payment-frontend
 
@@ -344,22 +344,22 @@
                                   secure: false
                             </code>
                         </pre>
-                            </div>
                         </div>
                     </div>
-                    <!--//////////////////////////////////////////////////////////////////////////-->
-                    <div class="row-with-switch">
-                        <p class="switch-title"><code>deploy config: </code></p>
+                </div>
+                <!--//////////////////////////////////////////////////////////////////////////-->
+                <div class="row-with-switch">
+                    <p class="switch-title"><code>deploy config: </code></p>
 
-                        <label for="toggle2">dev</label>
-                        <input type="checkbox" id="toggle2" class="toggle">
-                        <label for="toggle2">prod</label>
+                    <label for="toggle2">dev</label>
+                    <input type="checkbox" id="toggle2" class="toggle">
+                    <label for="toggle2">prod</label>
 
-                        <div class="row equal-cols">
+                    <div class="row equal-cols">
 
-                            <div class="col-md-6 on">
-                                <h3 class="code-title"><code>payment-backend</code></h3>
-                                <pre>
+                        <div class="col-md-6 on">
+                            <h3 class="code-title"><code>payment-backend</code></h3>
+                            <pre>
                             <code class="lang-yaml">
                                 image: "payment-backend:1.5"
 
@@ -373,11 +373,11 @@
                                   ready: /monitoring/ready
                             </code>
                         </pre>
-                            </div>
+                        </div>
 
-                            <div class="col-md-6 on">
-                                <h3 class="code-title"><code>payment-frontend</code></h3>
-                                <pre>
+                        <div class="col-md-6 on">
+                            <h3 class="code-title"><code>payment-frontend</code></h3>
+                            <pre>
                             <code class="language-yaml">
                                 image: "payment-frontend:2.1"
 
@@ -391,11 +391,11 @@
                                   ready: /monitoring/ready
                             </code>
                         </pre>
-                            </div>
+                        </div>
 
-                            <div class="col-md-6 off">
-                                <h3 class="code-title"><code>payment-backend</code></h3>
-                                <pre>
+                        <div class="col-md-6 off">
+                            <h3 class="code-title"><code>payment-backend</code></h3>
+                            <pre>
                             <code class="lang-yaml">
                                 image: "payment-backend:latest"
 
@@ -409,11 +409,11 @@
                                   ready: /monitoring/ready
                             </code>
                         </pre>
-                            </div>
+                        </div>
 
-                            <div class="col-md-6 off">
-                                <h3 class="code-title"><code>payment-frontend</code></h3>
-                                <pre>
+                        <div class="col-md-6 off">
+                            <h3 class="code-title"><code>payment-frontend</code></h3>
+                            <pre>
                             <code class="lang-yaml">
                                 image: "payment-frontend:latest"
 
@@ -427,20 +427,20 @@
                                   ready: /monitoring/ready
                             </code>
                         </pre>
-                            </div>
                         </div>
                     </div>
-                    <!--//////////////////////////////////////////////////////////////////////////-->
-                    <div class="row-with-switch">
-                        <p class="switch-title"><code>log config: </code></p>
-                        <label for="toggle3">dev</label>
-                        <input type="checkbox" id="toggle3" class="toggle">
-                        <label for="toggle3">prod</label>
+                </div>
+                <!--//////////////////////////////////////////////////////////////////////////-->
+                <div class="row-with-switch">
+                    <p class="switch-title"><code>log config: </code></p>
+                    <label for="toggle3">dev</label>
+                    <input type="checkbox" id="toggle3" class="toggle">
+                    <label for="toggle3">prod</label>
 
-                        <div class="row equal-cols">
-                            <div class="col-md-6 off">
-                                <h3 class="code-title"><code>payment-backend</code></h3>
-                                <pre>
+                    <div class="row equal-cols">
+                        <div class="col-md-6 off">
+                            <h3 class="code-title"><code>payment-backend</code></h3>
+                            <pre>
                                 <code class="lang-xml">
                                     &lt;configuration&gt;
                                       &lt;appender class="FileAppender"&gt;
@@ -452,10 +452,10 @@
                                     &lt;/configuration&gt;
                                  </code>
                             </pre>
-                            </div>
-                            <div class="col-md-6 on">
-                                <h3 class="code-title"><code>payment-backend</code></h3>
-                                <pre>
+                        </div>
+                        <div class="col-md-6 on">
+                            <h3 class="code-title"><code>payment-backend</code></h3>
+                            <pre>
                                 <code class="lang-xml">
                                     &lt;configuration&gt;
                                       &lt;appender class=&quot;LogstashTcpSocketAppender&quot;&gt;
@@ -467,11 +467,11 @@
                                     &lt;/configuration&gt;
                                  </code>
                             </pre>
-                            </div>
+                        </div>
 
-                            <div class="col-md-6 off">
-                                <h3 class="code-title"><code>payment-frontend</code></h3>
-                                <pre>
+                        <div class="col-md-6 off">
+                            <h3 class="code-title"><code>payment-frontend</code></h3>
+                            <pre>
                                 <code class="lang-xml">
                                     &lt;configuration&gt;
                                       &lt;appender class="FileAppender"&gt;
@@ -483,10 +483,10 @@
                                     &lt;/configuration&gt;
                                  </code>
                             </pre>
-                            </div>
-                            <div class="col-md-6 on">
-                                <h3 class="code-title"><code>payment-frontend</code></h3>
-                                <pre>
+                        </div>
+                        <div class="col-md-6 on">
+                            <h3 class="code-title"><code>payment-frontend</code></h3>
+                            <pre>
                                 <code class="lang-xml">
                                     &lt;configuration&gt;
                                       &lt;appender class=&quot;LogstashTcpSocketAppender&quot;&gt;
@@ -498,11 +498,11 @@
                                     &lt;/configuration&gt;
                                  </code>
                             </pre>
-                            </div>
-
                         </div>
+
                     </div>
                 </div>
+                <!-- </div> -->
                 <br />
                 <p class="lead">
                     This might not look scary for only 2 services, but what if you have to manage 50 of them with

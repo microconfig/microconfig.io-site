@@ -25,13 +25,6 @@
     background-color: #fff;
 }
 
-@media (min-width: 768px) {
-    .jumbotron {
-        padding-top: 3rem;
-        padding-bottom: 4rem;
-    }
-}
-
 .jumbotron h1 {
     /*font-weight: 300;*/
 }
@@ -166,10 +159,14 @@ code[class*="language-"] {
     -webkit-flex-wrap: wrap;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
+    padding: 20px 0 0;
 }
 
-.row-with-switch, .row.equal-cols {
-    padding: 20px 0;
+.row-with-switch {
+    background: linear-gradient(#e1ebec, #e2ecee);
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px 0;
 }
 
 .row.equal-cols:before,
@@ -275,19 +272,19 @@ code[class*="language-"] {
 }
 
 #include .row-with-switch {
-    min-height: 500px;
+    min-height: 432px;
 }
 
 #env .row-with-switch {
-    min-height: 489px;
-}
-
-#diff .row-with-switch {
-    min-height: 736px;
+    min-height: 449px;
 }
 
 #templates .row-with-switch {
-    min-height: 486px;
+    min-height: 466px;
+}
+
+#diff .row-with-switch {
+    min-height: 697px;
 }
 
 @media screen and (max-width: 992px) {
@@ -306,22 +303,6 @@ code[class*="language-"] {
     code[class*="language-"] {
         font-size: 9px;
     }
-
-    #include .row-with-switch {
-        min-height: 433px;
-    }
-
-    #env .row-with-switch {
-        min-height: 443px;
-    }
-
-    #templates .row-with-switch {
-        min-height: 395px;
-    }
-
-    #diff .row-with-switch {
-        min-height: 598px;
-    }
 }
 
 @media screen and (max-width: 768px) {
@@ -333,24 +314,29 @@ code[class*="language-"] {
     .jumbotron .container .row div:last-child p {
         margin-bottom: 0;
     }
+}
+
+@media screen and (min-width: 768px) and (max-width: 992px) {
+    .jumbotron {
+        padding-top: 3rem;
+        padding-bottom: 4rem;
+    }
 
     #include .row-with-switch {
-        min-height: 555px;
+        min-height: 366px;
     }
 
     #env .row-with-switch {
-        min-height: 534px;
+        min-height: 403px;
     }
 
     #templates .row-with-switch {
-        min-height: 558px;
+        min-height: 375px;
     }
 
     #diff .row-with-switch {
-        min-height: 824px;
+        min-height: 558px;
     }
-
-
 }
 
 @media (max-width: 580px) {
@@ -398,15 +384,19 @@ code[class*="language-"] {
     }
 
     #include .row-with-switch {
-        min-height: 532px;
+        min-height: 492px;
     }
 
     #env .row-with-switch {
-        min-height: 632px;
+        min-height: 592px;
+    }
+
+    #templates .row-with-switch {
+        min-height: 512px;
     }
 
     #diff .row-with-switch {
-        min-height: 809px;
+        min-height: 769px;
     }
 }
 

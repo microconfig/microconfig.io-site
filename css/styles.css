@@ -163,7 +163,7 @@ code[class*="language-"] {
 }
 
 .row-with-switch {
-    background: linear-gradient(#e1ebec, #e2ecee);
+    background: #f0f6f7;
     padding: 15.5px 20px;
     margin: 20px 0;
 }

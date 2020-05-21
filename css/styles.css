@@ -164,7 +164,6 @@ code[class*="language-"] {
 
 .row-with-switch {
     background: linear-gradient(#e1ebec, #e2ecee);
-    border-radius: 10px;
     padding: 15.5px 20px;
     margin: 20px 0;
 }

@@ -271,19 +271,19 @@ code[class*="language-"] {
 }
 
 #include .row-with-switch {
-    min-height: 432px;
+    min-height: 423px;
 }
 
 #env .row-with-switch {
-    min-height: 449px;
+    min-height: 440px;
 }
 
 #templates .row-with-switch {
-    min-height: 466px;
+    min-height: 457px;
 }
 
 #diff .row-with-switch {
-    min-height: 697px;
+    min-height: 687px;
 }
 
 @media screen and (max-width: 992px) {
@@ -310,6 +310,18 @@ code[class*="language-"] {
         justify-content: center;
     }
 
+    #include .row-with-switch {
+        min-height: 506px;
+    }
+
+    #env .row-with-switch {
+        min-height: 485px;
+    }
+
+    #templates .row-with-switch {
+        min-height: 529px;
+    }
+
     .jumbotron .container .row div:last-child p {
         margin-bottom: 0;
     }
@@ -322,19 +334,19 @@ code[class*="language-"] {
     }
 
     #include .row-with-switch {
-        min-height: 366px;
+        min-height: 357px;
     }
 
     #env .row-with-switch {
-        min-height: 403px;
+        min-height: 394px;
     }
 
     #templates .row-with-switch {
-        min-height: 375px;
+        min-height: 366px;
     }
 
     #diff .row-with-switch {
-        min-height: 558px;
+        min-height: 549px;
     }
 }
 
@@ -370,8 +382,7 @@ code[class*="language-"] {
         order: 2
     }
 
-    .row.equal-cols > *,
-    .example > .container > * {
+    .row.equal-cols > * {
         padding: 0;
     }
 }
@@ -383,19 +394,25 @@ code[class*="language-"] {
     }
 
     #include .row-with-switch {
-        min-height: 492px;
+        min-height: 483px;
     }
 
     #env .row-with-switch {
-        min-height: 592px;
+        min-height: 534px;
     }
 
     #templates .row-with-switch {
-        min-height: 512px;
+        min-height: 528px;
     }
 
     #diff .row-with-switch {
-        min-height: 769px;
+        min-height: 760px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    #env .row-with-switch {
+        min-height: 583px;
     }
 }
 

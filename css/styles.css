@@ -189,15 +189,21 @@ code[class*="language-"] {
 }
 
 .toggle:checked ~ .row > .off {
-    display: none !important;
+    /* display: none !important; */
+    visibility: hidden;
+    height: 0;
 }
 
 .toggle:checked ~ .row > .on {
-    display: flex !important;
+    /* display: flex !important; */
+    visibility: visible;
+    height: auto;
 }
 
 .on {
-    display: none !important;
+    /* display: none !important; */
+    visibility: hidden;
+    height: 0;
 }
 
 .toggle {
@@ -270,21 +276,25 @@ code[class*="language-"] {
     margin-bottom: 50px;
 }
 
-#include .row-with-switch {
+.hidden {
+    display: none;
+}
+
+/* #include .row-with-switch {
     min-height: 423px;
-}
+} */
 
-#env .row-with-switch {
+/* #env .row-with-switch {
     min-height: 440px;
-}
+} */
 
-#templates .row-with-switch {
+/* #templates .row-with-switch {
     min-height: 457px;
-}
+} */
 
-#diff .row-with-switch {
+/* #diff .row-with-switch {
     min-height: 687px;
-}
+} */
 
 @media screen and (max-width: 992px) {
     header > .navbar > .container {
@@ -304,13 +314,13 @@ code[class*="language-"] {
     }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
     header > .navbar > .container {
         flex-direction: row;
         justify-content: center;
     }
 
-    #include .row-with-switch {
+    /* #include .row-with-switch {
         min-height: 506px;
     }
 
@@ -320,7 +330,7 @@ code[class*="language-"] {
 
     #templates .row-with-switch {
         min-height: 529px;
-    }
+    } */
 
     .jumbotron .container .row div:last-child p {
         margin-bottom: 0;
@@ -333,21 +343,21 @@ code[class*="language-"] {
         padding-bottom: 4rem;
     }
 
-    #include .row-with-switch {
+    /* #include .row-with-switch {
         min-height: 357px;
-    }
+    } */
 
-    #env .row-with-switch {
+    /* #env .row-with-switch {
         min-height: 394px;
-    }
+    } */
 
-    #templates .row-with-switch {
+    /* #templates .row-with-switch {
         min-height: 366px;
-    }
+    } */
 
-    #diff .row-with-switch {
+    /* #diff .row-with-switch {
         min-height: 549px;
-    }
+    } */
 }
 
 @media (max-width: 580px) {
@@ -393,7 +403,7 @@ code[class*="language-"] {
         font-size: 8px;
     }
 
-    #include .row-with-switch {
+    /* #include .row-with-switch {
         min-height: 483px;
     }
 
@@ -407,13 +417,13 @@ code[class*="language-"] {
 
     #diff .row-with-switch {
         min-height: 760px;
-    }
+    } */
 }
 
 @media screen and (max-width: 320px) {
-    #env .row-with-switch {
+    /* #env .row-with-switch {
         min-height: 583px;
-    }
+    } */
 }
 
 @media (min-width: 580px) and (max-width: 768px){

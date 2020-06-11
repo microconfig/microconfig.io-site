@@ -189,37 +189,46 @@ code[class*="language-"] {
 }
 
 .toggle:checked ~ .row > .off {
-    /* display: none !important; */
     visibility: hidden;
     height: 0;
 }
 
+.toggle-mix-row:checked ~ .row > .off {
+    display: none !important;
+}
+
 .toggle:checked ~ .row > .on {
-    /* display: flex !important; */
     visibility: visible;
     height: auto;
 }
 
-.on {
-    /* display: none !important; */
+.toggle-mix-row:checked ~ .row > .on {
+    display: flex !important;
+}
+
+.toggle ~ .row .on {
     visibility: hidden;
     height: 0;
 }
 
-.toggle {
+.toggle-mix-row ~.row > .on {
+    display: none !important;
+}
+
+.toggle, .toggle-mix-row {
     position: absolute;
     z-index: -1;
     opacity: 0;
     margin: 10px 0 0 20px;
 }
 
-.toggle + label {
+.toggle + label, .toggle-mix-row + label {
     position: relative;
     padding: 0 0 0 60px;
     cursor: pointer;
 }
 
-.toggle+label:before {
+.toggle+label:before, .toggle-mix-row+label:before {
     content: '';
     position: absolute;
     top: 4px;
@@ -232,7 +241,7 @@ code[class*="language-"] {
     transition: .2s;
 }
 
-.toggle+label:after {
+.toggle+label:after, .toggle-mix-row+label:after {
     content: '';
     position: absolute;
     top: 6px;
@@ -245,15 +254,15 @@ code[class*="language-"] {
     transition: .2s;
 }
 
-.toggle:checked + label:before {
+.toggle:checked + label:before, .toggle-mix-row:checked + label:before {
     background: #5fbb92;
 }
 
-.toggle:checked + label:after {
+.toggle:checked + label:after, .toggle-mix-row:checked + label:after {
     left: 26px;
 }
 
-.toggle:focus+label:before {
+.toggle:focus+label:before, .toggle-mix-row:focus+label:before {
     box-shadow: inset 0 2px 3px rgba(0, 0, 0, .2), 0 0 0 3px rgba(95, 187, 146, .2);
 }
 
@@ -280,22 +289,6 @@ code[class*="language-"] {
     display: none;
 }
 
-/* #include .row-with-switch {
-    min-height: 423px;
-} */
-
-/* #env .row-with-switch {
-    min-height: 440px;
-} */
-
-/* #templates .row-with-switch {
-    min-height: 457px;
-} */
-
-/* #diff .row-with-switch {
-    min-height: 687px;
-} */
-
 @media screen and (max-width: 992px) {
     header > .navbar > .container {
         flex-direction: column;
@@ -320,18 +313,6 @@ code[class*="language-"] {
         justify-content: center;
     }
 
-    /* #include .row-with-switch {
-        min-height: 506px;
-    }
-
-    #env .row-with-switch {
-        min-height: 485px;
-    }
-
-    #templates .row-with-switch {
-        min-height: 529px;
-    } */
-
     .jumbotron .container .row div:last-child p {
         margin-bottom: 0;
     }
@@ -342,22 +323,6 @@ code[class*="language-"] {
         padding-top: 3rem;
         padding-bottom: 4rem;
     }
-
-    /* #include .row-with-switch {
-        min-height: 357px;
-    } */
-
-    /* #env .row-with-switch {
-        min-height: 394px;
-    } */
-
-    /* #templates .row-with-switch {
-        min-height: 366px;
-    } */
-
-    /* #diff .row-with-switch {
-        min-height: 549px;
-    } */
 }
 
 @media (max-width: 580px) {
@@ -402,28 +367,6 @@ code[class*="language-"] {
     code[class*="language-"] {
         font-size: 8px;
     }
-
-    /* #include .row-with-switch {
-        min-height: 483px;
-    }
-
-    #env .row-with-switch {
-        min-height: 534px;
-    }
-
-    #templates .row-with-switch {
-        min-height: 528px;
-    }
-
-    #diff .row-with-switch {
-        min-height: 760px;
-    } */
-}
-
-@media screen and (max-width: 320px) {
-    /* #env .row-with-switch {
-        min-height: 583px;
-    } */
 }
 
 @media (min-width: 580px) and (max-width: 768px){

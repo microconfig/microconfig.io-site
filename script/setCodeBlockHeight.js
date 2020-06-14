@@ -103,6 +103,14 @@ function sumArray(array) {
 }
 
 document.body.onload = function () {
+    setHeight();
+};
+
+document.body.onresize = function () {
+    setHeight();
+};
+
+function setHeight() {
     const screenWidth = window.innerWidth
         || document.documentElement.clientWidth
         || document.body.clientWidth;
@@ -110,4 +118,4 @@ document.body.onload = function () {
     const switchersBlocks = Array.from(document.querySelectorAll('.toggle'));
 
     switchersBlocks.forEach(block => getExampleBlockHeight(screenWidth, block));
-};
+}

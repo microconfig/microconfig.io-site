@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="yandex-verification" content="00bf34bc7a08335d"/>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-137858449-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'UA-137858449-1');
+
+
+    </script>
+
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function (m, e, t, r, i, k, a) {
+            m[i] = m[i] || function () {
+                (m[i].a = m[i].a || []).push(arguments)
+            };
+            m[i].l = 1 * new Date();
+            k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+        })
+        (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+        ym(62712055, "init", {
+            clickmap: true,
+            trackLinks: true,
+            accurateTrackBounce: true,
+            webvisor: true
+        });
+    </script>
+    <noscript>
+        <div><img src="https://mc.yandex.ru/watch/62712055" style="position:absolute; left:-9999px;" alt=""/></div>
+    </noscript>
+    <!-- /Yandex.Metrika counter -->
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta content="microservice configuration, configuration, cloud native, cloud native configuration, kubernetes, helm, configuration management, external configuration, configuration processor, configuration management tools, application configuration"
+          name="keywords">
+    <meta content="Microconfig is a modern and simple way to manage microservice configuration. Especially in the Cloud."
+          name="description">
+    <link href="vendor/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="vendor/prism/prism.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+    <link href="bloggersans/bloggersans.css" rel="stylesheet">
+    <link rel="icon" href="css/favicon.ico">
+    <title>Microconfig.io - Microservice Configuration Made Easy</title>
+</head>
+
+<body>
+<header>
+    <nav class="navbar navbar-expand-md navbar-light shadow-sm">
+        <div class="container">
+            <a href="./" class="navbar-brand">
+                <img style="height: 97px;" src="images/microconfig_logo_horizontal.svg" alt="Microconfig"/>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="features.html">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="quickstart.html">Quickstart</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="download.html">Download</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="plugin.html">IDE plugin</a>
+                    </li>
+                    <li class="nav-item nav-active">
+                        <a class="nav-link text-dark" href="server.html">Server</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="documentation.html">Docs</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<a href="https://github.com/microconfig/microconfig" class="github-corner" aria-label="View source on GitHub">
+    <svg width="80" height="80" viewBox="0 0 250 250"
+         style="fill:#5fbb92; color:#fff; position: fixed; top: 0; border: 0; right: 0;z-index: 100"
+         aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+
+<main role="main" id="download">
+    <section class="jumbotron">
+        <div class="container">
+            <h1 id="quickstart" class="text-center">Microconfig Server <sup>Beta</sup></h1>
+            <br/>
+            <section>
+                <p>Microconfig Server was built to simplify configuration delivery to microservices.
+                    It provides a REST API <code>(Microconfig Server)</code> and binary CLI <code>(microctl)</code> to
+                    fetch different configuration types for your services.</p>
+                <p>Microconfig Server handles all configuration repo GIT operations and Microconfig templating, so don't
+                    have to. Also it allows for 3rd party integrations like HashiCorp Vault <sup>Coming Soon</sup></p>
+                <p>You can see a schema below for a deployment of <code>orders-service</code> pod using <code>Microconfig
+                    Server</code>.
+                    Your deploy task fetches Helm <code>values.yaml</code> and uses them to deploy application pod.
+                    At startup <code>orders-service</code> pod fetches it's own <code>application.yaml</code>.</p>
+                <img style="display: flex;max-width: 100%;" src="images/server.png" alt="Microconfig Server"/>
+            </section>
+            <br/>
+            <section>
+                <h2 id="server-setup">Server Setup</h2><br/>
+                <p><code>Microconfig Server</code> was designed to be Cloud Native from the start, so all you need is
+                    <a href="https://docs.docker.com/get-docker/">Docker</a></p>
+                <p>This will start your server on port <code>8080</code> with <code>microconfig-quickstart</code>
+                    as it's configuration repo.</p>
+                <pre><code class="language-bash">
+                docker run -p 8080:80 microconfig/server:latest
+
+                02-10-2020 12:43:50.421 [INFO] o.s.b.StartupInfoLogger - Started MicroconfigServer in 8.781 seconds (JVM running for 9.494)
+                </code></pre>
+                <br/>
+                <p><strong>Available Environment Variables: </strong></p>
+                <table style="border-spacing: 10px;border-collapse: separate;">
+                    <tr>
+                        <th>Variable</th>
+                        <th style="padding-left: 10px">Description</th>
+                        <th style="padding-left: 10px">Default</th>
+                    </tr>
+                    <tr>
+                        <td><code>REMOTE_URL</code></td>
+                        <td style="padding-left: 10px">your configuration repo git url</td>
+                        <td style="padding-left: 10px">microconfig-quickstart repo</td>
+                    </tr>
+                    <tr>
+                        <td><code>USERNAME</code></td>
+                        <td style="padding-left: 10px">git repo username</td>
+                        <td style="padding-left: 10px">open</td>
+                    </tr>
+                    <tr>
+                        <td><code>PASSWORD</code></td>
+                        <td style="padding-left: 10px">git repo password</td>
+                        <td style="padding-left: 10px">source</td>
+                    </tr>
+                    <tr>
+                        <td><code>CONFIG_BRANCH</code></td>
+                        <td style="padding-left: 10px">main git branch</td>
+                        <td style="padding-left: 10px">master</td>
+                    </tr>
+                    <tr>
+                        <td><code>LOG_LEVEL</code></td>
+                        <td style="padding-left: 10px">log level</td>
+                        <td style="padding-left: 10px">DEBUG</td>
+                    </tr>
+                </table>
+            </section>
+            <br/>
+            <br/>
+            <section>
+                <h2 id="cli-setup">Cli Setup</h2><br/>
+                <p><code>Microctl</code> is a cli binary to fetch your configs from server. You can get it from <a
+                        href="https://github.com/microconfig/microconfig-server/releases">GitHub releases</a></p>
+                <p>You can also use HomeBrew</p>
+                <pre><code class="language-bash">
+                brew tap microconfig/microctl
+                brew install microctl
+                </code></pre>
+                <br/>
+            </section>
+
+            <section>
+                <h2 id="cli-usage">Cli Usage</h2><br/>
+                <p>After you installed <code>microctl</code> and started your server you can fetch configuration.</p>
+                <p>All examples assume that you have your server running on http://localhost:8080 with <code>microconfig-quickstart</code>
+                    repo.</p>
+                <p>To use your own server url you can either use <code>MCS_ADDRESS</code> environment variable or
+                    specify it with <code>--server</code> flag. If you don't specify anything <code>http://localhost:8080</code>
+                    is used.</p>
+                <br/>
+
+                <h3 class="mc-green" id="cli-help">microctl help</h3>
+                <p>Use this command to show available commands and common flags</p>
+                <pre><code class="language-bash">
+                    $ microctl help
+
+                    Usage: microctl [command] [component] [flags]
+                    Commands:
+                        show:     fetch config and show it in console
+                        save:     fetch config and save it to disk
+                        version:  show cli version
+                        help:     show this message
+                    Common Flags:
+                      --branch:  git branch to use
+                      --tag:     git tag to use
+                      --timeout: server calls timeout in seconds, by default 10
+                      --server:  server url (or MCS_ADDRESS env variable), by default [http://localhost:8080]
+                </code></pre>
+                <br/>
+                <h3 class="mc-green" id="cli-show">microctl show</h3>
+                <p>Use this command to fetch component config and show it in console</p>
+                <pre><code class="language-bash">
+                    $ microctl show
+
+                    Usage microctl show [component] [flags]
+                    Generates configuration for component of specified type and outputs it to console
+                    Flags:
+                      -e, --env:   config environment
+                      -t, --type:  config type, 'app' by default
+                </code></pre>
+
+                <pre><code class="language-bash">
+                    $ microctl show payment-backend -t deploy -e dev
+
+                    image: "payment-backend:latest"
+
+                    replicas: 1
+
+                    ingress:
+                      host: http://payment-backend.local
+
+                    probes:
+                      health: /monitoring/health
+                      ready: /monitoring/ready
+                </code></pre>
+                <br/>
+                <h3 class="mc-green" id="cli-save">microctl save</h3>
+                <p>Use this command to fetch component config and save it to disk</p>
+                <pre><code class="language-bash">
+                    $ microctl save
+
+                    Usage microctl save [component] [flags]
+                    Generates configuration for component and saves it to disk
+                    Flags:
+                      -e, --env:   config environment
+                      -t, --type:  config type, all types by default
+                      -d, --dir:   output directory, current dir by default
+                </code></pre>
+
+                <pre><code class="language-bash">
+                    $ microctl save payment-backend -t app -e dev -d config
+
+                    $ ls config
+                    327 application.yaml
+                    264 logback.xml
+                </code></pre>
+                <br/>
+                <h3 class="mc-green" id="cli-version">microctl version</h3>
+                <p>Display microctl version</p>
+                <pre><code class="language-bash">
+                    $ microctl version
+
+                    Version 0.1.4
+                </code></pre>
+            </section>
+            <br/>
+            <section>
+                <h2 id="k8s-usage">Kubernetes Usage</h2><br/>
+                <p>You can use <code>microctl</code> in your init container to fetch configuration at pod's startup.</p>
+                <br/>
+
+                <p>Example Deployment of <code>payment-backend</code> pod</p>
+                <pre><code class="language-yaml">
+                    apiVersion: apps/v1
+                    kind: Deployment
+                    metadata:
+                      name: payment-backend
+                      namespace: default
+                    spec:
+                      replicas: 1
+                      selector:
+                        matchLabels:
+                          app: payment-backend
+                      template:
+                        metadata:
+                          labels:
+                            app: payment-backend
+                        spec:
+                          volumes:
+                            - name: config
+                              emptyDir: { }
+                          initContainers:
+                            - name: microconfig
+                              image: "microconfig/server-cli:latest"
+                              imagePullPolicy: Always
+                              command: [ "/bin/sh","-c", "microctl save payment-backend -e dev -d /config" ]
+                              env:
+                                - name: MCS_ADDRESS
+                                  value: http://microconfig-server.default.svc.cluster.local
+                              volumeMounts:
+                                - name: config
+                                  mountPath: "/config"
+                          containers:
+                            - name: payment-backend
+                              image: "alpine:latest"
+                              imagePullPolicy: Always
+                              command: [ "sleep", "infinity" ]
+                              volumeMounts:
+                                - name: config
+                                  mountPath: "/config"
+                </code></pre>
+                <br/>
+            </section>
+
+            <section>
+                <h2 id="feedback">Feedback</h2><br/>
+                <p>Microconfig Server is in active development and currently in Beta. If you have any issues or
+                    suggestions
+                    you can contact us on <a href="https://github.com/microconfig/microconfig-server/issues">Github</a>
+                    or Join our <a
+                            href="https://join.slack.com/t/microconfig/shared_invite/zt-dflf2m0n-wOPVfAmk5eiHPn_9Omff7Q">Slack!</a>
+                </p>
+                <br/>
+            </section>
+            <br/>
+        </div>
+    </section>
+</main>
+<footer class="text-muted bg-light">
+    <div class="container footer-container">
+        <p class="copyright">Microconfig.io &copy; 2017-2020</p>
+
+        <div class="contacts">
+            <ul class="list-unstyled mb-0">
+                <li class="lead">Join our
+                    <a href="https://join.slack.com/t/microconfig/shared_invite/zt-dflf2m0n-wOPVfAmk5eiHPn_9Omff7Q">Slack!</a>
+                </li>
+                <li class="lead">Contribute on <a href="https://github.com/microconfig/microconfig">Github</a></li>
+                <li class="lead"><a href="mailto:hello@microconfig.io">hello@microconfig.io</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="vendor/bootstrap/bootstrap.bundle.min.js"></script>
+<script src="vendor/prism/prism.js"></script>
+</body>
+
+</html>

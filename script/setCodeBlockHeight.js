@@ -11,6 +11,7 @@ function getExampleBlockHeight(width, element) {
         const label = Array.from(row.getElementsByTagName('label'));
         const rowStyle = getComputedStyle(row);
         const codeRows = Array.from(row.querySelectorAll('.equal-cols'));
+        const switchTitle = row.querySelector('.switch-title');
 
         let commonRowHeights = [];
         let offRowHeights = [];
@@ -61,6 +62,7 @@ function getExampleBlockHeight(width, element) {
         });
 
         const switcherHeight = outerHeight(label[0]);
+        const switcherTitleHeight = switchTitle ? outerHeight(switchTitle) : 0;
         const rowsPaddings = sumArray(rowPadds);
 
         if (width >= 768) {
@@ -71,7 +73,7 @@ function getExampleBlockHeight(width, element) {
             setHeights(commonHeights, offHeights, onHeights);
         }
 
-        row.style.height = switcherHeight + rowsPaddings + parseFloat(rowStyle.paddingTop) + parseFloat(rowStyle.paddingBottom) + Math.max(this.offRowHeight, this.onRowHeight) + 'px';
+        row.style.height = Math.max(switcherHeight, switcherTitleHeight) + rowsPaddings + parseFloat(rowStyle.paddingTop) + parseFloat(rowStyle.paddingBottom) + Math.max(this.offRowHeight, this.onRowHeight) + 'px';
     }
 }
 

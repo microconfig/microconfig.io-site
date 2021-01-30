@@ -382,6 +382,51 @@ code[class*="language-"] {
     code[class*="language-"] {
         font-size: 8px;
     }
+
+    .row-with-switch label {
+        font-size: 16px;
+    }
+
+    .toggle+label:before, .toggle-mix-row+label:before {
+        top: 2px;
+        width: 45px;
+    }
+
+    .toggle+label:after, .toggle-mix-row+label:after  {
+        top: 4px;
+    }
+
+    .toggle + label, .toggle-mix-row + label {
+        padding: 0 0 0 55px;
+    }
+
+    .toggle:checked + label:after, .toggle-mix-row:checked + label:after {
+        left: 21px;
+    }
+}
+
+@media screen and (max-width: 335px) {
+    .toggle + label, .toggle-mix-row + label {
+        padding: 0 0 0 45px;
+    }
+
+    .row-with-switch label {
+        font-size: 14px;
+    }
+
+    .toggle+label:before, .toggle-mix-row+label:before {
+        width: 38px;
+        height: 22px;
+    }
+
+    .toggle+label:after, .toggle-mix-row+label:after  {
+        height: 18px;
+        width: 18px;
+    }
+
+    .toggle:checked + label:after, .toggle-mix-row:checked + label:after {
+        left: 18px;
+    }
 }
 
 @media (min-width: 580px) and (max-width: 768px){

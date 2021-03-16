@@ -111,13 +111,14 @@
             <h1 id="quickstart" class="text-center">Microconfig Server <sup>Beta</sup></h1>
             <br/>
             <section>
-                <p>Microconfig Server was built to simplify configuration delivery to microservices.
-                    It provides a REST API <code>(Microconfig Server)</code> and binary CLI <code>(microctl)</code> to
+                <p>MicroConfig Server was built to simplify configuration delivery to microservices.
+                    It provides a REST API <code>(MicroConfig Server)</code> and binary CLI <code>(microctl)</code> to
                     fetch different configuration types for your services.</p>
-                <p>Microconfig Server handles all configuration repo GIT operations and Microconfig templating, so don't
-                    have to. Also it allows for 3rd party integrations like HashiCorp Vault <sup>Coming Soon</sup></p>
-                <p>You can see a schema below for a deployment of <code>orders-service</code> pod using <code>Microconfig
-                    Server</code>.
+                <p>MicroConfig Server handles all configuration repo GIT operations and templating, so you don't
+                    have to. Also it allows for 3rd party integrations like HashiCorp Vault <sup>Coming Soon</sup>
+                    and Spring Boot <sup>Coming Soon</sup></p>
+                <p>You can see a schema below for a deployment of <code>orders-service</code> pod using
+                    <code>MicroConfig Server</code>.
                     Your deploy task fetches Helm <code>values.yaml</code> and uses them to deploy application pod.
                     At startup <code>orders-service</code> pod fetches it's own <code>application.yaml</code>.</p>
                 <img style="display: flex;max-width: 100%;" src="images/server.png" alt="Microconfig Server"/>
@@ -125,14 +126,14 @@
             <br/>
             <section>
                 <h2 id="server-setup">Server Setup</h2><br/>
-                <p><code>Microconfig Server</code> was designed to be Cloud Native from the start, so all you need is
+                <p><code>MicroConfig Server</code> was designed to be Cloud Native from the start, so all you need is
                     <a href="https://docs.docker.com/get-docker/">Docker</a></p>
                 <p>This will start your server on port <code>8080</code> with <code>microconfig-quickstart</code>
                     as it's configuration repo.</p>
                 <pre><code class="language-bash">
                 docker run -p 8080:80 microconfig/server:latest
-
-                02-10-2020 12:43:50.421 [INFO] o.s.b.StartupInfoLogger - Started MicroconfigServer in 8.781 seconds (JVM running for 9.494)
+                    ......
+                16-03-2021 18:45:37.909 [INFO] o.s.b.StartupInfoLogger - Started MicroconfigServerKt in 13.973 seconds (JVM running for 16.68)
                 </code></pre>
                 <br/>
                 <p><strong>Available Environment Variables: </strong></p>
@@ -188,9 +189,10 @@
                 <p>After you installed <code>microctl</code> and started your server you can fetch configuration.</p>
                 <p>All examples assume that you have your server running on http://localhost:8080 with <code>microconfig-quickstart</code>
                     repo.</p>
-                <p>To use your own server url you can either use <code>MCS_ADDRESS</code> environment variable or
+                <p>To use your own server url you can either use <code>MC_ADDRESS</code> environment variable or
                     specify it with <code>--server</code> flag. If you don't specify anything <code>http://localhost:8080</code>
                     is used.</p>
+                <p>Almost all flags are doubled with environment variables</p>
                 <br/>
 
                 <h3 class="mc-green" id="cli-help">microctl help</h3>
@@ -198,29 +200,36 @@
                 <pre><code class="language-bash">
                     $ microctl help
 
-                    Usage: microctl [command] [component] [flags]
+                    Usage: microctl [command] [service] [flags]
                     Commands:
-                        show:     fetch config and show it in console
-                        save:     fetch config and save it to disk
-                        version:  show cli version
-                        help:     show this message
+                      show:     fetch config and show it in console (MC_CMD=show)
+                      save:     fetch config and save it to disk (MC_CMD=save)
+                      version:  show cli version
+                      help:     show this message
+                    Service:
+                      Generate configs for this service name (MC_SERVICE)
                     Common Flags:
-                      --branch:  git branch to use
-                      --tag:     git tag to use
-                      --timeout: server calls timeout in seconds, by default 10
-                      --server:  server url (or MCS_ADDRESS env variable), by default [http://localhost:8080]
+                      --ref [master]: git branch or tag to use, by default master (MC_REF)
+                      --timeout [10]: server calls timeout in seconds, by default 10 (MC_TIMEOUT)
+                      --server [url]:  server url, by default [http://localhost:8080] (MC_ADDRESS)
+                      --skip-tls: skip server tls certificate verification (MC_SKIP_TLS=true)
+                      --tls-root-ca [path]: expected Root CA certificate (MC_ROOT_CA)
                 </code></pre>
                 <br/>
+                <p>Notice <code>--skip-tls</code> and <code>--tls-root-ca</code> flags. They allow to work with
+                    self-signed certificates or private Certificate Authority.</p>
+
                 <h3 class="mc-green" id="cli-show">microctl show</h3>
-                <p>Use this command to fetch component config and show it in console</p>
+                <p>Use this command to fetch service config and show it in console</p>
                 <pre><code class="language-bash">
                     $ microctl show
 
-                    Usage microctl show [component] [flags]
-                    Generates configuration for component of specified type and outputs it to console
+                    Usage microctl show [service] [flags]
+                    Generates configuration of specified type for service and outputs it to console
                     Flags:
-                      -e, --env:   config environment
-                      -t, --type:  config type, 'app' by default
+                      -e, --env  [name]: config environment (MC_ENV)
+                      -t, --type [name]: config type, 'app' by default (MC_TYPE)
+                      -s, --set  [foo=bar]: override values for placeholders and vars
                 </code></pre>
 
                 <pre><code class="language-bash">
@@ -239,16 +248,17 @@
                 </code></pre>
                 <br/>
                 <h3 class="mc-green" id="cli-save">microctl save</h3>
-                <p>Use this command to fetch component config and save it to disk</p>
+                <p>Use this command to fetch service config and save it to disk</p>
                 <pre><code class="language-bash">
                     $ microctl save
 
-                    Usage microctl save [component] [flags]
-                    Generates configuration for component and saves it to disk
+                    Usage microctl save [service] [flags]
+                    Generates configuration for service and saves it to disk
                     Flags:
-                      -e, --env:   config environment
-                      -t, --type:  config type, all types by default
-                      -d, --dir:   output directory, current dir by default
+                      -e, --env  [name]: config environment (MC_ENV)
+                      -t, --type [name]: config type, all types by default (MC_TYPE)
+                      -d, --dir  [path]: output directory, current dir by default (MC_DIR)
+                      -s, --set  [foo=bar]: override values for placeholders and vars
                 </code></pre>
 
                 <pre><code class="language-bash">
@@ -264,7 +274,7 @@
                 <pre><code class="language-bash">
                     $ microctl version
 
-                    Version 0.1.4
+                    Version 0.5.0
                 </code></pre>
             </section>
             <br/>
@@ -297,10 +307,17 @@
                             - name: microconfig
                               image: "microconfig/server-cli:latest"
                               imagePullPolicy: Always
-                              command: [ "/bin/sh","-c", "microctl save payment-backend -e dev -d /config" ]
                               env:
-                                - name: MCS_ADDRESS
+                                - name: MC_ADDRESS
                                   value: http://microconfig-server.default.svc.cluster.local
+                                - name: MC_CMD
+                                  value: save
+                                - name: MC_COMPONENT
+                                  value: payment-backend
+                                - name: MC_ENV
+                                  value: dev
+                                - name: MC_DIR
+                                  value: "/config"
                               volumeMounts:
                                 - name: config
                                   mountPath: "/config"
@@ -319,10 +336,9 @@
             <section>
                 <h2 id="feedback">Feedback</h2><br/>
                 <p>Microconfig Server is in active development and currently in Beta. If you have any issues or
-                    suggestions
-                    you can contact us on <a href="https://github.com/microconfig/microconfig-server/issues">Github</a>
-                    or Join our <a
-                            href="https://join.slack.com/t/microconfig/shared_invite/zt-dflf2m0n-wOPVfAmk5eiHPn_9Omff7Q">Slack!</a>
+                    suggestions you can contact us on
+                    <a href="https://github.com/microconfig/microconfig-server/issues">Github</a> or Join our
+                    <a href="https://join.slack.com/t/microconfig/shared_invite/zt-dflf2m0n-wOPVfAmk5eiHPn_9Omff7Q">Slack!</a>
                 </p>
                 <br/>
             </section>
@@ -332,7 +348,7 @@
 </main>
 <footer class="text-muted bg-light">
     <div class="container footer-container">
-        <p class="copyright">Microconfig.io &copy; 2017-2020</p>
+        <p class="copyright">Microconfig.io &copy;</p>
 
         <div class="contacts">
             <ul class="list-unstyled mb-0">

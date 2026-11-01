@@ -121,7 +121,6 @@
             <nav class="uc-toc" aria-label="Use cases">
                 <a href="#environments">Many environments</a>
                 <a href="#helm">Helm values</a>
-                <a href="#env-vars">Environment variables</a>
                 <a href="#platform">Company-wide defaults</a>
                 <a href="#regions">Regions and tenants</a>
                 <a href="#safe-releases">Safe releases</a>
@@ -190,38 +189,6 @@ envs/client-acme.yaml                     <span class="c"># a new stand</span></
                     <code>helm upgrade -f</code>. Changing the defaults is one edit, and the chart can't disagree with
                     the application about the port.</p>
                 <p class="uc-more">More: <a href="documentation.html#/?id=kubernetes-and-helm">Kubernetes and Helm in the docs</a></p>
-            </section>
-
-            <section class="use-case" id="env-vars" data-roles="app-team">
-                <h2>Go, Node and Python services configured through environment variables</h2>
-                <p class="uc-meta"><span class="uc-tag">App team</span></p>
-                <p class="uc-shift">The same variables in docker-compose, Kubernetes and CI &rarr; 1 source</p>
-                <p class="real-life"><b>Situation:</b> not every service is Spring Boot. Services in Go, Node or Python
-                    read environment variables, and the same values get copied into docker-compose files, Kubernetes
-                    manifests and CI settings, each with its own per-environment tweaks.</p>
-                <p>Describe the variables in <code>*.env</code> files. Placeholders and environment overrides work the
-                    same way as in application configs.</p>
-                <div class="demo-file">
-                    <div class="demo-file-name"><span>components/<wbr>notifier/<wbr>service.env</span></div>
-<pre class="demo-code">PORT=<span class="d">${app::this@server.port}</span>
-SERVICE_NAME=<span class="d">${this@name}</span>
-LOG_LEVEL=info</pre>
-                </div>
-                <div class="demo-file">
-                    <div class="demo-file-name"><span>components/<wbr>notifier/<wbr>service.dev.env</span></div>
-<pre class="demo-code">LOG_LEVEL=debug</pre>
-                </div>
-                <div class="demo-file">
-                    <div class="demo-file-name"><span>build/<wbr>notifier/<wbr>env.properties</span><span class="env-tag">dev</span></div>
-<pre class="demo-code">PORT=3000
-SERVICE_NAME=notifier
-LOG_LEVEL=debug</pre>
-                </div>
-                <p class="uc-result"><b>Result:</b> a plain <code>KEY=VALUE</code> file that works as
-                    <code>env_file</code> in docker-compose and with <code>kubectl create configmap --from-env-file</code>.
-                    Local runs and the cluster get their variables from the same source. Keep secrets out of it: only
-                    references belong here.</p>
-                <p class="uc-more">More: <a href="documentation.html#/?id=service-configuration-types">config types in the docs</a></p>
             </section>
 
             <section class="use-case" id="platform" data-roles="platform-team">

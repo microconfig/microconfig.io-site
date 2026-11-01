@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta name="yandex-verification" content="00bf34bc7a08335d"/>
+
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function (m, e, t, r, i, k, a) {
+            m[i] = m[i] || function () {
+                (m[i].a = m[i].a || []).push(arguments)
+            };
+            m[i].l = 1 * new Date();
+            k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+        })
+        (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+        ym(62712055, "init", {
+            clickmap: true,
+            trackLinks: true,
+            accurateTrackBounce: true,
+            webvisor: false
+        });
+    </script>
+    <noscript>
+        <div><img src="https://mc.yandex.ru/watch/62712055" style="position:absolute; left:-9999px;" alt=""/></div>
+    </noscript>
+    <!-- /Yandex.Metrika counter -->
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta content="microservice configuration, configuration, cloud native, cloud native configuration, kubernetes, helm, configuration management, external configuration, configuration processor, configuration management tools, application configuration"
+          name="keywords">
+    <meta name="description" content="How teams use Microconfig: many environments for Spring Boot services, Helm values, company-wide defaults, regional prod, safe releases, non-YAML configs and gradual migration.">
+    <link rel="canonical" href="https://microconfig.io/use-cases.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Microconfig">
+    <meta property="og:title" content="Microconfig use cases — environments, Helm values, platform defaults, regions">
+    <meta property="og:description" content="How teams use Microconfig: many environments for Spring Boot services, Helm values, company-wide defaults, regional prod, safe releases, non-YAML configs and gradual migration.">
+    <meta property="og:url" content="https://microconfig.io/use-cases.html">
+    <meta property="og:image" content="https://microconfig.io/images/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <link href="vendor/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="vendor/prism/prism.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+    <link rel="icon" href="css/favicon.ico">
+    <title>Microconfig use cases — environments, Helm values, platform defaults, regions</title>
+</head>
+
+<body>
+<header>
+    <nav class="navbar navbar-expand-md navbar-light shadow-sm">
+        <div class="container">
+            <a href="./" class="navbar-brand">
+                <img style="height: 97px;" src="images/microconfig_logo_horizontal.svg" alt="Microconfig"/>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="features.html">Features</a>
+                    </li>
+                    <li class="nav-item nav-active">
+                        <a class="nav-link text-dark" href="use-cases.html">Use cases</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="quickstart.html">Quickstart</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="download.html">Download</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="plugin.html">IDE plugin</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="documentation.html">Docs</a>
+                    </li>
+                        <li class="nav-item nav-github">
+                            <a class="nav-link text-dark" href="https://github.com/microconfig/microconfig" data-goal="cta_github">GitHub</a>
+                        </li>
+                        <li class="nav-item nav-cta">
+                            <a class="btn-mc" href="quickstart.html" data-goal="cta_quickstart">Get started</a>
+                        </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<a href="https://github.com/microconfig/microconfig" class="github-corner" aria-label="View source on GitHub">
+    <svg width="80" height="80" viewBox="0 0 250 250"
+         style="fill:#5fbb92; color:#fff; position: fixed; top: 0; border: 0; right: 0;z-index: 100"
+         aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+
+<main role="main" id="use-cases">
+    <section class="jumbotron">
+        <div class="container">
+            <h1 class="text-center">Use cases</h1>
+            <p class="lead text-center uc-lead">
+                Where teams use Microconfig, and what it takes in files. The examples are small but real: each one is
+                built with the current release.
+            </p>
+
+            <nav class="uc-toc" aria-label="Use cases">
+                <a href="#environments">Many environments</a>
+                <a href="#helm">Helm values</a>
+                <a href="#platform">Company-wide defaults</a>
+                <a href="#regions">Regions and tenants</a>
+                <a href="#safe-releases">Safe releases</a>
+                <a href="#templates">Non-YAML configs</a>
+                <a href="#migration">Migration</a>
+            </nav>
+
+            <section class="use-case" id="environments">
+                <h2>Spring Boot services across many environments</h2>
+                <p class="real-life"><b>Situation:</b> 30 Spring Boot services in dev, test, stage and prod, plus a stand
+                    for every big client. Each environment holds its own copy of every <code>application.yaml</code>,
+                    and the copies slowly drift apart.</p>
+                <p>Keep what all environments share in <code>application.yaml</code> and only the differences in
+                    <code>application.&lt;env&gt;.yaml</code> next to it. A new stand is one file in <code>envs/</code>
+                    that reuses the service list of the base environment.</p>
+                <div class="demo-file">
+                    <div class="demo-file-name"><span>your-git-repo/<wbr></span></div>
+<pre class="demo-code">components/orders/application.yaml        <span class="c"># shared by all environments</span>
+components/orders/application.prod.yaml   <span class="c"># only what differs in prod</span>
+envs/base.yaml                            <span class="c"># which services exist</span>
+envs/client-acme.yaml                     <span class="c"># a new stand</span></pre>
+                </div>
+                <div class="demo-file">
+                    <div class="demo-file-name"><span>envs/<wbr>client-acme.yaml</span></div>
+<pre class="demo-code"><span class="k">include</span>:
+  <span class="k">env</span>: base</pre>
+                </div>
+                <p class="uc-result"><b>Result:</b> <code>microconfig -e client-acme</code> builds a plain
+                    <code>application.yaml</code> for every service that Spring Boot reads as is. A new stand takes one
+                    file plus overrides only where it really differs.</p>
+                <p class="uc-more">More: <a href="features.html#env">environment specific config</a> &middot;
+                    <a href="quickstart.html#task-env">try it in the quickstart</a></p>
+            </section>
+
+            <section class="use-case" id="helm">
+                <h2>Helm values for every service</h2>
+                <p class="real-life"><b>Situation:</b> 50 services on Kubernetes, each with its own
+                    <code>values.yaml</code>. Probes, resources and the image registry are copy-pasted everywhere, and
+                    the port in the chart doesn't always match the port in the application config.</p>
+                <p>Keep Helm values in <code>*.helm</code> files. Shared defaults live in one component that every
+                    service includes, and the port comes straight from the application config.</p>
+                <div class="demo-file">
+                    <div class="demo-file-name"><span>components/<wbr>k8s-defaults/<wbr>values.helm</span><span class="env-tag">shared</span></div>
+<pre class="demo-code"><span class="k">resources</span>:
+  <span class="k">limits</span>:
+    <span class="k">memory</span>: 512Mi
+<span class="k">probes</span>:
+  <span class="k">readiness</span>: /actuator/health/readiness</pre>
+                </div>
+                <div class="demo-file">
+                    <div class="demo-file-name"><span>components/<wbr>orders/<wbr>values.helm</span></div>
+<pre class="demo-code"><span class="d">#include k8s-defaults</span>
+
+<span class="k">replicaCount</span>: 2
+<span class="k">image</span>:
+  <span class="k">repository</span>: example/<span class="d">${this@name}</span>
+<span class="k">service</span>:
+  <span class="k">port</span>: <span class="d">${app::this@server.port}</span></pre>
+                </div>
+                <p class="uc-result"><b>Result:</b> every service gets a complete
+                    <code>build/&lt;service&gt;/values.yaml</code> for
+                    <code>helm upgrade -f</code>. Changing the defaults is one edit, and the chart can't disagree with
+                    the application about the port.</p>
+                <p class="uc-more">More: <a href="documentation.html#/?id=kubernetes-and-helm">Kubernetes and Helm in the docs</a></p>
+            </section>
+
+            <section class="use-case" id="platform">
+                <h2>Company-wide defaults from a platform team</h2>
+                <p class="real-life"><b>Situation:</b> a platform team owns monitoring, logging and tracing settings.
+                    Twelve product teams copy them into their services, so every change means twelve pull requests and
+                    a few teams that never update.</p>
+                <p>The platform team keeps shared components, product teams include them. A team can still override a
+                    default explicitly, and the override is visible right in its config.</p>
+                <div class="demo-file">
+                    <div class="demo-file-name"><span>components/<wbr>platform/<wbr>monitoring/<wbr>application.yaml</span><span class="env-tag">platform team</span></div>
+<pre class="demo-code"><span class="k">monitoring</span>:
+  <span class="k">endpoints</span>: health, prometheus
+  <span class="k">secure</span>: true</pre>
+                </div>
+                <div class="demo-file">
+                    <div class="demo-file-name"><span>components/<wbr>orders/<wbr>application.yaml</span><span class="env-tag">product team</span></div>
+<pre class="demo-code"><span class="d">#include monitoring, logging, tracing</span>
+
+<span class="k">name</span>: orders
+<span class="k">monitoring.secure</span>: false   <span class="c"># an explicit, reviewable exception</span></pre>
+                </div>
+                <p class="uc-result"><b>Result:</b> the platform team changes one file, and every service picks it up
+                    on the next build. The build diff shows exactly which services changed.</p>
+                <p class="uc-more">More: <a href="features.html#include">reuse common parts</a></p>
+            </section>
+
+            <section class="use-case" id="regions">
+                <h2>Regions, tenants and other variants of prod</h2>
+                <p class="real-life"><b>Situation:</b> prod runs in Europe and in the USA. Same services, almost the
+                    same config, but different database hosts and a few region settings. Keeping two full copies of
+                    prod config means fixing every bug twice.</p>
+                <p>Create an environment that reuses prod and adds a profile with the regional differences.</p>
+                <div class="demo-file">
+                    <div class="demo-file-name"><span>envs/<wbr>prod-usa.yaml</span></div>
+<pre class="demo-code"><span class="k">include</span>:
+  <span class="k">env</span>: prod      <span class="c"># the same services as prod</span>
+
+<span class="k">profiles</span>:
+  - prod          <span class="c"># application.prod.yaml applies</span>
+  - usa           <span class="c"># then application.usa.yaml</span></pre>
+                </div>
+                <div class="demo-file">
+                    <div class="demo-file-name"><span>components/<wbr>orders/<wbr>application.usa.yaml</span></div>
+<pre class="demo-code"><span class="k">db.host</span>: usa-db.internal</pre>
+                </div>
+                <p class="uc-result"><b>Result:</b> <code>microconfig -e prod-usa</code> takes the base config, then prod
+                    overrides, then the USA profile, then <code>application.prod-usa.yaml</code> if a service needs
+                    something only there. A fix in prod reaches both regions.</p>
+                <p class="uc-more">More: <a href="documentation.html#/?id=environment-profiles">environment profiles in the docs</a></p>
+            </section>
+
+            <section class="use-case" id="safe-releases">
+                <h2>Reviewing config changes before a release</h2>
+                <p class="real-life"><b>Situation:</b> config changes ship together with the release, and nobody sees
+                    their final effect on each service. A renamed key or a typo shows up at startup, in production.</p>
+                <p>Build configs in CI on every change. A reference to a missing component or key stops the build with
+                    the file and line, and every build writes a diff of the result next to each service's configs.</p>
+                <div class="demo-file">
+                    <div class="demo-file-name"><span>build/<wbr>payment-frontend/<wbr>diff-application.yaml</span></div>
+<pre class="demo-code"><span class="k">payment-backend</span>:
+  <span class="k">path</span>: <del class="diff-old">/api</del> -&gt; <span class="diff-new">/api/v2</span></pre>
+                </div>
+                <p class="uc-result"><b>Result:</b> a broken config never reaches an environment, and reviewers see what
+                    actually changes in the generated files, not only in the sources.</p>
+                <p class="uc-more">More: <a href="quickstart.html#task-broken">break a reference in the quickstart</a>
+                    &middot; <a href="index.html#pipeline">how it fits your pipeline</a></p>
+            </section>
+
+            <section class="use-case" id="templates">
+                <h2>Configs that are not YAML: logback.xml, nginx.conf, Dockerfile</h2>
+                <p class="real-life"><b>Situation:</b> every service needs its own <code>nginx.conf</code> or
+                    <code>logback.xml</code>. The files are 95% identical, so they get copied, and then fixed in some
+                    services but not in others.</p>
+                <p>Keep one template with placeholders, and let every service render its own copy.</p>
+                <div class="demo-file">
+                    <div class="demo-file-name"><span>components/<wbr>orders/<wbr>nginx.conf</span><span class="env-tag">template</span></div>
+<pre class="demo-code">server {
+  server_name <span class="d">${this@name}</span>.example.com;
+}</pre>
+                </div>
+                <div class="demo-file">
+                    <div class="demo-file-name"><span>components/<wbr>orders/<wbr>application.yaml</span></div>
+<pre class="demo-code"><span class="k">mc.template.nginx</span>: <span class="d">${this@configDir}</span>/nginx.conf -&gt; nginx.conf</pre>
+                </div>
+                <p class="uc-result"><b>Result:</b> <code>build/orders/nginx.conf</code> with
+                    <code>server_name orders.example.com</code>. Move the template to a shared component and every
+                    service gets its own version. Mustache sections handle parts that only some environments need.</p>
+                <p class="uc-more">More: <a href="features.html#templates">static files templating</a></p>
+            </section>
+
+            <section class="use-case" id="migration">
+                <h2>Starting from configs you already have</h2>
+                <p class="real-life"><b>Situation:</b> there is already a repository of copy-pasted configs. Nobody wants
+                    a big-bang migration that might change something by accident.</p>
+                <p>Your YAML and properties files are valid Microconfig sources as they are. Put them under
+                    <code>components/</code>, list the services in <code>envs/</code>, and build once. Then move one
+                    copy-pasted block at a time to a shared component and build again.</p>
+                <p class="uc-result"><b>Result:</b> after a refactoring that changes nothing in the generated files,
+                    the build writes no diff files at all. That is your proof the refactoring was safe, step by step.</p>
+                <p class="uc-more">More: <a href="quickstart.html">quickstart</a> &middot;
+                    <a href="features.html#layout">configuration layout</a></p>
+            </section>
+
+            <div class="real-life">
+                <p class="mb-3"><b>Recognize your case?</b> The quickstart takes about 2 minutes and shows the same
+                    mechanics on a real example.</p>
+                <a class="btn-mc" href="quickstart.html" data-goal="cta_quickstart">Try it in 2 minutes &rarr;</a>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="site-footer bg-light">
+        <div class="container footer-container">
+            <div>
+                <ul class="footer-links list-unstyled">
+                    <li><a href="features.html">Features</a></li>
+                    <li><a href="use-cases.html">Use cases</a></li>
+                    <li><a href="quickstart.html">Quickstart</a></li>
+                    <li><a href="download.html">Download</a></li>
+                    <li><a href="plugin.html">IDE plugin</a></li>
+                    <li><a href="documentation.html">Docs</a></li>
+                </ul>
+                <p class="copyright">&copy; 2019&ndash;<span data-year>2026</span> Microconfig contributors &middot;
+                    <a href="https://github.com/microconfig/microconfig/blob/master/LICENSE">Apache 2.0 license</a></p>
+            </div>
+
+            <div class="contacts">
+                <ul class="list-unstyled mb-0">
+                    <li class="lead">Join our
+                        <a href="https://join.slack.com/t/microconfig/shared_invite/zt-dflf2m0n-wOPVfAmk5eiHPn_9Omff7Q">Slack</a>
+                    </li>
+                    <li class="lead">Contribute on <a href="https://github.com/microconfig/microconfig" data-goal="cta_github">GitHub</a></li>
+                    <li class="lead"><a href="mailto:hello@microconfig.io">hello@microconfig.io</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="vendor/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="script/site.js"></script>
+<script src="vendor/prism/prism.js"></script>
+</body>
+</html>

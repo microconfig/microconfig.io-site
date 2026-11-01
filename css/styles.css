@@ -1330,3 +1330,65 @@ code[class*="language-"], pre[class*="language-"] {
 .more-features li {
     margin-bottom: .5rem;
 }
+
+/* Use cases page */
+
+.uc-lead {
+    max-width: 760px;
+    margin: 1rem auto 2rem;
+}
+
+.uc-toc {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 2.5rem;
+}
+
+.uc-toc a {
+    border: 1px solid var(--green);
+    border-radius: 20px;
+    padding: .3rem .9rem;
+    font-size: .95rem;
+    text-decoration: none;
+}
+
+.uc-toc a:hover {
+    background: var(--green-tint);
+    text-decoration: none;
+}
+
+.use-case {
+    border-top: 1px solid var(--border);
+    padding: 2.5rem 0 1rem;
+    max-width: 860px;
+    margin: 0 auto;
+}
+
+.use-case h2 {
+    font-size: 1.7rem;
+    font-weight: 600;
+    margin-bottom: 1.25rem;
+}
+
+.use-case .demo-file {
+    margin: 1rem 0;
+}
+
+.uc-result {
+    background: var(--green-tint);
+    border-radius: 6px;
+    padding: .9rem 1.2rem;
+    font-size: 1.05rem;
+}
+
+.uc-more {
+    font-size: 1rem;
+    color: var(--text-muted);
+}
+
+#use-cases > .jumbotron > .container > .real-life {
+    max-width: 860px;
+    margin: 2rem auto 0;
+}

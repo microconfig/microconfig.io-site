@@ -110,9 +110,18 @@
                 built with the current release.
             </p>
 
+            <div class="uc-filter" role="group" aria-label="Show use cases for" data-role-filter>
+                <span>Show for:</span>
+                <button type="button" data-role="all" aria-pressed="true">Everyone</button>
+                <button type="button" data-role="platform-team" aria-pressed="false">Platform team</button>
+                <button type="button" data-role="app-team" aria-pressed="false">App team</button>
+                <button type="button" data-role="devops" aria-pressed="false">DevOps</button>
+            </div>
+
             <nav class="uc-toc" aria-label="Use cases">
                 <a href="#environments">Many environments</a>
                 <a href="#helm">Helm values</a>
+                <a href="#env-vars">Environment variables</a>
                 <a href="#platform">Company-wide defaults</a>
                 <a href="#regions">Regions and tenants</a>
                 <a href="#safe-releases">Safe releases</a>
@@ -120,8 +129,10 @@
                 <a href="#migration">Migration</a>
             </nav>
 
-            <section class="use-case" id="environments">
+            <section class="use-case" id="environments" data-roles="app-team devops">
                 <h2>Spring Boot services across many environments</h2>
+                <p class="uc-meta"><span class="uc-tag">App team</span><span class="uc-tag">DevOps</span></p>
+                <p class="uc-shift">A new stand: 30 copied files &rarr; 1 file</p>
                 <p class="real-life"><b>Situation:</b> 30 Spring Boot services in dev, test, stage and prod, plus a stand
                     for every big client. Each environment holds its own copy of every <code>application.yaml</code>,
                     and the copies slowly drift apart.</p>
@@ -147,8 +158,10 @@ envs/client-acme.yaml                     <span class="c"># a new stand</span></
                     <a href="quickstart.html#task-env">try it in the quickstart</a></p>
             </section>
 
-            <section class="use-case" id="helm">
+            <section class="use-case" id="helm" data-roles="devops platform-team">
                 <h2>Helm values for every service</h2>
+                <p class="uc-meta"><span class="uc-tag">DevOps</span><span class="uc-tag">Platform team</span></p>
+                <p class="uc-shift">50 <code>values.yaml</code> with the same blocks &rarr; 1 shared component and short service files</p>
                 <p class="real-life"><b>Situation:</b> 50 services on Kubernetes, each with its own
                     <code>values.yaml</code>. Probes, resources and the image registry are copy-pasted everywhere, and
                     the port in the chart doesn't always match the port in the application config.</p>
@@ -179,8 +192,42 @@ envs/client-acme.yaml                     <span class="c"># a new stand</span></
                 <p class="uc-more">More: <a href="documentation.html#/?id=kubernetes-and-helm">Kubernetes and Helm in the docs</a></p>
             </section>
 
-            <section class="use-case" id="platform">
+            <section class="use-case" id="env-vars" data-roles="app-team">
+                <h2>Go, Node and Python services configured through environment variables</h2>
+                <p class="uc-meta"><span class="uc-tag">App team</span></p>
+                <p class="uc-shift">The same variables in docker-compose, Kubernetes and CI &rarr; 1 source</p>
+                <p class="real-life"><b>Situation:</b> not every service is Spring Boot. Services in Go, Node or Python
+                    read environment variables, and the same values get copied into docker-compose files, Kubernetes
+                    manifests and CI settings, each with its own per-environment tweaks.</p>
+                <p>Describe the variables in <code>*.env</code> files. Placeholders and environment overrides work the
+                    same way as in application configs.</p>
+                <div class="demo-file">
+                    <div class="demo-file-name"><span>components/<wbr>notifier/<wbr>service.env</span></div>
+<pre class="demo-code">PORT=<span class="d">${app::this@server.port}</span>
+SERVICE_NAME=<span class="d">${this@name}</span>
+LOG_LEVEL=info</pre>
+                </div>
+                <div class="demo-file">
+                    <div class="demo-file-name"><span>components/<wbr>notifier/<wbr>service.dev.env</span></div>
+<pre class="demo-code">LOG_LEVEL=debug</pre>
+                </div>
+                <div class="demo-file">
+                    <div class="demo-file-name"><span>build/<wbr>notifier/<wbr>env.properties</span><span class="env-tag">dev</span></div>
+<pre class="demo-code">PORT=3000
+SERVICE_NAME=notifier
+LOG_LEVEL=debug</pre>
+                </div>
+                <p class="uc-result"><b>Result:</b> a plain <code>KEY=VALUE</code> file that works as
+                    <code>env_file</code> in docker-compose and with <code>kubectl create configmap --from-env-file</code>.
+                    Local runs and the cluster get their variables from the same source. Keep secrets out of it: only
+                    references belong here.</p>
+                <p class="uc-more">More: <a href="documentation.html#/?id=service-configuration-types">config types in the docs</a></p>
+            </section>
+
+            <section class="use-case" id="platform" data-roles="platform-team">
                 <h2>Company-wide defaults from a platform team</h2>
+                <p class="uc-meta"><span class="uc-tag">Platform team</span></p>
+                <p class="uc-shift">12 pull requests per change &rarr; 1 commit</p>
                 <p class="real-life"><b>Situation:</b> a platform team owns monitoring, logging and tracing settings.
                     Twelve product teams copy them into their services, so every change means twelve pull requests and
                     a few teams that never update.</p>
@@ -204,8 +251,10 @@ envs/client-acme.yaml                     <span class="c"># a new stand</span></
                 <p class="uc-more">More: <a href="features.html#include">reuse common parts</a></p>
             </section>
 
-            <section class="use-case" id="regions">
+            <section class="use-case" id="regions" data-roles="devops">
                 <h2>Regions, tenants and other variants of prod</h2>
+                <p class="uc-meta"><span class="uc-tag">DevOps</span></p>
+                <p class="uc-shift">2 full copies of prod &rarr; 1 profile with the differences</p>
                 <p class="real-life"><b>Situation:</b> prod runs in Europe and in the USA. Same services, almost the
                     same config, but different database hosts and a few region settings. Keeping two full copies of
                     prod config means fixing every bug twice.</p>
@@ -229,8 +278,10 @@ envs/client-acme.yaml                     <span class="c"># a new stand</span></
                 <p class="uc-more">More: <a href="documentation.html#/?id=environment-profiles">environment profiles in the docs</a></p>
             </section>
 
-            <section class="use-case" id="safe-releases">
+            <section class="use-case" id="safe-releases" data-roles="devops app-team">
                 <h2>Reviewing config changes before a release</h2>
+                <p class="uc-meta"><span class="uc-tag">DevOps</span><span class="uc-tag">App team</span></p>
+                <p class="uc-shift">Errors at startup in production &rarr; errors in CI</p>
                 <p class="real-life"><b>Situation:</b> config changes ship together with the release, and nobody sees
                     their final effect on each service. A renamed key or a typo shows up at startup, in production.</p>
                 <p>Build configs in CI on every change. A reference to a missing component or key stops the build with
@@ -246,8 +297,10 @@ envs/client-acme.yaml                     <span class="c"># a new stand</span></
                     &middot; <a href="index.html#pipeline">how it fits your pipeline</a></p>
             </section>
 
-            <section class="use-case" id="templates">
+            <section class="use-case" id="templates" data-roles="app-team devops">
                 <h2>Configs that are not YAML: logback.xml, nginx.conf, Dockerfile</h2>
+                <p class="uc-meta"><span class="uc-tag">App team</span><span class="uc-tag">DevOps</span></p>
+                <p class="uc-shift">N almost identical files &rarr; 1 template</p>
                 <p class="real-life"><b>Situation:</b> every service needs its own <code>nginx.conf</code> or
                     <code>logback.xml</code>. The files are 95% identical, so they get copied, and then fixed in some
                     services but not in others.</p>
@@ -268,8 +321,10 @@ envs/client-acme.yaml                     <span class="c"># a new stand</span></
                 <p class="uc-more">More: <a href="features.html#templates">static files templating</a></p>
             </section>
 
-            <section class="use-case" id="migration">
+            <section class="use-case" id="migration" data-roles="platform-team devops app-team">
                 <h2>Starting from configs you already have</h2>
+                <p class="uc-meta"><span class="uc-tag">Platform team</span><span class="uc-tag">DevOps</span><span class="uc-tag">App team</span></p>
+                <p class="uc-shift">A big-bang migration &rarr; one block at a time, each step proven by an empty diff</p>
                 <p class="real-life"><b>Situation:</b> there is already a repository of copy-pasted configs. Nobody wants
                     a big-bang migration that might change something by accident.</p>
                 <p>Your YAML and properties files are valid Microconfig sources as they are. Put them under
@@ -320,6 +375,7 @@ envs/client-acme.yaml                     <span class="c"># a new stand</span></
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="vendor/bootstrap/bootstrap.bundle.min.js"></script>
     <script src="script/site.js"></script>
+    <script src="script/use-cases.js"></script>
 <script src="vendor/prism/prism.js"></script>
 </body>
 </html>

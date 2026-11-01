@@ -1411,3 +1411,56 @@ code[class*="language-"], pre[class*="language-"] {
         display: none;
     }
 }
+
+.uc-filter {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 6px 10px;
+    margin-bottom: 1rem;
+    font-size: .95rem;
+    color: var(--text-muted);
+}
+
+.uc-filter button {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: .25rem .8rem;
+    color: var(--text);
+    cursor: pointer;
+}
+
+.uc-filter button[aria-pressed="true"] {
+    background: var(--green);
+    border-color: var(--green);
+    color: var(--on-green);
+    font-weight: 500;
+}
+
+.uc-toc a[hidden], .use-case[hidden] {
+    display: none;
+}
+
+.uc-meta {
+    margin: -.5rem 0 .5rem;
+}
+
+.uc-tag {
+    display: inline-block;
+    font-size: .8rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: .05rem .5rem;
+    margin-right: 6px;
+}
+
+.uc-shift {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-green);
+    margin-bottom: 1rem;
+}

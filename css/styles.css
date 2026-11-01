@@ -1168,12 +1168,6 @@ code[class*="language-"] {
     display: none;
 }
 
-@media (min-width: 580px) and (max-width: 768px) {
-    .nav-cta {
-        display: none;
-    }
-}
-
 @media (max-width: 580px) {
     .nav-github {
         display: block;
@@ -1391,4 +1385,29 @@ code[class*="language-"], pre[class*="language-"] {
 #use-cases > .jumbotron > .container > .real-life {
     max-width: 860px;
     margin: 2rem auto 0;
+}
+
+.navbar-nav .nav-link, .nav-cta .btn-mc {
+    white-space: nowrap;
+}
+
+@media (min-width: 580px) and (max-width: 768px) {
+    .navbar-nav .nav-link {
+        font-size: 1.05rem;
+        padding-left: .3rem;
+        padding-right: .3rem;
+    }
+
+    .nav-item:not(:last-child) {
+        margin-right: 4px;
+    }
+
+    .nav-cta .btn-mc {
+        font-size: .95rem;
+        padding: .3rem .8rem;
+    }
+    /* at exactly 580px the phone rule above also matches; the horizontal tablet nav has no room for it */
+    .nav-github {
+        display: none;
+    }
 }

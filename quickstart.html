@@ -3,21 +3,6 @@
 
 <head>
     <meta name="yandex-verification" content="00bf34bc7a08335d"/>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-137858449-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-
-        gtag('js', new Date());
-
-        gtag('config', 'UA-137858449-1');
-
-
-    </script>
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript">
@@ -34,7 +19,7 @@
             clickmap: true,
             trackLinks: true,
             accurateTrackBounce: true,
-            webvisor: true
+            webvisor: false
         });
     </script>
     <noscript>
@@ -47,14 +32,22 @@
 
     <meta content="microservice configuration, configuration, cloud native, cloud native configuration, kubernetes, helm, configuration management, external configuration, configuration processor, configuration management tools, application configuration"
           name="keywords">
-    <meta content="Microconfig is a modern and simple way to manage microservice configuration. Especially in the Cloud."
-          name="description">
+    <meta name="description" content="Install Microconfig, build configs for two services and see one edit update every service and environment.">
+    <link rel="canonical" href="https://microconfig.io/quickstart.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Microconfig">
+    <meta property="og:title" content="Microconfig quickstart — try it in 2 minutes">
+    <meta property="og:description" content="Install Microconfig, build configs for two services and see one edit update every service and environment.">
+    <meta property="og:url" content="https://microconfig.io/quickstart.html">
+    <meta property="og:image" content="https://microconfig.io/images/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
     <link href="vendor/bootstrap/bootstrap.min.css" rel="stylesheet">
     <link href="vendor/prism/prism.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
-    <link href="bloggersans/bloggersans.css" rel="stylesheet">
     <link rel="icon" href="css/favicon.ico">
-    <title>Microconfig.io - Microservice Configuration Made Easy</title>
+    <title>Microconfig quickstart — try it in 2 minutes</title>
 </head>
 
 <body>
@@ -84,6 +77,12 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" href="documentation.html">Docs</a>
                         </li>
+                        <li class="nav-item nav-github">
+                            <a class="nav-link text-dark" href="https://github.com/microconfig/microconfig" data-goal="cta_github">GitHub</a>
+                        </li>
+                        <li class="nav-item nav-cta">
+                            <a class="btn-mc" href="quickstart.html" data-goal="cta_quickstart">Get started</a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -106,185 +105,179 @@
         <section class="jumbotron">
             <div class="container">
                 <h1 id="quickstart" class="text-center">Quickstart</h1>
-                <p>You will learn how to build configuration with Microconfig.</p>
+                <p class="lead text-center">
+                    In about 2 minutes you will build configs for two services in two environments, then make three
+                    everyday changes that would normally mean editing files across services by hand.
+                </p>
                 <br />
 
-                <section>
-                    <h2 class="" id="setup">Setup</h2><br />
+                <h2 id="install">1. Install</h2>
+                <div class="cmd" data-copy="brew tap microconfig/microconfig && brew install microconfig">brew tap microconfig/microconfig && brew install microconfig</div>
+                <p class="cmd-note">No Homebrew? Get a <a href="download.html" data-goal="cta_download">binary for macOS, Linux, Windows or a Java jar</a>.</p>
 
-                    <h3 class="mc-green" id="example-repository">Get Example Config</h3>
-                    <p>Checkout with <code>git</code></p>
-                    <pre><code class="language-bash">
-                    git clone https://github.com/microconfig/microconfig-quickstart.git
-                    cd microconfig-quickstart
-                </code></pre>
-                    <p>Or just <a
-                            href="https://github.com/microconfig/microconfig-quickstart/archive/master.zip">download</a>
-                        and unzip it directly.</p>
-                    <br />
+                <h2 id="example-repository">2. Get the example</h2>
+                <div class="cmd" data-copy="git clone https://github.com/microconfig/microconfig-quickstart.git && cd microconfig-quickstart">git clone https://github.com/microconfig/microconfig-quickstart.git && cd microconfig-quickstart</div>
+                <p class="cmd-note">Or <a href="https://github.com/microconfig/microconfig-quickstart/archive/master.zip">download the zip</a> and unzip it.</p>
 
-                    <h3 class="mc-green" id="microconfig-jar">Get Microconfig</h3>
-                    <p><a href="download.html">Download</a> the latest binary for your OS.</p>
-                    <br />
-
-                    <h3 class="mc-green" id="example-configuration">Config Structure</h3>
-                    <p>Our configuration example has 2 services:</p>
-                    <ul>
-                        <li><code>payments-backend</code></li>
-                        <li><code>payments-frontend</code></li>
-                    </ul>
-                    <p>Services are combined into <code>payments</code> group.</p>
-                    <p>We have environment specific values for 2 environments:</p>
-                    <ul>
-                        <li><code>dev</code></li>
-                        <li><code>prod</code></li>
-                    </ul>
-                    <p>Each service expects 3 files:</p>
-                    <ul>
-                        <li><code>application.yaml</code> - application config</li>
-                        <li><code>deploy.yaml</code> - deployment config</li>
-                        <li><code>logback.xml</code> - logging configuration</li>
-                    </ul>
-                    <br />
-                </section>
-                <h2 class="" id="build">Build</h2><br />
-                <p>Examples assume that you run your build in quickstart repository dir.</p>
-                <br />
-
-                <h3 class="mc-green" id="specific-env-one">Generate configuration for a service in a specific
-                    environment</h3>
-                <p>Let's generate configuration for <code>payments-backend</code> service in <code>dev</code>
-                    environment.
-                </p>
-                <pre><code class="language-bash">
-                microconfig -r . -e dev -s payment-backend
-
-                Filtered 1 component(s) in [dev] env.
-                Copied 'payment-backend' template ../log/logback.xml -&gt; logback.xml
-                Generated payment-backend/application.yaml
-                Generated payment-backend/deploy.yaml
-
-                Generated [dev] configs in 265ms
-            </code></pre>
-                <p><strong>Parameters: </strong></p>
-                <ul>
-                    <li><code>-r . </code> specify root dir (optional)</li>
-                    <li><code>-e dev </code> generate for <code>dev</code> environment</li>
-                    <li><code>-s payments-backend </code> generate for <code>payments-backend</code> service</li>
-                </ul>
-                <p>As a result Microconfig created <code>build</code> folder with <code>dev</code> configs for
-                    <code>payments-backend</code>.
-                </p>
-                <pre><code class="language-bash">
-                build
-                &#x2514;&#x2500;&#x2500; payment-backend
-                    &#x251c;&#x2500;&#x2500; application.yaml
-                    &#x251c;&#x2500;&#x2500; deploy.yaml
-                    &#x2514;&#x2500;&#x2500; logback.xml
-            </code></pre>
-                <br /><br />
-                <h3 class="mc-green" id="specific-env-group">Generate configuration for a group in a specific
-                    environment</h3>
-
-                <p>Let's generate configuration for <code>payments</code> group in <code>prod</code> environment.</p>
-                <pre><code class="language-bash">
-                microconfig -e prod -g payments
-
-                Filtered 2 component(s) in [prod] env.
-                Copied 'payment-backend' template ../log/logback.xml -&gt; logback.xml
-                Copied 'payment-frontend' template ../log/logback.xml -&gt; logback.xml
-                Generated payment-backend/application.yaml
-                Generated payment-backend/deploy.yaml
-                Generated payment-frontend/application.yaml
-                Generated payment-frontend/deploy.yaml
-
-                Generated [prod] configs in 325ms
+                <p>The example has two services, <code>payment-backend</code> and <code>payment-frontend</code>, in the
+                    <code>payments</code> group, and two environments, <code>dev</code> and <code>prod</code>. Shared
+                    parts live in <code>components/common</code>:</p>
+                <pre><code class="language-shell">
+                components
+                &#x251c;&#x2500;&#x2500; common
+                &#x2502;   &#x251c;&#x2500;&#x2500; log           # logging settings and the logback.xml template
+                &#x2502;   &#x251c;&#x2500;&#x2500; monitoring    # monitoring settings for every service
+                &#x2502;   &#x2514;&#x2500;&#x2500; postgres      # database settings, dev and prod hosts
+                &#x2514;&#x2500;&#x2500; payments
+                    &#x251c;&#x2500;&#x2500; payment-backend
+                    &#x2514;&#x2500;&#x2500; payment-frontend
+                envs
+                &#x251c;&#x2500;&#x2500; base.yaml         # which services exist
+                &#x251c;&#x2500;&#x2500; dev.yaml
+                &#x2514;&#x2500;&#x2500; prod.yaml
             </code></pre>
 
-                <p>Parameters: </p>
-                <ul>
-                    <li><code>-e prod </code> generate for <code>prod</code> environment</li>
-
-                    <li><code>-g payments </code> generate for <code>payments</code> group</li>
-                </ul>
-
-                <p>As a result Microconfig created <code>build</code> folder with <code>prod</code> configs for
-                    <code>payments</code> group.</p>
-                <pre><code class="language-bash">
-                build
-                &#x251c;&#x2500;&#x2500; payment-backend
-                &#x2502;   &#x251c;&#x2500;&#x2500; application.yaml
-                &#x2502;   &#x251c;&#x2500;&#x2500; deploy.yaml
-                &#x2502;   &#x2514;&#x2500;&#x2500; logback.xml
-                &#x2514;&#x2500;&#x2500; payment-frontend
-                    &#x251c;&#x2500;&#x2500; application.yaml
-                    &#x251c;&#x2500;&#x2500; deploy.yaml
-                    &#x2514;&#x2500;&#x2500; logback.xml
-            </code></pre>
-                <br /><br />
-
-                <h3 class="mc-green" id="specific-env-all">Generate configuration for all services in a specific
-                    environment</h3>
-
-                <p>Let's generate configuration for all services in <code>dev</code> environment.</p>
-
-                <pre><code class="language-bash">
-                microconfig -e dev
-
+                <h2 id="build">3. Build</h2>
+                <div class="cmd" data-copy="microconfig -e dev">microconfig -e dev</div>
+                <pre><code class="language-shell">
                 Filtered 2 component(s) in [dev] env.
-                Copied 'payment-frontend' template ../log/logback.xml -&gt; logback.xml
                 Copied 'payment-backend' template ../log/logback.xml -&gt; logback.xml
                 Generated payment-backend/application.yaml
                 Generated payment-backend/deploy.yaml
+                Copied 'payment-frontend' template ../log/logback.xml -&gt; logback.xml
                 Generated payment-frontend/application.yaml
                 Generated payment-frontend/deploy.yaml
-
-                Generated [dev] configs in 326ms
+                Generated [dev] configs in 8ms
             </code></pre>
+                <p>Open <code>build/payment-backend/application.yaml</code>. Monitoring, database and logging settings
+                    are already merged in from <code>common</code>, and the database host is the one for
+                    <code>dev</code>. These are plain files your services can read as is.</p>
 
-                <p>Parameters: </p>
+                <h2 class="mt-5">Now the interesting part</h2>
+                <p>Three changes from real life. Each one takes a single edit.</p>
 
-                <ul>
-                    <li><code>-e dev</code> generate for <code>dev</code> environment</li>
-                </ul>
+                <section class="task" id="task-shared">
+                    <h3><span class="task-number">1</span>Change a shared part once</h3>
+                    <p><i>Ops wants a new <code>metrics</code> endpoint on every service.</i></p>
+                    <p>Edit <code>components/common/monitoring/application.yaml</code>:</p>
+                    <pre><code class="language-yaml">
+                    monitoring:
+                      base-path: /monitoring
+                      endpoints: info, health, ready, prometheus, metrics
+                </code></pre>
+                    <p>Build again. Microconfig compares the result with the previous build and writes a diff next to
+                        each service's configs:</p>
+                    <div class="cmd" data-copy="microconfig -e dev && tail -n +1 build/*/diff-application.yaml">microconfig -e dev && tail -n +1 build/*/diff-application.yaml</div>
+                    <pre><code class="language-shell">
+                    ==&gt; build/payment-backend/diff-application.yaml &lt;==
+                    monitoring:
+                      endpoints: info, health, ready, prometheus -&gt; info, health, ready, prometheus, metrics
 
-                <p>As a result Microconfig created <code>build</code> folder with configs for all services defined in
-                    <code>dev</code>
-                    environment.</p>
+                    ==&gt; build/payment-frontend/diff-application.yaml &lt;==
+                    monitoring:
+                      endpoints: info, health, ready, prometheus -&gt; info, health, ready, prometheus, metrics
+                </code></pre>
+                    <p class="task-result">One edit, every service that includes <code>monitoring</code> is updated,
+                        and the diff shows exactly what will change before you deploy.</p>
+                </section>
 
-                <pre><code class="language-bash">
-                build
-                &#x251c;&#x2500;&#x2500; payment-backend
-                &#x2502;   &#x251c;&#x2500;&#x2500; application.yaml
-                &#x2502;   &#x251c;&#x2500;&#x2500; deploy.yaml
-                &#x2502;   &#x2514;&#x2500;&#x2500; logback.xml
-                &#x2514;&#x2500;&#x2500; payment-frontend
-                    &#x251c;&#x2500;&#x2500; application.yaml
-                    &#x251c;&#x2500;&#x2500; deploy.yaml
-                    &#x2514;&#x2500;&#x2500; logback.xml
-            </code></pre>
+                <section class="task" id="task-reference">
+                    <h3><span class="task-number">2</span>Change a value other services depend on</h3>
+                    <p><i>The backend moves its API to <code>/api/v2</code>. Last time, the frontend found out in
+                        production.</i></p>
+                    <p>Edit <code>components/payments/payment-backend/application.yaml</code>:</p>
+                    <pre><code class="language-yaml">
+                    server:
+                      port: 80
+                      context: /api/v2
+                </code></pre>
+                    <p>The frontend doesn't copy this value, it references it:
+                        <code>path: ${payment-backend@server.context}</code>. Build and check the diff:</p>
+                    <div class="cmd" data-copy="microconfig -e dev && tail -n +1 build/*/diff-application.yaml">microconfig -e dev && tail -n +1 build/*/diff-application.yaml</div>
+                    <pre><code class="language-shell">
+                    ==&gt; build/payment-backend/diff-application.yaml &lt;==
+                    server:
+                      context: /api -&gt; /api/v2
 
-                <br /><br />
-                <h2 class="" id="conclusion">Conclusion</h2>
+                    ==&gt; build/payment-frontend/diff-application.yaml &lt;==
+                    payment-backend:
+                      path: /api -&gt; /api/v2
+                </code></pre>
+                    <p class="task-result">You changed the backend, and the frontend followed. No one had to remember
+                        that they are connected.</p>
+                </section>
 
-                <p>We hope you agree that microconfig is easy to use. Now you can explore current example to see
-                    Microconfig
-                    syntax,<br /> try out <a href="/plugin.html">IDE plugin</a> or deep dive into
-                    <a href="/documentation.html">Docs</a>.</p>
+                <section class="task" id="task-env">
+                    <h3><span class="task-number">3</span>Add an environment in two small files</h3>
+                    <p><i>A client needs their own stage by tomorrow, with its own database.</i></p>
+                    <p>Create <code>envs/staging.yaml</code> with the same services as the base environment:</p>
+                    <pre><code class="language-yaml">
+                    include:
+                      env: base
+                </code></pre>
+                    <p>And override only what differs. Create
+                        <code>components/common/postgres/application.staging.yaml</code>:</p>
+                    <pre><code class="language-yaml">
+                    #var dbHost: 30.30.30.30
+                </code></pre>
+                    <p>Build the new environment:</p>
+                    <div class="cmd" data-copy="microconfig -e staging && grep url build/payment-backend/application.yaml">microconfig -e staging && grep url build/payment-backend/application.yaml</div>
+                    <pre><code class="language-yaml">
+                    url: jdbc:postgres://30.30.30.30:5432/payments
+                </code></pre>
+                    <p class="task-result">A complete new environment for every service: the new database host, and
+                        everything else inherited from the base config.</p>
+                </section>
+
+                <section class="task" id="options">
+                    <h3>Useful build options</h3>
+                    <ul>
+                        <li><code>-e prod</code> build all services of an environment</li>
+                        <li><code>-g payments</code> build only a group of services</li>
+                        <li><code>-s payment-backend</code> build only specific services</li>
+                        <li><code>-r path/to/configs</code> config root, the current directory by default</li>
+                        <li><code>-d path/to/output</code> where to put the result, <code>./build</code> by default</li>
+                    </ul>
+                    <p>All options are in the <a href="documentation.html">documentation</a>.</p>
+                </section>
+
+                <section class="task" id="next">
+                    <h3>Try it on your own configs</h3>
+                    <p>Pick one block that is copy-pasted between your services, like monitoring, logging or a database
+                        pool. Move it to <code>components/common</code>, <code>#include</code> it, and build. Your other
+                        configs can stay as they are until you are ready.</p>
+                    <p>Next steps:</p>
+                    <ul>
+                        <li><a href="features.html">Features</a>: every feature on a real-life problem</li>
+                        <li><a href="plugin.html">IDE plugin</a>: resolve values for every environment right in the editor</li>
+                        <li><a href="documentation.html">Documentation</a>: the full reference</li>
+                        <li>Questions? Ask in <a href="https://join.slack.com/t/microconfig/shared_invite/zt-dflf2m0n-wOPVfAmk5eiHPn_9Omff7Q">Slack</a>
+                            or open an issue on <a href="https://github.com/microconfig/microconfig/issues" data-goal="cta_github">GitHub</a></li>
+                    </ul>
+                </section>
             </div>
         </section>
     </main>
-    <footer class="text-muted bg-light">
+    <footer class="site-footer bg-light">
         <div class="container footer-container">
-            <p class="copyright">Microconfig.io &copy;</p>
+            <div>
+                <ul class="footer-links list-unstyled">
+                    <li><a href="features.html">Features</a></li>
+                    <li><a href="quickstart.html">Quickstart</a></li>
+                    <li><a href="download.html">Download</a></li>
+                    <li><a href="plugin.html">IDE plugin</a></li>
+                    <li><a href="documentation.html">Docs</a></li>
+                </ul>
+                <p class="copyright">&copy; 2019&ndash;<span data-year>2026</span> Microconfig contributors &middot;
+                    <a href="https://github.com/microconfig/microconfig/blob/master/LICENSE">Apache 2.0 license</a></p>
+            </div>
 
             <div class="contacts">
                 <ul class="list-unstyled mb-0">
                     <li class="lead">Join our
-                        <a
-                            href="https://join.slack.com/t/microconfig/shared_invite/zt-dflf2m0n-wOPVfAmk5eiHPn_9Omff7Q">Slack!</a>
+                        <a href="https://join.slack.com/t/microconfig/shared_invite/zt-dflf2m0n-wOPVfAmk5eiHPn_9Omff7Q">Slack</a>
                     </li>
-                    <li class="lead">Contribute on <a href="https://github.com/microconfig/microconfig">Github</a></li>
+                    <li class="lead">Contribute on <a href="https://github.com/microconfig/microconfig" data-goal="cta_github">GitHub</a></li>
                     <li class="lead"><a href="mailto:hello@microconfig.io">hello@microconfig.io</a></li>
                 </ul>
             </div>
@@ -293,6 +286,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="vendor/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="script/site.js"></script>
     <script src="vendor/prism/prism.js"></script>
 </body>
 

@@ -3,21 +3,6 @@
 
 <head>
     <meta name="yandex-verification" content="00bf34bc7a08335d"/>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-137858449-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-
-        gtag('js', new Date());
-
-        gtag('config', 'UA-137858449-1');
-
-
-    </script>
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript">
@@ -34,7 +19,7 @@
             clickmap: true,
             trackLinks: true,
             accurateTrackBounce: true,
-            webvisor: true
+            webvisor: false
         });
     </script>
     <noscript>
@@ -47,13 +32,21 @@
 
     <meta content="microservice configuration, configuration, cloud native, cloud native configuration, kubernetes, helm, configuration management, external configuration, configuration processor, configuration management tools, application configuration"
           name="keywords">
-    <meta content="Microconfig is a modern and simple way to manage microservice configuration. Especially in the Cloud."
-          name="description">
+    <meta name="description" content="Navigate includes and placeholders, resolve values for every environment and preview built configs without leaving IntelliJ IDEA or any JetBrains IDE.">
+    <link rel="canonical" href="https://microconfig.io/plugin.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Microconfig">
+    <meta property="og:title" content="Microconfig JetBrains IDE plugin">
+    <meta property="og:description" content="Navigate includes and placeholders, resolve values for every environment and preview built configs without leaving IntelliJ IDEA or any JetBrains IDE.">
+    <meta property="og:url" content="https://microconfig.io/plugin.html">
+    <meta property="og:image" content="https://microconfig.io/images/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
     <link href="vendor/bootstrap/bootstrap.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
-    <link href="bloggersans/bloggersans.css" rel="stylesheet">
     <link rel="icon" href="css/favicon.ico">
-    <title>Microconfig.io - Microservice Configuration Made Easy</title>
+    <title>Microconfig JetBrains IDE plugin</title>
 </head>
 
 <body>
@@ -83,6 +76,12 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" href="documentation.html">Docs</a>
                         </li>
+                        <li class="nav-item nav-github">
+                            <a class="nav-link text-dark" href="https://github.com/microconfig/microconfig" data-goal="cta_github">GitHub</a>
+                        </li>
+                        <li class="nav-item nav-cta">
+                            <a class="btn-mc" href="quickstart.html" data-goal="cta_quickstart">Get started</a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -108,7 +107,7 @@
                     <h1 class="text-center">JetBrains IDE plugin
                         <a href="https://plugins.jetbrains.com/plugin/12064-microconfig-io">
                             <img alt="JetBrains IDE plugins"
-                                src="https://img.shields.io/jetbrains/plugin/d/12064-microconfig-io?color=%235fbb92&style=flat-square">
+                                src="https://img.shields.io/jetbrains/plugin/d/12064-microconfig-io?color=%235c636a&style=flat-square">
                         </a>
                     </h1>
                     <br />
@@ -120,7 +119,7 @@
                     </p>
                     <br />
                     <h2 class="mc-green">Overview</h2>
-                    <p>Plugin adds it's submenu in <code>Main Menu -&gt; Tools -&gt; Microconfig</code> and in editor's
+                    <p>Plugin adds its submenu in <code>Main Menu -&gt; Tools -&gt; Microconfig</code> and in editor's
                         <code>RightClick</code> popup.
                     </p>
 
@@ -201,21 +200,35 @@
                     </p>
                     <img src="images/plugin/install.png" alt="install" style="width: 800px; max-width:100%;">
                     <br />
+                    <div class="real-life mt-4">
+                        <p class="mb-3"><b>No configs to try it on yet?</b> Clone the quickstart example, open it in your IDE
+                            and press <code>Shift-Ctrl-F10</code> on any service to preview its configs.</p>
+                        <a class="btn-mc" href="quickstart.html" data-goal="cta_quickstart">Open the quickstart &rarr;</a>
+                    </div>
                 </article>
             </div>
         </section>
     </main>
-    <footer class="text-muted bg-light">
+    <footer class="site-footer bg-light">
         <div class="container footer-container">
-            <p class="copyright">Microconfig.io &copy;</p>
+            <div>
+                <ul class="footer-links list-unstyled">
+                    <li><a href="features.html">Features</a></li>
+                    <li><a href="quickstart.html">Quickstart</a></li>
+                    <li><a href="download.html">Download</a></li>
+                    <li><a href="plugin.html">IDE plugin</a></li>
+                    <li><a href="documentation.html">Docs</a></li>
+                </ul>
+                <p class="copyright">&copy; 2019&ndash;<span data-year>2026</span> Microconfig contributors &middot;
+                    <a href="https://github.com/microconfig/microconfig/blob/master/LICENSE">Apache 2.0 license</a></p>
+            </div>
 
             <div class="contacts">
                 <ul class="list-unstyled mb-0">
                     <li class="lead">Join our
-                        <a
-                            href="https://join.slack.com/t/microconfig/shared_invite/zt-dflf2m0n-wOPVfAmk5eiHPn_9Omff7Q">Slack!</a>
+                        <a href="https://join.slack.com/t/microconfig/shared_invite/zt-dflf2m0n-wOPVfAmk5eiHPn_9Omff7Q">Slack</a>
                     </li>
-                    <li class="lead">Contribute on <a href="https://github.com/microconfig/microconfig">Github</a></li>
+                    <li class="lead">Contribute on <a href="https://github.com/microconfig/microconfig" data-goal="cta_github">GitHub</a></li>
                     <li class="lead"><a href="mailto:hello@microconfig.io">hello@microconfig.io</a></li>
                 </ul>
             </div>
@@ -224,6 +237,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="vendor/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="script/site.js"></script>
 </body>
 
 </html>

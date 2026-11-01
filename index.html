@@ -3,22 +3,6 @@
 
 <head>
 
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-137858449-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-
-        gtag('js', new Date());
-
-        gtag('config', 'UA-137858449-1');
-
-
-    </script>
-
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript">
         (function (m, e, t, r, i, k, a) {
@@ -34,7 +18,7 @@
             clickmap: true,
             trackLinks: true,
             accurateTrackBounce: true,
-            webvisor: true
+            webvisor: false
         });
     </script>
     <noscript>
@@ -48,15 +32,36 @@
     <meta
         content="microservice configuration, configuration, cloud native, cloud native configuration, kubernetes, helm, configuration management, external configuration, configuration processor, configuration management tools, application configuration"
         name="keywords">
-    <meta name="Description"
-        content="Microconfig is a modern and simple way to manage microservice configuration. Especially in the Cloud.">
+    <meta name="description" content="Microconfig builds plain config files for every microservice in every environment from one DRY source in Git. Reuse common parts, reference values across services, see a diff before every release. Open source.">
+    <link rel="canonical" href="https://microconfig.io/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Microconfig">
+    <meta property="og:title" content="Microconfig — change config once, every service and environment gets it right">
+    <meta property="og:description" content="Microconfig builds plain config files for every microservice in every environment from one DRY source in Git. Reuse common parts, reference values across services, see a diff before every release. Open source.">
+    <meta property="og:url" content="https://microconfig.io/">
+    <meta property="og:image" content="https://microconfig.io/images/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
     <link href="vendor/bootstrap/bootstrap.min.css" rel="stylesheet">
-    <link href="vendor/prism/prism.css" rel="stylesheet" />
     <link href="css/styles.css" rel="stylesheet">
-    <link href="bloggersans/bloggersans.css" rel="stylesheet">
     <link rel="icon" href="css/favicon.ico">
     <meta name="google-site-verification" content="-vwHylVI8TRHCCK0lhgP67LeEMjlRRIXHuRKeCB_Vnc" />
-    <title>Microconfig.io - Microservice Configuration Made Easy</title>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Microconfig",
+        "url": "https://microconfig.io/",
+        "description": "Microconfig builds plain config files for every microservice in every environment from one DRY source in Git.",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "macOS, Linux, Windows",
+        "license": "https://www.apache.org/licenses/LICENSE-2.0",
+        "codeRepository": "https://github.com/microconfig/microconfig",
+        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
+    }
+    </script>
+    <title>Microconfig — change config once, every service and environment gets it right</title>
 </head>
 
 
@@ -87,6 +92,12 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" href="documentation.html">Docs</a>
                         </li>
+                        <li class="nav-item nav-github">
+                            <a class="nav-link text-dark" href="https://github.com/microconfig/microconfig" data-goal="cta_github">GitHub</a>
+                        </li>
+                        <li class="nav-item nav-cta">
+                            <a class="btn-mc" href="quickstart.html" data-goal="cta_quickstart">Get started</a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -107,432 +118,424 @@
         </svg>
     </a>
 
-    <main role="main" id="quickstart">
-        <section class="jumbotron">
+    <main role="main" id="landing">
+        <section class="hero">
             <div class="container">
-                <h1>Microservice configuration
-                    <br><span style="font-weight: bold;">made easy</span>
-                </h1>
-                <p class="lead" style="margin-top: 2em">
-                    Microservice architecture implies a lot of services with similar configuration. <br />
-                    Each service has an application config, deployment config, a log template and so on.<br />
-                    Multiply that by 50 services with 5 different environments and you have a mess.
+                <div class="row align-items-center">
+                <div class="col-lg-7">
+                <h1>Change config once.<br><b>Every service, every environment gets it right.</b></h1>
+                <p class="lead">
+                    Microconfig turns one DRY source in Git into plain config files for every microservice in every
+                    environment: <code>application.yaml</code>, Helm values, <code>logback.xml</code>, anything.
+                    No server, no runtime, no lock-in.
+                </p>
+                <div class="cmd" data-copy="brew tap microconfig/microconfig && brew install microconfig">brew tap microconfig/microconfig && brew install microconfig</div>
+                <p class="cmd-note">or get a <a href="download.html" data-goal="cta_download">binary for macOS, Linux, Windows or a Java jar</a></p>
+                <div class="hero-actions">
+                    <a class="btn-mc" href="quickstart.html" data-goal="cta_quickstart">Try it in 2 minutes &rarr;</a>
+                    <a class="btn-mc-outline" href="https://github.com/microconfig/microconfig" data-goal="cta_github">&#9733; Star on GitHub</a>
+                </div>
+                <div class="hero-meta">
+                    <img src="https://img.shields.io/github/stars/microconfig/microconfig?style=social" alt="GitHub stars">
+                    <img src="https://img.shields.io/github/v/release/microconfig/microconfig?color=5c636a&label=latest" alt="Latest release">
+                    <img src="https://img.shields.io/github/license/microconfig/microconfig?color=5c636a" alt="License">
+                    <span>Open source &middot; builds hundreds of services in seconds</span>
+                </div>
+                </div>
+                <div class="col-lg-5 d-none d-lg-block">
+                    <div class="hero-visual" aria-hidden="true">
+                        <div class="repo-frame-name">your-git-repo/</div>
+                        <div class="demo-file">
+                            <div class="demo-file-name"><span>components/<wbr>common/<wbr>monitoring/<wbr>application.yaml</span></div>
+<pre class="demo-code"><span class="c"># edited once</span>
+<span class="k">monitoring</span>:
+  <span class="k">endpoints</span>: health, prometheus, <span class="diff-new">metrics</span></pre>
+                        </div>
+                        <div class="hv-arrow">&darr; microconfig build</div>
+                        <ul class="hv-targets">
+                            <li><span>payment-backend</span><span class="env-tag">dev</span><span class="hv-check">updated</span></li>
+                            <li><span>payment-backend</span><span class="env-tag">prod</span><span class="hv-check">updated</span></li>
+                            <li><span>payment-frontend</span><span class="env-tag">dev</span><span class="hv-check">updated</span></li>
+                            <li><span>payment-frontend</span><span class="env-tag">prod</span><span class="hv-check">updated</span></li>
+                            <li class="hv-more">&hellip; and every other service that includes <code>monitoring</code></li>
+                        </ul>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section bg-light" id="try">
+            <div class="container">
+                <h2 class="section-heading">Try it right here: change one line</h2>
+                <p class="section-sub">
+                    Two services, two environments. Edit a highlighted value in the sources: on the right, the lines
+                    that change in each generated config light up, everything else stays dimmed.
+                </p>
+
+                <div id="demo">
+                    <div class="demo-presets">
+                        <button type="button" data-preset="metrics">Add a monitoring endpoint to all services</button>
+                        <button type="button" data-preset="apiV2">Move backend API to /api/v2</button>
+                        <button type="button" data-preset="newDb">Point prod to a new database</button>
+                        <button type="button" data-reset>Reset</button>
+                    </div>
+
+                    <div class="demo">
+                        <div>
+                            <div class="demo-label">What you write</div>
+                            <div class="repo-frame">
+                            <div class="repo-frame-name">your-git-repo/ <span>&middot; one repository for all services</span></div>
+
+                            <div class="demo-file">
+                                <div class="demo-file-name"><span>components/<wbr>common/<wbr>monitoring/<wbr>application.yaml</span></div>
+<pre class="demo-code"><span class="c"># shared: included by every service</span>
+<span class="k">monitoring</span>:
+  <span class="k">base-path</span>: /monitoring
+  <span class="k">endpoints</span>: <input data-field="endpoints" maxlength="30" aria-label="monitoring endpoints" spellcheck="false"></pre>
+                            </div>
+
+                            <div class="demo-file">
+                                <div class="demo-file-name"><span>components/<wbr>payments/<wbr>payment-backend/<wbr>application.yaml</span></div>
+<pre class="demo-code"><span class="d">#include monitoring, postgres</span>
+
+<span class="k">name</span>: payment-backend
+<span class="k">server</span>:
+  <span class="k">port</span>: 80
+  <span class="k">context</span>: <input data-field="context" maxlength="16" aria-label="backend API context" spellcheck="false"></pre>
+                            </div>
+
+                            <div class="demo-file">
+                                <div class="demo-file-name"><span>components/<wbr>payments/<wbr>payment-frontend/<wbr>application.yaml</span></div>
+<pre class="demo-code"><span class="d">#include monitoring</span>
+
+<span class="k">name</span>: payment-frontend
+<span class="k">payment-backend</span>:
+  <span class="k">path</span>: <span class="d">${payment-backend@server.context}</span></pre>
+                            </div>
+
+                            <div class="demo-file">
+                                <div class="demo-file-name"><span>components/<wbr>common/<wbr>postgres/<wbr>application.prod.yaml</span></div>
+<pre class="demo-code"><span class="c"># prod only</span>
+<span class="d">#var dbHost:</span> <input data-field="prodDbHost" maxlength="15" aria-label="prod database host" spellcheck="false"></pre>
+                            </div>
+                            </div>
+                        </div>
+
+                        <div class="demo-result">
+                            <div class="demo-label">What changes in build/</div>
+                            <div class="demo-counter" data-counter></div>
+                            <div data-diffs></div>
+                            <p class="demo-note">By hand, every updated file is a separate edit. With 50 services in
+                                5 environments, one shared change means up to 250 files.</p>
+                            <button type="button" class="demo-toggle" data-toggle-full aria-expanded="false">Show full generated files</button>
+                        </div>
+                    </div>
+
+                    <div class="demo-full" data-full hidden>
+                        <div class="demo-label">Full generated files &middot; build/</div>
+                        <div class="demo-grid">
+                            <div class="demo-file">
+                                <div class="demo-file-name"><span>payment-backend/application.yaml</span><span class="env-tag">dev</span></div>
+                                <pre class="demo-code" data-output="backend-dev"></pre>
+                            </div>
+                            <div class="demo-file">
+                                <div class="demo-file-name"><span>payment-backend/application.yaml</span><span class="env-tag">prod</span></div>
+                                <pre class="demo-code" data-output="backend-prod"></pre>
+                            </div>
+                            <div class="demo-file">
+                                <div class="demo-file-name"><span>payment-frontend/application.yaml</span><span class="env-tag">dev</span></div>
+                                <pre class="demo-code" data-output="frontend-dev"></pre>
+                            </div>
+                            <div class="demo-file">
+                                <div class="demo-file-name"><span>payment-frontend/application.yaml</span><span class="env-tag">prod</span></div>
+                                <pre class="demo-code" data-output="frontend-prod"></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <h2 class="section-heading">Sound familiar?</h2>
+                <p class="section-sub">Everyday configuration pain in a microservice system, and what it looks like with Microconfig.</p>
+                <div class="row mobile-carousel">
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="story-card">
+                            <h3>&ldquo;Kafka moved. Now 47 services need the new address.&rdquo;</h3>
+                            <p>Keep connection settings in one shared component and <code>#include</code> it. Change one
+                                file, rebuild, and every service gets the new address.</p>
+                            <a class="story-fix" href="features.html#include">Reuse common parts &rarr;</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="story-card">
+                            <h3>&ldquo;Backend changed its API path. Frontend found out in production.&rdquo;</h3>
+                            <p>The frontend references the value instead of copying it:
+                                <code>${payment-backend@server.context}</code>. Change it once, both stay in sync.</p>
+                            <a class="story-fix" href="features.html#placeholders">Reference values &rarr;</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="story-card">
+                            <h3>&ldquo;Friday release. What exactly changes in prod?&rdquo;</h3>
+                            <p>Every build writes a git-style diff next to the result: added, removed and changed
+                                properties for each service. Review it before you deploy, not after the incident.</p>
+                            <a class="story-fix" href="features.html#diff">Config diff &rarr;</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="story-card">
+                            <h3>&ldquo;We need a stage for a client. By tomorrow.&rdquo;</h3>
+                            <p>Describe a new environment in one small file and override only what differs, like a
+                                database host. Everything else is inherited from the base config.</p>
+                            <a class="story-fix" href="features.html#env">Environment specific config &rarr;</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="story-card">
+                            <h3>&ldquo;Every service needs its own logback.xml. And Dockerfile. And&hellip;&rdquo;</h3>
+                            <p>Keep one template. Microconfig fills in each service's name and environment settings
+                                with placeholders and Mustache conditions.</p>
+                            <a class="story-fix" href="features.html#templates">Static files templating &rarr;</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="story-card">
+                            <h3>&ldquo;Why is pool-size 50 in prod? Where does it come from?&rdquo;</h3>
+                            <p>The JetBrains plugin resolves any value for every environment right in the editor and
+                                jumps to the line where it is defined.</p>
+                            <a class="story-fix" href="plugin.html">IDE plugin &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section bg-light">
+            <div class="container">
+                <h2 class="section-heading">Who it's for</h2>
+                <p class="section-sub">Microconfig pays off as soon as configuration starts repeating itself.</p>
+                <div class="row mobile-carousel">
+                    <div class="col-md-4 mb-4">
+                        <div class="info-card">
+                            <h3>Platform and DevOps teams</h3>
+                            <p>Dozens of services, several environments, one repository of configs that everyone
+                                copies from. Turn the copy-paste into shared components your teams include.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="info-card">
+                            <h3>Spring Boot and JVM teams</h3>
+                            <p>Your services already read <code>application.yaml</code> and
+                                <code>.properties</code>. Microconfig produces exactly those files, per service and per
+                                environment. Nothing changes in your code.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="info-card">
+                            <h3>Kubernetes and Helm teams</h3>
+                            <p><b>Keep Helm. Stop copy-pasting values.yaml.</b> Microconfig builds Helm values and
+                                Kubernetes configs for each service and environment from the same DRY source.</p>
+                        </div>
+                    </div>
+                </div>
+                <p class="not-for">
+                    You probably don't need Microconfig yet if you run a handful of services in a single environment.
+                    Plain files are fine there.
                 </p>
             </div>
         </section>
 
-        <div class="py-5 bg-light">
-            <div class="container" style="padding: 0; margin-bottom: 2.5rem; text-align: center;">
-                <h2 class=""> How Microconfig can help </h2>
-            </div>
+        <section class="section">
             <div class="container">
+                <h2 class="section-heading">Already using something else?</h2>
+                <p class="section-sub">
+                    Microconfig is a build step, not a platform. It does one thing: keeps configuration for many
+                    services DRY and builds plain files. So it works alongside the tools you already have.
+                </p>
+                <div class="row mobile-carousel">
+                    <div class="col-md-4 mb-4">
+                        <div class="info-card">
+                            <h3>Helm</h3>
+                            <p>Helm packages and releases your apps to Kubernetes. It doesn't help when fifty
+                                <code>values.yaml</code> files repeat the same blocks.</p>
+                            <p class="tool-verdict">Use both: Microconfig generates the values, Helm deploys them.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="info-card">
+                            <h3>Kustomize</h3>
+                            <p>Kustomize patches Kubernetes manifests. The application configs inside your pods,
+                                like <code>application.yaml</code> or <code>logback.xml</code>, are still on you.</p>
+                            <p class="tool-verdict">Use both: feed files built by Microconfig to <code>configMapGenerator</code>.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="info-card">
+                            <h3>Spring Cloud Config, Consul</h3>
+                            <p>Config servers deliver configuration at runtime. What they serve still has to be
+                                stored somewhere, ideally without duplication and with history.</p>
+                            <p class="tool-verdict">Use both: Microconfig builds what the config server serves.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section bg-light" id="pipeline">
+            <div class="container">
+                <h2 class="section-heading">How it fits your pipeline</h2>
+                <p class="section-sub">Microconfig runs as one step in CI, between your config repository and your
+                    delivery tools.</p>
+                <ol class="pipeline">
+                    <li>
+                        <h3>Sources in Git</h3>
+                        <p>One repository with <code>components/</code> and <code>envs/</code> for all services.</p>
+                    </li>
+                    <li>
+                        <h3>Build in CI</h3>
+                        <p><code>microconfig -e prod</code> &mdash; a single binary, seconds even for hundreds of services.</p>
+                    </li>
+                    <li>
+                        <h3>Plain files</h3>
+                        <p><code>build/&lt;service&gt;/</code> with application configs, Helm values, templates.</p>
+                    </li>
+                    <li>
+                        <h3>Your delivery</h3>
+                        <p>Helm, kubectl or Kustomize, a config server, or a plain copy to hosts.</p>
+                    </li>
+                </ol>
+
+                <div class="demo-file pipeline-example">
+                    <div class="demo-file-name"><span>.github/workflows/configs.yml</span><span class="env-tag">GitHub Actions example</span></div>
+<pre class="demo-code"><span class="k">on</span>: [push]
+<span class="k">jobs</span>:
+  <span class="k">configs</span>:
+    <span class="k">runs-on</span>: ubuntu-latest
+    <span class="k">steps</span>:
+      - <span class="k">uses</span>: actions/checkout@v4
+      - <span class="k">name</span>: Install Microconfig
+        <span class="k">run</span>: |
+          curl -sSL -o microconfig.zip https://github.com/microconfig/microconfig/releases/latest/download/microconfig-linux.zip
+          unzip -q microconfig.zip
+      - <span class="k">name</span>: Build prod configs
+        <span class="k">run</span>: ./microconfig -e prod -d build
+      - <span class="k">uses</span>: actions/upload-artifact@v4
+        <span class="k">with</span>:
+          <span class="k">name</span>: prod-configs
+          <span class="k">path</span>: build/</pre>
+                </div>
+                <p class="cmd-note mt-2">Works the same in GitLab CI, Jenkins or any other runner. In real pipelines,
+                    pin a release instead of <code>latest</code>.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <h2 class="section-heading">Safe to try</h2>
+                <p class="section-sub">Trying Microconfig doesn't commit you to anything.</p>
                 <div class="row">
-                    <div class="col-md-6">
-                        <div class="card mb-4">
-                            <div class="card-header">
-                                <h4 class="my-0 mc-color">
-                                    <a href="features.html#layout">Simple
-                                        Configuration Layout</a>
-                                </h4>
-                            </div>
-                            <div class="card-body">
-                                You choose your configuration layout. You can group and organize your config the way it
-                                makes sense to you.
-                            </div>
-                        </div>
+                    <div class="col-md-4 mb-4 risk-item">
+                        <h3>Plain files out</h3>
+                        <p>The result is ordinary YAML, properties or any other files in a build folder. Nothing runs in
+                            production and there is nothing to uninstall.</p>
                     </div>
-                    <div class="col-md-6">
-                        <div class="card mb-4">
-                            <div class="card-header">
-                                <h4 class="my-0 mc-color">
-                                    <a href="features.html#include">Reuse Common Parts</a>
-                                </h4>
-                            </div>
-                            <div class="card-body">
-                                You can extract common parts of configuration to a dedicated component and reuse it with
-                                #include.
-                            </div>
-                        </div>
+                    <div class="col-md-4 mb-4 risk-item">
+                        <h3>Adopt one block at a time</h3>
+                        <p>Start by extracting a single shared part, like monitoring settings, and leave the rest of
+                            your configs as they are.</p>
                     </div>
-                    <div class="col-md-6">
-                        <div class="card mb-4">
-                            <div class="card-header">
-                                <h4 class="my-0 mc-color">
-                                    <a href="features.html#placeholders">Reference Values</a>
-                                </h4>
-                            </div>
-                            <div class="card-body">
-                                You can reference a value from current or another service with ${placeholder}.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="card mb-4">
-                            <div class="card-header">
-                                <h4 class="my-0 mc-color">
-                                    <a href="features.html#expressions">Dynamic Values</a>
-                                </h4>
-                            </div>
-                            <div class="card-body">
-                                You can use #{ 'expression' + 'language' } to generate your values. It supports math
-                                operations and much more.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="card mb-4">
-                            <div class="card-header">
-                                <h4 class="my-0 mc-color">
-                                    <a href="features.html#env">Environment Specific Config</a>
-                                </h4>
-                            </div>
-                            <div class="card-body">
-                                You can have specific values for each environment you need. They will be merged with
-                                your base configuration.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="card mb-4">
-                            <div class="card-header">
-                                <h4 class="my-0 mc-color">
-                                    <a href="features.html#templates">Static Files Templating</a>
-                                </h4>
-                            </div>
-                            <div class="card-body">
-                                You can use static templates and populate them with data unique for each service.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="card mb-4">
-                            <div class="card-header">
-                                <h4 class="my-0 mc-color">
-                                    <a href="features.html#diff">Config Diff</a>
-                                </h4>
-                            </div>
-                            <div class="card-body">
-                                You can generate git style diff and compare different versions of your config.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="card mb-4">
-                            <div class="card-header">
-                                <h4 class="my-0 mc-color">
-                                    <a href="plugin.html">IDE Plugin</a>
-                                </h4>
-                            </div>
-                            <div class="card-body">
-                                You can use JetBrains IDE Microconfig plugin to navigate, preview and generate config
-                                without leaving your IDE.
-                            </div>
-                        </div>
+                    <div class="col-md-4 mb-4 risk-item">
+                        <h3>Fast enough for every commit</h3>
+                        <p>Even projects with hundreds of services build in 1&ndash;3 seconds, so it fits into any CI
+                            pipeline.</p>
                     </div>
                 </div>
-            </div>
-        </div>
-
-        <section class="example jumbotron">
-            <div class="container">
-                <p class="lead">
-                    Just to show the problem with microservice configuration more explicitly.
-                    Below are typical configs that we have to support nowadays. <br /> 2 different microservices
-                    with their <code>dev</code> and <code>prod</code> configs.
-                </p><br />
-
-                <!-- <div class="col"> -->
-                <div class="row-with-switch">
-                    <p class="switch-title"><code>app config: </code></p>
-
-                    <label for="toggle1">dev</label>
-                    <input type="checkbox" id="toggle1" class="toggle">
-                    <label for="toggle1">prod</label>
-
-                    <div class="row equal-cols">
-                        <div class="col-md-6 on">
-                            <h3 class="code-title"><code>payment-backend</code></h3>
-                            <pre class="code-block">
-                            <code class="lang-yaml">
-                                name: payment-backend
-
-                                server:
-                                  port: 80
-                                  context: /api
-
-                                payment-gateway: https://payment-gateway.com
-
-                                database:
-                                  type: Postgres
-                                  min-pool-size: 10
-                                  max-pool-size: 50
-                                  url: jdbc:postgres://20.20.20.20:5432/payments
-
-                                monitoring:
-                                  base-path: /monitoring
-                                  endpoints: info, health, ready, prometheus
-                            </code>
-                        </pre>
-                        </div>
-
-                        <div class="col-md-6 on">
-                            <h3 class="code-title"><code>payment-frontend</code></h3>
-                            <pre class="code-block">
-                            <code class="lang-yaml">
-                                name: payment-frontend
-
-                                server:
-                                  port: 80
-                                  minThreads: 10
-                                  maxThreads: 100
-
-                                payment-backend:
-                                  host: http://payment-backend.com
-                                  path: /api
-                                  timeoutMs: 180000
-
-                                monitoring:
-                                  base-path: /monitoring
-                                  endpoints: info, health, ready, prometheus
-                            </code>
-                        </pre>
-                        </div>
-
-                        <div class="col-md-6 off">
-                            <h3 class="code-title"><code>payment-backend</code></h3>
-                            <pre class="code-block">
-                            <code class="lang-yaml">
-                                name: payment-backend
-
-                                server:
-                                  port: 80
-                                  context: /api
-
-                                payment-gateway: http://gateway-mock.local
-
-                                database:
-                                  type: Postgres
-                                  max-pool-size: 10
-                                  url: jdbc:postgres://10.10.10.10:5432/payments
-
-                                monitoring:
-                                  base-path: /monitoring
-                                  endpoints: info, health, ready, prometheus, threaddump
-                                  secure: false
-                            </code>
-                        </pre>
-                        </div>
-
-                        <div class="col-md-6 off">
-                            <h3 class="code-title"><code>payment-frontend</code></h3>
-                            <pre class="code-block">
-                            <code class="lang-yaml">
-                                name: payment-frontend
-
-                                server:
-                                  port: 80
-                                  hotReload: true
-                                  maxThreads: 50
-
-                                payment-backend:
-                                  host: https://payment-backend.local
-                                  path: /api
-                                  timeoutMs: 90000
-
-                                monitoring:
-                                  base-path: /monitoring
-                                  endpoints: info, health, ready, prometheus, threaddump
-                                  secure: false
-                            </code>
-                        </pre>
-                        </div>
-                    </div>
-                </div>
-                <!--//////////////////////////////////////////////////////////////////////////-->
-                <div class="row-with-switch">
-                    <p class="switch-title"><code>deploy config: </code></p>
-
-                    <label for="toggle2">dev</label>
-                    <input type="checkbox" id="toggle2" class="toggle">
-                    <label for="toggle2">prod</label>
-
-                    <div class="row equal-cols">
-
-                        <div class="col-md-6 on">
-                            <h3 class="code-title"><code>payment-backend</code></h3>
-                            <pre class="code-block">
-                            <code class="lang-yaml">
-                                image: "payment-backend:1.5"
-
-                                replicas: 2
-
-                                ingress:
-                                  host: http://payment-backend.local
-
-                                probes:
-                                  health: /monitoring/health
-                                  ready: /monitoring/ready
-                            </code>
-                        </pre>
-                        </div>
-
-                        <div class="col-md-6 on">
-                            <h3 class="code-title"><code>payment-frontend</code></h3>
-                            <pre class="code-block">
-                            <code class="language-yaml">
-                                image: "payment-frontend:2.1"
-
-                                replicas: 3
-
-                                ingress:
-                                  host: https://payments.example.com
-
-                                probes:
-                                  health: /monitoring/health
-                                  ready: /monitoring/ready
-                            </code>
-                        </pre>
-                        </div>
-
-                        <div class="col-md-6 off">
-                            <h3 class="code-title"><code>payment-backend</code></h3>
-                            <pre class="code-block">
-                            <code class="lang-yaml">
-                                image: "payment-backend:latest"
-
-                                replicas: 1
-
-                                ingress:
-                                  host: http://payment-backend.local
-
-                                probes:
-                                  health: /monitoring/health
-                                  ready: /monitoring/ready
-                            </code>
-                        </pre>
-                        </div>
-
-                        <div class="col-md-6 off">
-                            <h3 class="code-title"><code>payment-frontend</code></h3>
-                            <pre class="code-block">
-                            <code class="lang-yaml">
-                                image: "payment-frontend:latest"
-
-                                replicas: 1
-
-                                ingress:
-                                  host: http://payments.local
-
-                                probes:
-                                  health: /monitoring/health
-                                  ready: /monitoring/ready
-                            </code>
-                        </pre>
-                        </div>
-                    </div>
-                </div>
-                <!--//////////////////////////////////////////////////////////////////////////-->
-                <div class="row-with-switch">
-                    <p class="switch-title"><code>log config: </code></p>
-                    <label for="toggle3">dev</label>
-                    <input type="checkbox" id="toggle3" class="toggle">
-                    <label for="toggle3">prod</label>
-
-                    <div class="row equal-cols">
-
-                        <div class="col-md-6 on">
-                            <h3 class="code-title"><code>payment-backend</code></h3>
-                            <pre class="code-block">
-                                <code class="lang-xml">
-                                    &lt;configuration&gt;
-                                      &lt;appender class=&quot;LogstashTcpSocketAppender&quot;&gt;
-                                        &lt;destination&gt;30.30.30.30:9600&lt;/destination&gt;
-                                        &lt;encoder class=&quot;LogstashEncoder&quot;&gt;
-                                          &lt;customFields&gt;{&quot;servicename&quot;:&quot;payment-backend&quot;}&lt;/customFields&gt;
-                                        &lt;/encoder&gt;
-                                      &lt;/appender&gt;
-                                    &lt;/configuration&gt;
-                                 </code>
-                            </pre>
-                        </div>
-
-                        <div class="col-md-6 on">
-                            <h3 class="code-title"><code>payment-frontend</code></h3>
-                            <pre class="code-block">
-                                <code class="lang-xml">
-                                    &lt;configuration&gt;
-                                      &lt;appender class=&quot;LogstashTcpSocketAppender&quot;&gt;
-                                        &lt;destination&gt;30.30.30.30:9600&lt;/destination&gt;
-                                        &lt;encoder class=&quot;LogstashEncoder&quot;&gt;
-                                          &lt;customFields&gt;{&quot;servicename&quot;:&quot;payment-frontend&quot;}&lt;/customFields&gt;
-                                        &lt;/encoder&gt;
-                                      &lt;/appender&gt;
-                                    &lt;/configuration&gt;
-                                 </code>
-                            </pre>
-                        </div>
-
-                        <div class="col-md-6 off">
-                            <h3 class="code-title"><code>payment-frontend</code></h3>
-                            <pre class="code-block">
-                                <code class="lang-xml">
-                                    &lt;configuration&gt;
-                                      &lt;appender class="FileAppender"&gt;
-                                        &lt;file&gt;logs/payment-frontend.log&lt;/file&gt;
-                                        &lt;encoder&gt;
-                                          &lt;pattern&gt;%d{HH:mm:ss} %-5level %logger %msg %n&lt;/pattern&gt;
-                                        &lt;/encoder&gt;
-                                      &lt;/appender&gt;
-                                    &lt;/configuration&gt;
-                                 </code>
-                            </pre>
-                        </div>
-
-                        <div class="col-md-6 off">
-                            <h3 class="code-title"><code>payment-backend</code></h3>
-                            <pre class="code-block">
-                                <code class="lang-xml">
-                                    &lt;configuration&gt;
-                                      &lt;appender class="FileAppender"&gt;
-                                        &lt;file&gt;logs/payment-backend.log&lt;/file&gt;
-                                        &lt;encoder&gt;
-                                          &lt;pattern&gt;%d{HH:mm:ss} %-5level %logger %msg %n&lt;/pattern&gt;
-                                        &lt;/encoder&gt;
-                                      &lt;/appender&gt;
-                                    &lt;/configuration&gt;
-                                 </code>
-                            </pre>
-                        </div>
-
-
-                    </div>
-                </div>
-                <!-- </div> -->
-                <br />
-                <p class="lead">
-                    This might not look scary for only 2 services, but what if you have to manage 50 of them with
-                    additional
-                    <code>test</code> and <code>staging</code> environments? Check out <a
-                        href="features.html">Features</a>
-                    to see how Microconfig can help your project scale up or head over to <a
-                        href="quickstart.html">Quickstart</a>
-                    to see Microconfig applied to this example.
-                </p>
             </div>
         </section>
 
+        <section class="section bg-light" id="faq">
+            <div class="container faq">
+                <h2 class="section-heading">Questions teams ask before trying</h2>
+                <p class="section-sub">Short answers. The <a href="documentation.html">documentation</a> has the details.</p>
+
+                <details>
+                    <summary>Where do secrets go?</summary>
+                    <p>Not into Git. Keep references in the repository and the secrets themselves in Vault or encrypted
+                        files on the environment. Microconfig has a separate <code>.secret</code> config type for this,
+                        and placeholders can read environment variables at build time:
+                        <code>${env@DB_PASSWORD}</code>.</p>
+                </details>
+                <details>
+                    <summary>Is it only for Java services?</summary>
+                    <p>No. Microconfig is written in Java, but it produces plain files: YAML, properties or any text
+                        template. Services in any language can read them, and the native binary doesn't need Java
+                        installed.</p>
+                </details>
+                <details>
+                    <summary>Does it work with Kubernetes and Helm?</summary>
+                    <p>Yes. Next to application configs, Microconfig builds Helm values (<code>*.helm</code>) and
+                        Kubernetes configs (<code>*.k8s</code>) for each service and environment. Deploy the result
+                        with the tools you already use.</p>
+                </details>
+                <details>
+                    <summary>Do we have to migrate everything at once?</summary>
+                    <p>No. Your existing YAML and properties files are valid Microconfig sources as they are. Put them
+                        under <code>components/</code>, list services in an environment file, then move copy-pasted
+                        blocks to shared components one at a time.</p>
+                </details>
+                <details>
+                    <summary>How does config diff work?</summary>
+                    <p>Each build compares the new files with the previous build in the same output folder and writes
+                        <code>diff-application.yaml</code> and similar files next to them: added, removed and changed
+                        properties.</p>
+                </details>
+                <details>
+                    <summary>Does it run on Windows?</summary>
+                    <p>Yes. There is a native Windows binary, and the executable jar runs anywhere with Java 8+.
+                        See <a href="download.html">Download</a>.</p>
+                </details>
+                <details>
+                    <summary>What does it cost?</summary>
+                    <p>Nothing. Microconfig is open source under the Apache 2.0 license and is developed on
+                        <a href="https://github.com/microconfig/microconfig" data-goal="cta_github">GitHub</a> with
+                        regular releases.</p>
+                </details>
+            </div>
+        </section>
+
+        <section class="cta-band">
+            <div class="container">
+                <h2>See it on a real example in 2 minutes</h2>
+                <p>Install, clone the example, change one line, see what happens to every service.</p>
+                <div class="cmd" data-copy="brew tap microconfig/microconfig && brew install microconfig">brew tap microconfig/microconfig && brew install microconfig</div>
+                <a class="btn-mc" href="quickstart.html" data-goal="cta_quickstart">Open the quickstart &rarr;</a>
+            </div>
+        </section>
     </main>
-    <footer class="text-muted bg-light">
+    <footer class="site-footer bg-light">
         <div class="container footer-container">
-            <p class="copyright">Microconfig.io &copy;</p>
+            <div>
+                <ul class="footer-links list-unstyled">
+                    <li><a href="features.html">Features</a></li>
+                    <li><a href="quickstart.html">Quickstart</a></li>
+                    <li><a href="download.html">Download</a></li>
+                    <li><a href="plugin.html">IDE plugin</a></li>
+                    <li><a href="documentation.html">Docs</a></li>
+                </ul>
+                <p class="copyright">&copy; 2019&ndash;<span data-year>2026</span> Microconfig contributors &middot;
+                    <a href="https://github.com/microconfig/microconfig/blob/master/LICENSE">Apache 2.0 license</a></p>
+            </div>
 
             <div class="contacts">
                 <ul class="list-unstyled mb-0">
                     <li class="lead">Join our
-                        <a
-                            href="https://join.slack.com/t/microconfig/shared_invite/zt-dflf2m0n-wOPVfAmk5eiHPn_9Omff7Q">Slack!</a>
+                        <a href="https://join.slack.com/t/microconfig/shared_invite/zt-dflf2m0n-wOPVfAmk5eiHPn_9Omff7Q">Slack</a>
                     </li>
-                    <li class="lead">Contribute on <a href="https://github.com/microconfig/microconfig">Github</a></li>
+                    <li class="lead">Contribute on <a href="https://github.com/microconfig/microconfig" data-goal="cta_github">GitHub</a></li>
                     <li class="lead"><a href="mailto:hello@microconfig.io">hello@microconfig.io</a></li>
                 </ul>
             </div>
@@ -541,8 +544,8 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="vendor/bootstrap/bootstrap.bundle.min.js"></script>
-    <script src="vendor/prism/prism.js"></script>
-    <script async src="script/setCodeBlockHeight.js"></script>
+    <script src="script/site.js"></script>
+    <script src="script/demo.js"></script>
 </body>
 
 </html>

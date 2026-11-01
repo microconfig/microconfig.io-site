@@ -3,21 +3,6 @@
 
 <head>
     <meta name="yandex-verification" content="00bf34bc7a08335d"/>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-137858449-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-
-        gtag('js', new Date());
-
-        gtag('config', 'UA-137858449-1');
-
-
-    </script>
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript">
@@ -34,7 +19,7 @@
             clickmap: true,
             trackLinks: true,
             accurateTrackBounce: true,
-            webvisor: true
+            webvisor: false
         });
     </script>
     <noscript>
@@ -47,14 +32,22 @@
 
     <meta content="microservice configuration, configuration, cloud native, cloud native configuration, kubernetes, helm, configuration management, external configuration, configuration processor, configuration management tools, application configuration"
           name="keywords">
-    <meta content="Microconfig is a modern and simple way to manage microservice configuration. Especially in the Cloud."
-          name="description">
+    <meta name="description" content="Install Microconfig with Homebrew or download a native binary for macOS, Linux and Windows, an executable jar or the core library.">
+    <link rel="canonical" href="https://microconfig.io/download.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Microconfig">
+    <meta property="og:title" content="Download Microconfig — Homebrew, binaries, jar">
+    <meta property="og:description" content="Install Microconfig with Homebrew or download a native binary for macOS, Linux and Windows, an executable jar or the core library.">
+    <meta property="og:url" content="https://microconfig.io/download.html">
+    <meta property="og:image" content="https://microconfig.io/images/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
     <link href="vendor/bootstrap/bootstrap.min.css" rel="stylesheet">
     <link href="vendor/prism/prism.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
-    <link href="bloggersans/bloggersans.css" rel="stylesheet">
     <link rel="icon" href="css/favicon.ico">
-    <title>Microconfig.io - Microservice Configuration Made Easy</title>
+    <title>Download Microconfig — Homebrew, binaries, jar</title>
 </head>
 
 <body>
@@ -84,6 +77,12 @@
                     <li class="nav-item">
                         <a class="nav-link text-dark" href="documentation.html">Docs</a>
                     </li>
+                        <li class="nav-item nav-github">
+                            <a class="nav-link text-dark" href="https://github.com/microconfig/microconfig" data-goal="cta_github">GitHub</a>
+                        </li>
+                        <li class="nav-item nav-cta">
+                            <a class="btn-mc" href="quickstart.html" data-goal="cta_quickstart">Get started</a>
+                        </li>
                 </ul>
             </div>
         </div>
@@ -106,82 +105,90 @@
     <section class="jumbotron">
         <div class="container">
             <h1 class="text-center">Download</h1>
-            <br/><br/><br/>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12 col-lg-6">
-                        <h4 class="mc-green">Binary Cli</h4>
-                        <p class="lead">
-                            You can download Microconfig for your OS from <a class=""
-                                                                             href="https://github.com/microconfig/microconfig/releases">Github</a>.<br/>
-                        </p>
-                        <br/>
-                    </div>
-                    <div class="col-md-12 col-lg-6">
-                        <h4 class="mc-green">Homebrew</h4>
-                        <code style="color: black" >
-                            brew tap microconfig/microconfig<br/>
-                            brew install microconfig
-                        </code>
-                        <br/>
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12 col-lg-6">
-                        <h4 class="mc-green">Jar Cli</h4>
-                        <p class="lead">
-                            You can download Microconfig executable jar from <a class=""
-                                                                                href="https://github.com/microconfig/microconfig/releases">Github</a>
-                            or
-                            <a class=""
-                               href="https://search.maven.org/artifact/io.microconfig/microconfig-cli/">Maven
-                                Central</a>.
-                        </p>
-                        <br/>
-                    </div>
-                    <div class="col-md-12 col-lg-6">
-                        <h4 class="mc-green">Core Jar</h4>
-                        <p class="lead">
-                            If you want to add Microconfig-core as a dependency to your Java project use
-                            <a class=""
-                               href="https://search.maven.org/artifact/io.microconfig/microconfig-core/">microconfig-core</a>.
-                        </p>
-                        <br/>
-                    </div>
-                </div>
-            </div>
-            <br/><br/>
-
-            <h4 class="text-center mc-green">How-To</h4>
             <p class="lead text-center">
-                Check out <a class="" href="quickstart.html">quickstart</a> to learn how to use Microconfig.
+                <img src="https://img.shields.io/github/v/release/microconfig/microconfig?color=5c636a&label=latest" alt="Latest release">
             </p>
+            <br/>
+
+            <h4 class="mc-green">Homebrew (macOS, Linux)</h4>
+            <div class="cmd" data-copy="brew tap microconfig/microconfig && brew install microconfig">brew tap microconfig/microconfig && brew install microconfig</div>
+            <p class="cmd-note">Check it works: <code>microconfig -v</code></p>
+            <br/>
+
+            <div class="row">
+                <div class="col-md-12 col-lg-6 mb-4">
+                    <h4 class="mc-green">Native binary</h4>
+                    <p class="lead">
+                        Native builds for macOS, Linux (including Alpine) and Windows. No Java required.
+                        Download a zip from the <a href="https://github.com/microconfig/microconfig/releases/latest"
+                                                   data-goal="cta_download">latest release on GitHub</a>.
+                    </p>
+                </div>
+                <div class="col-md-12 col-lg-6 mb-4">
+                    <h4 class="mc-green">Executable jar</h4>
+                    <p class="lead">
+                        Runs anywhere with Java 8+. Download <code>microconfig.jar</code> from
+                        <a href="https://github.com/microconfig/microconfig/releases/latest" data-goal="cta_download">GitHub</a>
+                        or <a href="https://central.sonatype.com/artifact/io.microconfig/microconfig-cli">Maven Central</a>.
+                    </p>
+                    <div class="cmd" data-copy="java -jar microconfig.jar -e dev">java -jar microconfig.jar -e dev</div>
+                </div>
+                <div class="col-md-12 col-lg-6 mb-4">
+                    <h4 class="mc-green">Core library</h4>
+                    <p class="lead">
+                        To build configs from your own Java code, add
+                        <a href="https://central.sonatype.com/artifact/io.microconfig/microconfig-core">io.microconfig:microconfig-core</a>
+                        as a dependency.
+                    </p>
+                </div>
+                <div class="col-md-12 col-lg-6 mb-4">
+                    <h4 class="mc-green">IDE plugin</h4>
+                    <p class="lead">
+                        Navigate, resolve and preview configs in IntelliJ IDEA and other JetBrains IDEs.
+                        See the <a href="plugin.html">plugin page</a>.
+                    </p>
+                </div>
+            </div>
+            <br/>
+
+            <div class="real-life">
+                <p class="mb-3"><b>Installed?</b> Build a real example and see one edit update every service in about 2 minutes.</p>
+                <a class="btn-mc" href="quickstart.html" data-goal="cta_quickstart">Open the quickstart &rarr;</a>
+            </div>
         </div>
     </section>
 
 </main>
 
-<footer class="text-muted bg-light">
-    <div class="container footer-container">
-        <p class="copyright">Microconfig.io &copy;</p>
+<footer class="site-footer bg-light">
+        <div class="container footer-container">
+            <div>
+                <ul class="footer-links list-unstyled">
+                    <li><a href="features.html">Features</a></li>
+                    <li><a href="quickstart.html">Quickstart</a></li>
+                    <li><a href="download.html">Download</a></li>
+                    <li><a href="plugin.html">IDE plugin</a></li>
+                    <li><a href="documentation.html">Docs</a></li>
+                </ul>
+                <p class="copyright">&copy; 2019&ndash;<span data-year>2026</span> Microconfig contributors &middot;
+                    <a href="https://github.com/microconfig/microconfig/blob/master/LICENSE">Apache 2.0 license</a></p>
+            </div>
 
-        <div class="contacts">
-            <ul class="list-unstyled mb-0">
-                <li class="lead">Join our
-                    <a
-                            href="https://join.slack.com/t/microconfig/shared_invite/zt-dflf2m0n-wOPVfAmk5eiHPn_9Omff7Q">Slack!</a>
-                </li>
-                <li class="lead">Contribute on <a href="https://github.com/microconfig/microconfig">Github</a></li>
-                <li class="lead"><a href="mailto:hello@microconfig.io">hello@microconfig.io</a></li>
-            </ul>
+            <div class="contacts">
+                <ul class="list-unstyled mb-0">
+                    <li class="lead">Join our
+                        <a href="https://join.slack.com/t/microconfig/shared_invite/zt-dflf2m0n-wOPVfAmk5eiHPn_9Omff7Q">Slack</a>
+                    </li>
+                    <li class="lead">Contribute on <a href="https://github.com/microconfig/microconfig" data-goal="cta_github">GitHub</a></li>
+                    <li class="lead"><a href="mailto:hello@microconfig.io">hello@microconfig.io</a></li>
+                </ul>
+            </div>
         </div>
-    </div>
-</footer>
+    </footer>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="vendor/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="script/site.js"></script>
 <script src="vendor/prism/prism.js"></script>
 </body>
 </html>

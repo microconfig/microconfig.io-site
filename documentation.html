@@ -1,35 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-137858449-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
 
-        function gtag() {
-            dataLayer.push(arguments);
-        }
+<!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function (m, e, t, r, i, k, a) {
+            m[i] = m[i] || function () {
+                (m[i].a = m[i].a || []).push(arguments)
+            };
+            m[i].l = 1 * new Date();
+            k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+        })
+            (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
-        gtag('js', new Date());
-
-        gtag('config', 'UA-137858449-1');
+        ym(62712055, "init", {
+            clickmap: true,
+            trackLinks: true,
+            accurateTrackBounce: true,
+            webvisor: false
+        });
     </script>
-
-<!--    &lt;!&ndash; Yandex.Metrika counter &ndash;&gt;-->
-<!--    <script type="text/javascript" >-->
-<!--        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};-->
-<!--            m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})-->
-<!--        (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");-->
-
-<!--        ym(62712055, "init", {-->
-<!--            clickmap:true,-->
-<!--            trackLinks:true,-->
-<!--            accurateTrackBounce:true,-->
-<!--            webvisor:true-->
-<!--        });-->
-<!--    </script>-->
-<!--    <noscript><div><img src="https://mc.yandex.ru/watch/62712055" style="position:absolute; left:-9999px;" alt="" /></div></noscript>-->
-<!--    &lt;!&ndash; /Yandex.Metrika counter &ndash;&gt;-->
+    <noscript>
+        <div><img src="https://mc.yandex.ru/watch/62712055" style="position:absolute; left:-9999px;" alt="" /></div>
+    </noscript>
+    <!-- /Yandex.Metrika counter -->
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -37,11 +31,21 @@
 
     <meta content="configuration management, configuration framework, external configuration, configuration best practices, java configuration, microservice configuration, microservice configs, config, configuration"
           name="keywords">
-    <meta content="Microconfig - Microservice configuration made easy" name="description">
-    <title>Microconfig.io - the best tool for microservice configuration management</title>
+    <meta name="description" content="Full Microconfig reference: config layout, includes, placeholders, expressions, environments, templates and build options.">
+    <link rel="canonical" href="https://microconfig.io/documentation.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Microconfig">
+    <meta property="og:title" content="Microconfig documentation">
+    <meta property="og:description" content="Full Microconfig reference: config layout, includes, placeholders, expressions, environments, templates and build options.">
+    <meta property="og:url" content="https://microconfig.io/documentation.html">
+    <meta property="og:image" content="https://microconfig.io/images/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <title>Microconfig documentation</title>
     <link rel="icon" href="css/favicon.ico">
 
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify/themes/vue.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@4.13.1/themes/vue.min.css">
 
     <style>
         body {
@@ -75,8 +79,20 @@
         noEmoji: true,
         logo: './images/microconfig_logo_horizontal.svg',
         nameLink: "https://microconfig.io",
+        plugins: [fixDeadBadges],
+    }
+
+    // README badges served by maven-badges.herokuapp.com are dead since Heroku free tier shutdown
+    function fixDeadBadges(hook) {
+        hook.beforeEach(function (markdown) {
+            return markdown
+                .replace('https://maven-badges.herokuapp.com/maven-central/io.microconfig/microconfig-core/badge.svg',
+                    'https://img.shields.io/maven-central/v/io.microconfig/microconfig-core')
+                .replace('https://maven-badges.herokuapp.com/maven-central/io.microconfig/microconfig-core',
+                    'https://central.sonatype.com/artifact/io.microconfig/microconfig-core');
+        });
     }
 </script>
-<script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/docsify@4.13.1/lib/docsify.min.js"></script>
 </body>
 </html>

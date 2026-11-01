@@ -3,21 +3,6 @@
 
 <head>
     <meta name="yandex-verification" content="00bf34bc7a08335d" />
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-137858449-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-
-        gtag('js', new Date());
-
-        gtag('config', 'UA-137858449-1');
-
-
-    </script>
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript">
@@ -34,7 +19,7 @@
             clickmap: true,
             trackLinks: true,
             accurateTrackBounce: true,
-            webvisor: true
+            webvisor: false
         });
     </script>
     <noscript>
@@ -48,16 +33,23 @@
     <meta
         content="microservice configuration, configuration, cloud native, cloud native configuration, kubernetes, helm, configuration management, external configuration, configuration processor, configuration management tools, application configuration"
         name="keywords">
-    <meta
-        content="Microconfig is a modern and simple way to manage microservice configuration. Especially in the Cloud."
-        name="description">
+    <meta name="description" content="Shared parts, cross-service references, environment overrides, templates and config diff — each shown on a real-life microservice configuration problem.">
+    <link rel="canonical" href="https://microconfig.io/features.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Microconfig">
+    <meta property="og:title" content="Microconfig features — real-life configuration problems and how to fix them">
+    <meta property="og:description" content="Shared parts, cross-service references, environment overrides, templates and config diff — each shown on a real-life microservice configuration problem.">
+    <meta property="og:url" content="https://microconfig.io/features.html">
+    <meta property="og:image" content="https://microconfig.io/images/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
     <link href="vendor/bootstrap/bootstrap.min.css" rel="stylesheet">
     <link href="vendor/prism/prism.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
-    <link href="bloggersans/bloggersans.css" rel="stylesheet">
     <link rel="icon" href="css/favicon.ico">
 
-    <title>Microconfig.io - Microservice Configuration Made Easy</title>
+    <title>Microconfig features — real-life configuration problems and how to fix them</title>
 </head>
 
 <body>
@@ -87,6 +79,12 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" href="documentation.html">Docs</a>
                         </li>
+                        <li class="nav-item nav-github">
+                            <a class="nav-link text-dark" href="https://github.com/microconfig/microconfig" data-goal="cta_github">GitHub</a>
+                        </li>
+                        <li class="nav-item nav-cta">
+                            <a class="btn-mc" href="quickstart.html" data-goal="cta_quickstart">Get started</a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -112,26 +110,21 @@
             <div class="container">
                 <article class="markdown-body entry-content" itemprop="text">
                     <h1 class="text-center">Features</h1>
-                    <p>This guide describes how Microconfig can help you solve common microservice configuration
-                        problems.
+                    <p>Each feature below starts with a situation you have probably lived through, then shows the
+                        configuration before and after Microconfig. Every example uses the same two services from
+                        the <a href="quickstart.html">quickstart</a>, so you can run it yourself.
                     </p>
                     <p>More details you can find in <a href="documentation.html">Docs</a>. </p>
 
                     <section id="layout">
                         <h2 class="mc-green section-title">Simple Configuration Layout</h2>
 
+                        <p class="real-life"><b>Real life:</b> Your company has teams for payments, orders and infra. You want configs grouped the same way, not the way a framework dictates. <b>With Microconfig, folders are just folders:</b> organize them by team, domain or anything else.</p>
+
                         <div class="container">
                             <div class="row">
-                                <div class="col-md-12 col-lg-6">
-                                    <h4>Problem</h4>
-
-                                    <p>Other configuration frameworks can demand a specific configuration folder
-                                        structure or specific filenames.
-                                    </p>
-                                </div>
-
-                                <div class="col-md-12 col-lg-6">
-                                    <h4>Solution</h4>
+                                <div class="col-12">
+                                    <h4>How Microconfig solves it</h4>
 
                                     <p>Microconfig only asks you to create folders for your services somewhere in
                                         <code>components</code> folder. You choose the names and folder structure. If
@@ -159,18 +152,12 @@
                     <section id="include">
                         <h2 class="mc-green section-title">Reuse Common Parts</h2>
 
+                        <p class="real-life"><b>Real life:</b> Your Kafka cluster moved to a new address, and 47 services have it copy-pasted. Someone will miss one. <b>With Microconfig, connection settings live in one shared component:</b> change one file and every service that includes it gets the new address on the next build.</p>
+
                         <div class="container">
                             <div class="row">
-                                <div class="col-md-12 col-lg-6">
-                                    <h4>Problem</h4>
-                                    <p>Microservices have a lot of shared configuration parts that is copy-pasted
-                                        between them. So you need to go through all services one by one to update this
-                                        shared part.
-                                    </p>
-                                </div>
-
-                                <div class="col-md-12 col-lg-6">
-                                    <h4>Solution</h4>
+                                <div class="col-12">
+                                    <h4>How Microconfig solves it</h4>
 
                                     <p>Microconfig allows you to extract common parts of configuration to a dedicated
                                         component and reuse it with <code>#include</code>. This way service config is
@@ -301,20 +288,12 @@
                     <section id="placeholders">
                         <h2 class="mc-green section-title">Reference Values</h2>
 
+                        <p class="real-life"><b>Real life:</b> The backend moved its API from <code>/api</code> to <code>/api/v2</code>. Nobody told the frontend, and it broke in production. <b>With Microconfig, the frontend references the backend's value instead of copying it,</b> so both change together.</p>
+
                         <div class="container">
                             <div class="row">
-                                <div class="col-md-12 col-lg-6">
-                                    <h4>Problem</h4>
-                                    <p>Different services can depend on each other's configuration keys. For example
-                                        frontend needs backend's api base path. You can just keep this value in two
-                                        places but in this case you need to remember about this dependency and update
-                                        them
-                                        both.
-                                    </p>
-                                </div>
-
-                                <div class="col-md-12 col-lg-6">
-                                    <h4>Solution</h4>
+                                <div class="col-12">
+                                    <h4>How Microconfig solves it</h4>
                                     <p>Microconfig can reference a value from current or another component with a
                                         <code>${placeholder}</code>. This allows you to keep values only in original
                                         services and all who depend on them can just have an explicit reference. In this
@@ -381,16 +360,12 @@
                     <section id="expressions">
                         <h2 class="mc-green section-title">Dynamic Values</h2>
 
+                        <p class="real-life"><b>Real life:</b> <code>timeoutMs: 180000</code>. Is that 3 minutes or 30? <b>With Microconfig, you write <code>#{3 * 60 * 1000}</code></b> and the next person reading the config doesn't need a calculator.</p>
+
                         <div class="container">
                             <div class="row">
-                                <div class="col-md-12 col-lg-6">
-                                    <h4>Problem</h4>
-                                    <p>Sometimes static values are not enough, and you want to do a <code>+1</code> or
-                                        <code>base64</code>. Some values even are more readable as expressions. </p>
-                                </div>
-
-                                <div class="col-md-12 col-lg-6">
-                                    <h4>Solution</h4>
+                                <div class="col-12">
+                                    <h4>How Microconfig solves it</h4>
                                     <p>Microconfig has <code>#{'expression' + 'language'} </code> to dynamically
                                         generate your values. It supports math operations and much more. </p>
                                 </div>
@@ -443,18 +418,12 @@
                     <section id="env">
                         <h2 class="mc-green section-title">Environment Specific Config</h2>
 
+                        <p class="real-life"><b>Real life:</b> A client needs their own stage by tomorrow. Copying 50 service configs and editing database hosts by hand takes a day and invites mistakes. <b>With Microconfig, a new environment is one small file</b> that overrides only what differs.</p>
+
                         <div class="container">
                             <div class="row">
-                                <div class="col-md-12 col-lg-6">
-                                    <h4>Problem</h4>
-                                    <p>We deploy services to different environments that have specific properties. Your
-                                        production database has different ip address than your dev. All of those
-                                        specifications should be applied to final version for your environment.
-                                    </p>
-                                </div>
-
-                                <div class="col-md-12 col-lg-6">
-                                    <h4>Solution</h4>
+                                <div class="col-12">
+                                    <h4>How Microconfig solves it</h4>
                                     <p>Microconfig supports specific values for each environment you need. You just
                                         create an override <code>.env.</code> file near your base configuration. In this
                                         file you specify all that you want for your <code>env</code> and it will be
@@ -554,22 +523,15 @@
                     <section id="templates">
                         <h2 class="mc-green section-title">Static Files Templating</h2>
 
+                        <p class="real-life"><b>Real life:</b> Every service needs its own <code>logback.xml</code>, and only prod should ship logs to Logstash. Fifty almost-identical XML files drift apart. <b>With Microconfig, you keep one template</b> and each service gets its own version with its name and environment settings filled in.</p>
+
                         <div class="container">
                             <div class="row">
-                                <div class="col-md-12 col-lg-6">
-                                    <h4>Problem</h4>
-                                    <p>Your services usually require some additional 3rd party configuration files like
-                                        a log configuration or a deploy script. It's easy if these files don't have
-                                        difference for every service but what if you need to change them a bit for each
-                                        service or environment?
-                                    </p>
-                                </div>
-
-                                <div class="col-md-12 col-lg-6">
-                                    <h4>Solution</h4>
+                                <div class="col-12">
+                                    <h4>How Microconfig solves it</h4>
                                     <p>Microconfig can use static templates and populate them with data unique for each
                                         service via placeholders and <a
-                                            href="https://mustache.github.io/">Moustache</a>. So you can
+                                            href="https://mustache.github.io/">Mustache</a>. So you can
                                         keep your template in one place and then generate specific result for each
                                         service.
                                     </p>
@@ -669,20 +631,12 @@
                     <section id="diff">
                         <h2 class="mc-green section-title">Config Diff</h2>
 
+                        <p class="real-life"><b>Real life:</b> It's Friday, the release goes out in an hour, and someone asks: &ldquo;What changes in prod config this time?&rdquo; <b>With Microconfig, every build writes a git-style diff</b> next to each service's configs: added, removed and changed properties, ready to review.</p>
+
                         <div class="container">
                             <div class="row">
-                                <div class="col-md-12 col-lg-6">
-                                    <h4>Problem</h4>
-                                    <p>When you have your configuration in some kind of templating engine it might be
-                                        difficult to keep track of changes or compare different versions of
-                                        configuration.
-                                        For example, before new deployment to production you want to know what has been changed
-                                        in your configuration.
-                                    </p>
-                                </div>
-
-                                <div class="col-md-12 col-lg-6">
-                                    <h4>Solution</h4>
+                                <div class="col-12">
+                                    <h4>How Microconfig solves it</h4>
                                     <p>Microconfig allows you to generate git style <code>diff</code> and see how your
                                         configuration changes overtime or compare different versions.</p>
                                 </div>
@@ -762,24 +716,36 @@
                         </div>
                     </section>
 
-                    <p class="text-dark">Can't wait to try it out? Head over to <a href="quickstart.html">Quickstart</a>
-                    </p>
+                    <div class="real-life">
+                        <p class="mb-3"><b>Want to see it on your machine?</b> The quickstart takes about 2 minutes: install,
+                            build, change one line and see every service update.</p>
+                        <a class="btn-mc" href="quickstart.html" data-goal="cta_quickstart">Try it in 2 minutes &rarr;</a>
+                    </div>
                 </article>
             </div>
         </section>
     </main>
 
-    <footer class="text-muted bg-light">
+    <footer class="site-footer bg-light">
         <div class="container footer-container">
-            <p class="copyright">Microconfig.io &copy;</p>
+            <div>
+                <ul class="footer-links list-unstyled">
+                    <li><a href="features.html">Features</a></li>
+                    <li><a href="quickstart.html">Quickstart</a></li>
+                    <li><a href="download.html">Download</a></li>
+                    <li><a href="plugin.html">IDE plugin</a></li>
+                    <li><a href="documentation.html">Docs</a></li>
+                </ul>
+                <p class="copyright">&copy; 2019&ndash;<span data-year>2026</span> Microconfig contributors &middot;
+                    <a href="https://github.com/microconfig/microconfig/blob/master/LICENSE">Apache 2.0 license</a></p>
+            </div>
 
             <div class="contacts">
                 <ul class="list-unstyled mb-0">
                     <li class="lead">Join our
-                        <a
-                            href="https://join.slack.com/t/microconfig/shared_invite/zt-dflf2m0n-wOPVfAmk5eiHPn_9Omff7Q">Slack!</a>
+                        <a href="https://join.slack.com/t/microconfig/shared_invite/zt-dflf2m0n-wOPVfAmk5eiHPn_9Omff7Q">Slack</a>
                     </li>
-                    <li class="lead">Contribute on <a href="https://github.com/microconfig/microconfig">Github</a></li>
+                    <li class="lead">Contribute on <a href="https://github.com/microconfig/microconfig" data-goal="cta_github">GitHub</a></li>
                     <li class="lead"><a href="mailto:hello@microconfig.io">hello@microconfig.io</a></li>
                 </ul>
             </div>
@@ -788,6 +754,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="vendor/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="script/site.js"></script>
     <script src="vendor/prism/prism.js"></script>
     <script async src="script/setCodeBlockHeight.js"></script>
 </body>

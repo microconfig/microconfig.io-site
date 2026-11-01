@@ -1302,3 +1302,31 @@ code[class*="language-"], pre[class*="language-"] {
 .token.deleted {
     color: var(--diff-old);
 }
+
+.demo-terms {
+    max-width: 760px;
+    margin: -1.5rem auto 2rem;
+    text-align: center;
+    font-size: .95rem;
+    color: var(--text-muted);
+}
+
+.subsection-heading {
+    text-align: center;
+    font-size: 1.6rem;
+    font-weight: 500;
+    margin: 2.5rem 0 .75rem;
+}
+
+.faq details {
+    border: 1px solid var(--border);
+}
+
+#pipeline .pipeline li {
+    border: 1px solid var(--border);
+    box-shadow: none;
+}
+
+.more-features li {
+    margin-bottom: .5rem;
+}

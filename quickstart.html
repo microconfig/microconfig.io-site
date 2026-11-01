@@ -107,7 +107,8 @@
                 <h1 id="quickstart" class="text-center">Quickstart</h1>
                 <p class="lead text-center">
                     In about 2 minutes you will build configs for two services in two environments, then make three
-                    everyday changes that would normally mean editing files across services by hand.
+                    everyday changes that would normally mean editing files across services by hand, and see a
+                    broken reference stop the build.
                 </p>
                 <br />
 
@@ -152,9 +153,12 @@
                 <p>Open <code>build/payment-backend/application.yaml</code>. Monitoring, database and logging settings
                     are already merged in from <code>common</code>, and the database host is the one for
                     <code>dev</code>. These are plain files your services can read as is.</p>
+                <p>For comparison: written by hand, the same configs for two services in two environments take 92
+                    lines (see <a href="https://github.com/microconfig/microconfig-quickstart/blob/master/initial.md">initial.md</a>).
+                    The Microconfig sources take 50, and every new service adds only the lines that are unique to it.</p>
 
                 <h2 class="mt-5">Now the interesting part</h2>
-                <p>Three changes from real life. Each one takes a single edit.</p>
+                <p>Four situations from real life. Each one takes a single edit.</p>
 
                 <section class="task" id="task-shared">
                     <h3><span class="task-number">1</span>Change a shared part once</h3>
@@ -227,6 +231,27 @@
                 </code></pre>
                     <p class="task-result">A complete new environment for every service: the new database host, and
                         everything else inherited from the base config.</p>
+                </section>
+
+                <section class="task" id="task-broken">
+                    <h3><span class="task-number">4</span>Break a reference on purpose</h3>
+                    <p><i>Someone renames a key or makes a typo. Without Microconfig, the service finds out at
+                        startup, in production.</i></p>
+                    <p>In <code>components/payments/payment-frontend/application.yaml</code>, misspell the reference:</p>
+                    <pre><code class="language-yaml">
+                    payment-backend:
+                      path: ${payment-backend@server.contxt}
+                </code></pre>
+                    <div class="cmd" data-copy="microconfig -e dev">microconfig -e dev</div>
+                    <pre><code class="language-shell">
+                    Can't build configs for root component 'payment-frontend[dev]'.
+                    Exception in
+                        ../components/payments/payment-frontend/application.yaml:10'
+                        payment-backend.path=${payment-backend@server.contxt}
+                    Can't resolve ${payment-backend@server.contxt}
+                </code></pre>
+                    <p class="task-result">The build stops with a non-zero exit code and points to the file and line.
+                        In CI, that means the broken config never reaches an environment.</p>
                 </section>
 
                 <section class="task" id="options">

@@ -32,12 +32,12 @@
     <meta
         content="microservice configuration, configuration, cloud native, cloud native configuration, kubernetes, helm, configuration management, external configuration, configuration processor, configuration management tools, application configuration"
         name="keywords">
-    <meta name="description" content="Microconfig builds plain config files for every microservice in every environment from one DRY source in Git. Reuse common parts, reference values across services, see a diff before every release. Open source.">
+    <meta name="description" content="Write shared settings once in Git, and Microconfig builds plain config files for every microservice in every environment. Reuse common parts, reference values across services, see a diff before every release. Open source.">
     <link rel="canonical" href="https://microconfig.io/">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Microconfig">
     <meta property="og:title" content="Microconfig — change config once, every service and environment gets it right">
-    <meta property="og:description" content="Microconfig builds plain config files for every microservice in every environment from one DRY source in Git. Reuse common parts, reference values across services, see a diff before every release. Open source.">
+    <meta property="og:description" content="Write shared settings once in Git, and Microconfig builds plain config files for every microservice in every environment. Reuse common parts, reference values across services, see a diff before every release. Open source.">
     <meta property="og:url" content="https://microconfig.io/">
     <meta property="og:image" content="https://microconfig.io/images/og-image.png">
     <meta property="og:image:width" content="1200">
@@ -53,7 +53,7 @@
         "@type": "SoftwareApplication",
         "name": "Microconfig",
         "url": "https://microconfig.io/",
-        "description": "Microconfig builds plain config files for every microservice in every environment from one DRY source in Git.",
+        "description": "Write shared settings once in Git, and Microconfig builds plain config files for every microservice in every environment.",
         "applicationCategory": "DeveloperApplication",
         "operatingSystem": "macOS, Linux, Windows",
         "license": "https://www.apache.org/licenses/LICENSE-2.0",
@@ -125,9 +125,10 @@
                 <div class="col-lg-7">
                 <h1>Change config once.<br><b>Every service, every environment gets it right.</b></h1>
                 <p class="lead">
-                    Microconfig turns one DRY source in Git into plain config files for every microservice in every
-                    environment: <code>application.yaml</code>, Helm values, <code>logback.xml</code>, anything.
-                    No server, no runtime, no lock-in.
+                    50 services in 5 environments means 250 config files that slowly drift apart. With Microconfig
+                    you write shared settings once, in plain YAML or properties, and it builds every file:
+                    <code>application.yaml</code>, Helm values, <code>logback.xml</code>, anything.
+                    No new language, no server, no lock-in.
                 </p>
                 <div class="cmd" data-copy="brew tap microconfig/microconfig && brew install microconfig">brew tap microconfig/microconfig && brew install microconfig</div>
                 <p class="cmd-note">or get a <a href="download.html" data-goal="cta_download">binary for macOS, Linux, Windows or a Java jar</a></p>
@@ -139,7 +140,7 @@
                     <img src="https://img.shields.io/github/stars/microconfig/microconfig?style=social" alt="GitHub stars">
                     <img src="https://img.shields.io/github/v/release/microconfig/microconfig?color=5c636a&label=latest" alt="Latest release">
                     <img src="https://img.shields.io/github/license/microconfig/microconfig?color=5c636a" alt="License">
-                    <span>Open source &middot; builds hundreds of services in seconds</span>
+                    <span>Open source since 2019</span>
                 </div>
                 </div>
                 <div class="col-lg-5 d-none d-lg-block">
@@ -171,6 +172,11 @@
                 <p class="section-sub">
                     Two services, two environments. Edit a highlighted value in the sources: on the right, the lines
                     that change in each generated config light up, everything else stays dimmed.
+                </p>
+                <p class="demo-terms">
+                    <b>Component</b>: a folder in <code>components/</code> with a service's configs or a shared part.
+                    <b>Environment</b>: a file in <code>envs/</code> listing the services it runs; files like
+                    <code>application.prod.yaml</code> override values for one environment.
                 </p>
 
                 <div id="demo">
@@ -264,7 +270,7 @@
                 <div class="row mobile-carousel">
                     <div class="col-lg-4 col-md-6 mb-4">
                         <div class="story-card">
-                            <h3>&ldquo;Kafka moved. Now 47 services need the new address.&rdquo;</h3>
+                            <h3>&ldquo;Kafka moved. Now 50 services need the new address.&rdquo;</h3>
                             <p>Keep connection settings in one shared component and <code>#include</code> it. Change one
                                 file, rebuild, and every service gets the new address.</p>
                             <a class="story-fix" href="features.html#include">Reuse common parts &rarr;</a>
@@ -296,10 +302,10 @@
                     </div>
                     <div class="col-lg-4 col-md-6 mb-4">
                         <div class="story-card">
-                            <h3>&ldquo;Every service needs its own logback.xml. And Dockerfile. And&hellip;&rdquo;</h3>
-                            <p>Keep one template. Microconfig fills in each service's name and environment settings
-                                with placeholders and Mustache conditions.</p>
-                            <a class="story-fix" href="features.html#templates">Static files templating &rarr;</a>
+                            <h3>&ldquo;Someone renamed a key. Production found out first.&rdquo;</h3>
+                            <p>Every <code>${service@key}</code> reference is checked during the build. A typo or a
+                                renamed key fails the build in CI with the file and line, before anything is deployed.</p>
+                            <a class="story-fix" href="quickstart.html#task-broken">See it fail in the quickstart &rarr;</a>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6 mb-4">
@@ -314,31 +320,25 @@
             </div>
         </section>
 
-        <section class="section bg-light">
+        <section class="section bg-light" id="who">
             <div class="container">
                 <h2 class="section-heading">Who it's for</h2>
                 <p class="section-sub">Microconfig pays off as soon as configuration starts repeating itself.</p>
                 <div class="row mobile-carousel">
-                    <div class="col-md-4 mb-4">
+                    <div class="col-md-6 mb-4">
                         <div class="info-card">
                             <h3>Platform and DevOps teams</h3>
                             <p>Dozens of services, several environments, one repository of configs that everyone
                                 copies from. Turn the copy-paste into shared components your teams include.</p>
                         </div>
                     </div>
-                    <div class="col-md-4 mb-4">
+                    <div class="col-md-6 mb-4">
                         <div class="info-card">
-                            <h3>Spring Boot and JVM teams</h3>
-                            <p>Your services already read <code>application.yaml</code> and
-                                <code>.properties</code>. Microconfig produces exactly those files, per service and per
-                                environment. Nothing changes in your code.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4 mb-4">
-                        <div class="info-card">
-                            <h3>Kubernetes and Helm teams</h3>
-                            <p><b>Keep Helm. Stop copy-pasting values.yaml.</b> Microconfig builds Helm values and
-                                Kubernetes configs for each service and environment from the same DRY source.</p>
+                            <h3>Any stack, a perfect fit for Spring Boot</h3>
+                            <p>The output is plain YAML, properties or any text file, so services in Go, Node, Python or
+                                anything else can read it. Spring Boot and other JVM services read
+                                <code>application.yaml</code> and <code>.properties</code> natively: drop the files in,
+                                nothing changes in your code.</p>
                         </div>
                     </div>
                 </div>
@@ -346,46 +346,51 @@
                     You probably don't need Microconfig yet if you run a handful of services in a single environment.
                     Plain files are fine there.
                 </p>
-            </div>
-        </section>
 
-        <section class="section">
-            <div class="container">
-                <h2 class="section-heading">Already using something else?</h2>
+                <h3 class="subsection-heading">Already using something else?</h3>
                 <p class="section-sub">
-                    Microconfig is a build step, not a platform. It does one thing: keeps configuration for many
-                    services DRY and builds plain files. So it works alongside the tools you already have.
+                    Microconfig is a build step, not a platform: it keeps configuration for many services in one place
+                    and builds plain files. So it works alongside the tools you already have.
                 </p>
                 <div class="row mobile-carousel">
-                    <div class="col-md-4 mb-4">
+                    <div class="col-lg-3 col-md-6 mb-4">
                         <div class="info-card">
                             <h3>Helm</h3>
-                            <p>Helm packages and releases your apps to Kubernetes. It doesn't help when fifty
+                            <p>Helm packages and releases apps to Kubernetes. It doesn't help when 50
                                 <code>values.yaml</code> files repeat the same blocks.</p>
-                            <p class="tool-verdict">Use both: Microconfig generates the values, Helm deploys them.</p>
+                            <p class="tool-verdict">Keep Helm. Microconfig generates the values (<code>*.helm</code>), Helm deploys them.</p>
                         </div>
                     </div>
-                    <div class="col-md-4 mb-4">
+                    <div class="col-lg-3 col-md-6 mb-4">
                         <div class="info-card">
                             <h3>Kustomize</h3>
-                            <p>Kustomize patches Kubernetes manifests. The application configs inside your pods,
-                                like <code>application.yaml</code> or <code>logback.xml</code>, are still on you.</p>
+                            <p>Kustomize patches Kubernetes manifests. The application configs inside your pods are
+                                still on you.</p>
                             <p class="tool-verdict">Use both: feed files built by Microconfig to <code>configMapGenerator</code>.</p>
                         </div>
                     </div>
-                    <div class="col-md-4 mb-4">
+                    <div class="col-lg-3 col-md-6 mb-4">
                         <div class="info-card">
                             <h3>Spring Cloud Config, Consul</h3>
                             <p>Config servers deliver configuration at runtime. What they serve still has to be
-                                stored somewhere, ideally without duplication and with history.</p>
+                                stored somewhere, without duplication and with history.</p>
                             <p class="tool-verdict">Use both: Microconfig builds what the config server serves.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <div class="info-card">
+                            <h3>Jsonnet, CUE, ytt</h3>
+                            <p>Config languages are powerful, but everyone who touches config has to learn a new
+                                language and toolchain.</p>
+                            <p class="tool-verdict">Microconfig stays plain YAML or properties plus a few directives:
+                                <code>#include</code>, <code>${...}</code>, <code>#{...}</code>.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="section bg-light" id="pipeline">
+        <section class="section" id="pipeline">
             <div class="container">
                 <h2 class="section-heading">How it fits your pipeline</h2>
                 <p class="section-sub">Microconfig runs as one step in CI, between your config repository and your
@@ -397,7 +402,8 @@
                     </li>
                     <li>
                         <h3>Build in CI</h3>
-                        <p><code>microconfig -e prod</code> &mdash; a single binary, seconds even for hundreds of services.</p>
+                        <p><code>microconfig -e prod</code> takes seconds even for hundreds of services and fails on any
+                            broken reference.</p>
                     </li>
                     <li>
                         <h3>Plain files</h3>
@@ -433,30 +439,6 @@
             </div>
         </section>
 
-        <section class="section">
-            <div class="container">
-                <h2 class="section-heading">Safe to try</h2>
-                <p class="section-sub">Trying Microconfig doesn't commit you to anything.</p>
-                <div class="row">
-                    <div class="col-md-4 mb-4 risk-item">
-                        <h3>Plain files out</h3>
-                        <p>The result is ordinary YAML, properties or any other files in a build folder. Nothing runs in
-                            production and there is nothing to uninstall.</p>
-                    </div>
-                    <div class="col-md-4 mb-4 risk-item">
-                        <h3>Adopt one block at a time</h3>
-                        <p>Start by extracting a single shared part, like monitoring settings, and leave the rest of
-                            your configs as they are.</p>
-                    </div>
-                    <div class="col-md-4 mb-4 risk-item">
-                        <h3>Fast enough for every commit</h3>
-                        <p>Even projects with hundreds of services build in 1&ndash;3 seconds, so it fits into any CI
-                            pipeline.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <section class="section bg-light" id="faq">
             <div class="container faq">
                 <h2 class="section-heading">Questions teams ask before trying</h2>
@@ -464,16 +446,16 @@
 
                 <details>
                     <summary>Where do secrets go?</summary>
-                    <p>Not into Git. Keep references in the repository and the secrets themselves in Vault or encrypted
-                        files on the environment. Microconfig has a separate <code>.secret</code> config type for this,
-                        and placeholders can read environment variables at build time:
-                        <code>${env@DB_PASSWORD}</code>.</p>
+                    <p>Neither into Git nor into generated configs. Keep only references in the repository, like a
+                        Vault path or the name of a Kubernetes Secret, and let the secret values be injected at deploy
+                        time or at startup. Microconfig has a separate <code>.secret</code> config type for describing
+                        these references.</p>
                 </details>
                 <details>
                     <summary>Is it only for Java services?</summary>
                     <p>No. Microconfig is written in Java, but it produces plain files: YAML, properties or any text
                         template. Services in any language can read them, and the native binary doesn't need Java
-                        installed.</p>
+                        installed. Spring Boot is the most natural fit: it reads these files without any glue.</p>
                 </details>
                 <details>
                     <summary>Does it work with Kubernetes and Helm?</summary>
@@ -485,7 +467,19 @@
                     <summary>Do we have to migrate everything at once?</summary>
                     <p>No. Your existing YAML and properties files are valid Microconfig sources as they are. Put them
                         under <code>components/</code>, list services in an environment file, then move copy-pasted
-                        blocks to shared components one at a time.</p>
+                        blocks to shared components one at a time. The output is plain files and nothing runs in
+                        production, so stopping is just as easy as starting.</p>
+                </details>
+                <details>
+                    <summary>What do the generated files look like?</summary>
+                    <p>Ordinary files your services read as they are. Two things to know: comments from the sources
+                        stay in Git and are not copied to the result, and keys in generated YAML come out sorted
+                        alphabetically.</p>
+                </details>
+                <details>
+                    <summary>Does it reload config in running services?</summary>
+                    <p>No. Microconfig runs at build time and produces files. Deliver them with your usual tools, or
+                        serve them from a config server that supports refresh.</p>
                 </details>
                 <details>
                     <summary>How does config diff work?</summary>
@@ -495,14 +489,14 @@
                 </details>
                 <details>
                     <summary>Does it run on Windows?</summary>
-                    <p>Yes. There is a native Windows binary, and the executable jar runs anywhere with Java 8+.
+                    <p>Yes. There is a native Windows binary, and the executable jar runs anywhere with Java 17+.
                         See <a href="download.html">Download</a>.</p>
                 </details>
                 <details>
                     <summary>What does it cost?</summary>
-                    <p>Nothing. Microconfig is open source under the Apache 2.0 license and is developed on
-                        <a href="https://github.com/microconfig/microconfig" data-goal="cta_github">GitHub</a> with
-                        regular releases.</p>
+                    <p>Nothing. Microconfig is open source under the Apache 2.0 license, developed on
+                        <a href="https://github.com/microconfig/microconfig" data-goal="cta_github">GitHub</a> since
+                        2019 with regular releases.</p>
                 </details>
             </div>
         </section>

@@ -114,22 +114,22 @@
                         configuration before and after Microconfig. Every example uses the same two services from
                         the <a href="quickstart.html">quickstart</a>, so you can run it yourself.
                     </p>
-                    <p>More details you can find in <a href="documentation.html">Docs</a>. </p>
+                    <p>The full reference is in the <a href="documentation.html">documentation</a>.</p>
 
                     <section id="layout">
                         <h2 class="mc-green section-title">Simple Configuration Layout</h2>
 
-                        <p class="real-life"><b>Real life:</b> Your company has teams for payments, orders and infra. You want configs grouped the same way, not the way a framework dictates. <b>With Microconfig, folders are just folders:</b> organize them by team, domain or anything else.</p>
+                        <p class="real-life"><b>Real life:</b> A new team ships a new service. Instead of copying a neighbour's 300 lines, they create a folder next to their other services, include what the company agreed on and add only what is unique. <b>With Microconfig, folders are just folders:</b> group them by team, domain or anything else.</p>
 
                         <div class="container">
                             <div class="row">
                                 <div class="col-12">
                                     <h4>How Microconfig solves it</h4>
 
-                                    <p>Microconfig only asks you to create folders for your services somewhere in
-                                        <code>components</code> folder. You choose the names and folder structure. If
-                                        you have different types of configuration just place them in the same service
-                                        folder.
+                                    <p>Put each service in its own folder anywhere under <code>components/</code>, grouped by team,
+                                        domain or anything else. Folder names are up to you. Different config types of one
+                                        service, like <code>application.yaml</code> and <code>values.deploy</code>, live side
+                                        by side in its folder.
                                     </p>
                                 </div>
                             </div>
@@ -152,20 +152,17 @@
                     <section id="include">
                         <h2 class="mc-green section-title">Reuse Common Parts</h2>
 
-                        <p class="real-life"><b>Real life:</b> Your Kafka cluster moved to a new address, and 47 services have it copy-pasted. Someone will miss one. <b>With Microconfig, connection settings live in one shared component:</b> change one file and every service that includes it gets the new address on the next build.</p>
+                        <p class="real-life"><b>Real life:</b> Your Kafka cluster moved to a new address, and 50 services have it copy-pasted. Someone will miss one. <b>With Microconfig, connection settings live in one shared component:</b> change one file and every service that includes it gets the new address on the next build.</p>
 
                         <div class="container">
                             <div class="row">
                                 <div class="col-12">
                                     <h4>How Microconfig solves it</h4>
 
-                                    <p>Microconfig allows you to extract common parts of configuration to a dedicated
-                                        component and reuse it with <code>#include</code>. This way service config is
-                                        more focused on unique parts and all common parts are just included. In this
-                                        case if
-                                        you need to update your common part you just do it in one place and everyone
-                                        gets
-                                        this update via <code>#include</code>.
+                                    <p>Move a shared block to its own component and add <code>#include monitoring, logging</code>
+                                        to every service that needs it. Service configs keep only what is unique to them,
+                                        and an update to the shared block reaches every service on the next build. A
+                                        service can still override any included value.
                                     </p>
                                 </div>
                             </div>
@@ -294,10 +291,10 @@
                             <div class="row">
                                 <div class="col-12">
                                     <h4>How Microconfig solves it</h4>
-                                    <p>Microconfig can reference a value from current or another component with a
-                                        <code>${placeholder}</code>. This allows you to keep values only in original
-                                        services and all who depend on them can just have an explicit reference. In this
-                                        case you need to update the value only once.
+                                    <p>Reference a value instead of copying it: <code>${payment-backend@server.context}</code>
+                                        reads <code>server.context</code> from the backend's config, <code>${this@name}</code>
+                                        from the current one. The value lives in one place, the dependency is explicit, and
+                                        a reference to a missing component or key fails the build.
                                     </p>
                                 </div>
                             </div>
@@ -366,8 +363,9 @@
                             <div class="row">
                                 <div class="col-12">
                                     <h4>How Microconfig solves it</h4>
-                                    <p>Microconfig has <code>#{'expression' + 'language'} </code> to dynamically
-                                        generate your values. It supports math operations and much more. </p>
+                                    <p>Write values as expressions with <code>#{...}</code>: arithmetic like
+                                        <code>#{3 * 60 * 1000}</code>, string functions like <code>toUpperCase()</code>, and
+                                        placeholders inside them. The generated file gets the plain result. </p>
                                 </div>
                             </div>
                         </div>
@@ -424,11 +422,10 @@
                             <div class="row">
                                 <div class="col-12">
                                     <h4>How Microconfig solves it</h4>
-                                    <p>Microconfig supports specific values for each environment you need. You just
-                                        create an override <code>.env.</code> file near your base configuration. In this
-                                        file you specify all that you want for your <code>env</code> and it will be
-                                        merged
-                                        with your base configuration. More specific values will override base ones.
+                                    <p>Keep the base config in <code>application.yaml</code> and only the differences in
+                                        <code>application.dev.yaml</code> or <code>application.prod.yaml</code> next to it.
+                                        Microconfig merges them for each environment, and the more specific value wins. A
+                                        new environment is one file in <code>envs/</code> plus overrides where it differs.
                                     </p>
                                 </div>
                             </div>
@@ -529,11 +526,10 @@
                             <div class="row">
                                 <div class="col-12">
                                     <h4>How Microconfig solves it</h4>
-                                    <p>Microconfig can use static templates and populate them with data unique for each
-                                        service via placeholders and <a
-                                            href="https://mustache.github.io/">Mustache</a>. So you can
-                                        keep your template in one place and then generate specific result for each
-                                        service.
+                                    <p>Keep one template, for example <code>logback.xml</code>, with placeholders like
+                                        <code>${this@name}</code> and <a href="https://mustache.github.io/">Mustache</a>
+                                        sections for the parts that only some environments need. Microconfig renders a
+                                        separate file for every service and environment.
                                     </p>
                                 </div>
                             </div>
@@ -637,8 +633,9 @@
                             <div class="row">
                                 <div class="col-12">
                                     <h4>How Microconfig solves it</h4>
-                                    <p>Microconfig allows you to generate git style <code>diff</code> and see how your
-                                        configuration changes overtime or compare different versions.</p>
+                                    <p>Every build compares the new files with the previous build in the same output folder and
+                                        writes <code>diff-application.yaml</code> and similar files next to them: added,
+                                        removed and changed properties for each service.</p>
                                 </div>
                             </div>
                         </div>
@@ -714,6 +711,19 @@
                                 </div>
                             </div>
                         </div>
+                    </section>
+
+                    <section id="more">
+                        <h2 class="mc-green section-title">More in the documentation</h2>
+                        <ul class="more-features">
+                            <li><a href="documentation.html#/?id=environment-variables-and-system-properties">Environment variables and system properties</a>: <code>${env@BUILD_NUMBER}</code>, <code>${system@user.name}</code></li>
+                            <li><a href="documentation.html#/?id=placeholder39s-default-value">Default values</a> for references: <code>${this@dbHost:postgres.local}</code></li>
+                            <li><a href="documentation.html#/?id=temp-properties">Temporary properties</a> with <code>#var</code> that feed placeholders but don't reach the result</li>
+                            <li><a href="documentation.html#/?id=removing-base-properties">Removing base properties</a> in a specific environment</li>
+                            <li><a href="documentation.html#/?id=profiles-and-explicit-environment-names-for-includes-and-placeholders">Profiles and explicit environment names</a> for includes and placeholders</li>
+                            <li><a href="documentation.html#/?id=environment-descriptor">Environment descriptors</a>: groups of services and environments that extend each other</li>
+                            <li><a href="documentation.html#/?id=copy-binary-files">Copying binary files</a> such as certificates next to the generated configs</li>
+                        </ul>
                     </section>
 
                     <div class="real-life">

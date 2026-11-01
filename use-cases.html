@@ -132,175 +132,113 @@
                 <h2>Spring Boot services across many environments</h2>
                 <p class="uc-meta"><span class="uc-tag">App team</span><span class="uc-tag">DevOps</span></p>
                 <p class="uc-shift">A new stand: 30 copied files &rarr; 1 file</p>
-                <p class="real-life"><b>Situation:</b> 30 Spring Boot services in dev, test, stage and prod, plus a stand
-                    for every big client. Each environment holds its own copy of every <code>application.yaml</code>,
-                    and the copies slowly drift apart.</p>
-                <p>Keep what all environments share in <code>application.yaml</code> and only the differences in
-                    <code>application.&lt;env&gt;.yaml</code> next to it. A new stand is one file in <code>envs/</code>
-                    that reuses the service list of the base environment.</p>
+                <p class="real-life"><b>Situation:</b> every environment and every client stand holds its own copy of
+                    each service's <code>application.yaml</code>, and the copies drift apart.</p>
                 <div class="demo-file">
-                    <div class="demo-file-name"><span>your-git-repo/<wbr></span></div>
+                    <div class="demo-file-name"><span>your-git-repo/</span></div>
 <pre class="demo-code">components/orders/application.yaml        <span class="c"># shared by all environments</span>
 components/orders/application.prod.yaml   <span class="c"># only what differs in prod</span>
-envs/base.yaml                            <span class="c"># which services exist</span>
-envs/client-acme.yaml                     <span class="c"># a new stand</span></pre>
+envs/client-acme.yaml                     <span class="c"># a new stand: include: {env: base}</span></pre>
                 </div>
-                <div class="demo-file">
-                    <div class="demo-file-name"><span>envs/<wbr>client-acme.yaml</span></div>
-<pre class="demo-code"><span class="k">include</span>:
-  <span class="k">env</span>: base</pre>
-                </div>
-                <p class="uc-result"><b>Result:</b> <code>microconfig -e client-acme</code> builds a plain
-                    <code>application.yaml</code> for every service that Spring Boot reads as is. A new stand takes one
-                    file plus overrides only where it really differs.</p>
-                <p class="uc-more">More: <a href="features.html#env">environment specific config</a> &middot;
-                    <a href="quickstart.html#task-env">try it in the quickstart</a></p>
+                <p class="uc-result"><b>Result:</b> plain <code>application.yaml</code> files Spring Boot reads as is, and
+                    a new stand overrides only what really differs.
+                    <a href="features.html#env">More &rarr;</a></p>
             </section>
 
             <section class="use-case" id="helm" data-roles="devops platform-team">
                 <h2>Helm values for every service</h2>
                 <p class="uc-meta"><span class="uc-tag">DevOps</span><span class="uc-tag">Platform team</span></p>
                 <p class="uc-shift">50 <code>values.yaml</code> with the same blocks &rarr; 1 shared component and short service files</p>
-                <p class="real-life"><b>Situation:</b> 50 services on Kubernetes, each with its own
-                    <code>values.yaml</code>. Probes, resources and the image registry are copy-pasted everywhere, and
-                    the port in the chart doesn't always match the port in the application config.</p>
-                <p>Keep Helm values in <code>*.helm</code> files. Shared defaults live in one component that every
-                    service includes, and the port comes straight from the application config.</p>
-                <div class="demo-file">
-                    <div class="demo-file-name"><span>components/<wbr>k8s-defaults/<wbr>values.helm</span><span class="env-tag">shared</span></div>
-<pre class="demo-code"><span class="k">resources</span>:
-  <span class="k">limits</span>:
-    <span class="k">memory</span>: 512Mi
-<span class="k">probes</span>:
-  <span class="k">readiness</span>: /actuator/health/readiness</pre>
-                </div>
+                <p class="real-life"><b>Situation:</b> probes, resources and the registry are copy-pasted into every
+                    <code>values.yaml</code>, and the chart's port doesn't always match the application's.</p>
                 <div class="demo-file">
                     <div class="demo-file-name"><span>components/<wbr>orders/<wbr>values.helm</span></div>
-<pre class="demo-code"><span class="d">#include k8s-defaults</span>
+<pre class="demo-code"><span class="d">#include k8s-defaults</span>              <span class="c"># probes, resources, registry</span>
 
 <span class="k">replicaCount</span>: 2
-<span class="k">image</span>:
-  <span class="k">repository</span>: example/<span class="d">${this@name}</span>
-<span class="k">service</span>:
-  <span class="k">port</span>: <span class="d">${app::this@server.port}</span></pre>
+<span class="k">image.repository</span>: example/<span class="d">${this@name}</span>
+<span class="k">service.port</span>: <span class="d">${app::this@server.port}</span></pre>
                 </div>
-                <p class="uc-result"><b>Result:</b> every service gets a complete
-                    <code>build/&lt;service&gt;/values.yaml</code> for
-                    <code>helm upgrade -f</code>. Changing the defaults is one edit, and the chart can't disagree with
-                    the application about the port.</p>
-                <p class="uc-more">More: <a href="documentation.html#/?id=kubernetes-and-helm">Kubernetes and Helm in the docs</a></p>
+                <p class="uc-result"><b>Result:</b> a complete <code>build/orders/values.yaml</code> for
+                    <code>helm upgrade -f</code>, with the port taken from the application config.
+                    <a href="documentation.html#/?id=kubernetes-and-helm">More &rarr;</a></p>
             </section>
 
             <section class="use-case" id="platform" data-roles="platform-team">
                 <h2>Company-wide defaults from a platform team</h2>
                 <p class="uc-meta"><span class="uc-tag">Platform team</span></p>
                 <p class="uc-shift">12 pull requests per change &rarr; 1 commit</p>
-                <p class="real-life"><b>Situation:</b> a platform team owns monitoring, logging and tracing settings.
-                    Twelve product teams copy them into their services, so every change means twelve pull requests and
-                    a few teams that never update.</p>
-                <p>The platform team keeps shared components, product teams include them. A team can still override a
-                    default explicitly, and the override is visible right in its config.</p>
-                <div class="demo-file">
-                    <div class="demo-file-name"><span>components/<wbr>platform/<wbr>monitoring/<wbr>application.yaml</span><span class="env-tag">platform team</span></div>
-<pre class="demo-code"><span class="k">monitoring</span>:
-  <span class="k">endpoints</span>: health, prometheus
-  <span class="k">secure</span>: true</pre>
-                </div>
+                <p class="real-life"><b>Situation:</b> product teams copy the platform's monitoring, logging and tracing
+                    settings, so every change means a pull request to each team.</p>
                 <div class="demo-file">
                     <div class="demo-file-name"><span>components/<wbr>orders/<wbr>application.yaml</span><span class="env-tag">product team</span></div>
 <pre class="demo-code"><span class="d">#include monitoring, logging, tracing</span>
 
-<span class="k">name</span>: orders
 <span class="k">monitoring.secure</span>: false   <span class="c"># an explicit, reviewable exception</span></pre>
                 </div>
-                <p class="uc-result"><b>Result:</b> the platform team changes one file, and every service picks it up
-                    on the next build. The build diff shows exactly which services changed.</p>
-                <p class="uc-more">More: <a href="features.html#include">reuse common parts</a></p>
+                <p class="uc-result"><b>Result:</b> the platform team edits one file, every service picks it up on the
+                    next build, and the build diff shows which ones changed.
+                    <a href="features.html#include">More &rarr;</a></p>
             </section>
 
             <section class="use-case" id="regions" data-roles="devops">
                 <h2>Regions, tenants and other variants of prod</h2>
                 <p class="uc-meta"><span class="uc-tag">DevOps</span></p>
                 <p class="uc-shift">2 full copies of prod &rarr; 1 profile with the differences</p>
-                <p class="real-life"><b>Situation:</b> prod runs in Europe and in the USA. Same services, almost the
-                    same config, but different database hosts and a few region settings. Keeping two full copies of
-                    prod config means fixing every bug twice.</p>
-                <p>Create an environment that reuses prod and adds a profile with the regional differences.</p>
+                <p class="real-life"><b>Situation:</b> prod in Europe and in the USA differs only in database hosts and a
+                    few region settings, but lives in two full copies.</p>
                 <div class="demo-file">
                     <div class="demo-file-name"><span>envs/<wbr>prod-usa.yaml</span></div>
 <pre class="demo-code"><span class="k">include</span>:
   <span class="k">env</span>: prod      <span class="c"># the same services as prod</span>
-
 <span class="k">profiles</span>:
   - prod          <span class="c"># application.prod.yaml applies</span>
   - usa           <span class="c"># then application.usa.yaml</span></pre>
                 </div>
-                <div class="demo-file">
-                    <div class="demo-file-name"><span>components/<wbr>orders/<wbr>application.usa.yaml</span></div>
-<pre class="demo-code"><span class="k">db.host</span>: usa-db.internal</pre>
-                </div>
-                <p class="uc-result"><b>Result:</b> <code>microconfig -e prod-usa</code> takes the base config, then prod
-                    overrides, then the USA profile, then <code>application.prod-usa.yaml</code> if a service needs
-                    something only there. A fix in prod reaches both regions.</p>
-                <p class="uc-more">More: <a href="documentation.html#/?id=environment-profiles">environment profiles in the docs</a></p>
+                <p class="uc-result"><b>Result:</b> a fix in prod reaches both regions, and the USA keeps only its own
+                    differences. <a href="documentation.html#/?id=environment-profiles">More &rarr;</a></p>
             </section>
 
             <section class="use-case" id="safe-releases" data-roles="devops app-team">
                 <h2>Reviewing config changes before a release</h2>
                 <p class="uc-meta"><span class="uc-tag">DevOps</span><span class="uc-tag">App team</span></p>
                 <p class="uc-shift">Errors at startup in production &rarr; errors in CI</p>
-                <p class="real-life"><b>Situation:</b> config changes ship together with the release, and nobody sees
-                    their final effect on each service. A renamed key or a typo shows up at startup, in production.</p>
-                <p>Build configs in CI on every change. A reference to a missing component or key stops the build with
-                    the file and line, and every build writes a diff of the result next to each service's configs.</p>
+                <p class="real-life"><b>Situation:</b> nobody sees the final effect of config changes, and a renamed key
+                    shows up only when a service starts in production.</p>
                 <div class="demo-file">
                     <div class="demo-file-name"><span>build/<wbr>payment-frontend/<wbr>diff-application.yaml</span></div>
 <pre class="demo-code"><span class="k">payment-backend</span>:
   <span class="k">path</span>: <del class="diff-old">/api</del> -&gt; <span class="diff-new">/api/v2</span></pre>
                 </div>
-                <p class="uc-result"><b>Result:</b> a broken config never reaches an environment, and reviewers see what
-                    actually changes in the generated files, not only in the sources.</p>
-                <p class="uc-more">More: <a href="quickstart.html#task-broken">break a reference in the quickstart</a>
-                    &middot; <a href="index.html#pipeline">how it fits your pipeline</a></p>
+                <p class="uc-result"><b>Result:</b> a broken reference fails the build in CI, and reviewers see what
+                    changes in the generated files. <a href="quickstart.html#task-broken">More &rarr;</a></p>
             </section>
 
             <section class="use-case" id="templates" data-roles="app-team devops">
                 <h2>Configs that are not YAML: logback.xml, nginx.conf, Dockerfile</h2>
                 <p class="uc-meta"><span class="uc-tag">App team</span><span class="uc-tag">DevOps</span></p>
                 <p class="uc-shift">N almost identical files &rarr; 1 template</p>
-                <p class="real-life"><b>Situation:</b> every service needs its own <code>nginx.conf</code> or
-                    <code>logback.xml</code>. The files are 95% identical, so they get copied, and then fixed in some
-                    services but not in others.</p>
-                <p>Keep one template with placeholders, and let every service render its own copy.</p>
+                <p class="real-life"><b>Situation:</b> every service has its own, almost identical
+                    <code>nginx.conf</code> or <code>logback.xml</code>, fixed in some services and not in others.</p>
                 <div class="demo-file">
-                    <div class="demo-file-name"><span>components/<wbr>orders/<wbr>nginx.conf</span><span class="env-tag">template</span></div>
+                    <div class="demo-file-name"><span>nginx.conf</span><span class="env-tag">template</span></div>
 <pre class="demo-code">server {
   server_name <span class="d">${this@name}</span>.example.com;
 }</pre>
                 </div>
-                <div class="demo-file">
-                    <div class="demo-file-name"><span>components/<wbr>orders/<wbr>application.yaml</span></div>
-<pre class="demo-code"><span class="k">mc.template.nginx</span>: <span class="d">${this@configDir}</span>/nginx.conf -&gt; nginx.conf</pre>
-                </div>
-                <p class="uc-result"><b>Result:</b> <code>build/orders/nginx.conf</code> with
-                    <code>server_name orders.example.com</code>. Move the template to a shared component and every
-                    service gets its own version. Mustache sections handle parts that only some environments need.</p>
-                <p class="uc-more">More: <a href="features.html#templates">static files templating</a></p>
+                <p class="uc-result"><b>Result:</b> every service renders its own copy, for example
+                    <code>server_name orders.example.com</code>. <a href="features.html#templates">More &rarr;</a></p>
             </section>
 
             <section class="use-case" id="migration" data-roles="platform-team devops app-team">
                 <h2>Starting from configs you already have</h2>
                 <p class="uc-meta"><span class="uc-tag">Platform team</span><span class="uc-tag">DevOps</span><span class="uc-tag">App team</span></p>
                 <p class="uc-shift">A big-bang migration &rarr; one block at a time, each step proven by an empty diff</p>
-                <p class="real-life"><b>Situation:</b> there is already a repository of copy-pasted configs. Nobody wants
-                    a big-bang migration that might change something by accident.</p>
-                <p>Your YAML and properties files are valid Microconfig sources as they are. Put them under
-                    <code>components/</code>, list the services in <code>envs/</code>, and build once. Then move one
-                    copy-pasted block at a time to a shared component and build again.</p>
-                <p class="uc-result"><b>Result:</b> after a refactoring that changes nothing in the generated files,
-                    the build writes no diff files at all. That is your proof the refactoring was safe, step by step.</p>
-                <p class="uc-more">More: <a href="quickstart.html">quickstart</a> &middot;
-                    <a href="features.html#layout">configuration layout</a></p>
+                <p class="real-life"><b>Situation:</b> there is already a repository of copy-pasted configs, and nobody
+                    wants a migration that might change something by accident.</p>
+                <p class="uc-result"><b>Result:</b> existing YAML and properties files are valid sources as they are.
+                    Move one copy-pasted block at a time to a shared component: if the result didn't change, the build
+                    writes no diff files at all. <a href="quickstart.html">More &rarr;</a></p>
             </section>
 
             <div class="real-life">

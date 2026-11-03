@@ -677,6 +677,15 @@ code[class*="language-"] {
     background: var(--green-tint);
 }
 
+.demo-presets button[aria-pressed="true"] {
+    background: var(--text-green);
+    color: var(--surface);
+}
+
+.demo-presets button[aria-pressed="true"]::before {
+    content: "\2713\00a0";
+}
+
 .demo-label {
     font-size: .8rem;
     text-transform: uppercase;

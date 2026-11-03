@@ -54,7 +54,7 @@
     function bindPresets(demo) {
         demo.querySelectorAll('[data-preset]').forEach(function (button) {
             button.addEventListener('click', function () {
-                applyPreset(demo, PRESETS[button.getAttribute('data-preset')]);
+                togglePreset(demo, PRESETS[button.getAttribute('data-preset')]);
                 onEdit(demo);
             });
         });
@@ -62,6 +62,21 @@
             applyPreset(demo, DEFAULTS);
             render(demo);
         });
+    }
+
+    // A pressed preset is released by restoring its fields to defaults; other presets stay as they are.
+    function togglePreset(demo, preset) {
+        applyPreset(demo, isApplied(preset, currentValues(demo)) ? defaultsOf(preset) : preset);
+    }
+
+    function isApplied(preset, values) {
+        return Object.keys(preset).every(function (field) { return values[field] === preset[field]; });
+    }
+
+    function defaultsOf(preset) {
+        var values = {};
+        Object.keys(preset).forEach(function (field) { values[field] = DEFAULTS[field]; });
+        return values;
     }
 
     function applyPreset(demo, preset) {
@@ -116,6 +131,7 @@
             renderFullFile(demo, output.id, output.build(values), output.build(DEFAULTS));
         });
         renderResult(demo, values);
+        syncPresetButtons(demo, values);
     }
 
     function currentValues(demo) {
@@ -233,6 +249,13 @@
         demo.querySelector('[data-counter]').innerHTML =
             'Edited <strong>' + fields + '</strong> of 3 source lines &rarr; ' +
             '<strong>' + files + '</strong> of 4 generated files updated';
+    }
+
+    function syncPresetButtons(demo, values) {
+        demo.querySelectorAll('[data-preset]').forEach(function (button) {
+            var applied = isApplied(PRESETS[button.getAttribute('data-preset')], values);
+            button.setAttribute('aria-pressed', String(applied));
+        });
     }
 
     function backend(v, poolSize, dbHost) {

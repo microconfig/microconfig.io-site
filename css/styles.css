@@ -682,10 +682,6 @@ code[class*="language-"] {
     color: var(--surface);
 }
 
-.demo-presets button[aria-pressed="true"]::before {
-    content: "\2713\00a0";
-}
-
 .demo-label {
     font-size: .8rem;
     text-transform: uppercase;
